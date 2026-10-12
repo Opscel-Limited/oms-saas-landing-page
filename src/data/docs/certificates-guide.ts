@@ -465,7 +465,7 @@ export const certificatesGuide: IDocGuide = {
                         '<strong>C1 example:</strong> Exposed live parts at consumer unit — Immediate danger',
                         '<strong>C2 example:</strong> Socket outlet in bathroom within 3m of bath — Potentially dangerous',
                         '<strong>C3 example:</strong> Missing circuit labels at distribution board — Improvement recommended',
-                        '<strong>FI example:</strong> Cannot access loft space to inspect cables — Further investigation required'
+                        '<strong>FI example:</strong> Cannot access loft space to inspect cables — Further investigation advised'
                     ]
                 }
             ],

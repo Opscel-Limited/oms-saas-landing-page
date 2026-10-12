@@ -34,7 +34,7 @@ export const certificatesDetail: IFeatureDetail = {
         {
             iconId: 'icon-deficiency-log',
             title: 'Prevents Non-Compliant Certificates',
-            description: 'Can\'t issue EIC with IR <1MΩ. Can\'t issue EICR with C1/C2 observations marked "Satisfactory". Can\'t issue Solar PV with Voc/Isc >10% deviation from expected values. System enforces regulations—engineers can\'t bypass validation.'
+            description: 'Can\'t issue EIC with IR <1MΩ. The EICR outcome is worked out from the observation codes: any C1 or C2 makes it Unsatisfactory. Can\'t issue Solar PV with Voc/Isc >10% deviation from expected values. System enforces regulations—engineers can\'t bypass validation.'
         },
         {
             iconId: 'icon-activity-log',
@@ -221,7 +221,7 @@ export const certificatesDetail: IFeatureDetail = {
         },
         {
             question: 'What prevents engineers from issuing non-compliant certificates?',
-            answer: 'System enforces regulations before allowing issue. Can\'t issue EIC with IR <1MΩ (BS 7671 minimum). Can\'t issue EICR with C1/C2 observations marked "Satisfactory" (automatic fail). Can\'t issue Solar PV with Voc/Isc >10% deviation from expected. Can\'t skip required signatures (BS 7671 needs Designer, Constructor, Inspector). Engineers can\'t bypass validation—system blocks non-compliant issue.'
+            answer: 'System enforces regulations before allowing issue. Can\'t issue EIC with IR <1MΩ (BS 7671 minimum). The EICR outcome is worked out from the observation codes: any C1 or C2 makes it Unsatisfactory. Can\'t issue Solar PV with Voc/Isc >10% deviation from expected. Can\'t skip required signatures (BS 7671 needs Designer, Constructor, Inspector). Engineers can\'t bypass validation—system blocks non-compliant issue.'
         },
         {
             question: 'What forensic evidence is captured with digital signatures?',
