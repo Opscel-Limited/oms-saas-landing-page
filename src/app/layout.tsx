@@ -39,7 +39,7 @@ export const metadata: Metadata = {
       {
         url: '/images/og-image.jpg',
         width: 1200,
-        height: 675,
+        height: 630,
         alt: siteDetails.siteName,
       },
     ],

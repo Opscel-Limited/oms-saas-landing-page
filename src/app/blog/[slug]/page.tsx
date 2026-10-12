@@ -3,12 +3,14 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { MDXRemote } from 'next-mdx-remote/rsc';
-import { FiArrowLeft, FiCalendar, FiClock, FiUser } from 'react-icons/fi';
+import { FiArrowLeft, FiArrowRight, FiCalendar, FiClock, FiUser } from 'react-icons/fi';
 
-import { getAllPosts, getPostBySlug } from '@/lib/blog';
+import { getAllPosts, getPostBySlug, getRelatedPosts } from '@/lib/blog';
 import { authors } from '@/data/authors';
 import { siteDetails } from '@/data/siteDetails';
 import Container from '@/components/Container';
+import BlogCard from '@/components/BlogCard';
+import BlogCtaLink from '@/components/BlogCtaLink';
 import { generateArticleSchema, generateBreadcrumbSchema } from '@/lib/schema';
 
 function extractHeadings(content: string): { id: string; text: string; level: number }[] {
@@ -49,7 +51,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
             modifiedTime: meta.lastUpdated ?? meta.date,
             authors: [authors[meta.author]?.name ?? meta.author],
             tags: meta.tags,
-            ...(meta.heroImage && { images: [{ url: meta.heroImage }] }),
+            // A post's openGraph replaces the layout's, so fall back to the site card.
+            images: [meta.heroImage ? { url: meta.heroImage } : { url: '/images/og-image.jpg', width: 1200, height: 630 }],
         },
         twitter: {
             card: 'summary_large_image',
@@ -66,6 +69,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     const { meta, content } = result;
     const author = authors[meta.author];
     const headings = extractHeadings(content);
+    const related = getRelatedPosts(meta.slug, meta.tags);
 
     const formattedDate = new Date(meta.date).toLocaleDateString('en-GB', {
         day: 'numeric',
@@ -150,7 +154,16 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                     <div className="grid lg:grid-cols-[1fr_280px] gap-12 lg:gap-16 items-start">
                         {/* Main content */}
                         <div className="min-w-0 prose prose-lg max-w-none prose-headings:font-bold prose-headings:text-foreground prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-4 prose-h2:border-b prose-h2:border-border/50 prose-h2:pb-3 prose-h3:text-xl prose-h3:mt-8 prose-p:text-foreground/80 prose-p:leading-relaxed prose-a:text-secondary prose-a:no-underline hover:prose-a:underline prose-strong:text-foreground prose-table:text-sm prose-th:bg-hero-background prose-th:px-4 prose-th:py-2.5 prose-td:px-4 prose-td:py-2.5 prose-td:border-border/50 prose-img:rounded-xl prose-li:text-foreground/80 prose-blockquote:border-secondary prose-blockquote:text-foreground/70 prose-hr:border-border/30">
-                            <MDXRemote source={content} />
+                            <MDXRemote
+                                source={content}
+                                components={{
+                                    a: ({ href = '', children, ...rest }: React.AnchorHTMLAttributes<HTMLAnchorElement>) => (
+                                        <BlogCtaLink {...rest} href={href} post={meta.slug} cta="link" placement="inline">
+                                            {children}
+                                        </BlogCtaLink>
+                                    ),
+                                }}
+                            />
                         </div>
 
                         {/* Sidebar */}
@@ -203,14 +216,15 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                                     <p className="text-xs text-muted-foreground mb-4">
                                         15-minute walkthrough of how Opscel handles this.
                                     </p>
-                                    <a
+                                    <BlogCtaLink
                                         href="https://calendar.app.google/Tp8Hwzbf6tVMGDkW6"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
+                                        post={meta.slug}
+                                        cta="demo"
+                                        placement="sidebar"
                                         className="block text-center bg-secondary text-white hover:bg-secondary/90 px-4 py-2.5 rounded-full text-sm font-medium transition-colors"
                                     >
                                         Book a demo
-                                    </a>
+                                    </BlogCtaLink>
                                 </div>
                             </div>
                         </aside>
@@ -225,22 +239,50 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                             Book a 15-minute demo and we&apos;ll walk through it live.
                         </p>
                         <div className="flex flex-wrap gap-4">
-                            <a
+                            <BlogCtaLink
                                 href="https://calendar.app.google/Tp8Hwzbf6tVMGDkW6"
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                post={meta.slug}
+                                cta="demo"
+                                placement="bottom"
                                 className="bg-secondary text-white hover:bg-secondary/90 px-6 py-3 rounded-full font-medium transition-colors"
                             >
                                 Book a demo
-                            </a>
-                            <a
+                            </BlogCtaLink>
+                            <BlogCtaLink
                                 href="https://app.opscel.com/handler/sign-up"
+                                post={meta.slug}
+                                cta="trial"
+                                placement="bottom"
                                 className="bg-primary text-black hover:bg-primary-accent px-6 py-3 rounded-full font-medium transition-colors"
                             >
                                 Start free trial
-                            </a>
+                            </BlogCtaLink>
                         </div>
+                        {meta.cta && (
+                            <BlogCtaLink
+                                href={meta.cta.href}
+                                post={meta.slug}
+                                cta="feature"
+                                placement="bottom"
+                                className="inline-flex items-center gap-2 mt-6 text-secondary font-medium hover:underline"
+                            >
+                                Explore {meta.cta.label}
+                                <FiArrowRight size={16} />
+                            </BlogCtaLink>
+                        )}
                     </div>
+
+                    {/* Keep reading */}
+                    {related.length > 0 && (
+                        <section className="mt-16">
+                            <h2 className="text-2xl font-bold text-foreground mb-8">Keep reading</h2>
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                                {related.map(post => (
+                                    <BlogCard key={post.slug} post={post} />
+                                ))}
+                            </div>
+                        </section>
+                    )}
                 </Container>
             </article>
         </>

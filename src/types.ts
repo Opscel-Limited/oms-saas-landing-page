@@ -188,6 +188,13 @@ export interface IBlogPostMeta {
     heroImage?: string;
     draft?: boolean;
     readingTime: number;
+    /** The product page the post's closing CTA points to. */
+    cta?: IBlogPostCta;
+}
+
+export interface IBlogPostCta {
+    href: string;
+    label: string;
 }
 
 export interface IAuthor {
