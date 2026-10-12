@@ -7,13 +7,13 @@ import { companyDetails, getFormattedRegisteredAddress } from '@/data/companyDet
 export const metadata: Metadata = {
   title: `Referral Programme Terms | ${siteDetails.siteName}`,
   description:
-    'The terms of the Opscel Referral Programme: who can refer, when a referral earns a £150 John Lewis eGift card, the caps, and how we handle your information.',
+    'The terms of the Opscel Referral Programme: who can refer, when a referral earns a £150 John Lewis eGift card, the half-price offer for the business you refer, the caps, and how we handle your information.',
 };
 
 // The numbers and wording on this page mirror REFERRAL_OFFER in the app
 // (opscel-starter-kit lib/referrals/offer.ts). Change both together, and bump the app's
 // termsVersion to the version below whenever this page changes.
-const TERMS_VERSION = '2026-10-12';
+const TERMS_VERSION = '2026-10-13';
 
 const ReferralTermsPage: React.FC = () => {
   const name = companyDetails.tradingName;
@@ -21,7 +21,7 @@ const ReferralTermsPage: React.FC = () => {
   const privacyEmail = companyDetails.compliance.dataProtectionOfficerEmail;
 
   return (
-    <LegalPage title="Referral Programme Terms" lastUpdated="12 October 2026">
+    <LegalPage title="Referral Programme Terms" lastUpdated="13 October 2026">
       <p>
         These terms apply to the {name} Referral Programme. The programme is run by{' '}
         <strong>{companyDetails.registeredName}</strong> ({getFormattedRegisteredAddress()}; company number{' '}
@@ -38,6 +38,10 @@ const ReferralTermsPage: React.FC = () => {
           <strong>a £150 John Lewis eGift card</strong>.
         </li>
         <li>Every reward is checked and approved by the {name} team before it is sent.</li>
+        <li>
+          The business you refer gets <strong>6 months at half price</strong> after its 30-day free trial, instead of our
+          standard offer for new businesses.
+        </li>
       </ul>
 
       <h2>Who can refer</h2>
@@ -53,11 +57,11 @@ const ReferralTermsPage: React.FC = () => {
       <ul>
         <li>
           The new business must be created by someone who followed your invite link and pressed{' '}
-          <strong>Continue</strong>, or who entered your code while setting up their business.
+          <strong>Accept invite</strong>, or who entered your code while setting up their business.
         </li>
         <li>
-          Pressing Continue saves the invite on that device for <strong>30 days</strong>. If someone follows more than
-          one invite link before signing up, the last one they continue with counts. A code entered while setting up
+          Pressing Accept invite saves the invite on that device for <strong>30 days</strong>. If someone follows more
+          than one invite link before signing up, the last one they accept counts. A code entered while setting up
           takes precedence over a link.
         </li>
         <li>A business can only be referred once. The first referral recorded for it is the one that counts.</li>
@@ -128,6 +132,10 @@ const ReferralTermsPage: React.FC = () => {
         is approved). Cancelled and forfeited rewards do not count. We may choose to approve rewards beyond these
         limits.
       </p>
+      <p>
+        Once a person has received 10 rewards in a calendar year, businesses they refer for the rest of that year no
+        longer get the half-price offer below.
+      </p>
 
       <h2>Tax</h2>
       <p>
@@ -139,8 +147,16 @@ const ReferralTermsPage: React.FC = () => {
 
       <h2>What the referred business gets</h2>
       <p>
-        The business you refer gets the same free trial and offers as anyone else who signs up to {name}. It does not
-        get an extra reward.
+        A business that signs up through an invite link or code gets <strong>50% off</strong> its plan&apos;s monthly
+        price for its <strong>first 6 monthly payments</strong> after the 30-day free trial. This replaces, and cannot
+        be combined with, any other offer for new businesses. It does not cover extra users.
+      </p>
+      <p>
+        It applies only if the referral is still in place when the business adds its payment details. If the referral
+        is removed or does not count under these terms, the business gets our standard offer instead. It does not
+        apply to referrals from {name} demonstration or test accounts, or from a person who has already received 10
+        rewards that calendar year. It has no cash value. If we find a referral broke these terms, we may remove the
+        discount from future payments.
       </p>
 
       <h2>What you will see</h2>
@@ -166,7 +182,7 @@ const ReferralTermsPage: React.FC = () => {
       <h2>Your information</h2>
       <ul>
         <li>
-          <strong>On the invite page.</strong> Nothing is saved until you press Continue. Pressing it saves two
+          <strong>On the invite page.</strong> Nothing is saved until you press Accept invite. Pressing it saves two
           cookies on your device for 30 days: the invite, and a random identifier for the device. We record that the
           invite was used, with the type of device (mobile or desktop) but never your IP address.
           {/* OWNER: add "We delete that record after 180 days." once the reconcile cron's click prune (referral
@@ -183,7 +199,7 @@ const ReferralTermsPage: React.FC = () => {
         </li>
       </ul>
       <p>
-        The two cookies are set only because you choose to press Continue. We use the rest of this information under
+        The two cookies are set only because you choose to press Accept invite. We use the rest of this information under
         our legitimate interest in running the programme and preventing misuse, and your reward details to carry out
         these terms with you.
       </p>
@@ -197,7 +213,7 @@ const ReferralTermsPage: React.FC = () => {
       <p>
         We may change these terms, or pause or end the programme, at any time. Changes apply to referrals made after
         we publish them. If we pause or end the programme, rewards we have already approved will still be handled under
-        these terms.
+        these terms, and a business already receiving the half-price offer keeps it for the rest of its 6 months.
       </p>
 
       <h2>Contact</h2>
