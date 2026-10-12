@@ -285,3 +285,4 @@ npm run lint         # Run ESLint
 10. **Related repo**: Main application at `github.com/animeshatgoodtill/opscel-starter-kit`
 11. **Deployment**: Vercel auto-deploys from GitHub - no config file needed
 12. **See also**: `.claude/skills/` for design system and workflow guidance
+13. **Blog and SEO content**: read `SEO_CONTENT_STRATEGY.md` before any blog, guide, template or SEO page work. Claude Code does **not** write or rewrite page prose. Prose arrives as an approved handoff from Claude in chat; Claude Code does the repo side (frontmatter, slug, links, assets, build). Hero illustrations follow the strategy's illustration checklist.
