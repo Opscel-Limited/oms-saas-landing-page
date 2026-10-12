@@ -52,7 +52,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
             authors: [authors[meta.author]?.name ?? meta.author],
             tags: meta.tags,
             // A post's openGraph replaces the layout's, so fall back to the site card.
-            images: [{ url: meta.heroImage ?? '/images/og-image.jpg' }],
+            images: [meta.heroImage ? { url: meta.heroImage } : { url: '/images/og-image.jpg', width: 1200, height: 630 }],
         },
         twitter: {
             card: 'summary_large_image',
@@ -157,8 +157,8 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                             <MDXRemote
                                 source={content}
                                 components={{
-                                    a: ({ href = '', children }: React.ComponentProps<'a'>) => (
-                                        <BlogCtaLink href={href} post={meta.slug} cta="link" placement="inline">
+                                    a: ({ href = '', children, ...rest }: React.AnchorHTMLAttributes<HTMLAnchorElement>) => (
+                                        <BlogCtaLink {...rest} href={href} post={meta.slug} cta="link" placement="inline">
                                             {children}
                                         </BlogCtaLink>
                                     ),
