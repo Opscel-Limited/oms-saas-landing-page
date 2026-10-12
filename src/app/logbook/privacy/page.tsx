@@ -14,7 +14,7 @@ const LogbookPrivacyPage: React.FC = () => {
   const privacyEmail = companyDetails.compliance.dataProtectionOfficerEmail;
 
   return (
-    <LegalPage title="Digital Fire Logbook: Privacy Notice" lastUpdated="9 October 2026">
+    <LegalPage title="Digital Fire Logbook: Privacy Notice" lastUpdated="12 October 2026">
       <p>
         This notice is for people who use an {companyDetails.tradingName} Digital Fire Logbook without an{' '}
         {companyDetails.tradingName} account: people who keep the logbook for a building, their backups,
@@ -172,6 +172,18 @@ const LogbookPrivacyPage: React.FC = () => {
         can see the names and roles of the people who signed entries.
       </p>
 
+      <h3>A saved copy of the sticker page</h3>
+      <p>
+        We keep a copy of exactly what the sticker page shows, so an inspector can still read the logbook if the
+        live service is down. The copy holds nothing the sticker page does not show. It is updated within a few
+        minutes of every change to the logbook, replaced when a new sticker is printed, and deleted if the fire
+        safety company stops the logbook service.
+      </p>
+      <p>
+        <strong>Anyone who has the sticker&apos;s link can read the saved copy at any time</strong>, not only when
+        the live service is down, and those reads are not recorded in the access history.
+      </p>
+
       <h2>Companies that help us</h2>
       <p>We use these service providers. Each acts only on our instructions under a written contract.</p>
       <div className="overflow-x-auto my-4">
@@ -187,7 +199,8 @@ const LogbookPrivacyPage: React.FC = () => {
             <tr>
               <td className="border border-gray-200 px-4 py-2">Vercel Inc.</td>
               <td className="border border-gray-200 px-4 py-2">
-                Running the logbook website, and storing photos and drawn signatures
+                Running the logbook website, storing photos and drawn signatures, and storing the saved copy of
+                the sticker page
               </td>
               <td className="border border-gray-200 px-4 py-2">London, UK</td>
             </tr>
@@ -236,13 +249,12 @@ const LogbookPrivacyPage: React.FC = () => {
         <li>
           <strong>Scrambled request counts</strong> are deleted after one day.
         </li>
+        <li>
+          <strong>The saved copy of the sticker page</strong> is replaced within a few minutes of each change, and
+          deleted when the sticker is replaced or the logbook service stops. Internet caches may still serve a
+          deleted copy for up to a minute.
+        </li>
       </ul>
-
-      {/* OWNER: add when /q saved copies ship (#1055), under "When someone opens the logbook from its QR sticker"
-          or "Who can see what". Suggested wording: "We keep a copy of exactly what the sticker page shows, so
-          inspectors can still read the logbook if the live service is down. Anyone with the sticker link can read
-          that copy at any time, and those reads are not recorded in the access history." Do not publish until
-          the saved copy is live. */}
 
       <h2>Your rights</h2>
       <p>
@@ -263,7 +275,8 @@ const LogbookPrivacyPage: React.FC = () => {
           removed on request&quot;, and still proves the rest of the logbook is unchanged. What you wrote in your
           answers, notes and reasons stays part of the sealed record, because the building must keep its fire safety
           records. Quotes already made from a fault you reported are not changed, and emails or reports already sent
-          or downloaded cannot be recalled.
+          or downloaded cannot be recalled. The saved copy of the sticker page is updated within a few minutes, so
+          it may still show your name for a short time after your details are removed.
         </li>
       </ul>
       <p>
