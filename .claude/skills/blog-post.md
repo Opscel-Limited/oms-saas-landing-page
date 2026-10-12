@@ -6,21 +6,31 @@ Trigger phrases: "new blog post", "write a post", "create an article", "add a bl
 
 ---
 
+## Read first: `SEO_CONTENT_STRATEGY.md`
+
+The strategy at the repo root decides **what** gets written (the content calendar), **who writes it**, and how heroes look. Its workflow rules override anything below:
+
+- **Claude Code does not write or rewrite prose.** Claude in chat drafts each page and Animesh approves it. Claude Code receives a handoff brief with the approved copy and does the repo side: frontmatter, meta title and description, slug, internal links, hosted assets (PDF/Word), email block where specified, build and PR.
+- **If asked to "write a post"** in Claude Code, say this rule applies and confirm with the user before drafting anything. Never ship Claude Code-written prose without that explicit exception.
+- **Topics come from the calendar.** A post outside it needs the user's decision, and a row added to the calendar.
+- **Hero illustrations** follow the strategy's illustration checklist: character-based, flat, paper-grain, brand teal #0097B2, no logos or readable text. The older text-bearing UI-card heroes don't meet it.
+- **Links to unbuilt pages** use a findable placeholder, never a live dead link.
+- **Legal or regulatory pages** name the regulation and end with a short disclaimer.
+
 ## Workflow
 
-### Step 1: Gather Post Details
+### Step 1: Receive the Handoff
 
-Ask the user for:
-1. **Topic/title** — what is the post about?
-2. **Target keyword** — what phrase should this rank for? (e.g., "BS 7671 EICR requirements")
-3. **Audience** — who is reading? (e.g., electrical contractors, fire safety engineers, office managers)
-4. **Angle** — what's the unique perspective? (explainer, guide, comparison, opinion, news)
+Expect from the user (or the chat-side handoff brief):
+1. **Approved copy** as markdown
+2. **Calendar row**: page number, target keyword, slug, linking targets
+3. **Illustration**, or the row's illustration scene so one can be generated
 
-If the user provides a markdown file or content, skip to Step 3.
+If any of these are missing, ask. Don't fill the gap by writing copy.
 
-### Step 2: Draft the Post
+### Step 2: Check the Copy Against the SEO Rules
 
-Write the content following these SEO rules:
+Check the received copy against the rules below. **Report** any gaps to the user rather than rewriting the prose yourself. Frontmatter, headings' markdown level, and links are yours to fix.
 
 **Frontmatter (required fields):**
 ```yaml
@@ -57,7 +67,7 @@ heroImage: "/images/blog/slug-name.webp"
 
 1. Generate a URL-friendly slug from the title
 2. Save the file to `src/content/blog/<slug>.mdx`
-3. If a hero image is referenced, remind the user to add it to `public/images/blog/`
+3. Put the approved hero illustration in `public/images/blog/<slug>.webp`. If none has been approved yet, leave `heroImage` out and flag it. Don't substitute a home-made image.
 
 ### Step 4: Run SEO Check
 
