@@ -4,7 +4,6 @@ description: "EIC, EICR or Minor Works? Which electrical certificate to issue fo
 date: "2026-10-12"
 author: "opscel"
 tags: ["electrical", "BS 7671", "EICR", "compliance", "guides"]
-draft: true
 ---
 
 EIC vs EICR vs Minor Works comes down to what you did. An **Electrical Installation Certificate (EIC)** certifies new work: a new installation, a new circuit, a consumer unit change or a rewire. A **Minor Electrical Installation Works Certificate** (Minor Works, or MEIWC) certifies an addition or alteration to a single existing circuit that doesn't add a new circuit. An **Electrical Installation Condition Report (EICR)** isn't a certificate for work at all: it reports on the condition of an installation that already exists. The rest of this guide covers where the lines fall, with a job-by-job table, and the mistakes that get certificates rejected.
@@ -20,7 +19,7 @@ All three are model forms in BS 7671, the IET Wiring Regulations:
 | Who signs | Designer, constructor, and inspector/tester | The person responsible for the work | The inspector |
 | Attached schedules | Schedule of inspections, schedule of circuit details and test results | None. Test results go on the form itself | Schedule of inspections, schedule of circuit details and test results |
 | How many | One per installation or job | One per circuit worked on | One per installation inspected |
-| Outcome | Certifies the work complies with BS 7671 | Certifies the minor work complies | Satisfactory or unsatisfactory, with C1, C2, C3 and FI observations |
+| Outcome | Certifies the work complies with BS 7671 | Certifies the minor work complies | Satisfactory or unsatisfactory. Under A4, only a C1 or C2 makes it unsatisfactory |
 
 ## When do you need an Electrical Installation Certificate (EIC)?
 
@@ -51,6 +50,8 @@ Like-for-like replacement of an accessory or luminaire is generally treated as m
 ## What is an EICR used for?
 
 An EICR is a **report**, not a certificate. It records the condition of an existing installation, codes anything that falls short of the current edition of BS 7671 (C1, C2 or C3, with FI where something needs further investigation), and gives an overall result of satisfactory or unsatisfactory. Our guide to [what an EICR is](/blog/what-is-an-eicr) covers who needs one and how often, and [EICR observation codes explained](/blog/bs-7671-eicr-codes-explained) covers the codes.
+
+From **15 October 2026**, new EICRs must be carried out to **BS 7671:2018+A4:2026**. Amendment 4 changed how the result is decided: only a C1 or C2 makes the report unsatisfactory, and C3 and FI are advisory. Landlords in England must still have FI items investigated within 28 days.
 
 What an EICR **can't** do is certify work you've just done. If you inspect an installation, find a C2 and fix it, the fix gets its own certificate: a Minor Works or an EIC, depending on the work. You don't reissue the EICR. Landlords in England, who must have the installation inspected at least every five years under the Electrical Safety Standards in the Private Rented Sector (England) Regulations 2020, need that written confirmation that remedial work was done.
 
@@ -86,6 +87,7 @@ The certificate and the notification are separate things. If you're registered w
 
 Opscel's [certificates](/features/certificates) include all three forms: the Electrical Installation Certificate, the Electrical Installation Condition Report and the Minor Electrical Installation Works Certificate.
 
+- **Built on Amendment 4.** All three follow the BS 7671:2018+A4:2026 model forms, including TN-C-S (PNB) earthing and the AFDD and SPD checks on Minor Works. The EICR outcome is worked out from your observation codes, and a certificate issued before A4 keeps the edition it was issued under.
 - **No double entry.** Certificates pre-fill from the [job](/features/jobs), customer, address and your company's registration details.
 - **Max Zs looked up for you.** As you enter a Zs reading, the maximum permitted value is looked up from BS 7671 Table 41.4 for the protective device on that circuit.
 - **Signatures enforced.** An EIC can't be issued until the designer, constructor and inspector signatures are all in place, and issued certificates are locked against editing.
@@ -100,6 +102,7 @@ Opscel's [certificates](/features/certificates) include all three forms: the Ele
 | Extra socket on an existing circuit? | Minor Works |
 | Several circuits altered? | One Minor Works per circuit |
 | Periodic or landlord inspection? | EICR |
+| Which edition from 15 October 2026? | BS 7671:2018+A4:2026. Only a C1 or C2 makes an EICR unsatisfactory |
 | Fixed a defect found on an EICR? | Certify the fix with a Minor Works or EIC; don't reissue the EICR |
 | Is the certificate the same as Part P notification? | No. Your scheme or building control handles notification separately |
 

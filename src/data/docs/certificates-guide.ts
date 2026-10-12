@@ -107,7 +107,7 @@ export const certificatesGuide: IDocGuide = {
                 {
                     title: 'Electrical Installation Certificate (EIC)',
                     content: `
-                        <p class="mb-2"><strong>Standard:</strong> BS 7671:2018+A2:2022</p>
+                        <p class="mb-2"><strong>Standard:</strong> BS 7671:2018+A4:2026</p>
                         <p class="mb-4"><strong>When to use:</strong> New electrical installations, additions requiring new circuits, consumer unit replacements, full or partial rewires</p>
                         <p class="mb-4"><strong>Completion time:</strong> 20-40 minutes (depends on circuit count)</p>
                     `,
@@ -120,7 +120,7 @@ export const certificatesGuide: IDocGuide = {
                 {
                     title: 'Electrical Installation Condition Report (EICR)',
                     content: `
-                        <p class="mb-2"><strong>Standard:</strong> BS 7671:2018+A2:2022</p>
+                        <p class="mb-2"><strong>Standard:</strong> BS 7671:2018+A4:2026</p>
                         <p class="mb-4"><strong>When to use:</strong> Periodic inspection and testing, change of occupancy inspections, landlord safety checks (required every 5 years)</p>
                         <p class="mb-4"><strong>Completion time:</strong> 30-60 minutes (depends on observation count)</p>
                     `,
@@ -134,7 +134,7 @@ export const certificatesGuide: IDocGuide = {
                 {
                     title: 'Minor Works Certificate',
                     content: `
-                        <p class="mb-2"><strong>Standard:</strong> BS 7671:2018+A2:2022</p>
+                        <p class="mb-2"><strong>Standard:</strong> BS 7671:2018+A4:2026</p>
                         <p class="mb-4"><strong>When to use:</strong> Adding a socket to existing circuit, adding a light fitting, installing a fused spur</p>
                         <p class="mb-4"><strong>Completion time:</strong> 10-15 minutes</p>
                     `,

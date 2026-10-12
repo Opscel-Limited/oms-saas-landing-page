@@ -64,7 +64,7 @@ export const certificatesDetail: IFeatureDetail = {
         {
             iconId: 'icon-compliance-shield',
             title: '18 Certificate Types, All Standards-Compliant',
-            description: 'Electrical: EIC, EICR, Minor Works, PAT Test (BS 7671:2018+A2:2022, IET Code 5th Ed). Fire Safety: Fire Alarm Service, Commissioning, Modification, Installation, Design, Acceptance, Verification (BS 5839-1:2025), Emergency Lighting (BS 5266-1:2025), Extinguisher Service (BS 5306-3:2017), Cable Test Readings (supporting document), EVC Commissioning (BS 5839-9:2021), Fire Risk Assessment Certificate of Conformity (BAFE SP205). Low Carbon: Solar PV Commissioning (BS EN 62446-1:2016, MCS). Security: Security System Handover Certificate (PD 6662, BS EN 50131-1, BS EN 62676-4, BS EN 60839-11). Every certificate type matches official model forms.'
+            description: 'Electrical: EIC, EICR, Minor Works, PAT Test (BS 7671:2018+A4:2026, IET Code 5th Ed). Fire Safety: Fire Alarm Service, Commissioning, Modification, Installation, Design, Acceptance, Verification (BS 5839-1:2025), Emergency Lighting (BS 5266-1:2025), Extinguisher Service (BS 5306-3:2017), Cable Test Readings (supporting document), EVC Commissioning (BS 5839-9:2021), Fire Risk Assessment Certificate of Conformity (BAFE SP205). Low Carbon: Solar PV Commissioning (BS EN 62446-1:2016, MCS). Security: Security System Handover Certificate (PD 6662, BS EN 50131-1, BS EN 62676-4, BS EN 60839-11). Every certificate type matches official model forms.'
         },
         {
             iconId: 'icon-compliance-shield',
@@ -217,7 +217,7 @@ export const certificatesDetail: IFeatureDetail = {
         },
         {
             question: 'How does BS 7671 Zs auto-lookup work?',
-            answer: 'When you enter a Zs reading for a circuit, Opscel automatically looks up the maximum permitted value from BS 7671:2018+A2:2022 Table 41.4 based on protective device type (MCB/RCBO/Fuse) and rating (6A, 10A, 16A, etc.). It then applies temperature correction factor (×0.8 for 70°C conductors) and shows pass/fail status with margin. Example: B32 MCB has 1.44Ω limit, corrected to 1.152Ω. Your reading of 1.2Ω shows ⚠️ WARNING (compliant but close). No manual table lookups or calculator needed.'
+            answer: 'When you enter a Zs reading for a circuit, Opscel automatically looks up the maximum permitted value from BS 7671 Table 41.4 based on protective device type (MCB/RCBO/Fuse) and rating (6A, 10A, 16A, etc.). It then applies temperature correction factor (×0.8 for 70°C conductors) and shows pass/fail status with margin. Example: B32 MCB has 1.44Ω limit, corrected to 1.152Ω. Your reading of 1.2Ω shows ⚠️ WARNING (compliant but close). No manual table lookups or calculator needed.'
         },
         {
             question: 'What prevents engineers from issuing non-compliant certificates?',
