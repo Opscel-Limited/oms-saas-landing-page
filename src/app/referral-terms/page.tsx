@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 // The numbers and wording on this page mirror REFERRAL_OFFER in the app
 // (opscel-starter-kit lib/referrals/offer.ts). Change both together, and bump the app's
 // termsVersion to the version below whenever this page changes.
-const TERMS_VERSION = '2026-10-10';
+const TERMS_VERSION = '2026-10-12';
 
 const ReferralTermsPage: React.FC = () => {
   const name = companyDetails.tradingName;
@@ -21,7 +21,7 @@ const ReferralTermsPage: React.FC = () => {
   const privacyEmail = companyDetails.compliance.dataProtectionOfficerEmail;
 
   return (
-    <LegalPage title="Referral Programme Terms" lastUpdated="10 October 2026">
+    <LegalPage title="Referral Programme Terms" lastUpdated="12 October 2026">
       <p>
         These terms apply to the {name} Referral Programme. The programme is run by{' '}
         <strong>{companyDetails.registeredName}</strong> ({getFormattedRegisteredAddress()}; company number{' '}
@@ -63,8 +63,8 @@ const ReferralTermsPage: React.FC = () => {
         <li>A business can only be referred once. The first referral recorded for it is the one that counts.</li>
         <li>
           When the new business reaches its first set-up screen, the referral is linked to it automatically. The
-          business is shown who referred it and can remove the referral there. A removed referral cannot be added
-          back.
+          business is shown the first name of the person who referred it and their business&apos;s name, and can remove
+          the referral there. A removed referral cannot be added back.
         </li>
       </ul>
 
@@ -174,7 +174,7 @@ const ReferralTermsPage: React.FC = () => {
         </li>
         <li>
           <strong>When a referral is made.</strong> The referring person sees the referred business&apos;s name, as
-          described above. The business that signs up sees the name of the business that referred it.
+          described above. The business that signs up sees the first name of the person who referred it and the name of their business.
         </li>
         <li>
           <strong>For a reward.</strong> We use the name and email address you give to send the gift card, to keep a
