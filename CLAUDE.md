@@ -225,6 +225,9 @@ npm run lint         # Run ESLint
 2. Create route at `src/app/docs/<slug>/page.tsx`
 3. Uses `DocSidebar` for navigation and `LegalPage`-style layout
 
+### Adding or Updating a Product Video on a Support Page
+Read `.claude/skills/support-videos.md` first. Videos are YouTube **Unlisted** (never Private), listed once in `src/data/videos.ts`, and referenced from a doc section by video slug + chapter NAME, never by seconds.
+
 ### Adding a New Legal Page
 1. Create route at `src/app/<slug>/page.tsx`
 2. Use `LegalPage` wrapper component for consistent layout with `PageHeader`
@@ -286,3 +289,4 @@ npm run lint         # Run ESLint
 11. **Deployment**: Vercel auto-deploys from GitHub - no config file needed
 12. **See also**: `.claude/skills/` for design system and workflow guidance
 13. **Blog and SEO content**: read `SEO_CONTENT_STRATEGY.md` before any blog, guide, template or SEO page work. Claude Code does **not** write or rewrite page prose. Prose arrives as an approved handoff from Claude in chat; Claude Code does the repo side (frontmatter, slug, links, assets, build). Hero illustrations follow the strategy's illustration checklist.
+14. **Product videos on support pages**: `.claude/skills/support-videos.md` (owner decision 2026-10-14). Revising a support article? Check its table of which video chapter fits which section.
