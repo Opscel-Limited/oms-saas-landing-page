@@ -1,4 +1,5 @@
 import { IDocGuide } from '@/types';
+import { clip } from '@/data/videos';
 
 export const quotationsGuide: IDocGuide = {
     title: 'Quotations Overview',
@@ -310,6 +311,7 @@ export const quotationsGuide: IDocGuide = {
                 },
                 {
                     title: 'Steps to Convert Quote to Job',
+                    video: clip('quote-to-scheduled-job', 'Turn it into a job'),
                     steps: [
                         'Navigate to <strong>Sales → Quotes</strong>',
                         'Filter by <strong>Accepted</strong> status',
@@ -445,6 +447,7 @@ export const quotationsGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Quote Lifecycle Statuses',
+                    video: clip('quote-to-scheduled-job', 'Mark the quote as accepted'),
                     content: 'Quotes move through the following statuses:',
                 },
                 {

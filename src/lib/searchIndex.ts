@@ -69,10 +69,14 @@ export function buildSearchIndex(guides: IDocGuide[]): ISearchRecord[] {
 
             if (section.subsections && section.subsections.length > 0) {
                 section.subsections.forEach((sub, idx) => {
-                    const text = [sectionBaseText, sectionTableText, collectSubsectionText(sub)]
+                    const subText = collectSubsectionText(sub);
+                    const text = [sectionBaseText, sectionTableText, subText]
                         .filter(Boolean)
                         .join(' ');
                     if (!text && !sub.title) return;
+                    // A subsection holding only a video (no title, no text) links to its
+                    // section, so a hit on the section's prose doesn't scroll to the player.
+                    const anchor = !subText && !sub.title ? section.id : `${section.id}-sub-${idx}`;
                     records.push({
                         id: `${guide.slug}#${section.id}-${idx}`,
                         guideSlug: guide.slug,
@@ -81,7 +85,7 @@ export function buildSearchIndex(guides: IDocGuide[]): ISearchRecord[] {
                         sectionTitle: section.title,
                         subsectionTitle: sub.title,
                         text: text || sub.title || '',
-                        url: `/docs/${guide.slug}#${section.id}-sub-${idx}`,
+                        url: `/docs/${guide.slug}#${anchor}`,
                     });
                 });
             } else {

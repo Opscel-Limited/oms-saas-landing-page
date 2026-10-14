@@ -1,4 +1,5 @@
 import { IDocGuide } from '@/types';
+import { clip } from '@/data/videos';
 
 export const fieldServiceGuide: IDocGuide = {
     slug: 'field-service',
@@ -28,6 +29,7 @@ export const fieldServiceGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Key Capabilities',
+                    video: clip('on-site-to-invoice'),
                     content: '',
                     bullets: [
                         'Viewing today\'s jobs and weekly schedule',
@@ -234,6 +236,7 @@ export const fieldServiceGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Checking In',
+                    video: clip('on-site-to-invoice', 'Arrive on site'),
                     content: '',
                     steps: [
                         { step: 'Open the job on your device', description: '' },
@@ -357,6 +360,7 @@ export const fieldServiceGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Filling Worksheets',
+                    video: clip('on-site-to-invoice', 'Job sheet and customer sign-off'),
                     content: `
                         <p class="mb-4">
                             Worksheets are the standard forms Opscel attaches to your job &mdash; Fire Alarm Service, Fire Extinguisher Service, Intruder Alarm Zone List, Remedials Scope of Works and others. You don't pick one: the right sheet is already on the job when you open it.
@@ -527,6 +531,7 @@ export const fieldServiceGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Review Gate',
+                    video: clip('on-site-to-invoice', 'Finish the visit'),
                     content: `
                         <p class="mb-4">
                             Before you can complete a job, the system checks that you've met minimum requirements. This is called the "review gate."

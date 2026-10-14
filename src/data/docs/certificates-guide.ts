@@ -1,4 +1,5 @@
 import { IDocGuide } from '@/types';
+import { clip } from '@/data/videos';
 
 export const certificatesGuide: IDocGuide = {
     slug: 'certificates',
@@ -223,6 +224,7 @@ export const certificatesGuide: IDocGuide = {
                 },
                 {
                     title: 'Method 2: From a Job (Recommended)',
+                    video: clip('on-site-to-invoice', 'Certificate'),
                     content: `
                         <p class="mb-4"><strong>Availability:</strong> All tiers | Admin, Manager, Engineer</p>
                         <p class="mb-4">Creating from a job provides maximum auto-population.</p>
@@ -543,6 +545,7 @@ export const certificatesGuide: IDocGuide = {
                 },
                 {
                     title: 'Adding a Signature',
+                    video: clip('on-site-to-invoice', 'Certificate'),
                     content: `
                         <p class="mb-4"><strong>Availability:</strong> Admin, Manager, Engineer</p>
                     `,
@@ -610,6 +613,7 @@ export const certificatesGuide: IDocGuide = {
                 },
                 {
                     title: 'How to Issue',
+                    video: clip('on-site-to-invoice', 'In the office'),
                     content: `
                         <p class="mb-4"><strong>Availability:</strong> All tiers | Admin, Manager | Engineer (limited—see permissions)</p>
                     `,
