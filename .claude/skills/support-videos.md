@@ -43,81 +43,109 @@ hands over the new video ID and the take's `chapters.txt`.
 
 ## 3. The build (one PR, not started)
 
-### 3a. One registry: `src/data/videos.ts`
+### 3a. One registry, `src/data/videos.ts`, and a `clip()` helper that fails the build
 
 ```ts
-export interface IVideoChapter { title: string; start: number }   // seconds from 0
 export interface IVideo {
-  slug: string;              // the product repo's spec slug, e.g. 'on-site-to-invoice'
-  title: string;             // 'On site to invoice'
-  youtubeId: string | null;  // null = not uploaded yet: references render NOTHING (no broken box)
-  duration: number;          // seconds, from the take
-  recordedOn: string;        // 'YYYY-MM-DD'
-  chapters: IVideoChapter[]; // straight from <slug>.chapters.txt, in order, first at 0
+  title: string;                                        // 'On site to invoice'
+  youtubeId: string | null;                             // null = not uploaded yet: renders NOTHING
+  duration: number;                                     // seconds
+  chapters: readonly { title: string; start: number }[]; // from <slug>.chapters.txt, first at 0
 }
-export const videos = { 'on-site-to-invoice': { … }, … } as const satisfies Record<string, IVideo>;
-export type VideoSlug = keyof typeof videos;
+export const videos = {
+  'on-site-to-invoice': { title: 'On site to invoice', youtubeId: null, duration: 156,
+    chapters: [{ title: 'Overview', start: 0 }, { title: 'Arrive on site', start: 12 }, /* … */] },
+} as const satisfies Record<string, IVideo>;   // compiles on this repo's TS 5.6 (checked)
+export type VideoSlug = keyof typeof videos;   // the key IS the product repo's spec slug
+type ChapterOf<V extends VideoSlug> = (typeof videos)[V]['chapters'][number]['title'];
+
+export interface IVideoClip { video: VideoSlug; youtubeId: string | null; label: string;
+  start: number; end?: number; duration: number }
+
+/** No chapter = the whole video (start 0, no end), NOT the "Overview" chapter. */
+export function clip<V extends VideoSlug>(video: V, chapter?: ChapterOf<V>): IVideoClip { … }
 ```
 
-A chapter's clip runs from its `start` to the next chapter's `start`. The last chapter runs to
-`duration`.
+- `clip()` **throws** on an unknown slug or chapter. A chapter's clip runs from its `start` to
+  the next chapter's `start`, and the last one runs to `duration`.
+- `chapters.txt` lines are `M:SS Title`. Convert them to seconds.
+- ⚠ **Why `clip()` is called in the guide DATA, not resolved in the component.** Most doc sections
+  sit in a collapsed Headless UI `Disclosure` (only `overview` opens by default), and a closed
+  panel is not rendered at prerender. So a lookup inside the component would pass the build and
+  then crash the page when a reader expands the section (there is no `error.tsx`). Called in the
+  guide file, it runs when the module loads, so `npm run build` fails on any page importing the
+  guide. The `ChapterOf<V>` type makes `tsc` and the editor reject a wrong name even earlier. The
+  docs routes are fully static (checked 2026-10-14).
 
 ### 3b. Articles reference a video by slug and chapter NAME
 
-Add `video?: IDocVideoRef` to `IDocSubsection` in `src/types.ts`, next to `mockup?`, and to
-`IDocSection` if a whole section wants one.
+Add `video?: IVideoClip` to `IDocSubsection` in `src/types.ts`, next to `mockup?`. Use
+`import type { IVideoClip } from './data/videos'` to avoid a data↔types import cycle. A whole
+video goes in a section's first subsection; there is no section-level field.
 
 ```ts
-export interface IDocVideoRef {
-  video: VideoSlug;   // which video
-  chapter?: string;   // a chapter TITLE from the registry; omitted = the whole video
-  caption?: string;   // optional line under the player
-}
+import { clip } from '@/data/videos';
 // in a guide:
 { title: 'Filling the certificate on site', content: '…',
-  video: { video: 'on-site-to-invoice', chapter: 'Certificate' } }
+  video: clip('on-site-to-invoice', 'Certificate') }
 ```
 
 ⚠ **Never write seconds in an article.** A re-record would silently point every section at the
-wrong moment. The name is resolved against the registry at render time.
+wrong moment.
 
-### 3c. One component: `src/components/docs/DocVideo.tsx`
+### 3c. One component, `src/components/docs/DocVideo.tsx`, rendered by `DocPageLayout` wherever a subsection has `video` (as it renders `mockup`)
 
-`DocPageLayout` renders it wherever a section or subsection has `video`, the same way it renders
-`mockup`.
-
-- **Resolve** `{video, chapter}` → `{youtubeId, start, end}`. An unknown slug or chapter name
-  must **throw**, so the build fails rather than publishing a broken reference. Docs pages are
-  statically generated, so a render-time throw fails `npm run build`. Confirm that the docs routes
-  really are static before relying on it. If one is dynamic, add a `scripts/check-video-refs.ts`
-  to `prebuild` instead.
-- **Click to load.** Show the thumbnail (`https://i.ytimg.com/vi/<id>/hqdefault.jpg`, which works
-  for Unlisted) with a play button and "Watch: Certificate (43 s)". Create the iframe only on
-  click. Nothing loads from YouTube before then, which keeps the page fast and cookie-free.
+- **Click to load.** Show a 16:9 poster with a play button and "Watch: Certificate (43 s)". Create
+  the iframe only on click, then move focus to it.
+  - **Poster:** `https://i.ytimg.com/vi/<id>/maxresdefault.jpg` (16:9). It can 404 for a while
+    after an upload, so fall back to `hqdefault.jpg`, which is 4:3 with letterbox bars, so use
+    `object-cover`. The poster is a request to Google but sets no cookies. If the owner wants no
+    Google request at all before a click, use a local poster in `public/images/videos/<slug>.webp`
+    instead.
 - **Embed URL:**
-  `https://www.youtube-nocookie.com/embed/<id>?start=<s>&end=<e>&autoplay=1&rel=0&cc_lang_pref=en`.
-  Use the privacy-enhanced domain only. Never autoplay on page load.
-- **Under the player:** "Watch the whole video (2:36)", which swaps the same player to `start=0`
-  with no `end`.
-- Responsive 16:9 box. The button has an `aria-label`, and the iframe has a `title` (the video and
-  chapter name).
+  `https://www.youtube-nocookie.com/embed/<id>?start=<s>&end=<e>&autoplay=1&rel=0&cc_load_policy=1&cc_lang_pref=en`.
+  - Use the privacy-enhanced domain only, and never autoplay on page load.
+  - `cc_load_policy=1` turns captions on by default (people watch at work with the sound off).
+  - `rel=0` only limits the end-of-clip suggestions to our own channel; it does not remove them.
+  - `end` fires once: a viewer who seeks past it plays on to the real end, and the scrubber always
+    shows the full video. That is fine.
+- **iframe attributes:** `allow="autoplay; encrypted-media; picture-in-picture"`,
+  `allowFullScreen`, and `title` set to the video and chapter name. Without `allow`, Chrome blocks
+  the autoplay-on-click.
+- **Under the player:** "Watch the whole video (2:36)" sets a fresh iframe `src` with `start=0`
+  and no `end`. Don't try to seek the old player. iOS Safari ignores `autoplay` after a `src` swap,
+  so the reader taps play once; that is acceptable.
+- The play button has an `aria-label`. No overflow at 390 px.
 - `youtubeId: null` → render nothing.
+- Keep every Tailwind class inside `DocVideo.tsx`. Tailwind does not scan `src/data/`, so a class
+  in guide data would not compile.
+- The fixed labels ("Watch: …", "Watch the whole video") are UI chrome, not article prose, so
+  CLAUDE.md note 13 does not apply to them.
 
-### 3d. Cookie policy
+### 3d. Cookie policy (owner approves the wording)
 
-`src/app/cookies/page.tsx` §3 "Third-Party Cookies" lists only Google Analytics. Add YouTube: "If
-you press play on a video, YouTube (privacy-enhanced mode) may store data on your device", with
-Google's privacy policy link. The owner approves the wording.
+Add a YouTube entry to `src/app/cookies/page.tsx` §3 "Third-Party Cookies": "If you press play on
+a video, YouTube (privacy-enhanced mode) may store data on your device", with Google's privacy
+policy link.
+
+⚠ **Pre-existing, separate from this build: tell the owner.** `src/app/layout.tsx` loads Google
+Analytics on every page, while the cookie policy promises a consent banner that does not exist.
+The video change must not make that worse, so the click-to-load player is the only YouTube load.
+Fixing the banner is its own decision.
 
 ### 3e. Verify
 
-`npm run lint` and `npm run build`. This repo has no tests. Then check in the browser:
-- each chapter clip starts and stops at the right point;
+`npm run lint` and `npm run build`, since this repo has no tests. Then a negative control: misspell
+one chapter name, confirm that both `tsc` and `npm run build` fail, and revert.
+
+In the browser, check:
+- a chapter clip inside a **collapsed** section starts and stops at the right point;
 - "Watch the whole video" works;
 - a `youtubeId: null` video renders nothing;
-- 390 px width with no overflow;
-- no request to youtube.com or ytimg.com before a click. The thumbnail is the exception; host it
-  locally if even that is unwanted.
+- no overflow at 390 px;
+- captions show;
+- on an **iPhone**, the play-after-swap works;
+- nothing loads from youtube.com before a click.
 
 ## 4. When a video is re-recorded (the common job)
 
@@ -126,9 +154,9 @@ Google's privacy policy link. The owner approves the wording.
    - upload the `.srt` as English captions;
    - set "Made for kids: No";
    - allow embedding.
-2. Update its `videos.ts` entry: `youtubeId`, `duration`, `recordedOn`, `chapters`.
-3. If a chapter was **renamed**, the build fails on every article still using the old name. Fix
-   each one. That failure is the point.
+2. Update its `videos.ts` entry: `youtubeId`, `duration` and `chapters`.
+3. If a chapter was **renamed**, `tsc` and the build fail on every article still using the old
+   name. Fix each one. That failure is the point.
 4. Deploy, then tell the owner the old upload can be removed. Never before: removing it first
    breaks the live pages.
 
@@ -136,7 +164,7 @@ Google's privacy policy link. The owner approves the wording.
 
 - If the section describes something a video chapter shows, reference it (§3b). **Reuse is the
   point**: the same chapter can sit in several articles.
-- A whole video suits an article's `overview` section. A chapter suits the subsection with the
+- A whole video (`clip(slug)`) suits the first subsection of an article's `overview` section. A chapter suits the subsection with the
   matching steps.
 - Wiring a `video` reference is repo-side data work. Any NEW prose (a caption line, a rewritten
   step) still follows CLAUDE.md note 13: it arrives approved from chat, and Claude Code does not
@@ -159,7 +187,7 @@ Section ids are from `origin/main` on 2026-10-14.
 | | whole video | `quote-to-invoice-workflow` › `overview` |
 | `on-site-to-invoice` | Arrive on site | `field-service` › `on-site-checkin`; `rams` › `engineer-sign-off` (the risk assessment) |
 | | Job sheet and customer sign-off | `worksheets` › `filling-onsite`; `field-service` › `capturing-work` |
-| | Certificate | `certificates` › `creating-certificates` ("Method 2: From a Job"); `certificates` › `signatures` |
+| | Certificate | `certificates` › `creating-certificates` ("Method 2: From a Job (Recommended)"); `certificates` › `signatures` |
 | | Finish the visit | `field-service` › `completing-job`; `quote-to-invoice-workflow` › `the-job` ("Completing the job") |
 | | In the office | `certificates` › `issuing`; `quote-to-invoice-workflow` › `fixed-price-path` |
 | | whole video | `field-service` › `overview` |
