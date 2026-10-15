@@ -1,14 +1,16 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 import { FiPlay } from 'react-icons/fi';
 
 import type { IVideoClip } from '@/data/videos';
 
 /**
  * A support video, or one chapter of it, on a doc page. Click to load: nothing is fetched from
- * YouTube until the reader presses play (the poster is an i.ytimg.com image, which sets no
- * cookies). Plays on the privacy-enhanced youtube-nocookie.com domain, captions on.
+ * YouTube until the reader presses play. The poster is a local still of that chapter
+ * (clip.poster, public/images/videos/..., made by scripts/video-posters.ts), so no request goes
+ * to Google before a click. Plays on the privacy-enhanced youtube-nocookie.com domain, captions on.
  * See .claude/skills/support-videos.md.
  */
 
@@ -40,7 +42,6 @@ function embedUrl(youtubeId: string, start: number, end?: number): string {
 
 const DocVideo: React.FC<DocVideoProps> = ({ clip }) => {
   const [playing, setPlaying] = useState<IPlaying | null>(null);
-  const [posterFallback, setPosterFallback] = useState(false);
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
   useEffect(() => {
@@ -53,9 +54,6 @@ const DocVideo: React.FC<DocVideoProps> = ({ clip }) => {
   const clipLength = (clip.end ?? clip.duration) - clip.start;
   const watchLabel = `Watch: ${clip.label} (${formatLength(clipLength)})`;
   const iframeTitle = isWholeVideo ? clip.videoTitle : `${clip.videoTitle}: ${clip.label}`;
-  // maxresdefault is 16:9 but can 404 for a while after an upload; hqdefault is 4:3 with
-  // letterbox bars, hence object-cover.
-  const poster = `https://i.ytimg.com/vi/${clip.youtubeId}/${posterFallback ? 'hqdefault' : 'maxresdefault'}.jpg`;
 
   return (
     <div className="my-4 max-w-full">
@@ -76,13 +74,12 @@ const DocVideo: React.FC<DocVideoProps> = ({ clip }) => {
             onClick={() => setPlaying({ start: clip.start, end: clip.end, key: 0 })}
             className="group absolute inset-0 h-full w-full focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-secondary"
           >
-            {/* eslint-disable-next-line @next/next/no-img-element -- remote YouTube poster with a runtime fallback */}
-            <img
-              src={poster}
+            <Image
+              src={clip.poster}
               alt=""
-              loading="lazy"
-              onError={() => setPosterFallback(true)}
-              className="absolute inset-0 h-full w-full object-cover"
+              fill
+              sizes="(min-width: 1024px) 768px, 100vw"
+              className="object-cover"
             />
             <span className="absolute inset-0 bg-black/30 transition-colors group-hover:bg-black/20" />
             <span className="absolute left-1/2 top-1/2 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-secondary text-white shadow-lg transition-transform group-hover:scale-105">

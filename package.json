@@ -4,10 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "tsx scripts/check-video-posters.ts",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "seo-check": "npx tsx scripts/seo-check.ts"
+    "seo-check": "npx tsx scripts/seo-check.ts",
+    "check-video-posters": "tsx scripts/check-video-posters.ts",
+    "video-posters": "tsx scripts/video-posters.ts"
   },
   "dependencies": {
     "@headlessui/react": "^2.1.8",
@@ -30,7 +33,9 @@
     "eslint": "^8",
     "eslint-config-next": "14.2.13",
     "postcss": "^8",
+    "sharp": "^0.35.5",
     "tailwindcss": "^3.4.1",
+    "tsx": "^4.23.15",
     "typescript": "^5"
   }
 }
