@@ -63,6 +63,25 @@ export interface IVideoClip {
     end?: number;
     /** Length of the whole video, in seconds. */
     duration: number;
+    /** Local poster (public/images/videos/...). From posterPath(): never typed by hand. */
+    poster: string;
+}
+
+/** 'Job sheet and customer sign-off' -> 'job-sheet-and-customer-sign-off'. */
+export function kebab(title: string): string {
+    return title
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '');
+}
+
+/**
+ * The one place a poster path is derived. No chapter = the whole-video poster ('full').
+ * scripts/video-posters.ts writes these files and scripts/check-video-posters.ts (the
+ * `prebuild` step) fails the build if any is missing, so a poster can't be forgotten.
+ */
+export function posterPath(video: string, chapter?: string): string {
+    return `/images/videos/${video}/${chapter === undefined ? 'full' : kebab(chapter)}.webp`;
 }
 
 /**
@@ -77,10 +96,11 @@ export function clip<V extends VideoSlug>(video: V, chapter?: ChapterOf<V>): IVi
     const v: IVideo | undefined = videos[video];
     if (!v) throw new Error(`clip(): unknown video "${video}"`);
     const base = { video, videoTitle: v.title, youtubeId: v.youtubeId, duration: v.duration };
-    if (chapter === undefined) return { ...base, label: v.title, start: 0 };
+    const poster = posterPath(video, chapter);
+    if (chapter === undefined) return { ...base, poster, label: v.title, start: 0 };
 
     const i = v.chapters.findIndex((c) => c.title === chapter);
     if (i === -1) throw new Error(`clip(): video "${video}" has no chapter "${chapter}"`);
     const next = v.chapters[i + 1];
-    return { ...base, label: chapter, start: v.chapters[i].start, end: next ? next.start : v.duration };
+    return { ...base, poster, label: chapter, start: v.chapters[i].start, end: next ? next.start : v.duration };
 }

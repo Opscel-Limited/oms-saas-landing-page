@@ -1,4 +1,5 @@
 import { IDocGuide } from '@/types';
+import { clip } from '@/data/videos';
 
 export const jobsGuide: IDocGuide = {
     slug: 'jobs',
@@ -69,17 +70,20 @@ export const jobsGuide: IDocGuide = {
                     ]
                 },
                 {
-                    title: 'Method 2: From Accepted Quote',
+                    title: 'Method 2: Convert an Accepted Quote',
+                    video: clip('quote-to-scheduled-job', 'Turn it into a job'),
                     content: `
-                        <p class="mb-4"><strong>Availability:</strong> Automatic when customer accepts quote</p>
-                        <p class="mb-4">When a customer accepts a quote, Opscel creates a job automatically with pre-filled details.</p>
+                        <p class="mb-4"><strong>Availability:</strong> All plans. Super Admin, Admin, Accounts, Sales Manager and Contract Manager</p>
+                        <p class="mb-4">Accepting a quote does not create a job by itself. Once a quote is accepted, a staff member opens it and clicks <strong>Convert to Job</strong>. The job is created from the quote, so there is nothing to re-type. The steps are in <a href="/docs/quotations#converting-to-job" class="text-secondary hover:underline">Quotations: Converting Quote to Job</a>.</p>
                     `,
                     bullets: [
-                        'Customer and site come from the quote',
-                        'Job description matches quote scope',
-                        'Job value set to quote total',
-                        'If deposit required: deposit invoice created automatically',
-                        'Job starts in "Draft" status—you schedule it when ready'
+                        'The dialog asks for a job type and a service type (or "No service type"), both required, plus an optional contract manager and an optional PO number',
+                        'Customer, service address, site contacts and the quote\'s documents come from the quote',
+                        'The job title is the quote title, and the description is the quote\'s description as plain text',
+                        'Estimated cost is set to the quote total',
+                        'The quote\'s customer notes become the job notes',
+                        'The job starts in "Draft" status. You schedule it when ready',
+                        'The quote moves to "Converted" and links to the new job'
                     ]
                 },
                 {
@@ -149,7 +153,7 @@ export const jobsGuide: IDocGuide = {
             table: {
                 headers: ['Status', 'Meaning', 'Editable?', 'What Triggers It'],
                 rows: [
-                    ['Draft', 'Not yet scheduled, planning stage', 'Yes', 'Manual creation, quote acceptance'],
+                    ['Draft', 'Not yet scheduled, planning stage', 'Yes', 'Manual creation, quote conversion'],
                     ['Scheduled', 'Assigned date/time and engineer', 'Yes', 'Admin schedules the job'],
                     ['In Progress', 'Engineer checked in, work underway', 'Limited', 'Engineer check-in (automatic)'],
                     ['Completed', 'Work done, ready for cert/invoice', 'No (admin override)', 'Engineer marks complete'],

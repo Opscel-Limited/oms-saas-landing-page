@@ -6,8 +6,8 @@ revise a support article that covers something a video shows.
 Trigger phrases: "add the video", "embed the demo", "video for this section", "re-recorded",
 "new take", "support video", "/support-videos"
 
-**Status (2026-10-14): §3a-3c BUILT** (`src/data/videos.ts`, `src/components/docs/DocVideo.tsx`,
-17 clips wired per §5). **§3d (cookie-policy line) is NOT done yet**: it waits on the owner's wording.
+**Status (2026-10-15): §3a-3d BUILT** (`src/data/videos.ts`, `src/components/docs/DocVideo.tsx`,
+18 clips wired per §5, local posters, YouTube line in the cookie policy).
 
 ---
 
@@ -97,11 +97,19 @@ wrong moment.
 
 - **Click to load.** Show a 16:9 poster with a play button and "Watch: Certificate (43 s)". Create
   the iframe only on click, then move focus to it.
-  - **Poster:** `https://i.ytimg.com/vi/<id>/maxresdefault.jpg` (16:9). It can 404 for a while
-    after an upload, so fall back to `hqdefault.jpg`, which is 4:3 with letterbox bars, so use
-    `object-cover`. The poster is a request to Google but sets no cookies. If the owner wants no
-    Google request at all before a click, use a local poster in `public/images/videos/<slug>.webp`
-    instead.
+  - **Poster: a LOCAL still per clip, so no request goes to Google before a click.**
+    `public/images/videos/<slug>/<chapter-kebab>.webp` (1280 × 720), plus `<slug>/full.webp` for
+    the whole video. `clip()` returns it as `clip.poster`, from the one function `posterPath()` in
+    `videos.ts`. Never type a poster path. `DocVideo` renders it with `next/image`.
+  - **Made by `npm run video-posters`** (`scripts/video-posters.ts`): ffmpeg grabs a frame from
+    the take's mp4 (needs ffmpeg; `VIDEO_DIR`, default `~/Downloads`, prefers `yt-1440/`), `sharp`
+    writes the webp. Chapter starts come from `videos.ts`. The per-chapter frame offsets live in
+    ONE place, the `OFFSETS` map at the top of that script. It fails on a chapter with no offset.
+  - **Guard: `prebuild` runs `scripts/check-video-posters.ts`**, which fails `npm run build` if
+    any chapter, or any video's `full`, has no poster file. A missing poster cannot ship.
+  - **Picking offsets:** extract candidates a second apart, LOOK at them, avoid transitions, loading
+    screens and the previous chapter's last frame. Prefer a frame where the chapter's own title
+    card is clean, else one that shows the chapter's content.
 - **Embed URL:**
   `https://www.youtube-nocookie.com/embed/<id>?start=<s>&end=<e>&autoplay=1&rel=0&cc_load_policy=1&cc_lang_pref=en`.
   - Use the privacy-enhanced domain only, and never autoplay on page load.
@@ -122,11 +130,11 @@ wrong moment.
 - The fixed labels ("Watch: …", "Watch the whole video") are UI chrome, not article prose, so
   CLAUDE.md note 13 does not apply to them.
 
-### 3d. Cookie policy (owner approves the wording)
+### 3d. Cookie policy (DONE 2026-10-15)
 
-Add a YouTube entry to `src/app/cookies/page.tsx` §3 "Third-Party Cookies": "If you press play on
+`src/app/cookies/page.tsx` §3 "Third-Party Cookies" has a YouTube entry: "If you press play on
 a video, YouTube (privacy-enhanced mode) may store data on your device", with Google's privacy
-policy link.
+policy link. Wording approved by the owner.
 
 ⚠ **Pre-existing, separate from this build: tell the owner.** `src/app/layout.tsx` loads Google
 Analytics on every page, while the cookie policy promises a consent banner that does not exist.
@@ -155,6 +163,9 @@ In the browser, check:
    - set "Made for kids: No";
    - allow embedding.
 2. Update its `videos.ts` entry: `youtubeId`, `duration` and `chapters`.
+   Then **regenerate posters**: `npm run video-posters` (re-check the `OFFSETS` frames by eye,
+   since new timings can land on a transition) and commit the webp files. The build fails
+   until every chapter has one.
 3. If a chapter was **renamed**, `tsc` and the build fail on every article still using the old
    name. Fix each one. That failure is the point.
 4. Deploy, then tell the owner the old upload can be removed. Never before: removing it first
@@ -182,7 +193,7 @@ Section ids are from `origin/main` on 2026-10-14.
 |---|---|---|
 | `add-first-customer` (no chapters, 1:04) | whole video | `onboarding` › `checklist` |
 | `quote-to-scheduled-job` | Mark the quote as accepted | `quotations` › `customer-acceptance`; `quote-to-invoice-workflow` › `the-quote` ("After acceptance") |
-| | Turn it into a job | `quotations` › `converting-to-job`; `jobs` › `creating-jobs` ("Method 2: From Accepted Quote"); `quote-to-invoice-workflow` › `the-job` |
+| | Turn it into a job | `quotations` › `converting-to-job`; `jobs` › `creating-jobs` ("Method 2: Convert an Accepted Quote", wired); `quote-to-invoice-workflow` › `the-job` |
 | | Schedule it on the planner | `planner` › `booking-from-backlog` |
 | | whole video | `quote-to-invoice-workflow` › `overview` |
 | `on-site-to-invoice` | Arrive on site | `field-service` › `on-site-checkin`; `rams` › `engineer-sign-off` (the risk assessment) |
@@ -195,9 +206,6 @@ Section ids are from `origin/main` on 2026-10-14.
 Wired differently (2026-10-14):
 - Not wired: `rams` › `engineer-sign-off`. The "Arrive on site" chapter shows the hazard and PPE
   picker, not the Read-and-understood sign-off card that section describes.
-- Not wired: `jobs` › `creating-jobs` "Method 2". Its text says accepting a quote creates the job
-  automatically; the video (and `quotations` › `converting-to-job`) shows a manual Convert to Job.
-  The article is stale: wire the clip once the owner approves new wording.
 - "Mark the quote as accepted" sits on `quotations` › `quote-status-workflow`, not
   `customer-acceptance` (that section is the customer's portal flow; the video marks it by hand).
 

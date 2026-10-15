@@ -166,6 +166,7 @@ const CookiesPage: React.FC = () => {
       </p>
       <ul>
         <li><strong>Google Analytics:</strong> For website analytics. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google&apos;s Privacy Policy</a></li>
+        <li><strong>YouTube:</strong> If you press play on a video, YouTube (privacy-enhanced mode) may store data on your device. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google&apos;s Privacy Policy</a></li>
       </ul>
 
       <h2>4. Managing Cookies</h2>
