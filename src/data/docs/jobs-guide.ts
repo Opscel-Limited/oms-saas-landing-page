@@ -29,6 +29,7 @@ export const jobsGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Key Capabilities',
+                    video: clip('field-emergency-callout', 'Raise a callout'),
                     content: '',
                     bullets: [
                         'Single or multi-visit scheduling',
@@ -295,6 +296,7 @@ export const jobsGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'When to Use Multi-Visit',
+                    video: clip('field-emergency-callout', 'Leave site, come back later'),
                     content: '',
                     bullets: [
                         'Installation spanning multiple days',
@@ -306,6 +308,7 @@ export const jobsGuide: IDocGuide = {
                 },
                 {
                     title: 'Per-Visit Work Summaries',
+                    video: clip('field-emergency-callout', 'Work and write up'),
                     content: `
                         <p class="mb-4">
                             Each visit has its own work summary, photos, defects, and parts. These aggregate into the final job record.

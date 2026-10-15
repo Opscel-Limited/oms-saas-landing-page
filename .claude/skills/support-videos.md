@@ -7,7 +7,7 @@ Trigger phrases: "add the video", "embed the demo", "video for this section", "r
 "new take", "support video", "/support-videos"
 
 **Status (2026-10-15): §3a-3d BUILT** (`src/data/videos.ts`, `src/components/docs/DocVideo.tsx`,
-18 clips wired per §5, local posters, YouTube line in the cookie policy).
+24 clips wired per §5, local posters, YouTube line in the cookie policy).
 
 ---
 
@@ -202,8 +202,21 @@ Section ids are from `origin/main` on 2026-10-14.
 | | Finish the visit | `field-service` › `completing-job`; `quote-to-invoice-workflow` › `the-job` ("Completing the job") |
 | | In the office | `certificates` › `issuing`; `quote-to-invoice-workflow` › `fixed-price-path` |
 | | whole video | `field-service` › `overview` |
+| `field-start-your-day` (F1) | Today's jobs | `field-service` › `todays-jobs` ("Navigating the Jobs List") |
+| | Tomorrow | `field-service` › `todays-jobs` ("Filters and Sorting") |
+| | Before you set off | `field-service` › `pre-visit` ("Opening a Job") |
+| `field-emergency-callout` (F6) | Raise a callout | `jobs` › `overview` (until a callout method exists in `jobs` › `creating-jobs`) |
+| | Work and write up | `jobs` › `multi-visit` ("Per-Visit Work Summaries") |
+| | Leave site, come back later | `jobs` › `multi-visit` ("When to Use Multi-Visit") |
 
 Wired differently (2026-10-14):
+- Not wired (2026-10-15): F1 whole video on `field-service` › `overview`. Its only subsection
+  already plays `on-site-to-invoice`, and a subsection holds one video.
+- F6 "Work and write up" sits on `jobs` › `multi-visit`, not `field-service` › `capturing-work`
+  (the product plan's pick): "Filling Worksheets" already plays the demo 3 clip, and the chapter
+  writes the VISIT's work summary on the job sheet's sign-off step. `field-service` ›
+  `completing-job` "Writing the Work Summary" would fit, but its steps still say to tap a
+  "Work Summary" tile the app removed in 5.70.0: wire it there once the owner approves new wording.
 - Not wired: `rams` › `engineer-sign-off`. The "Arrive on site" chapter shows the hazard and PPE
   picker, not the Read-and-understood sign-off card that section describes.
 - "Mark the quote as accepted" sits on `quotations` › `quote-status-workflow`, not

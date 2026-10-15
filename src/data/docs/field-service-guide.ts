@@ -117,6 +117,7 @@ export const fieldServiceGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Navigating the Jobs List',
+                    video: clip('field-start-your-day', "Today's jobs"),
                     content: '',
                     steps: [
                         { step: 'Open the field app', description: 'You\'ll land on the "Today\'s Jobs" screen by default' },
@@ -139,6 +140,7 @@ export const fieldServiceGuide: IDocGuide = {
                 },
                 {
                     title: 'Filters and Sorting',
+                    video: clip('field-start-your-day', 'Tomorrow'),
                     content: 'Use the filter controls at the top to:',
                     bullets: [
                         'View all jobs, today only, or this week',
@@ -168,6 +170,7 @@ export const fieldServiceGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Opening a Job',
+                    video: clip('field-start-your-day', 'Before you set off'),
                     content: '',
                     steps: [
                         { step: 'Tap a job card from the Today\'s Jobs list', description: '' },

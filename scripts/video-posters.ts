@@ -45,6 +45,22 @@ const OFFSETS: Record<string, IOffsets> = {
             'In the office': 4, // the completed job on the desktop (t=134)
         },
     },
+    'field-start-your-day': {
+        full: 5, // Today's route with the morning's two jobs, no overlay
+        chapters: {
+            "Today's jobs": 6, // Today's route (the card sits over the desktop, so skip it)
+            'Tomorrow': 6, // Tomorrow tab selected, the EICR listed (t=19)
+            'Before you set off': 6, // the job page: access note, site contact, Check in (t=33)
+        },
+    },
+    'field-emergency-callout': {
+        full: 3, // Today's route with the Emergency Call Out card
+        chapters: {
+            'Raise a callout': 23, // the filled form, Emergency Call Out service type chosen
+            'Work and write up': 24, // the work carried out typed on the sign-off step (t=51)
+            'Leave site, come back later': 7, // "Job stays open" with Continue on the list (t=63)
+        },
+    },
 };
 
 const W = 1280;
