@@ -12,6 +12,12 @@ let count = 0;
 
 for (const [slug, v] of Object.entries(videos)) {
     const wanted = [posterPath(slug), ...v.chapters.map((c) => posterPath(slug, c.title))];
+    // Two chapters that kebab alike (or a chapter named "Full") would share one file and still pass.
+    const dupes = wanted.filter((p, i) => wanted.indexOf(p) !== i);
+    if (dupes.length > 0) {
+        console.error(`${slug}: chapters share a poster path: ${dupes.join(', ')}`);
+        process.exit(1);
+    }
     for (const path of wanted) {
         count += 1;
         if (!existsSync(join(publicDir, path))) missing.push(path);

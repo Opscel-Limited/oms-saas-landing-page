@@ -83,7 +83,7 @@ export const jobsGuide: IDocGuide = {
                         'Estimated cost is set to the quote total',
                         'The quote\'s customer notes become the job notes',
                         'The job starts in "Draft" status. You schedule it when ready',
-                        'The quote moves to "Converted to Job" and links to the new job'
+                        'The quote moves to "Converted" and links to the new job'
                     ]
                 },
                 {

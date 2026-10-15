@@ -28,7 +28,7 @@ const OFFSETS: Record<string, IOffsets> = {
     'quote-to-scheduled-job': {
         full: 34, // the sent quote, no overlay
         chapters: {
-            'Overview': 2, // "Overview" card over the scheduled job
+            'Overview': 2, // "Overview" card over the Dashboard setup checklist
             'Mark the quote as accepted': 26, // the quote menu with "Mark as Accepted" (t=38)
             'Turn it into a job': 2, // card + Convert to Job highlighted
             'Schedule it on the planner': 2, // card over the planner with the backlog

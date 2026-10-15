@@ -303,7 +303,7 @@ export const quotationsGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Availability',
-                    content: '<strong>Tier:</strong> All plans<br><strong>Roles:</strong> Super Admin, Admin, Sales Manager, Contract Manager',
+                    content: '<strong>Tier:</strong> All plans<br><strong>Roles:</strong> Super Admin, Admin, Accounts, Sales Manager, Contract Manager',
                 },
                 {
                     title: 'Converting Is a One-Click, Manual Step',
@@ -321,7 +321,7 @@ export const quotationsGuide: IDocGuide = {
                         'Opscel creates a draft job with: customer, site address, a job title (from the quote title), a job description (from the quote\'s description, converted to plain text), an estimated cost (quote total), notes (from the quote\'s customer notes), and the PO number if you entered one',
                         'Schedule the job (assign engineer, set date)',
                         'Click <strong>Save Job</strong>',
-                        'Quote status changes to <strong>Converted to Job</strong>',
+                        'Quote status changes to <strong>Converted</strong>',
                         'Job detail page shows link back to parent quote',
                     ],
                 },
