@@ -47,6 +47,26 @@ export const videos = {
             { title: 'In the office', start: 130 },
         ],
     },
+    'field-start-your-day': {
+        title: 'Start your day in the field app',
+        youtubeId: 'BZPoMAUqWJ0',
+        duration: 59,
+        chapters: [
+            { title: "Today's jobs", start: 0 },
+            { title: 'Tomorrow', start: 13 },
+            { title: 'Before you set off', start: 27 },
+        ],
+    },
+    'field-emergency-callout': {
+        title: 'Raise a callout and leave site',
+        youtubeId: 'Rj514sLfe0Q',
+        duration: 74,
+        chapters: [
+            { title: 'Raise a callout', start: 0 },
+            { title: 'Work and write up', start: 27 },
+            { title: 'Leave site, come back later', start: 56 },
+        ],
+    },
 } as const satisfies Record<string, IVideo>;
 
 export type VideoSlug = keyof typeof videos;
