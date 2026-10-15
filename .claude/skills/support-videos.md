@@ -6,8 +6,8 @@ revise a support article that covers something a video shows.
 Trigger phrases: "add the video", "embed the demo", "video for this section", "re-recorded",
 "new take", "support video", "/support-videos"
 
-**Status (2026-10-14): design agreed with the owner, NOT built yet.** §3 is the build. Until it
-ships, nothing on the site plays a video.
+**Status (2026-10-14): §3a-3c BUILT** (`src/data/videos.ts`, `src/components/docs/DocVideo.tsx`,
+17 clips wired per §5). **§3d (cookie-policy line) is NOT done yet**: it waits on the owner's wording.
 
 ---
 
@@ -41,7 +41,7 @@ The videos are re-recorded whenever the UI changes. Chapter **names** stay stabl
 Uploading is the owner's job: the YouTube account is theirs, and Claude cannot upload. The owner
 hands over the new video ID and the take's `chapters.txt`.
 
-## 3. The build (one PR, not started)
+## 3. The build
 
 ### 3a. One registry, `src/data/videos.ts`, and a `clip()` helper that fails the build
 
@@ -59,8 +59,8 @@ export const videos = {
 export type VideoSlug = keyof typeof videos;   // the key IS the product repo's spec slug
 type ChapterOf<V extends VideoSlug> = (typeof videos)[V]['chapters'][number]['title'];
 
-export interface IVideoClip { video: VideoSlug; youtubeId: string | null; label: string;
-  start: number; end?: number; duration: number }
+export interface IVideoClip { video: VideoSlug; videoTitle: string; youtubeId: string | null;
+  label: string; start: number; end?: number; duration: number }
 
 /** No chapter = the whole video (start 0, no end), NOT the "Overview" chapter. */
 export function clip<V extends VideoSlug>(video: V, chapter?: ChapterOf<V>): IVideoClip { … }
@@ -191,6 +191,15 @@ Section ids are from `origin/main` on 2026-10-14.
 | | Finish the visit | `field-service` › `completing-job`; `quote-to-invoice-workflow` › `the-job` ("Completing the job") |
 | | In the office | `certificates` › `issuing`; `quote-to-invoice-workflow` › `fixed-price-path` |
 | | whole video | `field-service` › `overview` |
+
+Wired differently (2026-10-14):
+- Not wired: `rams` › `engineer-sign-off`. The "Arrive on site" chapter shows the hazard and PPE
+  picker, not the Read-and-understood sign-off card that section describes.
+- Not wired: `jobs` › `creating-jobs` "Method 2". Its text says accepting a quote creates the job
+  automatically; the video (and `quotations` › `converting-to-job`) shows a manual Convert to Job.
+  The article is stale: wire the clip once the owner approves new wording.
+- "Mark the quote as accepted" sits on `quotations` › `quote-status-workflow`, not
+  `customer-acceptance` (that section is the customer's portal flow; the video marks it by hand).
 
 The demo 3 certificate is a **Fire Alarm Modification** certificate (BS 5839), so in
 `certificates` it shows the fire-alarm path, not BS 7671.

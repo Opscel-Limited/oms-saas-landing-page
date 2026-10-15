@@ -1,4 +1,5 @@
 import { IDocGuide } from '@/types';
+import { clip } from '@/data/videos';
 
 export const quoteToInvoiceWorkflowGuide: IDocGuide = {
     slug: 'quote-to-invoice-workflow',
@@ -16,7 +17,12 @@ export const quoteToInvoiceWorkflowGuide: IDocGuide = {
                 <p class="mb-6">
                     Understanding this workflow is essential because the system treats quote-originated jobs differently from standalone jobs when creating invoices. A £10k accepted quote becomes a £10k invoice—the system respects the contract price, not just the parts and labour actuals.
                 </p>
-            `
+            `,
+            subsections: [
+                {
+                    video: clip('quote-to-scheduled-job'),
+                },
+            ],
         },
         {
             id: 'the-quote',
@@ -64,6 +70,7 @@ export const quoteToInvoiceWorkflowGuide: IDocGuide = {
                 },
                 {
                     title: 'After acceptance',
+                    video: clip('quote-to-scheduled-job', 'Mark the quote as accepted'),
                     content: 'The moment the customer accepts:',
                     bullets: [
                         'The quote status updates to Accepted',
@@ -84,6 +91,7 @@ export const quoteToInvoiceWorkflowGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Converting an accepted quote to a job',
+                    video: clip('quote-to-scheduled-job', 'Turn it into a job'),
                     content: 'Open the accepted quote and click Convert to Job. Opscel copies the customer, site address, and job title across. The job is linked back to the original quote — this link is used later when raising the invoice.'
                 },
                 {
@@ -101,6 +109,7 @@ export const quoteToInvoiceWorkflowGuide: IDocGuide = {
                 },
                 {
                     title: 'Completing the job',
+                    video: clip('on-site-to-invoice', 'Finish the visit'),
                     content: 'When work is done the engineer marks the job as complete and submits a work summary of what was carried out on site. This narrative appears in the PDF work log.'
                 }
             ]
@@ -139,6 +148,7 @@ export const quoteToInvoiceWorkflowGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Step 1 — Review and edit line items',
+                    video: clip('on-site-to-invoice', 'In the office'),
                     content: 'All agreed items are shown in an editable table. You can:',
                     bullets: [
                         'Change a description, quantity or price before invoicing (e.g. a scope change agreed verbally)',

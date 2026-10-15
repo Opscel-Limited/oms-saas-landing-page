@@ -1,4 +1,5 @@
 import { IDocGuide } from '@/types';
+import { clip } from '@/data/videos';
 
 export const onboardingGuide: IDocGuide = {
     slug: 'onboarding',
@@ -46,6 +47,7 @@ export const onboardingGuide: IDocGuide = {
                 },
                 {
                     title: 'Complete these 7 steps in order',
+                    video: clip('add-first-customer'),
                     content: '',
                     bullets: [
                         '<strong>Step 1:</strong> Complete company profile (Settings → Company Profile)',

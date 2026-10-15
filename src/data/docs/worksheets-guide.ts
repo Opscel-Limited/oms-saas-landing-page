@@ -1,4 +1,5 @@
 import { IDocGuide } from '@/types';
+import { clip } from '@/data/videos';
 
 export const worksheetsGuide: IDocGuide = {
     slug: 'worksheets',
@@ -162,6 +163,7 @@ export const worksheetsGuide: IDocGuide = {
                 },
                 {
                     title: 'Steps to Complete a Worksheet',
+                    video: clip('on-site-to-invoice', 'Job sheet and customer sign-off'),
                     content: '',
                     steps: [
                         'Open the job in the field app',

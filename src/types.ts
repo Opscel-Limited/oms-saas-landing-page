@@ -1,4 +1,5 @@
 import type { DocMockupName } from '@/components/docs/mockups/DocMockup';
+import type { IVideoClip } from '@/data/videos';
 export interface IMenuItem {
     text: string;
     url: string;
@@ -151,6 +152,8 @@ export interface IDocSubsection {
     table?: IDocTable;
     steps?: string[] | IDocStep[];
     mockup?: DocMockupName;
+    // A product video or one of its chapters. Build it with clip() from '@/data/videos'.
+    video?: IVideoClip;
 }
 
 export interface IDocTable {

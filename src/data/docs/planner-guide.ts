@@ -1,4 +1,5 @@
 import { IDocGuide } from '@/types';
+import { clip } from '@/data/videos';
 
 export const plannerGuide: IDocGuide = {
     slug: 'planner',
@@ -75,6 +76,7 @@ export const plannerGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Steps',
+                    video: clip('quote-to-scheduled-job', 'Schedule it on the planner'),
                     steps: [
                         'Find the job in the backlog rail underneath the board.',
                         'Drag it onto the day and engineer you want.',
