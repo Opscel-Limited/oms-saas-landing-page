@@ -1,4 +1,5 @@
 import { IDocGuide } from '@/types';
+import { clip } from '@/data/videos';
 
 const IMG = '/images/docs/asset-tracking';
 const LIFE = '/images/docs/asset-lifecycle';
@@ -41,10 +42,12 @@ export const assetTrackingGuide: IDocGuide = {
                     mockup: 'engineer-journey',
                 },
                 {
+                    video: clip('field-fire-alarm-service', 'Test each device'),
                     content: phoneFigure(`${IMG}/field-device-test-list.webp`, 'The Fire Alarm Service device test list on an Android phone: 25 of 150 tested with 1 fault and 124 to do; devices above ticked Tested, zone 2 showing 1/25 done with a Mark 24 tested button, one sounder marked Fault and the rest waiting to be tapped', 'The real screen on a phone: tap a row to mark it tested, the arrow opens its card, and a zone can be marked in one go.'),
                 },
                 {
                     title: 'Three Ways Equipment Lands on a Row',
+                    video: clip('field-fire-alarm-service', "Load the site's devices"),
                     content: '<p class="mb-4">Whether a row was pre-loaded, picked from the register on site, or scanned, it is the same row - the tag on it tells the engineer (and you) which door it came in by. QR and barcode tags scan on any device; NFC tag binding is a Chrome-on-Android enhancement on top of that, not a requirement.</p>'
                         + diagram(`${IMG}/three-ways-onto-a-row.svg`, 'Three sources - pre-loaded from the register when the job is raised, picked from the site register on site, or a scanned QR tag - all converge on one worksheet row; the tags they produce read FROM SITE REGISTER, FROM SITE REGISTER and SCANNED, with a greyed FROM LAST VISIT tag reserved for carry-forward when a site has no register.', 'One row shape, three doors in - the tag says which.'),
                 },
@@ -115,6 +118,7 @@ export const assetTrackingGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'What Auto-Register Commits on Its Own',
+                    video: clip('field-fire-alarm-service', 'Update the register'),
                     content: '<p>Routine work: an engineer servicing equipment that is <em>already</em> on the register updates its history and condition the moment the worksheet is marked complete. On a pre-loaded sheet that is nearly every row.</p>',
                 },
                 {

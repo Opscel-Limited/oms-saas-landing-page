@@ -64,6 +64,7 @@ export const certificatesGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Status Flow',
+                    video: clip('field-electrical-certificate', 'Submit for review'),
                     content: `
                         <p class="mb-4"><strong>Draft → Completed → Issued → (Voided/Superseded)</strong></p>
                         <ol class="list-decimal pl-6 space-y-2 text-gray-700 mb-4">
@@ -134,6 +135,7 @@ export const certificatesGuide: IDocGuide = {
                 },
                 {
                     title: 'Minor Works Certificate',
+                    video: clip('field-electrical-certificate', 'Start the certificate'),
                     content: `
                         <p class="mb-2"><strong>Standard:</strong> BS 7671:2018+A4:2026</p>
                         <p class="mb-4"><strong>When to use:</strong> Adding a socket to existing circuit, adding a light fitting, installing a fused spur</p>
@@ -337,6 +339,7 @@ export const certificatesGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'General Pattern for Filling Sections',
+                    video: clip('field-electrical-certificate', 'Circuit and test results'),
                     content: `
                         <ol class="list-decimal pl-6 space-y-2 text-gray-700 mb-4">
                             <li><strong>Open the section:</strong> Click section heading to expand</li>

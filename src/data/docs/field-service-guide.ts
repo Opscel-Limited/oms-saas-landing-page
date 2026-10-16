@@ -317,6 +317,7 @@ export const fieldServiceGuide: IDocGuide = {
                 },
                 {
                     title: 'Taking Photos',
+                    video: clip('field-photos-parts-defects', 'Take photos'),
                     content: '',
                     steps: [
                         { step: 'Tap "Photos" from the job hub', description: '' },
@@ -401,6 +402,7 @@ export const fieldServiceGuide: IDocGuide = {
                 },
                 {
                     title: 'Logging Defects',
+                    video: clip('field-photos-parts-defects', 'Raise a defect'),
                     content: `
                         <p class="mb-4">
                             Defects are problems you find on the job that need attention. Each one is recorded against the job and the site, and the office can turn it into a remedial quote.
@@ -492,6 +494,7 @@ export const fieldServiceGuide: IDocGuide = {
                 },
                 {
                     title: 'Recording Parts Used',
+                    video: clip('field-photos-parts-defects', 'Log parts used'),
                     content: `
                         <p class="mb-4">
                             Record parts and materials used on the job. These feed into invoicing automatically.

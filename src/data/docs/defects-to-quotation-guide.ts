@@ -1,4 +1,5 @@
 import { IDocGuide } from '@/types';
+import { clip } from '@/data/videos';
 
 const IMG = '/images/docs/defects';
 
@@ -52,6 +53,7 @@ export const defectsToQuotationGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Step 1 — A Defect Is Logged on the Job',
+                    video: clip('field-photos-parts-defects', 'Raise a defect'),
                     content: '<p class="mb-4">When an engineer identifies an issue on site, they log it in the <strong>Defects</strong> section of the field app. The office can also add one from the job\'s Overview tab (see <a href="#office-defects" class="text-blue-600 hover:underline">Add or edit defects from the office</a>).</p><p class="mb-4">For any defect that needs remedial work, they tick <strong>"Quote required for remedial work"</strong>. Major and Critical defects are treated as needing a quote automatically.</p>'
                 },
                 {

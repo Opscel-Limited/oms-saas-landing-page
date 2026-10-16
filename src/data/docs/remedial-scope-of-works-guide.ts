@@ -1,4 +1,5 @@
 import { IDocGuide } from '@/types';
+import { clip } from '@/data/videos';
 
 const DEF = '/images/docs/defects';
 
@@ -135,6 +136,7 @@ export const remedialScopeOfWorksGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Step 1: Log the Defects',
+                    video: clip('field-photos-parts-defects', 'Raise a defect'),
                     content: 'During a visit (a fire alarm service, an EICR and so on) the engineer finds issues that need remedial work.',
                     bullets: [
                         'Open the job in the field app and go to <strong>Defects</strong>',

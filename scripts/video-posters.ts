@@ -61,6 +61,30 @@ const OFFSETS: Record<string, IOffsets> = {
             'Leave site, come back later': 7, // "Job stays open" with Continue on the list (t=63)
         },
     },
+    'field-photos-parts-defects': {
+        full: 13.5, // the fuse board photo just uploaded on the Photos page
+        chapters: {
+            'Take photos': 13.5, // the same frame: "Photo uploaded" with the thumbnail
+            'Log parts used': 11.5, // the first part listed, the second being typed (t=25.5)
+            'Raise a defect': 24, // the saved Major defect with its photo and the Remedial Scope toast (t=51)
+        },
+    },
+    'field-fire-alarm-service': {
+        full: 30, // the device test list mid-service: 3 of 7 tested, the kitchen heat detector marked Fault
+        chapters: {
+            "Load the site's devices": 11.5, // the register pre-loaded: 0/7 tested, grouped by zone
+            'Test each device': 17, // the same frame as the full poster (t=30)
+            'Update the register': 27, // "Job sheet marked as complete" and "1 failed device raised as a defect" (t=61)
+        },
+    },
+    'field-electrical-certificate': {
+        full: 82, // Part 7 filled: test button and polarity Yes, about to tap Done
+        chapters: {
+            'Start the certificate': 12, // the certificate type grid, Minor Works card tapped
+            'Circuit and test results': 55, // the same frame as the full poster (t=82)
+            'Submit for review': 21, // "Certificate submitted for review" with the Pending review pill (t=104)
+        },
+    },
 };
 
 const W = 1280;
