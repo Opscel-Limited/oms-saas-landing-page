@@ -1,4 +1,5 @@
 import { IDocGuide } from '@/types';
+import { clip } from '@/data/videos';
 
 const IMG = '/images/docs/asset-lifecycle';
 const TRK = '/images/docs/asset-tracking';
@@ -99,6 +100,7 @@ export const assetLifecycleGuide: IDocGuide = {
                 },
                 {
                     title: 'The Device Test List (Fire Alarm Service & Asset Service)',
+                    video: clip('field-fire-alarm-service', 'Test each device'),
                     content: '<p class="mb-4">Rather than a card per device, these two worksheets list their equipment as one compact line each - identity, kind and location - in panel order by default, grouped by zone on the Fire Alarm Service sheet and by equipment type on the Asset Service sheet.</p>' + phoneFigure(`${TRK}/field-device-test-list.webp`, 'The Fire Alarm Service device test list on an Android phone: 25 of 150 tested with 1 fault and 124 to do; devices above ticked Tested, zone 2 showing 1/25 done with a Mark 24 tested button, one sounder marked Fault and the rest waiting to be tapped', 'The real screen on a phone: tap a row to mark it tested, the arrow opens its card, and a zone can be marked in one go.'),
                     bullets: [
                         '<strong>Tap a row to mark it tested; tap again to undo.</strong> The arrow on the right always opens the full card, for a fault, a note, or the <strong>Missing</strong> action - a tap on the row itself never sets those.',

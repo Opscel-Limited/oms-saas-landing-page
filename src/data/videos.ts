@@ -67,6 +67,26 @@ export const videos = {
             { title: 'Leave site, come back later', start: 56 },
         ],
     },
+    'field-photos-parts-defects': {
+        title: 'Photos, parts and defects',
+        youtubeId: '8kQYhPv4MRM',
+        duration: 61,
+        chapters: [
+            { title: 'Take photos', start: 0 },
+            { title: 'Log parts used', start: 14 },
+            { title: 'Raise a defect', start: 27 },
+        ],
+    },
+    'field-fire-alarm-service': {
+        title: 'Service a fire alarm system',
+        youtubeId: 'Aoibz4FjbI4',
+        duration: 70,
+        chapters: [
+            { title: "Load the site's devices", start: 0 },
+            { title: 'Test each device', start: 13 },
+            { title: 'Update the register', start: 34 },
+        ],
+    },
 } as const satisfies Record<string, IVideo>;
 
 export type VideoSlug = keyof typeof videos;

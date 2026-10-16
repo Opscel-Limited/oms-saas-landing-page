@@ -208,8 +208,17 @@ Section ids are from `origin/main` on 2026-10-14.
 | `field-emergency-callout` (F6) | Raise a callout | `jobs` › `overview` (until a callout method exists in `jobs` › `creating-jobs`) |
 | | Work and write up | `jobs` › `multi-visit` ("Per-Visit Work Summaries") |
 | | Leave site, come back later | `jobs` › `multi-visit` ("When to Use Multi-Visit") |
+| `field-photos-parts-defects` (F3) | Take photos | `field-service` › `capturing-photos` ("Taking Photos") |
+| | Log parts used | `field-service` › `capturing-work` ("Recording Parts Used") |
+| | Raise a defect | `field-service` › `capturing-work` ("Logging Defects"); `defects-to-quotation` › `how-it-works` ("Step 1 — A Defect Is Logged on the Job"); `remedial-scope-of-works` › `how-it-works` ("Step 1: Log the Defects") |
+| `field-fire-alarm-service` (F4) | Load the site's devices | `asset-tracking` › `engineer-journey` ("Three Ways Equipment Lands on a Row") |
+| | Test each device | `asset-tracking` › `engineer-journey` (the device test list phone figure); `asset-lifecycle` › `auto-promotion` ("The Device Test List (Fire Alarm Service & Asset Service)") |
+| | Update the register | `asset-tracking` › `auto-register` ("What Auto-Register Commits on Its Own") |
 
 Wired differently (2026-10-14):
+- F4 "Load the site's devices" sits on `asset-tracking` › `engineer-journey`, not `existing-equipment`
+  (the product plan's pick): that section is about importing a register, and the chapter shows the
+  register arriving pre-loaded on the worksheet. `which-worksheets` is not wired.
 - Not wired (2026-10-15): F1 whole video on `field-service` › `overview`. Its only subsection
   already plays `on-site-to-invoice`, and a subsection holds one video.
 - F6 "Work and write up" sits on `jobs` › `multi-visit`, not `field-service` › `capturing-work`
