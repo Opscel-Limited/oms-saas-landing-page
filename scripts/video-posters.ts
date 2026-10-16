@@ -77,6 +77,14 @@ const OFFSETS: Record<string, IOffsets> = {
             'Update the register': 27, // "Job sheet marked as complete" and "1 failed device raised as a defect" (t=61)
         },
     },
+    'field-electrical-certificate': {
+        full: 82, // Part 7 filled: test button and polarity Yes, about to tap Done
+        chapters: {
+            'Start the certificate': 12, // the certificate type grid, Minor Works card tapped
+            'Circuit and test results': 55, // the same frame as the full poster (t=82)
+            'Submit for review': 21, // "Certificate submitted for review" with the Pending review pill (t=104)
+        },
+    },
 };
 
 const W = 1280;

@@ -87,6 +87,16 @@ export const videos = {
             { title: 'Update the register', start: 34 },
         ],
     },
+    'field-electrical-certificate': {
+        title: 'An electrical certificate on site',
+        youtubeId: '3V-mN16cUz0',
+        duration: 107,
+        chapters: [
+            { title: 'Start the certificate', start: 0 },
+            { title: 'Circuit and test results', start: 27 },
+            { title: 'Submit for review', start: 83 },
+        ],
+    },
 } as const satisfies Record<string, IVideo>;
 
 export type VideoSlug = keyof typeof videos;

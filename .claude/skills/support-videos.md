@@ -214,11 +214,19 @@ Section ids are from `origin/main` on 2026-10-14.
 | `field-fire-alarm-service` (F4) | Load the site's devices | `asset-tracking` › `engineer-journey` ("Three Ways Equipment Lands on a Row") |
 | | Test each device | `asset-tracking` › `engineer-journey` (the device test list phone figure); `asset-lifecycle` › `auto-promotion` ("The Device Test List (Fire Alarm Service & Asset Service)") |
 | | Update the register | `asset-tracking` › `auto-register` ("What Auto-Register Commits on Its Own") |
+| `field-electrical-certificate` (F5) | Start the certificate | `certificates` › `certificate-types` ("Minor Works Certificate") |
+| | Circuit and test results | `certificates` › `section-completion` ("General Pattern for Filling Sections") |
+| | Submit for review | `certificates` › `certificate-lifecycle` ("Status Flow") |
 
 Wired differently (2026-10-14):
 - F4 "Load the site's devices" sits on `asset-tracking` › `engineer-journey`, not `existing-equipment`
   (the product plan's pick): that section is about importing a register, and the chapter shows the
   register arriving pre-loaded on the worksheet. `which-worksheets` is not wired.
+- F5 is not on the product plan's picks: `creating-certificates` "Method 2" already plays the
+  demo 3 clip; `circuits` is the EIC/EICR circuit SCHEDULE, which a Minor Works doesn't have; and
+  `signatures` would mislead, because F5 draws no signature (the office signs a Minor Works as
+  constructor). Prose on the wired sections predates the field app (e.g. "Save Section", Minor Works
+  "Signatures required: Installer/Tester"): owner's wording.
 - Not wired (2026-10-15): F1 whole video on `field-service` › `overview`. Its only subsection
   already plays `on-site-to-invoice`, and a subsection holds one video.
 - F6 "Work and write up" sits on `jobs` › `multi-visit`, not `field-service` › `capturing-work`
