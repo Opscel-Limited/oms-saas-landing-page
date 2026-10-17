@@ -747,16 +747,19 @@ export const fieldServiceGuide: IDocGuide = {
                     ]
                 },
                 {
-                    title: 'Shift History',
+                    title: 'Clocking In and Out',
                     content: `
                         <p class="mb-4">
-                            View your past shifts, including clock-in/out times and total hours.
+                            When your company tracks shifts, you clock in when you start work and out when you finish.
+                            While you are on shift, a timer stays at the top of every screen. Shift History lists your
+                            shifts from the last 7 days, with clock-in and clock-out times, total hours and any note you added.
                         </p>
                     `,
+                    video: clip('field-clock-in-out'),
                     steps: [
-                        { step: 'Go to Settings → Shift History', description: '' },
-                        { step: 'View list of past shifts', description: '' },
-                        { step: 'Tap a shift to see details', description: 'Jobs worked, hours logged' }
+                        { step: 'Tap "Clock in" on the home screen banner', description: 'Shown only when your company tracks shifts' },
+                        { step: 'To clock out, tap the timer at the top of any screen', description: 'Add a note if you want one, then tap "Clock out"' },
+                        { step: 'Go to Settings → Shifts → Shift history', description: 'Your shifts from the last 7 days, newest first' }
                     ]
                 },
                 {

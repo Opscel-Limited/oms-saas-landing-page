@@ -97,6 +97,12 @@ export const videos = {
             { title: 'Submit for review', start: 83 },
         ],
     },
+    'field-clock-in-out': {
+        title: 'Clock in and out',
+        youtubeId: 'oEIZ3Ik2Ru4',
+        duration: 36,
+        chapters: [],
+    },
 } as const satisfies Record<string, IVideo>;
 
 export type VideoSlug = keyof typeof videos;
