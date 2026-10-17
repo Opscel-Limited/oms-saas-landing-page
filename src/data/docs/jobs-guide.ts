@@ -5,7 +5,7 @@ export const jobsGuide: IDocGuide = {
     slug: 'jobs',
     title: 'Jobs & Multi-Visit Workflow',
     description: 'Complete guide to creating, scheduling, and managing jobs in Opscel. Learn about job statuses, multi-visit jobs, engineer assignment, and completion workflows.',
-    lastUpdated: '2026-09-25',
+    lastUpdated: '2026-10-17',
     sections: [
         {
             id: 'overview',
@@ -29,7 +29,6 @@ export const jobsGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Key Capabilities',
-                    video: clip('field-emergency-callout', 'Raise a callout'),
                     content: '',
                     bullets: [
                         'Single or multi-visit scheduling',
@@ -49,7 +48,7 @@ export const jobsGuide: IDocGuide = {
             title: 'Creating Jobs',
             content: `
                 <p class="mb-6">
-                    There are three ways to create jobs in Opscel. Choose the method that fits your workflow.
+                    There are four ways to create jobs in Opscel. Choose the method that fits your workflow.
                 </p>
             `,
             subsections: [
@@ -99,6 +98,35 @@ export const jobsGuide: IDocGuide = {
                         'Assets auto-load from previous job (if active)',
                         'Jobs start in "Scheduled" status with suggested date',
                         'Cron runs daily at 05:00 UTC (UK-aligned)'
+                    ]
+                },
+                {
+                    title: 'Method 4: Emergency Call Out (Field App)',
+                    video: clip('field-emergency-callout', 'Raise a callout'),
+                    content: `
+                        <p class="mb-4"><strong>Availability:</strong> Engineers, Site Managers, Admins and Super Admins. Raise it from the field app. You need a signal to raise it.</p>
+                        <p class="mb-4">An on-call engineer who takes a phone call can raise a job in a few taps and head to site. The office fills in the rest later. In the office, raise the same kind of job with <strong>New Job</strong> (Method 1) and set the job type to Emergency.</p>
+                    `,
+                    steps: [
+                        'Open the field app and scroll to the bottom of the job list. The red <strong>Emergency Call Out</strong> card sits below your jobs',
+                        'Tap <strong>Emergency Call Out</strong>',
+                        'Search for the customer by name. Type at least two letters, then tap the customer. This is the only required choice',
+                        'Check the site. A customer with one site fills it in for you. With more than one site, pick from the <strong>Site</strong> list',
+                        'Check the job title. It is filled in from the site and customer, and you can edit it',
+                        'Describe the fault under <strong>What\'s the problem?</strong> (optional)',
+                        'Pick a <strong>Service type</strong> if you know it (optional). If you are not sure, leave it on "Not sure - leave for the office"',
+                        'Add a colleague if someone is joining you (optional)',
+                        'Tap <strong>Raise call-out</strong>. The job opens on screen, ready for you to check in'
+                    ]
+                },
+                {
+                    title: 'What an Emergency Call Out Sets Up',
+                    content: '',
+                    bullets: [
+                        'The job type is Emergency and the priority is Urgent',
+                        'The status is "Scheduled", booked for now, with a visit for the same time',
+                        'You are assigned as the main engineer, and any colleagues you add are assigned with you',
+                        'The check-in, photos and sign-off still work offline once the job exists'
                     ]
                 },
                 {

@@ -5,7 +5,7 @@ export const certificatesGuide: IDocGuide = {
     slug: 'certificates',
     title: 'Certificates Module - Complete User Guide',
     description: 'Learn how to create, manage, and issue industry-standard compliance certificates in Opscel. From EIC to EICR to Fire Alarm Service, generate professional PDFs with built-in validation.',
-    lastUpdated: '2026-07-16',
+    lastUpdated: '2026-10-17',
     sections: [
         {
             id: 'overview',
@@ -69,7 +69,7 @@ export const certificatesGuide: IDocGuide = {
                         <p class="mb-4"><strong>Draft → Completed → Issued → (Voided/Superseded)</strong></p>
                         <ol class="list-decimal pl-6 space-y-2 text-gray-700 mb-4">
                             <li><strong>Draft:</strong> Work in progress — editable, no certificate number assigned</li>
-                            <li><strong>Completed:</strong> Engineer marks complete — ready for office review, still editable</li>
+                            <li><strong>Completed:</strong> Engineer submits it for review (<strong>Submit for review</strong> in the field app) — ready for office review. In the field app the certificate then shows <strong>Pending review</strong>, and the engineer taps <strong>Revert</strong> to reopen it for editing</li>
                             <li><strong>Issued:</strong> Admin/Manager issues certificate — PDF generated, certificate number assigned, becomes read-only</li>
                             <li><strong>Voided:</strong> Certificate cancelled — retains certificate number, cannot be un-voided</li>
                             <li><strong>Superseded:</strong> Certificate replaced by newer version — original retained for audit trail</li>
@@ -240,6 +240,23 @@ export const certificatesGuide: IDocGuide = {
                     ]
                 },
                 {
+                    title: 'Method 3: In the Field App',
+                    video: clip('field-electrical-certificate', 'Start the certificate'),
+                    content: `
+                        <p class="mb-4"><strong>Availability:</strong> Engineers. You need a signal to create a certificate.</p>
+                        <p class="mb-4">Engineers can start, fill in and submit a certificate from their phone. Filling it in works offline once it exists.</p>
+                    `,
+                    steps: [
+                        'Open the job in the field app and tap <strong>Certificates</strong>',
+                        'Tap <strong>Create certificate</strong>',
+                        'Tap the certificate type you need. The certificate opens straight away as a draft, linked to the job',
+                        'Work through each section on the certificate. Each one shows whether it is complete',
+                        'Write <strong>Work carried out</strong> in the box below the sections if you have not already. It is needed to complete the job, not to submit the certificate',
+                        'Tap <strong>Submit for review</strong>. If something is missing, a <strong>Needs attention before you can submit</strong> list shows where',
+                        'The certificate shows <strong>Pending review</strong> until the office issues it. To change it first, tap <strong>Revert</strong> and confirm'
+                    ]
+                },
+                {
                     title: 'What You Should See',
                     content: `
                         <div class="bg-green-50 border-l-4 border-green-500 p-4">
@@ -345,7 +362,7 @@ export const certificatesGuide: IDocGuide = {
                             <li><strong>Open the section:</strong> Click section heading to expand</li>
                             <li><strong>Fill required fields:</strong> Fields marked with red asterisk (*) are mandatory</li>
                             <li><strong>Fill optional fields:</strong> Add detail as needed for compliance and customer clarity</li>
-                            <li><strong>Save progress:</strong> Auto-save triggers every 30 seconds, or click "Save Section"</li>
+                            <li><strong>Save progress:</strong> Auto-save triggers a few seconds after you stop typing, or click "Save Section"</li>
                             <li><strong>Move to next section:</strong> Green checkmark appears when section is complete</li>
                         </ol>
                     `
@@ -389,7 +406,7 @@ export const certificatesGuide: IDocGuide = {
                                 <strong>Auto-save triggers:</strong>
                             </p>
                             <ul class="list-disc pl-6 mt-2 text-blue-800">
-                                <li>Every 30 seconds while editing</li>
+                                <li>A few seconds after you stop editing</li>
                                 <li>When you navigate to a different section</li>
                                 <li>When you add/remove circuit or observation rows</li>
                                 <li>When you change certificate status</li>
@@ -866,9 +883,9 @@ export const certificatesGuide: IDocGuide = {
                     bullets: [
                         '<strong>Complete sections on-site:</strong> Fill test results and observations while fresh in memory',
                         '<strong>Capture signatures before leaving:</strong> Difficult to get signatures after engineer has left site',
-                        '<strong>Use auto-save:</strong> Changes save every 30 seconds—no need to click Save constantly',
+                        '<strong>Use auto-save:</strong> Changes save automatically a moment after you stop typing, and queue if you have no signal',
                         '<strong>Take photos:</strong> Link photos to certificate from job detail page for visual evidence',
-                        '<strong>Mark complete when done:</strong> Lets office know certificate is ready for review'
+                        '<strong>Submit for review when done:</strong> In the field app, tap <strong>Submit for review</strong> once every section is complete. The office then sees it as ready to check and issue. You need a signal to submit'
                     ]
                 },
                 {
