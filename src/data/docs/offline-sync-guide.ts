@@ -78,7 +78,7 @@ export const offlineSyncGuide: IDocGuide = {
                 {
                     title: 'Operations That Fail (Require Online)',
                     bullets: [
-                        '<strong>Fetching fresh job list:</strong> Viewing "Today\'s Jobs" requires server fetch (uses cached data if offline)',
+                        '<strong>Fetching fresh job list:</strong> Viewing "Today\'s route" requires server fetch (uses cached data if offline)',
                         '<strong>Creating new jobs:</strong> Cannot create jobs from field app (admin function, requires server)',
                         '<strong>Real-time notifications:</strong> Telegram/Slack notifications don\'t send until online',
                         '<strong>Syncing up to office:</strong> Office staff won\'t see your updates until you sync',
@@ -179,7 +179,7 @@ export const offlineSyncGuide: IDocGuide = {
                         '<strong>Job data & API responses:</strong> Customer info, site addresses, job notes, worksheets (text only, no photos) — capped at a fixed number of entries per cache, oldest trimmed first',
                         '<strong>App assets:</strong> HTML, CSS, JavaScript bundles (PWA shell), also capped by entry count',
                         '<strong>Photos & worksheet data (queued):</strong> Stored in IndexedDB, not the service worker cache — never evicted until synced, unless the browser reports the device is genuinely out of storage',
-                        '<strong>Recent job list:</strong> Last-fetched "Today\'s Jobs" list (refreshes on next online fetch)',
+                        '<strong>Recent job list:</strong> Last-fetched "Today\'s route" list (refreshes on next online fetch)',
                     ],
                 },
                 {

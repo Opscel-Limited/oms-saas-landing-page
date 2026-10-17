@@ -5,7 +5,7 @@ export const fieldServiceGuide: IDocGuide = {
     slug: 'field-service',
     title: 'Field Service App — Engineer\'s Day',
     description: 'Complete guide to using the Opscel field service PWA for engineers. Learn how to manage jobs, capture work, and sync data offline.',
-    lastUpdated: '2026-09-25',
+    lastUpdated: '2026-10-17',
     sections: [
         {
             id: 'overview',
@@ -34,7 +34,7 @@ export const fieldServiceGuide: IDocGuide = {
                     bullets: [
                         'Viewing today\'s jobs and weekly schedule',
                         'GPS-tracked check-in and departure',
-                        'Photo capture with 7 categories and captions',
+                        'Photo capture with five categories and descriptions',
                         'Engineer and customer signature collection',
                         'Multi-section worksheets and checklists',
                         'Defect logging with severity levels',
@@ -108,7 +108,7 @@ export const fieldServiceGuide: IDocGuide = {
         },
         {
             id: 'todays-jobs',
-            title: 'Today\'s Jobs List',
+            title: 'Today\'s Route',
             content: `
                 <p class="mb-6">
                     The home screen shows all jobs assigned to you for today, with quick access to your weekly schedule.
@@ -120,32 +120,36 @@ export const fieldServiceGuide: IDocGuide = {
                     video: clip('field-start-your-day', "Today's jobs"),
                     content: '',
                     steps: [
-                        { step: 'Open the field app', description: 'You\'ll land on the "Today\'s Jobs" screen by default' },
-                        { step: 'View your assigned jobs for today', description: 'Shows job number, customer name, site address, and scheduled time' },
+                        { step: 'Open the field app', description: 'You\'ll land on the "Today\'s route" screen by default' },
+                        { step: 'View your assigned jobs for today', description: 'Each card shows the job number, title, site, and scheduled time' },
                         { step: 'Tap a job card to open the job detail page', description: 'This is your hub for all job-related actions' },
-                        { step: 'Use the bottom navigation to switch views', description: 'Schedule (weekly calendar), Customers, Certificates, Settings' }
+                        { step: 'Use the bottom navigation to switch views', description: 'Jobs (this list), Schedule (weekly calendar), Customers, Settings' }
                     ]
                 },
                 {
                     title: 'Job Card Information',
-                    content: 'Each job card displays:',
+                    content: 'Each job card shows:',
                     bullets: [
-                        'Job number and title',
-                        'Customer name',
-                        'Site address with navigation button',
-                        'Scheduled date and time',
-                        'Job status badge (Scheduled, In Progress, Completed)',
-                        'Progress orb showing completion percentage'
+                        'Job number, with an <strong>Urgent</strong> or <strong>High</strong> tag if the job has that priority',
+                        'Job title',
+                        'Site name and address, with a key icon if the site has access notes',
+                        'Scheduled time, and the expected duration if one is set',
+                        'Job labels (the first two, read only)',
+                        'A three-part progress ring on the right: checked in, risk assessment filled in, and parts added. Each part turns green when done and stays grey until then'
                     ]
                 },
                 {
-                    title: 'Filters and Sorting',
+                    title: 'Filter Chips',
                     video: clip('field-start-your-day', 'Tomorrow'),
-                    content: 'Use the filter controls at the top to:',
+                    content: 'A row of chips above the job list narrows it by date. Each chip shows how many jobs it holds. The list opens on <strong>Today</strong>. Jobs are in time order, earliest first.',
                     bullets: [
-                        'View all jobs, today only, or this week',
-                        'Filter by status (Scheduled, In Progress, Completed)',
-                        'Sort by scheduled time, customer name, or job number'
+                        '<strong>Today:</strong> open jobs scheduled for today',
+                        '<strong>Tomorrow:</strong> open jobs scheduled for tomorrow',
+                        '<strong>This week:</strong> open jobs from the day after tomorrow up to seven days ahead',
+                        '<strong>Overdue:</strong> open jobs dated before today. It only appears when you have some, and sits first in the row. The most recent come first',
+                        '<strong>No date:</strong> scheduled jobs with no date or visit yet. It only appears when you have some',
+                        'A job you have started (In Progress) is not under a chip. It shows as a card above the chips with a <strong>Continue</strong> button',
+                        'Completed and cancelled jobs are not listed'
                     ]
                 },
                 {
@@ -173,7 +177,7 @@ export const fieldServiceGuide: IDocGuide = {
                     video: clip('field-start-your-day', 'Before you set off'),
                     content: '',
                     steps: [
-                        { step: 'Tap a job card from the Today\'s Jobs list', description: '' },
+                        { step: 'Tap a job card from the Today\'s route list', description: '' },
                         { step: 'The job detail hub opens', description: 'Shows a Progress Orb and quick action buttons' },
                         { step: 'Review the Overview section', description: 'Customer details, site address, job description, scheduled time, and a PO badge if the office has set a customer purchase order' },
                         { step: 'Check if a risk assessment is required', description: 'Red indicator if not completed' },
@@ -298,7 +302,7 @@ export const fieldServiceGuide: IDocGuide = {
             title: 'Capturing Photos',
             content: `
                 <p class="mb-6">
-                    Photos are organized into 7 categories to keep job documentation structured. All photos work offline and sync when you're back online.
+                    Photos are sorted into categories to keep job documentation structured. The field app offers five. Taking photos works offline and they sync when you're back online. Changing or deleting a photo needs a signal.
                 </p>
             `,
             subsections: [
@@ -306,12 +310,10 @@ export const fieldServiceGuide: IDocGuide = {
                     title: 'Photo Categories',
                     content: '',
                     bullets: [
-                        'Before: Site condition before work starts',
-                        'After: Completed work, final condition',
-                        'Deficiency: Issues found during inspection',
+                        'Before Work: Site condition before work starts',
+                        'After Work: Completed work, final condition',
                         'Equipment: Equipment being serviced or installed',
-                        'Certificate: Test certificates, documentation',
-                        'Signature: Customer sign-off',
+                        'Deficiency: Issues found during inspection',
                         'Other: Misc photos (access, permits)'
                     ]
                 },
@@ -320,12 +322,12 @@ export const fieldServiceGuide: IDocGuide = {
                     video: clip('field-photos-parts-defects', 'Take photos'),
                     content: '',
                     steps: [
-                        { step: 'Tap "Photos" from the job hub', description: '' },
-                        { step: 'Select a category (Before, After, Deficiency, Equipment, Certificate, Signature, Other)', description: '' },
-                        { step: 'Tap the camera button', description: '' },
-                        { step: 'Take the photo using your device camera', description: '' },
-                        { step: 'Add a caption to describe what is shown', description: 'Captions help identify photos later' },
-                        { step: 'Tap "Save"', description: 'Photo queues for upload (or uploads immediately if online)' }
+                        'Tap <strong>Photos</strong> from the job hub',
+                        'Under <strong>Category for next photo</strong>, pick one: Before Work, After Work, Equipment, Deficiency or Other. It starts on Before Work',
+                        'Tap <strong>Take photo</strong> to use your camera, or <strong>Gallery</strong> to pick photos you already have',
+                        'The photo uploads as soon as you take it. There is no Save button at this point. If you are offline it is queued and shows as "Queued" until it syncs',
+                        'To add a description, tap the photo to open <strong>Photo details</strong>. You can also change its category or name there',
+                        'Tap <strong>Save</strong> in Photo details. This needs a signal'
                     ]
                 },
                 {
@@ -345,10 +347,9 @@ export const fieldServiceGuide: IDocGuide = {
                     title: 'Deleting Photos',
                     content: '',
                     steps: [
-                        { step: 'Tap "Photos" from the job hub', description: '' },
-                        { step: 'Find the photo to delete', description: '' },
-                        { step: 'Tap the delete icon (trash can)', description: '' },
-                        { step: 'Confirm deletion', description: 'Cannot be undone' }
+                        'Tap <strong>Photos</strong> from the job hub',
+                        'Tap the photo to open <strong>Photo details</strong>',
+                        'Tap <strong>Delete photo</strong>, then tap it again where it reads <strong>Tap again to confirm</strong>. This needs a signal'
                     ]
                 }
             ]
@@ -409,7 +410,7 @@ export const fieldServiceGuide: IDocGuide = {
                         </p>
                     `,
                     steps: [
-                        'Tap <strong>Defects</strong> from the job hub, then <strong>Add defect</strong>',
+                        'Tap <strong>Defects</strong> from the job hub, then <strong>New defect</strong>',
                         'Pick a <strong>severity</strong> (required) - each tile carries a reminder of what it means (see below)',
                         'Choose a <strong>category</strong> and enter the <strong>location</strong>, e.g. "Ground floor corridor"',
                         'Describe the defect (required) - be specific: what is wrong and why it matters',
@@ -554,7 +555,7 @@ export const fieldServiceGuide: IDocGuide = {
                     title: 'Writing the Work Summary',
                     content: `
                         <p class="mb-4">
-                            The work summary is the most important field. It appears on certificates, invoices, and customer communications.
+                            The work summary is called <strong>Work carried out</strong> in the app. It is the most important field. It prints on the job sheet and on fire alarm certificates.
                         </p>
                         <div class="bg-amber-50 border-l-4 border-amber-500 p-4 mb-4">
                             <p class="text-sm text-amber-900">
@@ -562,14 +563,25 @@ export const fieldServiceGuide: IDocGuide = {
                             </p>
                         </div>
                         <p class="mb-4">
-                            Already written a summary on a completed worksheet? A <strong>Use worksheet summary</strong> button offers it here instead of typing it twice — you can still edit it afterwards. A summary already used on another visit isn't offered again.
+                            You write it in the place you are already working, so you do not write the job up twice. It is saved to today's visit, so <strong>check in first</strong>. Until you do, the box is switched off.
+                        </p>
+                        <p class="mb-4">
+                            You can write it in any of three places. It is the same summary in each:
+                        </p>
+                        <ul class="list-disc pl-6 mb-4 space-y-2">
+                            <li><strong>At the end of a job sheet</strong>, in the sign-off step. Tap <strong>Write today's work carried out</strong> (it reads <strong>Edit today's work carried out</strong> once you have written some). It is locked once the customer has signed that sheet.</li>
+                            <li><strong>On a draft certificate</strong>, in the <strong>Work carried out</strong> box below the list of sections. It is needed to complete the job, not to submit the certificate.</li>
+                            <li><strong>On the Review screen.</strong> Tap <strong>Continue to Review</strong> on the job hub, then write it in the <strong>What was done on this visit</strong> box.</li>
+                        </ul>
+                        <p class="mb-4">
+                            Already written a summary on a completed worksheet? A <strong>Use worksheet summary</strong> button offers it while the box is empty, instead of typing it twice. You can still edit it afterwards. A summary already used on another visit isn't offered again.
                         </p>
                     `,
                     steps: [
-                        { step: 'Tap "Complete Job" or "Work Summary" from the job hub', description: '' },
-                        { step: 'Enter a detailed work summary', description: 'What you did, what you found, what needs follow-up' },
-                        { step: 'Minimum 10 characters required', description: 'Be thorough—this goes to the customer' },
-                        { step: 'Review the summary for typos and clarity', description: '' }
+                        'Check in on site',
+                        'Open the box in whichever of those three places you reach first',
+                        'Describe what you did, what you found and what needs follow-up. You need at least 10 characters. A counter under the box shows how you are doing',
+                        'There is no Save button. It saves as you type and when you leave the box or the screen'
                     ]
                 },
                 {
