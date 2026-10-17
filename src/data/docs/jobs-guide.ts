@@ -20,7 +20,7 @@ export const jobsGuide: IDocGuide = {
                     </p>
                     <p class="text-gray-800 mt-3">
                         <strong>Who uses this:</strong> Super Admin, Admin, Contract Manager, Site Manager, Engineer<br/>
-                        <strong>Where it lives:</strong> Admin app: Jobs menu | Field app: Today&apos;s Jobs<br/>
+                        <strong>Where it lives:</strong> Admin app: Jobs menu | Field app: Today&apos;s route<br/>
                         <strong>Key benefit:</strong> Complete work lifecycle tracking from scheduling to invoicing
                     </p>
                 </div>
@@ -101,35 +101,6 @@ export const jobsGuide: IDocGuide = {
                     ]
                 },
                 {
-                    title: 'Method 4: Emergency Call Out (Field App)',
-                    video: clip('field-emergency-callout', 'Raise a callout'),
-                    content: `
-                        <p class="mb-4"><strong>Availability:</strong> Engineers, Site Managers, Admins and Super Admins. Raise it from the field app. You need a signal to raise it.</p>
-                        <p class="mb-4">An on-call engineer who takes a phone call can raise a job in a few taps and head to site. The office fills in the rest later. In the office, raise the same kind of job with <strong>New Job</strong> (Method 1) and set the job type to Emergency.</p>
-                    `,
-                    steps: [
-                        'Open the field app and scroll to the bottom of the job list. The red <strong>Emergency Call Out</strong> card sits below your jobs',
-                        'Tap <strong>Emergency Call Out</strong>',
-                        'Search for the customer by name. Type at least two letters, then tap the customer. This is the only required choice',
-                        'Check the site. A customer with one site fills it in for you. With more than one site, pick from the <strong>Site</strong> list',
-                        'Check the job title. It is filled in from the site and customer, and you can edit it',
-                        'Describe the fault under <strong>What\'s the problem?</strong> (optional)',
-                        'Pick a <strong>Service type</strong> if you know it (optional). If you are not sure, leave it on "Not sure - leave for the office"',
-                        'Add a colleague if someone is joining you (optional)',
-                        'Tap <strong>Raise call-out</strong>. The job opens on screen, ready for you to check in'
-                    ]
-                },
-                {
-                    title: 'What an Emergency Call Out Sets Up',
-                    content: '',
-                    bullets: [
-                        'The job type is Emergency and the priority is Urgent',
-                        'The status is "Scheduled", booked for now, with a visit for the same time',
-                        'You are assigned as the main engineer, and any colleagues you add are assigned with you',
-                        'The check-in, photos and sign-off still work offline once the job exists'
-                    ]
-                },
-                {
                     title: 'What Gets Auto-Filled',
                     content: `
                         <p class="mb-4">When creating from a quote or service contract, Opscel pre-fills:</p>
@@ -167,6 +138,35 @@ export const jobsGuide: IDocGuide = {
                         '<strong>Service contracts</strong> — a job generated from a contract inherits that contract\'s rolling PO, or a per-visit PO if one was set for that specific occurrence. See <a href="/docs/service-contracts" class="text-secondary hover:underline">Service Contracts</a>.',
                         '<strong>Quote conversion</strong> — converting an accepted quote to a job is the first point a PO can be entered for that piece of work, via an optional field in the Convert to Job dialog. See <a href="/docs/quotations" class="text-secondary hover:underline">Quotations</a>.',
                         '<strong>Invoicing</strong> — when you invoice a completed job, its PO number becomes the invoice\'s customer reference automatically, and rides through to Xero or QuickBooks. See <a href="/docs/invoicing" class="text-secondary hover:underline">Invoicing</a>.'
+                    ]
+                },
+                {
+                    title: 'Method 4: Emergency Call Out (Field App)',
+                    video: clip('field-emergency-callout', 'Raise a callout'),
+                    content: `
+                        <p class="mb-4"><strong>Availability:</strong> Engineers, Site Managers, Admins and Super Admins. Raise it from the field app. You need a signal to raise it.</p>
+                        <p class="mb-4">An on-call engineer who takes a phone call can raise a job in a few taps and head to site. The office fills in the rest later. In the office, raise the same kind of job with <strong>New Job</strong> (Method 1) and set the job type to Emergency.</p>
+                    `,
+                    steps: [
+                        'Open the field app and scroll to the bottom of the job list. The red <strong>Emergency Call Out</strong> card sits below your jobs',
+                        'Tap <strong>Emergency Call Out</strong>',
+                        'Search for the customer by name. Type at least two letters, then tap the customer. This is the only required choice',
+                        'Check the site. A customer with one site fills it in for you. With more than one site, pick from the <strong>Site</strong> list, which also offers "No specific site"',
+                        'Check the job title. It is filled in from the site (or the customer name if there is no site), ending "Emergency Call Out". You can edit it',
+                        'Describe the fault under <strong>What\'s the problem?</strong> (optional)',
+                        'Pick a <strong>Service type</strong> if you know it (optional, and only shown if your company has service types set up). If you are not sure, leave it on "Not sure - leave for the office"',
+                        'Add a colleague if someone is joining you (optional)',
+                        'Tap <strong>Raise call-out</strong>. The job opens on screen, ready for you to check in'
+                    ]
+                },
+                {
+                    title: 'What an Emergency Call Out Sets Up',
+                    content: '',
+                    bullets: [
+                        'The job type is Emergency and the priority is Urgent',
+                        'The status is "Scheduled", booked for now, with a visit for the same time',
+                        'You are assigned as the main engineer, and any colleagues you add are assigned with you',
+                        'The check-in, photos and sign-off still work offline once the job exists'
                     ]
                 }
             ]

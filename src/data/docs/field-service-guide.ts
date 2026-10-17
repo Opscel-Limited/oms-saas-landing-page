@@ -123,7 +123,7 @@ export const fieldServiceGuide: IDocGuide = {
                         { step: 'Open the field app', description: 'You\'ll land on the "Today\'s route" screen by default' },
                         { step: 'View your assigned jobs for today', description: 'Each card shows the job number, title, site, and scheduled time' },
                         { step: 'Tap a job card to open the job detail page', description: 'This is your hub for all job-related actions' },
-                        { step: 'Use the bottom navigation to switch views', description: 'Schedule (weekly calendar), Customers, Certificates, Settings' }
+                        { step: 'Use the bottom navigation to switch views', description: 'Jobs (this list), Schedule (weekly calendar), Customers, Settings' }
                     ]
                 },
                 {

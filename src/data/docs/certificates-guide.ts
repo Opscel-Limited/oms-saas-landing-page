@@ -69,7 +69,7 @@ export const certificatesGuide: IDocGuide = {
                         <p class="mb-4"><strong>Draft → Completed → Issued → (Voided/Superseded)</strong></p>
                         <ol class="list-decimal pl-6 space-y-2 text-gray-700 mb-4">
                             <li><strong>Draft:</strong> Work in progress — editable, no certificate number assigned</li>
-                            <li><strong>Completed:</strong> Engineer submits it for review (<strong>Submit for review</strong> in the field app) — ready for office review. In the field app the certificate then shows <strong>Pending review</strong>, and the engineer taps <strong>Revert</strong> to reopen it for editing</li>
+                            <li><strong>Completed:</strong> Engineer submits it for review (<strong>Submit for Review</strong> in the office form, <strong>Submit for review</strong> in the field app) — ready for office review. In the field app the certificate then shows <strong>Pending review</strong>, and the engineer taps <strong>Revert</strong> to reopen it for editing</li>
                             <li><strong>Issued:</strong> Admin/Manager issues certificate — PDF generated, certificate number assigned, becomes read-only</li>
                             <li><strong>Voided:</strong> Certificate cancelled — retains certificate number, cannot be un-voided</li>
                             <li><strong>Superseded:</strong> Certificate replaced by newer version — original retained for audit trail</li>
@@ -240,23 +240,6 @@ export const certificatesGuide: IDocGuide = {
                     ]
                 },
                 {
-                    title: 'Method 3: In the Field App',
-                    video: clip('field-electrical-certificate', 'Start the certificate'),
-                    content: `
-                        <p class="mb-4"><strong>Availability:</strong> Engineers. You need a signal to create a certificate.</p>
-                        <p class="mb-4">Engineers can start, fill in and submit a certificate from their phone. Filling it in works offline once it exists.</p>
-                    `,
-                    steps: [
-                        'Open the job in the field app and tap <strong>Certificates</strong>',
-                        'Tap <strong>Create certificate</strong>',
-                        'Tap the certificate type you need. The certificate opens straight away as a draft, linked to the job',
-                        'Work through each section on the certificate. Each one shows whether it is complete',
-                        'Write <strong>Work carried out</strong> in the box below the sections if you have not already. It is needed to complete the job, not to submit the certificate',
-                        'Tap <strong>Submit for review</strong>. If something is missing, a <strong>Needs attention before you can submit</strong> list shows where',
-                        'The certificate shows <strong>Pending review</strong> until the office issues it. To change it first, tap <strong>Revert</strong> and confirm'
-                    ]
-                },
-                {
                     title: 'What You Should See',
                     content: `
                         <div class="bg-green-50 border-l-4 border-green-500 p-4">
@@ -342,6 +325,23 @@ export const certificatesGuide: IDocGuide = {
                             This feature saves significant data entry time on routine service visits while ensuring compliance requirements for fresh test data are maintained.
                         </p>
                     `
+                },
+                {
+                    title: 'Method 4: In the Field App',
+                    video: clip('field-electrical-certificate', 'Start the certificate'),
+                    content: `
+                        <p class="mb-4"><strong>Availability:</strong> Engineer, Site Manager, Contract Manager, Admin, Super Admin. You need a signal to create a certificate.</p>
+                        <p class="mb-4">Engineers and other field users can start, fill in and submit a certificate from their phone. Filling it in works offline once it exists.</p>
+                    `,
+                    steps: [
+                        'Open the job in the field app and tap <strong>Certificates</strong>',
+                        'Tap <strong>Create certificate</strong>',
+                        'Tap the certificate type you need. The certificate opens straight away as a draft, linked to the job',
+                        'Work through each section on the certificate. Each one shows whether it is complete',
+                        'Write <strong>Work carried out</strong> in the box below the sections if you have not already. It is needed to complete the job, not to submit the certificate',
+                        'Tap <strong>Submit for review</strong>. If something is missing, a <strong>Needs attention before you can submit</strong> list shows where',
+                        'The certificate shows <strong>Pending review</strong> until the office issues it. To change it first, tap <strong>Revert</strong> and confirm'
+                    ]
                 }
             ]
         },
