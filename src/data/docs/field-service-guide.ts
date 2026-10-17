@@ -108,7 +108,7 @@ export const fieldServiceGuide: IDocGuide = {
         },
         {
             id: 'todays-jobs',
-            title: 'Today\'s Jobs List',
+            title: 'Today\'s Route',
             content: `
                 <p class="mb-6">
                     The home screen shows all jobs assigned to you for today, with quick access to your weekly schedule.
@@ -120,22 +120,22 @@ export const fieldServiceGuide: IDocGuide = {
                     video: clip('field-start-your-day', "Today's jobs"),
                     content: '',
                     steps: [
-                        { step: 'Open the field app', description: 'You\'ll land on the "Today\'s Jobs" screen by default' },
-                        { step: 'View your assigned jobs for today', description: 'Shows job number, customer name, site address, and scheduled time' },
+                        { step: 'Open the field app', description: 'You\'ll land on the "Today\'s route" screen by default' },
+                        { step: 'View your assigned jobs for today', description: 'Each card shows the job number, title, site, and scheduled time' },
                         { step: 'Tap a job card to open the job detail page', description: 'This is your hub for all job-related actions' },
                         { step: 'Use the bottom navigation to switch views', description: 'Schedule (weekly calendar), Customers, Certificates, Settings' }
                     ]
                 },
                 {
                     title: 'Job Card Information',
-                    content: 'Each job card displays:',
+                    content: 'Each job card shows:',
                     bullets: [
-                        'Job number and title',
-                        'Customer name',
-                        'Site address with navigation button',
-                        'Scheduled date and time',
-                        'Job status badge (Scheduled, In Progress, Completed)',
-                        'Progress orb showing completion percentage'
+                        'Job number, with an <strong>Urgent</strong> or <strong>High</strong> tag if the job has that priority',
+                        'Job title',
+                        'Site name and address, with a key icon if the site has access notes',
+                        'Scheduled time, and the expected duration if one is set',
+                        'Job labels (the first two, read only)',
+                        'A three-part progress ring on the right: checked in, risk assessment filled in, and parts added. Each part turns green when done and stays grey until then'
                     ]
                 },
                 {
@@ -177,7 +177,7 @@ export const fieldServiceGuide: IDocGuide = {
                     video: clip('field-start-your-day', 'Before you set off'),
                     content: '',
                     steps: [
-                        { step: 'Tap a job card from the Today\'s Jobs list', description: '' },
+                        { step: 'Tap a job card from the Today\'s route list', description: '' },
                         { step: 'The job detail hub opens', description: 'Shows a Progress Orb and quick action buttons' },
                         { step: 'Review the Overview section', description: 'Customer details, site address, job description, scheduled time, and a PO badge if the office has set a customer purchase order' },
                         { step: 'Check if a risk assessment is required', description: 'Red indicator if not completed' },
