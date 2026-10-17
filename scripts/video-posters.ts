@@ -85,6 +85,10 @@ const OFFSETS: Record<string, IOffsets> = {
             'Submit for review': 21, // "Certificate submitted for review" with the Pending review pill (t=104)
         },
     },
+    'field-clock-in-out': {
+        full: 21.5, // the End shift dialog, the note typed in full, the pointer on Clock out
+        chapters: {},
+    },
 };
 
 const W = 1280;

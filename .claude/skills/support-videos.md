@@ -217,6 +217,7 @@ Section ids are from `origin/main` on 2026-10-14.
 | `field-electrical-certificate` (F5) | Start the certificate | `certificates` › `certificate-types` ("Minor Works Certificate") |
 | | Circuit and test results | `certificates` › `section-completion` ("General Pattern for Filling Sections") |
 | | Submit for review | `certificates` › `certificate-lifecycle` ("Status Flow") |
+| `field-clock-in-out` (F8) | whole video (no chapters) | `field-service` › `field-settings` ("Clocking In and Out", was "Shift History") |
 
 Wired differently (2026-10-14):
 - F4 "Load the site's devices" sits on `asset-tracking` › `engineer-journey`, not `existing-equipment`
@@ -234,6 +235,10 @@ Wired differently (2026-10-14):
   writes the VISIT's work summary on the job sheet's sign-off step. `field-service` ›
   `completing-job` "Writing the Work Summary" would fit, but its steps still say to tap a
   "Work Summary" tile the app removed in 5.70.0: wire it there once the owner approves new wording.
+- F8 (2026-10-17): the "Shift History" subsection became "Clocking In and Out" and its steps were
+  corrected, because they were wrong on the day: the app's path is Settings › Shifts › Shift
+  history (the row shipped in app 5.142.0; before it, nothing linked the page), and a shift row is
+  not tappable (no "jobs worked" detail). Owner may reword.
 - Not wired: `rams` › `engineer-sign-off`. The "Arrive on site" chapter shows the hazard and PPE
   picker, not the Read-and-understood sign-off card that section describes.
 - "Mark the quote as accepted" sits on `quotations` › `quote-status-workflow`, not
