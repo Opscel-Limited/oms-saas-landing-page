@@ -208,6 +208,13 @@ export const documentationGuides: IDocumentationGuideMeta[] = [
         icon: 'icon-job-workflow'
     },
     {
+        title: 'Variations — Support Guide',
+        description: 'Extra, changed or omitted work on a job converted from a quote: price it, send it for approval, record an approval taken by phone, and bill each approved variation exactly once.',
+        url: '/docs/variations',
+        category: 'Financial Management',
+        icon: 'icon-price-tag'
+    },
+    {
         title: 'Job Profitability',
         description: 'How Estimated and Actual are worked out on a job\'s Financial tab, the two labour rates that drive them, and why some figures are left blank.',
         url: '/docs/job-profitability',
