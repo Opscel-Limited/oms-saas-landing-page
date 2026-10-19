@@ -15,7 +15,7 @@ export const variationsGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Availability',
-                    content: '<p><strong>Tier:</strong> All plans<br><strong>Works on:</strong> jobs converted from a quote, while the job is draft, scheduled, in progress or on hold. A completed job must be reopened first. A cancelled job can\'t take variations.</p>',
+                    content: '<p><strong>Tier:</strong> All plans<br><strong>Works on:</strong> jobs converted from a quote, while the job is draft, scheduled, in progress or on hold. To add a variation to a completed job, reopen it first. A variation already sent can still be approved after the job is completed. A cancelled job can\'t take variations.</p>',
                 },
                 {
                     title: 'Not the same as a BS 5839 variation',
@@ -45,7 +45,7 @@ export const variationsGuide: IDocGuide = {
                     title: 'What the card shows',
                     bullets: [
                         '<strong>The agreed price:</strong> Original quote, Approved variations (with a count), and the Current agreed price, inc. VAT. Awaiting approval is listed separately and not counted until the customer agrees.',
-                        '<strong>Billing so far</strong> for approved variations, as agreed · billed · to bill (for roles that can see invoices).',
+                        '<strong>Billing so far</strong> for approved variations, as agreed · billed · to bill, <strong>ex VAT</strong> (for roles that can see invoices). A draft invoice holding part of it is named on the line.',
                         '<strong>Contract summary (PDF)</strong>, a statement of the whole contract as it stands today.',
                         '<strong>One row per variation:</strong> its number, title, status, how long ago it was sent, the client\'s instruction, who approved it and how, its amount, and the buttons you can use.',
                     ],
@@ -65,11 +65,11 @@ export const variationsGuide: IDocGuide = {
                     title: 'Steps',
                     steps: [
                         { step: 'Give it a title', description: 'Something the customer will recognise, for example "Extra sockets in the kitchen".' },
-                        { step: 'Choose a reason (optional)', description: 'Customer request, Found on site, Omission or Other.' },
                         { step: 'Add a description', description: 'Plain text the customer sees on the approval page and the PDF.' },
+                        { step: 'Choose a reason (optional)', description: 'Customer request, Found on site, Omission or Other.' },
                         { step: 'Add the lines', description: 'Type each line or use Add from catalogue. Each line takes a quantity, unit, unit cost, markup % and VAT %, priced the same way as your quote lines. The editor shows Net, VAT and Total as you go.' },
                         { step: 'Check the impact', description: 'The editor shows the current agreed price and what it will become if this variation is approved.' },
-                        { step: 'Save draft', description: 'The variation is numbered and saved as a Draft. Send it when it\'s ready.' },
+                        { step: 'Save draft', description: 'The variation is numbered and saved as a Draft. Send it when it\'s ready. Later edits are saved with Save changes.' },
                     ],
                 },
                 {
@@ -107,12 +107,12 @@ export const variationsGuide: IDocGuide = {
                 },
                 {
                     title: '3. Recorded on the customer\'s behalf',
-                    content: '<p class="mb-4">If the customer agreed by phone, email or in person, press <strong>Record approval</strong>. You enter who approved it, how (phone, email, verbally, in person or other), the date they agreed, and optionally their email address and an attachment, such as their email saved as a PDF. This works on a draft or a sent variation, as long as every line is priced.</p><p>The row then reads "Approved on behalf · phone · J. Smith · 14 Oct", and the customer\'s portal shows that it was approved on their behalf and by whom.</p>',
+                    content: '<p class="mb-4">If the customer agreed by phone, email or in person, press <strong>Record approval</strong>. You enter who approved it, how (phone, email, verbally, in person or other), the date they agreed (not in the future), and optionally their email address and an attachment, such as their email saved as a PDF. This works on a draft or a sent variation, as long as every line is priced.</p><p>The row then reads "Approved on behalf · phone · J. Smith · 14 Oct", and the customer\'s portal shows that it was approved on their behalf and by whom.</p>',
                 },
                 {
                     title: 'When the customer answers',
                     bullets: [
-                        'The office gets an email when a customer approves or declines from the link or the portal. It goes to whoever last sent or changed the variation.',
+                        'The office gets an email when a customer approves or declines from the link or the portal. It goes to whoever last sent or changed the variation, or to your company email address if there isn\'t one.',
                         '<strong>Resend</strong> sends a sent variation again, for example to another contact. If nothing changed, it is the same version.',
                         'A link only ever approves the exact version it was sent with. If you edit the variation, the old link stops accepting answers.',
                     ],
@@ -129,7 +129,7 @@ export const variationsGuide: IDocGuide = {
                     ['<strong>Awaiting approval</strong>', 'Sent to the customer. The row shows "sent 3 days ago". Its amount is not yet in the agreed price.', 'Send for approval.'],
                     ['<strong>Approved</strong>', 'Added to the current agreed price and ready to invoice.', 'The customer approves by link or portal, or you record an approval.'],
                     ['<strong>Declined</strong>', 'The customer said no. The reason, if given, is shown on the row.', 'The customer declines by link or portal.'],
-                    ['<strong>Withdrawn</strong>', 'No longer needed. It keeps its number, and the customer\'s link says it was withdrawn.', '<strong>Withdraw</strong> (a sent variation) or <strong>Discard draft</strong>. Cancelling the job also withdraws any draft or sent variations.'],
+                    ['<strong>Withdrawn</strong>', 'No longer needed. It keeps its number, and the customer\'s link says it was withdrawn.', '<strong>Withdraw</strong> (a sent variation) or <strong>Discard draft</strong>, with an optional reason. Cancelling the job also withdraws any draft or sent variations.'],
                 ],
             },
             subsections: [
@@ -180,7 +180,7 @@ export const variationsGuide: IDocGuide = {
                             ['<strong>Approved copy</strong>', 'Button on the variation row', 'The frozen version the customer approved. Like the sent copy, it never changes.'],
                             ['<strong>Activity</strong>', 'Button on the variation row', 'A timeline of the customer\'s activity, in UK time: when it was sent, when they opened it, and who approved or declined it, with IP address, device and approximate location. The location comes from the IP address, so it shows where the connection was, not exactly where the person was.'],
                             ['<strong>Approval record (PDF)</strong>', 'In the Activity panel, for an approved variation', 'One document to send the customer as proof of their approval: what they agreed, when, how and the signature.'],
-                            ['<strong>Contract summary (PDF)</strong>', 'The Variations card, and the converted quote', 'A statement "as at" today of the whole contract: original, approved and current agreed price, then every variation the customer has seen with its status, dates and who decided it. For roles that can see invoices, it also shows agreed · billed · to bill. Drafts are left out.'],
+                            ['<strong>Contract summary (PDF)</strong>', 'The Variations card, and the converted quote', 'A statement "as at" today of the whole contract: original, approved and current agreed price, then every variation the customer has seen with its status, dates and who decided it. For roles that can see invoices, it also shows agreed · billed · to bill (ex VAT). Draft variations are left out.'],
                         ],
                     },
                 },
@@ -206,7 +206,7 @@ export const variationsGuide: IDocGuide = {
             },
             subsections: [
                 {
-                    content: '<p>Roles that can raise a variation can also record the client\'s instruction. Variations are raised and sent from the office. They aren\'t available in the field app yet, so an engineer who finds extra work should tell the office, or a Site Manager can raise an unpriced draft.</p>',
+                    content: '<p>Amounts, the agreed-price summary, the Sent copy and Approved copy PDFs, Activity and the Contract summary are shown only to roles that can see prices, so a Site Manager sees the variations without them. Roles that can raise a variation can also record the client\'s instruction. Variations are raised and sent from the office. They aren\'t available in the field app yet, so an engineer who finds extra work should tell the office, or a Site Manager can raise an unpriced draft.</p>',
                 },
             ],
         },
