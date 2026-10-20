@@ -151,7 +151,7 @@ export const quoteToInvoiceWorkflowGuide: IDocGuide = {
                     video: clip('on-site-to-invoice', 'In the office'),
                     content: 'All agreed items are shown in an editable table. You can:',
                     bullets: [
-                        'Change a description, quantity or price before invoicing (e.g. a scope change agreed verbally)',
+                        'Change a description, quantity or price before invoicing. For extra or changed work agreed with the customer, raise a <a href="/docs/variations" class="text-primary hover:underline">variation</a> instead: once approved, its lines appear in this dialog under Approved variations',
                         'Delete a line you no longer want to include',
                         'Add a custom line item for anything not in the original quote'
                     ]
@@ -309,7 +309,7 @@ Customer accepts quote
                     content: '',
                     bullets: [
                         'Review engineer extras carefully — they add to the agreed price, so justify them to the customer if questioned',
-                        'If scope changed on-site, edit the agreed line items before invoicing (description or quantity)',
+                        'If scope changed on-site, raise a <a href="/docs/variations" class="text-primary hover:underline">variation</a> and get it approved, rather than editing the agreed lines at invoice time. The customer\'s approval is then on record',
                         'Don\'t delete agreed items without customer approval — they accepted that scope',
                         'If deposit was paid, verify it shows as a deduction before sending final invoice'
                     ]

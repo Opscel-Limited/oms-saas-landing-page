@@ -143,6 +143,7 @@ export const customerPortalGuide: IDocGuide = {
                     bullets: [
                         'A Jobs page with two tabs: Scheduled (booked, underway or on hold, soonest first) and Completed — draft and cancelled jobs are never shown',
                         'Each job\'s page links its quote, visits, completed job sheets, certificates and invoices together',
+                        'Any <a href="/docs/variations" class="text-primary hover:underline">variations</a> sent for approval, which the customer can approve (with a signature) or decline. The quote page lists every variation on the contract',
                         'An Upcoming visits card on the dashboard: date, time, site, and the engineer\'s first name (or "Engineer to be confirmed")',
                         'Nothing internal — no costs, margins, engineer notes, GPS or completion photos'
                     ]
