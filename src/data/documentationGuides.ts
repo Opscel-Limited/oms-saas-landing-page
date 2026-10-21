@@ -164,7 +164,7 @@ export const documentationGuides: IDocumentationGuideMeta[] = [
     },
     {
         title: 'Calendar Integration',
-        description: 'Connect Google Calendar, Microsoft 365, or ICS feeds. Learn about two-way sync, availability blocking, OAuth setup, and token refresh.',
+        description: 'Connect Google Calendar or Microsoft Outlook to send your assigned jobs and visits to your calendar. One-way sync, what events contain, scheduling hints, and reconnecting.',
         url: '/docs/calendar-integration',
         category: 'Scheduling & Operations',
         icon: 'icon-gear'
