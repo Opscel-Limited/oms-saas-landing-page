@@ -67,7 +67,7 @@ export const documentationGuides: IDocumentationGuideMeta[] = [
     },
     {
         title: 'Fire Safety Jobsheets & Fault Tracking',
-        description: 'Combined BS 5839 & BAFE SP203 inspection jobsheets and carried-forward fault tracking for fire alarm servicing visits.',
+        description: 'Combined BS 5839 & BAFE SP203 inspection jobsheets, the site Panels list, and carried-forward fault tracking for fire alarm servicing visits.',
         url: '/docs/fire-safety-features',
         category: 'Field Service',
         icon: 'icon-job-sheet'

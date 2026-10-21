@@ -3,7 +3,7 @@ import { IDocGuide } from '@/types';
 export const fireSafetyFeaturesGuide: IDocGuide = {
     slug: 'fire-safety-features',
     title: 'Fire Safety Jobsheets & Fault Tracking',
-    description: 'Combined BS 5839 & BAFE SP203 inspection jobsheets and carried-forward fault tracking for fire alarm servicing visits.',
+    description: 'Combined BS 5839 & BAFE SP203 inspection jobsheets, the site Panels list, and carried-forward fault tracking for fire alarm servicing visits.',
     lastUpdated: '2026-10-21',
     sections: [
         {
