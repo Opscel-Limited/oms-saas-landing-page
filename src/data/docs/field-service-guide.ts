@@ -755,7 +755,7 @@ export const fieldServiceGuide: IDocGuide = {
                         { step: 'Tap "Connect Calendar"', description: '' },
                         { step: 'Choose Google or Microsoft', description: '' },
                         { step: 'Authorize access', description: '' },
-                        { step: 'Jobs appear as calendar events', description: 'Two-way sync keeps everything in sync' }
+                        { step: 'Jobs appear as calendar events', description: 'One-way sync: jobs assigned to you appear in your calendar and update when rescheduled in Opscel' }
                     ]
                 },
                 {
