@@ -201,10 +201,10 @@ export const settingsTourGuide: IDocGuide = {
                 {
                     title: 'Calendar Integration',
                     content: `
-                        <p class="mb-2"><strong>What it controls:</strong> Google Calendar, Microsoft 365, and ICS feed connections. Two-way sync, availability blocking, token refresh.</p>
-                        <p class="mb-4"><strong>Why it matters:</strong> Engineers see their jobs in their personal calendar. Office staff see availability when scheduling.</p>
+                        <p class="mb-2"><strong>What it controls:</strong> Your Google Calendar or Microsoft Outlook connection, plus business-wide travel buffer and access-instruction preferences. One-way sync from Opscel to your calendar.</p>
+                        <p class="mb-4"><strong>Why it matters:</strong> Engineers see their assigned jobs in their personal calendar. Office staff see connected calendars&apos; busy times as a hint when scheduling (it never blocks scheduling).</p>
                         <p class="text-gray-700">
-                            <em>Calendar integration guide coming soon.</em>
+                            <a href="/docs/calendar-integration" class="text-blue-600 hover:text-blue-800">Read the Calendar Integration guide</a>
                         </p>
                     `
                 }

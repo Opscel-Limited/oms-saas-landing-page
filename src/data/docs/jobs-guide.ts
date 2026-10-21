@@ -229,7 +229,7 @@ export const jobsGuide: IDocGuide = {
                         { step: 'Click "Schedule Visit"', description: '' },
                         { step: 'Select date and time', description: '' },
                         { step: 'Assign engineer(s)', description: 'Single or multiple engineers for same visit' },
-                        { step: 'Set estimated duration', description: 'Used for calendar blocking' },
+                        { step: 'Set estimated duration', description: 'Sets the end time of the calendar event when no end time is set' },
                         { step: 'Click "Schedule"', description: 'Job status changes to "Scheduled"' }
                     ]
                 },
@@ -292,9 +292,9 @@ export const jobsGuide: IDocGuide = {
                     `,
                     bullets: [
                         'Job title and customer name',
-                        'Site address (with map link)',
+                        'Site address and a link back to the job in Opscel',
                         'Scheduled start and end time',
-                        'Two-way sync: change time in calendar, job updates in Opscel'
+                        'One-way sync: Opscel updates your calendar when the job changes. Edits made in the calendar do not change the job'
                     ]
                 },
                 {
@@ -634,7 +634,7 @@ export const jobsGuide: IDocGuide = {
                     bullets: [
                         'Engineer must connect calendar in Field App → Settings → Calendar',
                         'Check OAuth token not expired (reconnect if needed)',
-                        'Two-way sync delay can be 1-5 minutes',
+                        'Failed syncs are retried automatically every 15 minutes; jobs that are not assigned to the engineer, or not yet scheduled, do not appear',
                         'Calendar integration settings: Settings → Calendar Integration',
                         'If persistent, check cron logs (admin only)'
                     ]

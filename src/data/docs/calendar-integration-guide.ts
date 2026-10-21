@@ -3,8 +3,8 @@ import { IDocGuide } from '@/types';
 export const calendarIntegrationGuide: IDocGuide = {
     slug: 'calendar-integration',
     title: 'Calendar Integration',
-    description: 'Two-way sync between Opscel and external calendars. Connect Google Calendar or Microsoft 365 for automatic availability blocking and engineer calendar sync.',
-    lastUpdated: '2026-05-21',
+    description: 'Send the jobs and visits you are assigned to your Google Calendar or Microsoft Outlook calendar. One-way sync from Opscel to your calendar, with calendar busy times shown as a hint when scheduling.',
+    lastUpdated: '2026-10-21',
     sections: [
         {
             id: 'overview',
@@ -12,25 +12,34 @@ export const calendarIntegrationGuide: IDocGuide = {
             subsections: [
                 {
                     title: '30-Second Version',
-                    content: '<div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6"><p class="text-sm text-blue-900"><strong>Who:</strong> All users (per-user connection)<br><strong>What:</strong> Two-way calendar sync between Opscel and Google/Microsoft 365<br><strong>Where:</strong> Settings → Calendar Integration<br><strong>Why:</strong> Prevent double-booking, auto-block engineer availability, mobile calendar integration</p></div>'
+                    content: '<div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6"><p class="text-sm text-blue-900"><strong>Who:</strong> Every user connects their own calendar (per-user connection)<br><strong>What:</strong> One-way sync: jobs and visits assigned to you appear as events in your Google or Outlook calendar<br><strong>Where:</strong> Settings → Calendar Integration (engineers connect from the field app&apos;s Settings page)<br><strong>Why:</strong> See your Opscel work alongside your personal diary, on your phone, without re-typing anything</p></div>'
                 },
                 {
                     title: 'Key Benefits',
                     content: '',
                     bullets: [
-                        '<strong>Automatic availability blocking:</strong> Busy times in external calendar prevent Opscel job scheduling',
-                        '<strong>Engineer calendar sync:</strong> Scheduled jobs appear in engineer&apos;s personal calendar',
-                        '<strong>Prevent double-booking:</strong> Scheduling respects external commitments',
-                        '<strong>Mobile calendar integration:</strong> View Opscel jobs alongside personal appointments',
-                        '<strong>Two-way sync:</strong> Changes in Opscel reflect in calendar, calendar blocks reflect in Opscel'
+                        '<strong>Your work in your diary:</strong> Jobs and visits you are assigned to appear in your personal calendar',
+                        '<strong>Stays up to date:</strong> If the job is rescheduled, the calendar event moves; if it is cancelled, the event is removed',
+                        '<strong>Site details included:</strong> Customer, service, engineers, site address and (optionally) access notes are in the event',
+                        '<strong>Travel buffer:</strong> Optionally start the calendar event earlier to allow for travel time',
+                        '<strong>Scheduling hint:</strong> When a manager assigns engineers or books time in the Planner, Opscel can show whether an engineer&apos;s connected calendar is busy at that time'
+                    ]
+                },
+                {
+                    title: 'What It Does Not Do',
+                    content: '',
+                    bullets: [
+                        '<strong>It is one-way.</strong> Opscel writes to your calendar; it does not import events from your calendar into Opscel, and edits you make to an event in your calendar are not read back into the job',
+                        '<strong>It does not block scheduling.</strong> A busy calendar produces a warning or indicator, never a hard stop; a manager can still schedule the work',
+                        '<strong>There is no calendar feed (ICS) option.</strong> Only Google Calendar and Microsoft Outlook connections are available'
                     ]
                 },
                 {
                     title: 'Supported Platforms',
                     content: '<p>Opscel integrates with two calendar platforms:</p>',
                     bullets: [
-                        '<strong>Google Calendar:</strong> OAuth 2.0, per-user, read/write access',
-                        '<strong>Microsoft 365:</strong> OAuth 2.0, per-user, read/write access'
+                        '<strong>Google Calendar:</strong> Gmail and Google Workspace accounts',
+                        '<strong>Microsoft Outlook:</strong> Microsoft 365 work accounts and personal Outlook accounts'
                     ]
                 }
             ]
@@ -41,7 +50,7 @@ export const calendarIntegrationGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Availability',
-                    content: '<p class="text-sm bg-gray-100 px-3 py-1 rounded inline-block mb-4"><strong>Tier:</strong> All tiers | <strong>Roles:</strong> All users (per-user connection)</p>'
+                    content: '<p class="text-sm bg-gray-100 px-3 py-1 rounded inline-block mb-4"><strong>Roles:</strong> All users (per-user connection)</p>'
                 },
                 {
                     title: 'Platform Comparison',
@@ -49,19 +58,19 @@ export const calendarIntegrationGuide: IDocGuide = {
                     table: {
                         headers: ['Platform', 'Sync Direction', 'Auth Method', 'Best For'],
                         rows: [
-                            ['Google Calendar', 'Two-way (read/write)', 'OAuth 2.0', 'Gmail users, Android devices, Google Workspace'],
-                            ['Microsoft 365', 'Two-way (read/write)', 'OAuth 2.0', 'Outlook users, Microsoft 365 businesses']
+                            ['Google Calendar', 'One-way (Opscel → calendar)', 'OAuth 2.0', 'Gmail users, Android devices, Google Workspace'],
+                            ['Microsoft Outlook / 365', 'One-way (Opscel → calendar)', 'OAuth 2.0', 'Outlook users, Microsoft 365 businesses']
                         ]
                     }
                 },
                 {
                     title: 'Google Calendar',
-                    content: '<p><strong>OAuth connection, per-user basis.</strong> When you connect Google Calendar, Opscel can read your availability and write scheduled jobs to your calendar. Jobs appear as calendar events with customer name and site address.</p><p><strong>Permissions required:</strong> <code>https://www.googleapis.com/auth/calendar</code> (read/write calendar events)</p>'
+                    content: '<p><strong>OAuth connection, per-user basis.</strong> When you connect Google Calendar, Opscel can create, update and remove the events it creates for your assigned work, and can ask Google when you are busy (free/busy only) so it can show a scheduling hint.</p>'
                 },
                 {
-                    title: 'Microsoft 365',
-                    content: '<p><strong>OAuth connection via Microsoft Identity Platform.</strong> Connect your work or personal Microsoft account to sync Opscel jobs with Outlook Calendar. Supports both Outlook.com and Microsoft 365 business accounts.</p><p><strong>Permissions required:</strong> <code>Calendars.ReadWrite</code> (read/write calendar events)</p>'
-                },
+                    title: 'Microsoft Outlook',
+                    content: '<p><strong>OAuth connection via the Microsoft Identity Platform.</strong> Works with Microsoft 365 business accounts and personal Outlook accounts. Opscel requests permission to read and write your calendar so it can create and update its events and check when you are busy.</p>'
+                }
             ]
         },
         {
@@ -73,275 +82,162 @@ export const calendarIntegrationGuide: IDocGuide = {
                     content: '<p class="text-sm bg-gray-100 px-3 py-1 rounded inline-block mb-4"><strong>Roles:</strong> All users (per-user connection)</p>'
                 },
                 {
-                    title: 'OAuth Flow Explained',
-                    content: '<p>When you connect Google Calendar, Opscel redirects you to Google&apos;s consent screen. You&apos;ll see:</p>',
+                    title: 'What You Will Be Asked to Allow',
+                    content: '<p>When you connect, Opscel sends you to Google&apos;s consent screen. Opscel asks for:</p>',
                     bullets: [
-                        '<strong>App name:</strong> "Opscel" requesting access',
-                        '<strong>Permissions:</strong> "See, edit, share, and permanently delete all calendars you can access using Google Calendar"',
-                        '<strong>Why this permission:</strong> Opscel needs read access (check availability) and write access (create job events)',
-                        '<strong>Account selection:</strong> Choose which Google account to connect (work or personal)'
+                        '<strong>Event access:</strong> To create, update and delete the events Opscel makes for your jobs and visits',
+                        '<strong>Free/busy access:</strong> To check whether you are busy at a proposed time (used for the scheduling hint)',
+                        '<strong>Your email address:</strong> To show which Google account is connected'
                     ]
                 },
                 {
-                    title: 'Permissions Required',
-                    content: '<p>Opscel uses <code>calendar</code> scope to:</p>',
-                    bullets: [
-                        '<strong>Read calendar events:</strong> Opscel checks your busy times to prevent double-booking',
-                        '<strong>Write job events:</strong> Scheduled Opscel jobs create calendar events',
-                        '<strong>Update job events:</strong> If job time changes, calendar event updates automatically',
-                        '<strong>Delete job events:</strong> If job is cancelled, calendar event is removed'
-                    ]
+                    content: '<p><strong>Privacy note:</strong> The scheduling hint uses busy/free times only. Opscel shows a manager that a time range is busy; it does not show the title or details of your personal events.</p>'
                 },
                 {
-                    content: '<p><strong>Privacy note:</strong> Opscel only reads event start/end times and busy/free status. Event titles, descriptions, and attendees are NOT accessed.</p>'
-                },
-                {
-                    title: 'Calendar Selection',
-                    content: '<p>After OAuth consent, you&apos;ll select which calendar to sync:</p>',
-                    bullets: [
-                        '<strong>Primary calendar:</strong> Your main Google Calendar (recommended)',
-                        '<strong>Secondary calendars:</strong> Any calendar you own or have write access to',
-                        '<strong>Shared calendars:</strong> If you have edit permissions, you can select shared calendars'
-                    ]
+                    title: 'Which Calendar Is Used',
+                    content: '<p>Opscel writes to the <strong>primary calendar</strong> of the Google account you connect. There is no calendar picker in Opscel. To use a different calendar, connect a Google account whose primary calendar is the one you want.</p>'
                 },
                 {
                     title: 'Steps to Connect Google Calendar',
                     content: '',
                     steps: [
-                        'Navigate to <strong>Settings → Calendar Integration</strong>',
-                        'Click <strong>Connect Google Calendar</strong> button',
-                        'You&apos;ll be redirected to Google login page (if not already logged in)',
-                        'Select Google account to connect (work or personal)',
-                        'Review permissions on Google consent screen',
-                        'Click <strong>Allow</strong> to grant Opscel calendar access',
-                        'Redirected back to Opscel settings page',
-                        'Select which calendar to sync from dropdown (usually "Primary")',
-                        'Click <strong>Save</strong>',
-                        'Connection status shows "Connected" with green checkmark'
+                        'Open <strong>Settings → Calendar Integration</strong> (engineers: open <strong>Settings</strong> in the field app)',
+                        'On the <strong>Google Calendar</strong> card, click <strong>Connect</strong>',
+                        'Sign in to Google and choose the account to connect',
+                        'Review the permissions and click <strong>Allow</strong>',
+                        'You are returned to Opscel and shown a confirmation message',
+                        'The card now shows <strong>Connected</strong> with your Google email address'
                     ]
                 },
                 {
                     title: 'What You Should See',
-                    content: '<p>After successful connection:</p>',
+                    content: '<p>After a successful connection:</p>',
                     bullets: [
-                        '<strong>Connection status:</strong> "Google Calendar: Connected" with account email',
-                        '<strong>Selected calendar:</strong> Name of calendar being synced (e.g., "john@example.com - Primary")',
-                        '<strong>Last sync time:</strong> Timestamp of most recent sync',
-                        '<strong>First sync:</strong> Existing Opscel jobs (scheduled in next 30 days) appear in Google Calendar within 5 minutes',
-                        '<strong>Calendar events:</strong> Format is "[Opscel] Customer Name - Site Address"'
+                        '<strong>Connection status:</strong> A green "Connected" badge with the account email',
+                        '<strong>Last synced:</strong> Once a sync has run, the card shows the date and time of the most recent one',
+                        '<strong>Existing jobs:</strong> Work that was already scheduled before you connected may not appear straight away. See "Jobs scheduled before you connected" below'
                     ]
                 }
             ]
         },
         {
             id: 'microsoft-365',
-            title: 'Connecting Microsoft 365',
+            title: 'Connecting Microsoft Outlook',
             subsections: [
                 {
                     title: 'Availability',
                     content: '<p class="text-sm bg-gray-100 px-3 py-1 rounded inline-block mb-4"><strong>Roles:</strong> All users (per-user connection)</p>'
                 },
                 {
-                    title: 'OAuth Flow via Microsoft Identity Platform',
-                    content: '<p>Opscel uses Microsoft Identity Platform for authentication. You&apos;ll be redirected to Microsoft&apos;s login page:</p>',
-                    bullets: [
-                        '<strong>App name:</strong> "Opscel" requesting permissions',
-                        '<strong>Permissions:</strong> "Read and write your calendars"',
-                        '<strong>Account type:</strong> Work/school account (Microsoft 365) or Personal account (Outlook.com)',
-                        '<strong>Admin consent:</strong> If using work account, your IT admin may need to approve app (one-time per organization)'
-                    ]
+                    title: 'What You Will Be Asked to Allow',
+                    content: '<p>Opscel asks Microsoft for permission to read and write your calendar (<code>Calendars.ReadWrite</code>), to read your basic profile (to show the connected email) and to stay connected without you signing in again (<code>offline_access</code>). Some Microsoft 365 organisations require an administrator to approve new apps; if you see an approval message, ask your IT administrator.</p>'
                 },
                 {
-                    title: 'Permissions Required',
-                    content: '<p>Opscel requests <code>Calendars.ReadWrite</code> permission to:</p>',
-                    bullets: [
-                        '<strong>Read calendar events:</strong> Check availability for scheduling',
-                        '<strong>Write job events:</strong> Create Outlook events for scheduled Opscel jobs',
-                        '<strong>Update events:</strong> Sync time changes automatically',
-                        '<strong>Delete events:</strong> Remove events when jobs are cancelled'
-                    ]
+                    title: 'Which Calendar Is Used',
+                    content: '<p>As with Google, Opscel uses the <strong>primary (default) calendar</strong> of the connected account. There is no calendar picker.</p>'
                 },
                 {
-                    title: 'Calendar Selection',
-                    content: '<p>After authentication, choose which calendar to sync:</p>',
-                    bullets: [
-                        '<strong>Work calendar:</strong> Your primary Outlook calendar (recommended for work accounts)',
-                        '<strong>Personal calendar:</strong> If using personal Microsoft account',
-                        '<strong>Shared calendars:</strong> If you have edit access to shared calendars'
-                    ]
-                },
-                {
-                    title: 'Steps to Connect Microsoft 365',
+                    title: 'Steps to Connect Outlook',
                     content: '',
                     steps: [
-                        'Navigate to <strong>Settings → Calendar Integration</strong>',
-                        'Click <strong>Connect Microsoft 365</strong> button',
-                        'Redirected to Microsoft login page',
-                        'Enter Microsoft email address (work or personal)',
-                        'Enter password (or use Windows Hello, Authenticator app)',
-                        'Review permissions request on consent screen',
-                        'Click <strong>Accept</strong> to grant permissions',
-                        'If work account and admin consent required, you&apos;ll see "Your IT admin needs to approve this app" (contact your IT department)',
-                        'Redirected back to Opscel settings page',
-                        'Select calendar to sync from dropdown',
-                        'Click <strong>Save</strong>',
-                        'Connection status shows "Connected" with account email'
-                    ]
-                },
-                {
-                    title: 'What You Should See',
-                    content: '<p>After successful connection:</p>',
-                    bullets: [
-                        '<strong>Connection status:</strong> "Microsoft 365: Connected" with account email',
-                        '<strong>Selected calendar:</strong> Calendar name (e.g., "Calendar" for primary)',
-                        '<strong>Last sync time:</strong> Timestamp of most recent sync',
-                        '<strong>Outlook events:</strong> Opscel jobs appear as "[Opscel] Customer Name - Site Address"',
-                        '<strong>Busy status:</strong> Events marked as "Busy" to block availability'
-                    ]
-                },
-                {
-                    title: 'Admin Consent Note',
-                    content: '<div class="bg-amber-50 border-l-4 border-amber-500 p-4 mb-6"><p class="text-sm text-amber-900"><strong>Enterprise Users:</strong> If you see "Admin consent required", your organization requires IT approval before apps can access calendars. Contact your IT department and provide them with the app name "Opscel" and permission "<code>Calendars.ReadWrite</code>". They can grant tenant-wide consent in Azure AD.</p></div>'
-                }
-            ]
-        },
-        {
-            id: 'two-way-sync',
-            title: 'Two-Way Sync Explained',
-            subsections: [
-                {
-                    title: 'What Syncs from Opscel → Calendar',
-                    content: '<p>When you schedule a job in Opscel, the following data creates a calendar event:</p>',
-                    bullets: [
-                        '<strong>Event title:</strong> "[Opscel] Customer Name - Site Address"',
-                        '<strong>Start time:</strong> Visit scheduled start time',
-                        '<strong>End time:</strong> Visit scheduled end time (or start time + estimated duration)',
-                        '<strong>Location:</strong> Site address (full postal address)',
-                        '<strong>Description:</strong> Job number, job type, engineer assigned, job description',
-                        '<strong>Status:</strong> Marked as "Busy" to block availability'
-                    ]
-                },
-                {
-                    title: 'What Syncs from Calendar → Opscel',
-                    content: '<p>Opscel reads your calendar to block scheduling during busy times:</p>',
-                    bullets: [
-                        '<strong>Busy times only:</strong> Opscel reads when you&apos;re busy, not event details',
-                        '<strong>Availability blocking:</strong> Busy times prevent admins from scheduling jobs during those slots',
-                        '<strong>No event titles:</strong> Opscel does NOT read event names, descriptions, or attendees (privacy preserved)',
-                        '<strong>Free vs Busy:</strong> Only events marked "Busy" block scheduling. "Free" events don&apos;t block.'
-                    ]
-                },
-                {
-                    title: 'Sync Frequency',
-                    content: '<p>Calendar sync runs <strong>every 15 minutes</strong> in both directions:</p>',
-                    bullets: [
-                        '<strong>Opscel → Calendar:</strong> New/updated jobs sync to calendar within 15 minutes',
-                        '<strong>Calendar → Opscel:</strong> New busy times appear in Opscel availability within 15 minutes',
-                        '<strong>Manual sync:</strong> Click "Sync Now" button in Settings → Calendar Integration to force immediate sync',
-                        '<strong>Real-time updates:</strong> Critical changes (job cancellation, time change) sync immediately via webhook (no 15-minute delay)'
-                    ]
-                },
-                {
-                    title: 'Event Format',
-                    content: '<p>Opscel jobs appear in your calendar as:</p><code>[Opscel] Smith Electrical - 123 High Street, London</code><p>This format ensures Opscel events are easily identifiable in your calendar and don&apos;t conflict with personal appointments.</p>'
-                },
-                {
-                    title: 'Conflict Handling',
-                    content: '<p><strong>What happens if admin schedules a job during engineer&apos;s busy time?</strong></p>',
-                    bullets: [
-                        '<strong>Warning shown:</strong> Scheduling interface shows "Engineer has conflict" warning with conflicting event time',
-                        '<strong>Engineer notification:</strong> Engineer receives notification about scheduling conflict',
-                        '<strong>Both events persist:</strong> Both Opscel job and external calendar event remain (engineer must resolve conflict manually)'
+                        'Open <strong>Settings → Calendar Integration</strong> (engineers: open <strong>Settings</strong> in the field app)',
+                        'On the <strong>Microsoft Outlook</strong> card, click <strong>Connect</strong>',
+                        'Sign in with your Microsoft work or personal account',
+                        'Review the permissions and accept',
+                        'You are returned to Opscel and shown a confirmation message',
+                        'The card shows <strong>Connected</strong> with your account email'
                     ]
                 }
             ]
         },
         {
-            id: 'availability-blocking',
-            title: 'Availability Blocking',
+            id: 'how-sync-works',
+            title: 'How Sync Works',
             subsections: [
                 {
-                    title: 'How It Works',
-                    content: '<p>When you connect a calendar, Opscel reads your busy times and blocks those slots from being scheduled:</p>',
-                    bullets: [
-                        '<strong>Scheduling interface:</strong> Unavailable time slots appear grayed out with "Busy" indicator',
-                        '<strong>Auto-assign:</strong> Auto-assign rules skip engineers with calendar conflicts',
-                        '<strong>Drag-and-drop scheduling:</strong> Can&apos;t drag job to blocked time slot'
-                    ]
+                    title: 'Direction and Scope',
+                    content: '<p>Sync is <strong>one-way, from Opscel to your calendar</strong>. Only jobs and visits that are <strong>assigned to you</strong> are sent to your calendar. Colleagues see their own assignments in their own calendars; nobody&apos;s calendar receives another engineer&apos;s work.</p>'
                 },
                 {
-                    title: 'Scheduling Rules Respect Calendar Availability',
-                    content: '<p>Opscel&apos;s scheduling engine checks calendar availability before assigning:</p>',
-                    bullets: [
-                        '<strong>Auto-assign:</strong> Only considers engineers with no calendar conflicts',
-                        '<strong>Service contracts:</strong> Recurring jobs avoid scheduling during known busy times',
-                        '<strong>Team view:</strong> Calendar shows which engineers are available vs busy',
-                        '<strong>Workload balancing:</strong> Distribution accounts for calendar availability'
-                    ]
-                },
-                {
-                    title: 'Examples',
-                    content: '<p><strong>Example 1:</strong> John has dentist appointment 2-3pm on Tuesday. Admin tries to schedule job for John at 2:30pm Tuesday. Scheduling interface shows "Busy" indicator and suggests alternative times.</p><p><strong>Example 2:</strong> Sarah blocks out 9-5pm Friday for annual leave in Google Calendar. Opscel auto-assign skips Sarah for Friday jobs. Admins see "On Leave" indicator next to Sarah&apos;s name.</p>'
-                },
-                {
-                    title: 'Steps to Test Availability Blocking',
+                    title: 'When Events Are Created, Updated and Removed',
                     content: '',
-                    steps: [
-                        'Connect your calendar (Google or Microsoft)',
-                        'Add a busy event in your external calendar (e.g., "Dentist" tomorrow 2-3pm)',
-                        'Wait 15 minutes for sync (or click "Sync Now" in Opscel)',
-                        'Navigate to Opscel scheduling interface (Jobs → Schedule Visit)',
-                        'Try to schedule yourself for tomorrow 2-3pm',
-                        'You should see "Busy" indicator and gray-out time slot',
-                        'Alternative times should be suggested'
+                    table: {
+                        headers: ['What happens in Opscel', 'What happens in your calendar'],
+                        rows: [
+                            ['A job with a schedule is created and assigned to you', 'An event is created'],
+                            ['You are assigned to a scheduled job or visit', 'An event is created for you'],
+                            ['The date, time, address or details change', 'The event is updated'],
+                            ['The job is put on hold', 'The event title gets an [ON HOLD] prefix'],
+                            ['You are removed from the job', 'The event is removed from your calendar'],
+                            ['The job is cancelled', 'The event is removed'],
+                            ['The job is completed', 'The event is left in place (it is not deleted)']
+                        ]
+                    }
+                },
+                {
+                    title: 'How Quickly',
+                    content: '<p>Changes are sent in the background shortly after you save them in Opscel; there is no manual "Sync Now" button and no fixed 15-minute cycle. If a sync fails (for example, the calendar service is briefly unavailable), Opscel retries the failed items automatically every 15 minutes, up to a limited number of attempts.</p>'
+                },
+                {
+                    title: 'Jobs and Visits',
+                    content: '<p>A job with a single schedule produces one event. A job split into dated visits produces one event per visit, for each engineer assigned to that visit.</p>'
+                },
+                {
+                    title: 'What an Event Looks Like',
+                    content: '',
+                    bullets: [
+                        '<strong>Job title:</strong> <code>[JOB-1042] Boiler service — Sunley House</code> (job number, job title, then the site name if there is one)',
+                        '<strong>Visit title:</strong> <code>Visit 2: Boiler service (JOB-1042) — Sunley House</code>',
+                        '<strong>On hold:</strong> <code>[ON HOLD]</code> is added to the front of the title',
+                        '<strong>Location:</strong> The site address (street, town, postcode)',
+                        '<strong>Description:</strong> Customer, service type, priority, the engineers assigned, access notes (if enabled), the job description, and a "View in Opscel" link to the job',
+                        '<strong>Time zone:</strong> Visit events are created in UK time'
                     ]
+                },
+                {
+                    title: 'Calendar Preferences (Admin)',
+                    content: '<p>Two preferences on the Calendar Integration page apply to <strong>every calendar event for your business</strong>, not just your own. Changing them requires the configuration permission (typically an Admin):</p>',
+                    bullets: [
+                        '<strong>Travel buffer (0 to 60 minutes):</strong> Starts the calendar event this many minutes before the job or visit start. The job time in Opscel is unchanged, and the event description notes that the start includes the buffer',
+                        '<strong>Include access instructions:</strong> On by default. Puts the site access notes (such as key safe details) in the event description. Turn it off if you do not want access details in personal calendars'
+                    ]
+                },
+                {
+                    title: 'Jobs Scheduled Before You Connected',
+                    content: '<p>Connecting a calendar does not automatically copy work that was already scheduled. Existing assigned jobs and visits may not appear until they are next changed in Opscel. Opscel can be configured to add your upcoming assigned work (the next 180 days, up to 200 items) when you connect, but this is switched on by the Opscel team rather than by you; if your existing jobs are missing, contact support.</p>'
+                }
+            ]
+        },
+        {
+            id: 'scheduling-hints',
+            title: 'Calendar Busy Times When Scheduling',
+            subsections: [
+                {
+                    title: 'A Hint, Not a Block',
+                    content: '<p>Opscel does <strong>not</strong> stop anyone scheduling work when a calendar is busy. For engineers who have connected a calendar, Opscel asks Google or Microsoft whether they are free or busy during the proposed time, and shows the result as a guide:</p>',
+                    bullets: [
+                        '<strong>Assigning engineers to a job:</strong> A badge next to each engineer shows Available, Busy, Partial, No calendar or Unknown (if the calendar could not be checked). Hovering shows the busy time ranges',
+                        '<strong>Engineer availability panel:</strong> Overlaps with the proposed slot are listed in a "Scheduling conflicts detected" warning, including all-day events such as leave',
+                        '<strong>Planner:</strong> Busy times from connected calendars are shown on the board so you can see them when booking'
+                    ]
+                },
+                {
+                    title: 'What Is and Is Not Shared',
+                    content: '<p>Only busy time ranges are used. Opscel does not read or display the titles, descriptions or attendees of personal events. An engineer without a connected calendar simply shows as "No calendar"; it does not count as available or busy. Calendar busy times never change a job&apos;s status or remove an engineer from it.</p>'
                 }
             ]
         },
         {
             id: 'token-refresh',
-            title: 'Token Refresh (OAuth)',
+            title: 'Connection Health and Reconnecting',
             subsections: [
                 {
-                    title: 'OAuth Tokens Expire',
-                    content: '<p>Google and Microsoft short-lived access tokens expire on their normal OAuth schedule. Opscel refreshes them automatically using the stored refresh token whenever a sync needs one, so this normally never surfaces.</p>'
+                    title: 'Automatic Token Refresh',
+                    content: '<p>Google and Microsoft grant Opscel short-lived access tokens. Opscel checks every 5 minutes and renews any token that is within 5 minutes of expiring, so you should not need to do anything.</p>'
                 },
                 {
-                    title: 'Automatic Refresh Process',
-                    content: '<p>Opscel automatically refreshes OAuth tokens on demand:</p>',
-                    bullets: [
-                        '<strong>Refresh on use:</strong> The access token is refreshed using the stored refresh token the next time a sync needs it',
-                        '<strong>Silent refresh:</strong> No action required from you'
-                    ]
-                },
-                {
-                    title: 'When Refresh Fails',
-                    content: '<p>Token refresh can fail if:</p>',
-                    bullets: [
-                        '<strong>Account password changed:</strong> Google/Microsoft revokes tokens when you change password',
-                        '<strong>Permissions revoked:</strong> You manually removed Opscel from connected apps',
-                        '<strong>Organization policy change:</strong> IT admin revoked app access'
-                    ]
-                },
-                {
-                    content: '<p>When refresh fails, you receive:</p>',
-                    bullets: [
-                        '<strong>Email notification:</strong> "Opscel calendar sync stopped - reconnect required"',
-                        '<strong>In-app banner:</strong> Red banner at top of Opscel: "Calendar connection expired"',
-                        '<strong>Settings indicator:</strong> Calendar integration status shows "Disconnected - Reconnect Required"'
-                    ]
-                },
-                {
-                    title: 'Steps to Reconnect Expired Calendar',
-                    content: '',
-                    steps: [
-                        'Click "Reconnect" button in email notification or in-app banner',
-                        'Or navigate to <strong>Settings → Calendar Integration</strong>',
-                        'Click <strong>Reconnect [Platform]</strong> button',
-                        'Complete OAuth flow again (same as initial connection)',
-                        'Connection status returns to "Connected"',
-                        'Sync resumes within 5 minutes'
-                    ]
+                    title: 'When a Connection Expires',
+                    content: '<p>If the provider refuses to renew access (for example you revoked Opscel in your Google or Microsoft account, changed your password, or your organisation&apos;s policy changed), the connection is marked <strong>Expired</strong>. The card shows "Connection expired. Please reconnect." with a <strong>Reconnect</strong> button. Events stop updating until you reconnect. Brief provider outages do not expire the connection.</p>'
                 }
             ]
         },
@@ -350,50 +246,26 @@ export const calendarIntegrationGuide: IDocGuide = {
             title: 'Disconnecting Calendars',
             subsections: [
                 {
-                    title: 'When to Disconnect',
-                    content: '<p>Disconnect calendar integration when:</p>',
-                    bullets: [
-                        '<strong>Changing calendar provider:</strong> Switching from Google to Microsoft',
-                        '<strong>Troubleshooting:</strong> Disconnect and reconnect to fix sync issues',
-                        '<strong>Leaving company:</strong> Remove Opscel access from personal calendar',
-                        '<strong>Privacy concern:</strong> Stop syncing availability to Opscel'
-                    ]
-                },
-                {
-                    title: 'What Happens to Existing Events',
-                    content: '<p><strong>Opscel side:</strong> Job data remains unchanged. Jobs stay scheduled. Calendar integration simply stops syncing.</p><p><strong>Calendar side:</strong> Existing Opscel events remain in your external calendar. They do NOT automatically delete when you disconnect. You can manually delete them if desired.</p>'
-                },
-                {
-                    title: 'Steps to Disconnect Calendar',
+                    title: 'Steps to Disconnect',
                     content: '',
                     steps: [
-                        'Navigate to <strong>Settings → Calendar Integration</strong>',
-                        'Find connected calendar (Google or Microsoft)',
-                        'Click <strong>Disconnect</strong> button',
-                        'Confirm disconnection in modal dialog',
-                        'Connection status changes to "Not Connected"',
-                        'Sync stops immediately (no more calendar updates)'
+                        'Open <strong>Settings → Calendar Integration</strong> (engineers: the field app Settings page)',
+                        'On the connected card, click <strong>Disconnect</strong>',
+                        'Confirm the prompt'
                     ]
                 },
                 {
-                    title: 'Revoke OAuth Access on Provider Side',
-                    content: '<p>For complete removal, also revoke Opscel access from your Google/Microsoft account:</p><p><strong>Google:</strong></p>',
-                    steps: [
-                        'Visit <a href="https://myaccount.google.com/permissions" target="_blank" class="text-blue-600 hover:text-blue-800">myaccount.google.com/permissions</a>',
-                        'Find "Opscel" in the list',
-                        'Click <strong>Remove Access</strong>',
-                        'Confirm removal'
+                    title: 'What Happens',
+                    content: '',
+                    bullets: [
+                        '<strong>Sync stops:</strong> No new events are created or updated for that calendar',
+                        '<strong>Opscel forgets the access tokens:</strong> They are cleared from Opscel, and Opscel asks Google to revoke its access where possible',
+                        '<strong>Events already in your calendar stay:</strong> Opscel does not delete them on disconnect. Delete them manually if you no longer want them',
+                        '<strong>Your jobs are not affected:</strong> Nothing changes in Opscel'
                     ]
                 },
                 {
-                    title: '',
-                    content: '<p><strong>Microsoft:</strong></p>',
-                    steps: [
-                        'Visit <a href="https://account.microsoft.com/privacy/app-access" target="_blank" class="text-blue-600 hover:text-blue-800">account.microsoft.com/privacy/app-access</a>',
-                        'Find "Opscel" in the list',
-                        'Click <strong>Remove</strong>',
-                        'Confirm removal'
-                    ]
+                    content: '<p>To be certain access is removed, you can also remove Opscel from the connected apps list in your Google or Microsoft account settings.</p>'
                 }
             ]
         },
@@ -402,31 +274,15 @@ export const calendarIntegrationGuide: IDocGuide = {
             title: 'Best Practices',
             subsections: [
                 {
-                    title: 'For Admins',
+                    title: 'Recommendations',
                     content: '',
                     bullets: [
-                        '<strong>Encourage team to connect calendars:</strong> Send reminder to all engineers to connect their calendars for accurate availability',
-                        '<strong>Monitor connection health:</strong> Check Settings → Team → Calendar Status to see which users have calendars connected',
-                        '<strong>Respect availability blocks:</strong> Calendar conflicts usually indicate legitimate conflicts — don&apos;t schedule over them without checking with the engineer first.'
-                    ]
-                },
-                {
-                    title: 'For Engineers',
-                    content: '',
-                    bullets: [
-                        '<strong>Keep external calendar updated:</strong> If you mark personal appointments as busy, Opscel will respect them',
-                        '<strong>Mark personal time as busy:</strong> Not "free" or "available". Only "busy" events block Opscel scheduling.',
-                        '<strong>Check both calendars:</strong> Even with sync, check both Opscel and your personal calendar to avoid confusion',
-                        '<strong>Report sync issues quickly:</strong> If jobs aren&apos;t appearing in calendar, tell admin immediately'
-                    ]
-                },
-                {
-                    title: 'For Managers',
-                    content: '',
-                    bullets: [
-                        '<strong>Check calendar sync before tight scheduling:</strong> If scheduling jobs back-to-back, verify engineer calendar is up to date',
-                        '<strong>Use team calendar view:</strong> Opscel team view shows all engineers&apos; availability from connected calendars',
-                        '<strong>Plan around known busy times:</strong> If engineer has recurring commitments (e.g., school pickup 3pm Fridays), schedule around them'
+                        '<strong>Connect early:</strong> Connect before work is scheduled so events are created as jobs are assigned',
+                        '<strong>Use the primary calendar you actually check:</strong> Events go to the primary calendar of the connected account',
+                        '<strong>Set the travel buffer to suit your typical journeys:</strong> An admin sets one value for the whole business',
+                        '<strong>Consider access notes:</strong> Turn off access instructions if personal calendars are shared with people who should not see key safe details',
+                        '<strong>Make changes in Opscel:</strong> Reschedule or cancel in Opscel, not by editing or deleting the calendar event',
+                        '<strong>Put leave and personal commitments in your calendar:</strong> Managers then see them as a busy hint when scheduling'
                     ]
                 }
             ]
@@ -436,58 +292,35 @@ export const calendarIntegrationGuide: IDocGuide = {
             title: 'Troubleshooting',
             subsections: [
                 {
-                    title: 'Calendar Not Syncing',
-                    content: '<p><strong>Problem:</strong> Jobs aren&apos;t appearing in calendar, or busy times aren&apos;t blocking Opscel.</p><p><strong>Check:</strong></p>',
+                    title: 'Existing jobs are not in my calendar',
+                    content: '<p>Work scheduled before you connected may not be copied across. Open the job and make a change to its schedule, or ask support to run the catch-up for your account. New assignments after you connect sync automatically.</p>'
+                },
+                {
+                    title: 'A new job has not appeared',
+                    content: '',
                     bullets: [
-                        'Connection status shows "Connected" in Settings → Calendar Integration',
-                        'Last sync time is recent (within 15 minutes)',
-                        'OAuth token not expired (check for reconnection prompt)',
-                        'Selected the correct calendar (check calendar selection dropdown)',
-                        '<strong>Fix:</strong> Click "Sync Now" button to force immediate sync. If still not syncing, disconnect and reconnect calendar.'
+                        'Check you are <strong>assigned</strong> to the job or visit, and that it has a date and time',
+                        'Jobs with no scheduled date and time are not sent; give the job a start time and assign it to you',
+                        'Check the Calendar Integration page shows <strong>Connected</strong> (not Expired)',
+                        'Look in the <strong>primary</strong> calendar of the connected account, and check that calendar is switched on in your calendar app',
+                        'Failed syncs are retried automatically every 15 minutes'
                     ]
                 },
                 {
-                    title: 'Jobs Not Appearing in Calendar',
-                    content: '<p><strong>Problem:</strong> Opscel jobs are scheduled but not showing in Google/Microsoft calendar.</p><p><strong>Check:</strong></p>',
-                    bullets: [
-                        'Job is in "Scheduled" status (draft jobs don&apos;t sync)',
-                        'Visit has a scheduled date (unscheduled visits don&apos;t sync)',
-                        'You&apos;re the assigned engineer (only your assigned jobs appear in your calendar)',
-                        'Last sync time is recent',
-                        'Looking at correct calendar (check selected calendar in Opscel settings)',
-                        '<strong>Fix:</strong> Force sync by clicking "Sync Now". If job still missing, check calendar selection - you may be syncing to a different calendar than you&apos;re viewing.'
-                    ]
+                    title: 'The card says "Connection expired"',
+                    content: '<p>Click <strong>Reconnect</strong> and sign in again. If it expires repeatedly, check that Opscel has not been removed from your Google or Microsoft account&apos;s connected apps, and that your organisation has approved it.</p>'
                 },
                 {
-                    title: 'Availability Not Blocking Scheduling',
-                    content: '<p><strong>Problem:</strong> Have busy event in calendar but Opscel still allows scheduling at that time.</p><p><strong>Check:</strong></p>',
-                    bullets: [
-                        'Event marked as "Busy" (not "Free" or "Available")',
-                        'OAuth permissions granted (Google/Microsoft)',
-                        'Calendar integration enabled (not disconnected)',
-                        '<strong>Fix:</strong> Click "Sync Now" to force an immediate sync. Ensure event status is "Busy".'
-                    ]
+                    title: 'An event shows the wrong time',
+                    content: '<p>Check the <strong>travel buffer</strong> setting: events start earlier than the job by that many minutes. The event description says when the buffer is included.</p>'
                 },
                 {
-                    title: 'Duplicate Events in Calendar',
-                    content: '<p><strong>Problem:</strong> Same Opscel job appears twice (or more) in calendar.</p><p><strong>Check:</strong></p>',
-                    bullets: [
-                        'Multiple calendar connections active (e.g., both Google and Microsoft)',
-                        'Syncing to same calendar from multiple Opscel accounts (multi-tenant)',
-                        'Old events not cleaned up after disconnection',
-                        '<strong>Fix:</strong> Disconnect all calendar integrations, manually delete duplicate events, then reconnect one calendar only.'
-                    ]
+                    title: 'A completed job is still in my calendar',
+                    content: '<p>This is intended. Completing a job leaves its calendar event in place as a record; only cancelling a job or removing you from it deletes the event.</p>'
                 },
                 {
-                    title: 'OAuth Error Messages',
-                    content: '<p><strong>Problem:</strong> "Token expired" or "Permission denied" error during connection.</p><p><strong>Check:</strong></p>',
-                    bullets: [
-                        'Account password recently changed',
-                        'OAuth permissions manually revoked',
-                        'Organization policy blocking app (enterprise users)',
-                        'Browser blocking popup (OAuth opens in new window)',
-                        '<strong>Fix:</strong> Clear browser cache, allow popups from app.opscel.com, try reconnection. If enterprise user, contact IT admin for app approval.'
-                    ]
+                    title: 'Connection fails with an error',
+                    content: '<p>The error text from the provider is shown at the top of the page. For Microsoft work accounts, ask your IT administrator whether new apps need approval. If it persists, email <a href="mailto:support@opscel.com" class="text-blue-600 hover:text-blue-800">support@opscel.com</a> with the message shown.</p>'
                 }
             ]
         },
@@ -496,36 +329,44 @@ export const calendarIntegrationGuide: IDocGuide = {
             title: 'Frequently Asked Questions',
             subsections: [
                 {
-                    title: 'Will Opscel see all my personal calendar events?',
-                    content: '<p>No. Opscel only reads <strong>busy/free status</strong> and event start/end times. Event titles, descriptions, attendees, and location are NOT accessed. Your personal event details remain private.</p><p>Opscel needs to know WHEN you&apos;re busy, not WHAT you&apos;re doing.</p>'
+                    title: 'Is it two-way?',
+                    content: '<p>No. Opscel sends your assigned work to your calendar. It does not import events from your calendar, and changes made to an event in your calendar do not change the job. (Opscel can <em>check</em> when you are busy to show a scheduling hint, but that does not create or change anything in Opscel.)</p>'
+                },
+                {
+                    title: 'Will Opscel see my personal calendar events?',
+                    content: '<p>Only as busy time ranges for the scheduling hint. Titles, descriptions and attendees of your personal events are not displayed in Opscel.</p>'
+                },
+                {
+                    title: 'Does a busy calendar stop a job being scheduled?',
+                    content: '<p>No. It shows a warning or indicator so the person scheduling can make an informed choice. They can still schedule the work.</p>'
                 },
                 {
                     title: 'Can I choose which jobs appear in my calendar?',
-                    content: '<p>No. All scheduled visits where you&apos;re the assigned engineer sync automatically. You cannot selectively sync only certain jobs.</p><p>If you don&apos;t want Opscel jobs in your calendar, disconnect the integration and use Opscel field app for job scheduling instead.</p>'
+                    content: '<p>No. Everything assigned to you that has a schedule is synced. If you do not want Opscel events in your calendar, do not connect one (or disconnect) and use the field app for your schedule.</p>'
+                },
+                {
+                    title: 'Can I choose which calendar is used?',
+                    content: '<p>No. Opscel uses the primary calendar of the account you connect.</p>'
+                },
+                {
+                    title: 'Can I connect both Google and Outlook?',
+                    content: '<p>Yes, each provider has its own card and you can connect one account per provider. Assigned work is sent to each connected calendar.</p>'
                 },
                 {
                     title: 'What if I delete an Opscel event from my calendar?',
-                    content: '<p>The job remains in Opscel unchanged. At the next sync (15 minutes), Opscel will recreate the calendar event. Deleting the event from your calendar does NOT cancel the job.</p><p>To cancel a job, you must cancel it in Opscel. The calendar event will then delete automatically at next sync.</p>'
+                    content: '<p>The job in Opscel is unchanged. Deleting an event does not cancel or alter the job. To cancel or reschedule work, do it in Opscel.</p>'
                 },
                 {
                     title: 'How do I stop syncing?',
-                    content: '<p>Navigate to <strong>Settings → Calendar Integration</strong> and click <strong>Disconnect</strong>. Sync stops immediately. Existing Opscel events remain in your calendar (you can manually delete them).</p><p>To fully revoke access, also remove Opscel from your Google/Microsoft account permissions (see Disconnecting Calendars section).</p>'
+                    content: '<p>Click <strong>Disconnect</strong> on the Calendar Integration page. Sync stops; events already in your calendar remain until you delete them.</p>'
                 },
                 {
-                    title: 'Can I sync multiple calendars?',
-                    content: '<p>No. Each Opscel user can connect <strong>one calendar per platform</strong>. You cannot sync multiple Google calendars or merge multiple calendars into Opscel.</p><p>If you need to block availability from multiple calendars, combine them into a single calendar on your provider&apos;s side (e.g., create a master calendar that aggregates all your calendars), then sync that master calendar to Opscel.</p>'
+                    title: 'Is there a calendar feed (ICS) I can subscribe to?',
+                    content: '<p>No. Only the Google Calendar and Microsoft Outlook connections are available.</p>'
                 },
                 {
-                    title: 'Does calendar sync work offline?',
-                    content: '<p>No. Calendar sync requires internet connection. If you&apos;re offline (field app), jobs are cached locally and will sync to calendar when you go online.</p><p>However, you can still complete jobs offline in the field app. They just won&apos;t update your calendar until sync happens.</p>'
-                },
-                {
-                    title: 'What time zone are events created in?',
-                    content: '<p>Events are created in <strong>your local time zone</strong> based on your Opscel account settings. If job is scheduled 9am-12pm UK time, and you&apos;re in UK timezone, calendar event will be 9am-12pm.</p><p>If you travel to a different timezone, calendar events will display in that timezone automatically (calendar apps handle timezone conversion).</p>'
-                },
-                {
-                    title: 'Why does my calendar show "busy" when I&apos;m actually available?',
-                    content: '<p>Opscel marks all job events as "busy" by default to block scheduling. If this isn&apos;t accurate for your workflow (e.g., you can take calls during jobs), there&apos;s no way to change this currently.</p><p>Workaround: Disconnect calendar sync and manage scheduling manually in Opscel only.</p>'
+                    title: 'Who can change the travel buffer and access-notes setting?',
+                    content: '<p>Users with the configuration permission (typically Admins). The settings apply to every calendar event across the business.</p>'
                 }
             ]
         },
@@ -547,22 +388,22 @@ export const calendarIntegrationGuide: IDocGuide = {
     relatedGuides: [
         {
             title: 'Jobs',
-            description: 'Jobs populate your calendar automatically',
+            description: 'Jobs assigned to you appear in your calendar',
             href: '/docs/jobs'
         },
         {
             title: 'Field Service App',
-            description: 'Engineers see calendar events in the field app',
+            description: 'Engineers connect their calendar from field app settings',
             href: '/docs/field-service'
         },
         {
             title: 'Planning Your Week with the Planner',
-            description: 'The Planner checks connected calendars when you book',
+            description: 'The Planner shows connected calendars\' busy times as a hint when you book',
             href: '/docs/planner'
         },
         {
             title: 'Service Contracts',
-            description: 'Recurring contract jobs appear in the calendar',
+            description: 'Recurring contract jobs sync like any other scheduled job',
             href: '/docs/service-contracts'
         },
         {

@@ -67,7 +67,7 @@ export const jobsDetail: IFeatureDetail = {
         {
             iconId: 'icon-calendar-sync',
             title: 'Google Calendar & Outlook Sync',
-            description: 'Engineers see their schedule where they already look. Two-way sync keeps jobs in Google Calendar and Outlook up to date automatically. No switching apps, no double-booking.'
+            description: 'Engineers see their schedule where they already look. Jobs assigned to each engineer are sent to their Google Calendar or Outlook and kept up to date automatically. Busy times show as a hint when you schedule.'
         }
     ],
 
