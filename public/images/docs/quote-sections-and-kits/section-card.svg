@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" role="img" aria-labelledby="sctitle scdesc">
+<title id="sctitle">A section in the quote builder</title>
+<desc id="scdesc">Sample section card titled Ground floor - Reception. It has a heading field, a description field, a Customer sees choice set to Lines and prices, buttons to move, duplicate, save as kit and delete, three lines (Addressable smoke detector 6 at 38.00, Manual call point 2 at 42.00, Sounder beacon 2 at 55.00) with a Custom line button, and a section subtotal of 422.00 excluding VAT.</desc>
+<style>
+.lbl{font-family:Manrope,"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;}
+.mono{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;}
+.title{font-size:14px;font-weight:600;fill:#141619;}
+.body{font-size:12.5px;fill:#141619;}
+.note{font-size:11px;fill:#586070;}
+.box{fill:#FFFFFF;stroke:#E1E5EA;stroke-width:1;}
+.field{fill:#F6F8FA;stroke:#CBD2DA;stroke-width:1;}
+.acc{fill:#E4EFF7;stroke:#026A9F;stroke-width:1.5;}
+.btn{fill:#026A9F;}
+.btnt{font-size:12px;font-weight:600;fill:#FFFFFF;}
+</style>
+<rect x="1" y="1" width="758" height="358" rx="8" class="box"/>
+<text x="20" y="28" class="lbl title">Section 1</text>
+<rect x="20" y="40" width="330" height="30" rx="4" class="field"/><text x="30" y="60" class="lbl body">Ground floor - Reception</text>
+<text x="370" y="60" class="lbl note">Customer sees</text>
+<rect x="450" y="40" width="150" height="30" rx="4" class="field"/><text x="460" y="60" class="lbl body">Lines &amp; prices</text>
+<g class="lbl note" font-size="11"><text x="612" y="60">Up</text><text x="640" y="60">Down</text><text x="678" y="60">Duplicate</text></g>
+<rect x="20" y="80" width="330" height="30" rx="4" class="field"/><text x="30" y="100" class="lbl note">Description the customer sees (optional)</text>
+<rect x="370" y="80" width="95" height="30" rx="4" class="acc"/><text x="382" y="100" class="lbl body">Save as kit</text>
+<rect x="475" y="80" width="70" height="30" rx="4" class="box"/><text x="490" y="100" class="lbl body">Delete</text>
+<line x1="20" y1="130" x2="740" y2="130" stroke="#E1E5EA"/>
+<g class="lbl note"><text x="20" y="150">Description</text><text x="400" y="150">Qty</text><text x="480" y="150">Unit price</text><text x="620" y="150">Line total</text></g>
+<g class="lbl body"><text x="20" y="178">Addressable smoke detector</text><text x="400" y="178">6</text><text x="480" y="178">38.00</text><text x="620" y="178">228.00</text>
+<text x="20" y="208">Manual call point</text><text x="400" y="208">2</text><text x="480" y="208">42.00</text><text x="620" y="208">84.00</text>
+<text x="20" y="238">Sounder beacon</text><text x="400" y="238">2</text><text x="480" y="238">55.00</text><text x="620" y="238">110.00</text></g>
+<text x="20" y="262" class="lbl note">Lines can be dragged into another section.</text>
+<rect x="20" y="276" width="120" height="28" rx="4" class="box"/><text x="34" y="295" class="lbl body">+ Custom line</text>
+<line x1="20" y1="318" x2="740" y2="318" stroke="#E1E5EA"/>
+<text x="480" y="343" class="lbl note">Section subtotal (ex VAT)</text><text x="620" y="343" class="lbl title">422.00</text>
+</svg>

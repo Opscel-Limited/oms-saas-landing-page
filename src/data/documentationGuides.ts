@@ -105,6 +105,13 @@ export const documentationGuides: IDocumentationGuideMeta[] = [
         icon: 'icon-quotation'
     },
     {
+        title: 'Quote Sections and Kits',
+        description: 'Split a quote into sections, one per area of a building, and save reusable kits of products and labour so a repeated job such as a fire alarm zone goes onto a quote in a few clicks.',
+        url: '/docs/quote-sections-and-kits',
+        category: 'Sales & Quoting',
+        icon: 'icon-quotation'
+    },
+    {
         title: 'Quote Defaults',
         description: 'What Settings → Sales → Quote Defaults controls: default deposit, validity period, price breakdown, call-out rates, and the template used for defect and remedial quotes.',
         url: '/docs/quote-defaults',
