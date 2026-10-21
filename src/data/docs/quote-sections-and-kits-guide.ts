@@ -115,7 +115,7 @@ export const quoteSectionsAndKitsGuide: IDocGuide = {
                 {
                     title: 'Create a kit in Settings',
                     steps: [
-                        'Go to <strong>Settings → Quote kits</strong>. You can also press the <strong>Kits</strong> button on the Quote Templates settings page',
+                        'Go to <strong>Settings → Quote templates</strong> and press the <strong>Kits</strong> button to open the Quote kits page',
                         'Press <strong>New kit</strong>',
                         'Enter a <strong>Kit name</strong> (for example "Fire alarm zone"). Only your team sees the name',
                         'Enter a <strong>Default section heading</strong> and, if you like, a <strong>Default section description</strong>. These fill in when you add the kit to a quote',
@@ -135,7 +135,7 @@ export const quoteSectionsAndKitsGuide: IDocGuide = {
                 },
                 {
                     title: 'Managing your kits',
-                    content: '<p>The Quote kits page lists your kits. Open one to edit it, mark it inactive, or delete it. Deleting a kit does not touch any quote that already used it.</p>',
+                    content: '<p>The Quote kits page lists your kits. Open one to edit it, turn its <strong>Active</strong> switch off to hide it from the quote builder, or delete it. Deleting a kit does not touch any quote that already used it.</p>',
                 },
             ],
         },
@@ -170,7 +170,7 @@ export const quoteSectionsAndKitsGuide: IDocGuide = {
             subsections: [
                 {
                     steps: [
-                        'Once, in <strong>Settings → Quote kits</strong>, create a kit called "Fire alarm zone" with a default heading "Fire alarm" and lines for detectors, call points, sounders and an hour of labour per device',
+                        'Once, in <strong>Settings → Quote templates → Kits</strong>, create a kit called "Fire alarm zone" with a default heading "Fire alarm" and lines for detectors, call points, sounders and an hour of labour per device',
                         'Start a new quote for the customer',
                         'In the builder, open the <strong>Kits</strong> tab, choose "Fire alarm zone", choose <strong>New sections</strong>, set the number of areas to 3 and type the headings "Ground floor", "First floor" and "Second floor"',
                         'Press <strong>Add 3 sections</strong>. Three sections appear, each with the kit\'s lines',
