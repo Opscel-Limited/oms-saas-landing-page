@@ -12,6 +12,7 @@ import { fireSafetyFeaturesGuide } from './fire-safety-features-guide';
 import { worksheetsGuide } from './worksheets-guide';
 import { certificatesGuide } from './certificates-guide';
 import { quotationsGuide } from './quotations-guide';
+import { quoteSectionsAndKitsGuide } from './quote-sections-and-kits-guide';
 import { defectsToQuotationGuide } from './defects-to-quotation-guide';
 import { remedialScopeOfWorksGuide } from './remedial-scope-of-works-guide';
 import { customerPortalGuide } from './customer-portal-guide';
@@ -49,6 +50,7 @@ export const docGuides: IDocGuide[] = [
     ramsGuide,
     certificatesGuide,
     quotationsGuide,
+    quoteSectionsAndKitsGuide,
     defectsToQuotationGuide,
     remedialScopeOfWorksGuide,
     customerPortalGuide,

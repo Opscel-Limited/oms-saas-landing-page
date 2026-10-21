@@ -20,6 +20,7 @@ export const quotationsGuide: IDocGuide = {
                         '<strong>Professional presentation:</strong> Branded PDF quotes with cover pages, line items, and T&Cs',
                         '<strong>Customer self-service:</strong> Customers can accept/decline quotes via portal - no back-and-forth emails',
                         '<strong>One-click job creation:</strong> Convert an accepted quote to a job with all data carried forward - no re-typing',
+                        '<strong>Sections and kits:</strong> Split a quote into sections, one per area, and add reusable kits of products and labour. See the <a href="/docs/quote-sections-and-kits" class="text-secondary hover:underline">Quote Sections and Kits guide</a>',
                         '<strong>Defect-to-quote workflow:</strong> Bundle logged job defects into a remedial quote',
                         '<strong>Quote analytics:</strong> Track conversion rates, win/loss ratios, and average quote values',
                         '<strong>Deposit handling:</strong> Require deposits on acceptance, integrated with Stripe (all plans)',
@@ -93,6 +94,10 @@ export const quotationsGuide: IDocGuide = {
                 {
                     title: 'What a Quote Template Is',
                     content: 'A quote template is a reusable starting point for a new quote. It can hold line items you use often, your terms and conditions, standard wording, a validity period, a default deposit, and whether call-out rates are printed.<br><br>You\'ll find them at <strong>Settings → Sales → Quote Templates</strong>. The same page also holds the settings that apply to every quote you send regardless of template: your T&amp;Cs PDF, the quote cover page, and whether VAT is shown.<br><br>Separately, <strong>Settings → Sales → Quote Defaults</strong> controls what a new quote starts with when no template is used — deposit, validity, price breakdown and call-out rates — and which template is used for quotes raised from defects. See the <a href="/docs/quote-defaults" class="text-secondary hover:underline">Quote Defaults guide</a> for the full settings reference.',
+                },
+                {
+                    title: 'Templates and Sections',
+                    content: 'A template holds lines, not section headings. Loading one on a quote that already has <a href="/docs/quote-sections-and-kits" class="text-secondary hover:underline">sections</a> adds its lines as a new section instead of replacing your work. To reuse a whole section with its heading and description, save it as a kit.',
                 },
                 {
                     title: 'Steps to Customize Template',
@@ -177,6 +182,18 @@ export const quotationsGuide: IDocGuide = {
                 {
                     title: 'For Office Staff',
                     content: '<em>Tip:</em> Use the "Duplicate Line Item" button to quickly add similar items (e.g., multiple sockets at same price). This saves time on large quotes with repetitive line items.',
+                },
+            ],
+        },
+        {
+            id: 'sections-and-kits',
+            title: 'Sections and Kits',
+            subsections: [
+                {
+                    content: 'Split a quote into <strong>sections</strong>, typically one per area of a building, each with its own heading, description and subtotal. Save reusable sets of products and labour as <strong>kits</strong> and add them to a quote once per area. The quote PDF and the customer\'s online quote show each section numbered, with a Summary of works when there are two or more. Quotes without sections are unchanged, and invoices stay a simple list of lines. Sections are not available inside Good-Better-Best options.',
+                },
+                {
+                    content: 'Full steps, a worked fire alarm example and an FAQ are in the <a href="/docs/quote-sections-and-kits" class="text-secondary hover:underline">Quote Sections and Kits guide</a>.',
                 },
             ],
         },
