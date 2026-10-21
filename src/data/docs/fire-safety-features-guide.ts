@@ -4,7 +4,7 @@ export const fireSafetyFeaturesGuide: IDocGuide = {
     slug: 'fire-safety-features',
     title: 'Fire Safety Jobsheets & Fault Tracking',
     description: 'Combined BS 5839 & BAFE SP203 inspection jobsheets and carried-forward fault tracking for fire alarm servicing visits.',
-    lastUpdated: '2026-09-24',
+    lastUpdated: '2026-10-21',
     sections: [
         {
             id: 'overview',
@@ -32,6 +32,7 @@ export const fireSafetyFeaturesGuide: IDocGuide = {
                     title: 'What This Guide Covers',
                     bullets: [
                         '<strong>Combined BS 5839 & BAFE SP203 Jobsheet:</strong> Single on-site servicing record combining BS 5839-1 compliance and BAFE SP203 scheme documentation',
+                        '<strong>Site Panels list:</strong> Every fire alarm panel and power supply at a site, kept in the site profile and used by the jobsheet and the service certificate',
                         '<strong>Carried-Forward Faults:</strong> Site-level fault tracking across visits with automatic carry-forward from previous jobs',
                         '<strong>Deficiency Register:</strong> Office view of all open and resolved faults per site',
                         '<strong>Office resolve action:</strong> Resolving a fault from the Complete Job screen\'s Originating defect panel',
@@ -71,6 +72,8 @@ export const fireSafetyFeaturesGuide: IDocGuide = {
                         'Type of premises and service carried out',
                         'Maintenance and compliance statement covering BS 5839-1:2025 and BAFE SP203',
                         'Current faults and disablements (panel readout on arrival and on departure)',
+                        'Which inspection this visit is: quarterly (vented batteries), periodic inspection and test, or inspection and test over a 12-month period',
+                        'Every panel and power supply on the site: serviced this visit or not, and its battery check',
                         'Battery condition and false alarm details',
                         'Logbook statement and BAFE declarations block',
                         'Work carried out, chargeable parts, risk assessment',
@@ -92,7 +95,7 @@ export const fireSafetyFeaturesGuide: IDocGuide = {
                             visits, map your fire alarm servicing service type to it in <strong>Settings → Job Sheet Templates</strong>.
                         </p>
                         <p class="mb-4">
-                            One trade-off to weigh before you do: this jobsheet <strong>does not record devices to your asset register</strong>.
+                            One trade-off to weigh before you do: this jobsheet <strong>does not record devices to your asset register</strong>. (Panels and power supplies are different - they update the site's Panels list, see below.)
                             If you rely on the register for service history or the per-site register PDF, keep the Fire Alarm Service worksheet
                             on those jobs as a second sheet — see <a href="/docs/asset-tracking#which-worksheets" class="text-secondary hover:underline">Which Worksheets Create Assets</a>.
                         </p>
@@ -157,12 +160,117 @@ export const fireSafetyFeaturesGuide: IDocGuide = {
                     ]
                 },
                 {
+                    title: 'Which Inspection Is This Visit?',
+                    content: `
+                        <p class="mb-4">
+                            The jobsheet records which inspection the visit is: <strong>quarterly (vented batteries)</strong>,
+                            <strong>periodic inspection and test</strong>, or <strong>inspection and test over a 12-month period</strong>.
+                            It is filled in from the job's visit type, and the engineer can change it.
+                        </p>
+                        <p class="mb-4">
+                            The printed statement shows only the inspection that was selected. If none is selected, the sheet prints the
+                            previous wording. This never stops you completing the job.
+                        </p>
+                    `
+                },
+                {
+                    title: 'Panels and Power Supplies Sections',
+                    content: `
+                        <p class="mb-4">
+                            The jobsheet has a <strong>Panels</strong> section and a <strong>Power supplies</strong> section. Each has one row
+                            per device on the site, filled in from the site's <a href="#site-panels" class="text-secondary hover:underline">Panels list</a>.
+                            The Panel &amp; System Information section reminds the engineer that a site with more than one panel records
+                            each panel in the Panels section.
+                        </p>
+                    `,
+                    bullets: [
+                        'For each row the engineer marks <strong>Serviced this visit</strong> (Yes or No) and records the <strong>battery check</strong> (Pass, Fail or N/A)',
+                        'The engineer can correct a device\'s details, or add a device that is missing from the list',
+                        'The section shows <strong>n of N serviced</strong> and stays amber until every row is answered',
+                        'Neither section blocks Mark Complete. A list nobody touches is not recorded',
+                        'Each row saves on its own, so two engineers, or an engineer and the office, can edit different panels at the same time, online or offline, without overwriting each other'
+                    ]
+                },
+                {
+                    title: 'What Prints and What Updates the Site',
+                    content: `
+                        <p class="mb-4">
+                            The printed jobsheet lists each panel and power supply, with a line such as <em>&ldquo;12 of 65 panels serviced
+                            this visit&rdquo;</em>. A blank Serviced or battery check prints <strong>Not recorded</strong>.
+                        </p>
+                        <p class="mb-4">
+                            When the jobsheet is completed, any details the engineer <strong>changed</strong> (for example a serial number,
+                            location or battery size) update the site's Panels list. Values left as they were filled in never overwrite
+                            the office's list.
+                        </p>
+                    `,
+                    bullets: [
+                        'A panel the engineer added that is not on the list goes to <strong>Needs matching</strong> in the site profile',
+                        'A power supply that does not match is not added automatically yet - the office adds it to the list',
+                        'A site with no Panels list yet is not updated from a jobsheet - list the panels first'
+                    ]
+                },
+                {
                     title: 'Nothing Gets Entered Twice',
                     content: `
                         <p class="text-gray-700">
                             The jobsheet pulls in wider job details you've already recorded: work carried out, chargeable parts,
                             risk assessment, and engineer/client signatures. Engineers don't re-enter information that already exists
                             elsewhere in the job.
+                        </p>
+                    `
+                }
+            ]
+        },
+        {
+            id: 'site-panels',
+            title: 'The Site Panels List',
+            content: `
+                <p class="mb-6">
+                    Each site holds a full list of its fire alarm <strong>panels</strong> and <strong>power supplies</strong>, with no
+                    limit on how many. You will find it in the site profile under <strong>Panels</strong>. The combined jobsheet and the
+                    Fire Alarm Service certificate both fill in from this list.
+                </p>
+            `,
+            subsections: [
+                {
+                    title: 'Adding and Editing',
+                    content: `
+                        <p class="mb-4"><strong>Availability:</strong> Office staff</p>
+                        <p class="mb-4">
+                            Type panels and power supplies in, edit them, or remove them. Changes are saved when you save the site profile.
+                        </p>
+                    `
+                },
+                {
+                    title: 'Import from Spreadsheet',
+                    content: `
+                        <p class="mb-4">
+                            For a large site, use <strong>Import from spreadsheet</strong> and upload a CSV or Excel file. Opscel suggests
+                            which column is which, then shows a preview before anything is saved:
+                        </p>
+                    `,
+                    bullets: [
+                        '<strong>New rows</strong> that will be added',
+                        'Rows that <strong>match one already listed</strong>, with the values that would change',
+                        '<strong>Skipped rows</strong>, and why they were skipped'
+                    ]
+                },
+                {
+                    title: 'How Rows Are Matched',
+                    content: `
+                        <p class="mb-4">
+                            A row matches an existing device by <strong>serial number</strong>, <strong>network address</strong> or
+                            <strong>location</strong>. Nothing is saved until you save the profile.
+                        </p>
+                    `
+                },
+                {
+                    title: 'Needs Matching',
+                    content: `
+                        <p class="mb-4">
+                            The <strong>Needs matching</strong> list in the same place shows panels that a certificate or a jobsheet recorded
+                            but that do not match one on the list. For each one, match it to an existing panel or add it as new.
                         </p>
                     `
                 }
@@ -580,6 +688,15 @@ export const fireSafetyFeaturesGuide: IDocGuide = {
                         <p class="text-gray-700">
                             No, but the BAFE declaration will only print if you have a BAFE SP203 registration number entered in company
                             credentials. Without it, you get a BS 5839-1 compliant jobsheet without the BAFE scheme declaration.
+                        </p>
+                    `
+                },
+                {
+                    title: 'My site has lots of panels. Do I have to enter them one by one?',
+                    content: `
+                        <p class="text-gray-700">
+                            No. Use <strong>Import from spreadsheet</strong> in the site's Panels list to bring them in from a CSV or Excel
+                            file. You see a preview first, and nothing is saved until you save the site profile.
                         </p>
                     `
                 },

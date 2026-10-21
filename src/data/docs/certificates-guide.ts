@@ -5,7 +5,7 @@ export const certificatesGuide: IDocGuide = {
     slug: 'certificates',
     title: 'Certificates Module - Complete User Guide',
     description: 'Learn how to create, manage, and issue industry-standard compliance certificates in Opscel. From EIC to EICR to Fire Alarm Service, generate professional PDFs with built-in validation.',
-    lastUpdated: '2026-10-17',
+    lastUpdated: '2026-10-21',
     sections: [
         {
             id: 'overview',
@@ -39,7 +39,7 @@ export const certificatesGuide: IDocGuide = {
                         'Customer portal — Clients access certificates via secure link',
                         'Automatic filing — Certificates file to job and site compliance folders',
                         'Retest tracking — Track inspection intervals and due dates',
-                        'Panel identity carry-forward — Fire Alarm Service pre-fills panel details from previous visits',
+                        'Panel identity pre-fill — Fire Alarm Service fills in each panel from the site\'s Panels list (up to 12 panels)',
                         'Certificate numbering — Unique per-tenant numbering, fixed {PREFIX}-{JOBNUMBER}-{SUFFIX} format per certificate type'
                     ]
                 }
@@ -159,7 +159,7 @@ export const certificatesGuide: IDocGuide = {
                         '<strong>Key sections:</strong> System details (category, panel, zones, devices), visual inspection results, functional test results, defects found',
                         '<strong>Signatures required:</strong> Servicing Engineer',
                         '<strong>Common mistakes:</strong> Not recording battery test results, missing zone test outcomes, incomplete defect descriptions',
-                        '<strong>Panel carry-forward:</strong> Panel identity auto-fills from previous service certificate for same site'
+                        '<strong>Panel pre-fill:</strong> The number of panels and each panel\'s details fill in from the site\'s Panels list'
                     ]
                 },
                 {
@@ -288,15 +288,18 @@ export const certificatesGuide: IDocGuide = {
                     ]
                 },
                 {
-                    title: 'Panel Identity Carry-Forward (Fire Alarm Service)',
+                    title: 'Panel Identity Pre-fill (Fire Alarm Service)',
                     content: `
                         <p class="mb-4">
-                            When creating a new Fire Alarm Service certificate for a site, the system automatically looks up the last issued service certificate for that same address and pre-fills all panel identity information.
+                            When you create a new Fire Alarm Service certificate for a site, Opscel fills in the number of panels and each panel from the site's <a href="/docs/fire-safety-features#site-panels" class="text-secondary hover:underline">Panels list</a>, not just panel 1. The certificate layout holds up to 12 panels, so a site with more than 12 shows the first 12.
+                        </p>
+                        <p class="mb-4">
+                            If the site's list has changed since the last certificate (a panel added, replaced, removed or renumbered), the new certificate shows the list as it is now. It does not copy panels across from the last certificate.
                         </p>
                         <p class="mb-4"><strong>What carries forward automatically:</strong></p>
                     `,
                     bullets: [
-                        'Panel details: Manufacturer, model, serial number, and location for every panel',
+                        'Panel details: Make, model, serial number, location and battery for each panel (up to 12)',
                         'System configuration: Zone/detector/sounder counts',
                         'Detector types and coverage',
                         'ARC (Alarm Receiving Centre) monitoring details',
