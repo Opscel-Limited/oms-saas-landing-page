@@ -291,7 +291,7 @@ export const certificatesGuide: IDocGuide = {
                     title: 'Panel Identity Pre-fill (Fire Alarm Service)',
                     content: `
                         <p class="mb-4">
-                            When you create a new Fire Alarm Service certificate for a site, Opscel fills in the number of panels and each panel from the site's <a href="/docs/fire-safety-features#site-panels" class="text-secondary hover:underline">Panels list</a>, not just panel 1. The certificate layout holds up to 12 panels, so a site with more than 12 shows the first 12.
+                            When you create a new Fire Alarm Service certificate for a site, Opscel fills in the number of panels and each panel from the site's <a href="/docs/fire-safety-features#site-panels" class="text-secondary hover:underline">Panels list</a>, not just panel 1. The certificate layout holds up to 12 panels: it shows the panels numbered 1 to 12 in the site's list, so on a larger site the number of panels reads 12.
                         </p>
                         <p class="mb-4">
                             If the site's list has changed since the last certificate (a panel added, replaced, removed or renumbered), the new certificate shows the list as it is now. It does not copy panels across from the last certificate.
