@@ -5,6 +5,7 @@ import { siteDetails } from '@/data/siteDetails';
 import { companyDetails, getFormattedRegisteredAddress } from '@/data/companyDetails';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/referral-terms' },
   title: `Referral Programme Terms | ${siteDetails.siteName}`,
   description:
     'The terms of the Opscel Referral Programme: who can refer, when a referral earns a £150 John Lewis eGift card, the half-price offer for the business you refer, the caps, and how we handle your information.',

@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 import Hero from "@/components/Hero";
 import WorkflowProof from "@/components/WorkflowProof/WorkflowProof";
 import FeatureSets from "@/components/FeatureSets";
@@ -6,6 +8,10 @@ import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
 import Container from "@/components/Container";
 import Section from "@/components/Section";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 // Homepage order is the conversion argument: the promise (Hero), the proof
 // (WorkflowProof — the promise happening, office ⇄ phone, one laptop screen

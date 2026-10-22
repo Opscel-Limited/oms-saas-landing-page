@@ -2,6 +2,7 @@ import DocPageLayout from '@/components/DocPageLayout';
 import { ramsGuide } from '@/data/docs/rams-guide';
 
 export const metadata = {
+    alternates: { canonical: '/docs/rams' },
     title: `${ramsGuide.title} - Opscel Documentation`,
     description: ramsGuide.description,
 };

@@ -42,6 +42,7 @@ const faqs = [
 ];
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/job-management-software-electrical-contractors' },
   title: 'Best Job Management Software For UK Electrical Contractors | Opscel',
   description: 'Discover the best job management software for electrical contractors. Streamline BS 7671 compliance, scheduling, invoicing, and customer management to boost productivity and profitability.',
   openGraph: {

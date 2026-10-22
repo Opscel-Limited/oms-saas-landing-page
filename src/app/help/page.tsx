@@ -11,6 +11,7 @@ import { docGuides } from '@/data/docs';
 import { buildSearchIndex } from '@/lib/searchIndex';
 
 export const metadata: Metadata = {
+    alternates: { canonical: '/help' },
     title: `Help Centre | ${siteDetails.siteName}`,
     description: 'Search the Opscel help centre for guides on certificates, quotes, invoicing, field service, and more — or browse every guide by topic.',
 };

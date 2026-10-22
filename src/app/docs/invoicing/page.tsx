@@ -2,6 +2,7 @@ import React from 'react';
 import Container from '@/components/Container';
 
 export const metadata = {
+    alternates: { canonical: '/docs/invoicing' },
     title: 'Invoicing Guide - Opscel Documentation',
     description: 'Complete guide to creating, managing, and sending invoices in Opscel. Learn how to use job-to-invoice workflow, deposits, and accounting integration.',
 };

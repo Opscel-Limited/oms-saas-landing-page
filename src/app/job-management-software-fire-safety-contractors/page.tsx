@@ -42,6 +42,7 @@ const faqs = [
 ];
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/job-management-software-fire-safety-contractors' },
   title: 'Best Job Management Software For UK Fire Safety Contractors | Opscel',
   description: 'Discover the best job management software for fire safety contractors. Streamline BS 5839 compliance, scheduling, invoicing, and customer management to boost productivity and profitability.',
   openGraph: {

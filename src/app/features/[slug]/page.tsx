@@ -37,6 +37,7 @@ export async function generateMetadata({ params }: FeatureDetailPageProps): Prom
   return {
     title,
     description,
+    alternates: { canonical: `/features/${feature.slug}` },
     openGraph: {
       title,
       description,

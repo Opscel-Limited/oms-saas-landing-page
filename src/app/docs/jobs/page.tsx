@@ -2,6 +2,7 @@ import DocPageLayout from '@/components/DocPageLayout';
 import { jobsGuide } from '@/data/docs/jobs-guide';
 
 export const metadata = {
+    alternates: { canonical: '/docs/jobs' },
     title: `${jobsGuide.title} - Opscel Documentation`,
     description: jobsGuide.description,
 };

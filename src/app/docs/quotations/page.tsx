@@ -2,6 +2,7 @@ import DocPageLayout from '@/components/DocPageLayout';
 import { quotationsGuide } from '@/data/docs/quotations-guide';
 
 export const metadata = {
+    alternates: { canonical: '/docs/quotations' },
     title: `${quotationsGuide.title} - Opscel Documentation`,
     description: quotationsGuide.description,
 };
