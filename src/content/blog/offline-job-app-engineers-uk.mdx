@@ -1,0 +1,92 @@
+---
+title: "Offline Job Apps for Engineers: What Works Without Signal"
+description: "What does an offline job app for engineers really do without signal? What to test, what fails offline, and how the Opscel field app behaves."
+date: "2026-10-22"
+author: "opscel"
+tags: ["guides", "field service"]
+cta:
+  href: "/features/field-service"
+  label: "the Opscel field app"
+---
+
+A good offline job app for engineers lets you open a job, take photos, fill in forms and collect signatures with no signal, then sends everything when you are back online. Many apps only let you view jobs offline. The difference matters in plant rooms, cellars and rural sites, so test it on a real job before you commit.
+
+## What does offline actually mean in a job app?
+
+Vendors use the word for three quite different things:
+
+| Level | What you can do without signal | The catch |
+|---|---|---|
+| View only | Read jobs you opened earlier | You cannot record anything until you reconnect |
+| Capture and queue | Take photos, fill forms, sign, then sync later | Creating new records may still need a connection |
+| Full offline-first | Most of the job, including new records | Rare, and conflicts become more likely |
+
+Most field apps sit in the middle. That is fine if you know exactly where the line is.
+
+## What usually fails offline?
+
+- **Not signed in beforehand.** An app that has to log you in cannot do it in a basement.
+- **The job was never loaded.** Offline apps can only show what they downloaded while you had a signal.
+- **Creating or deleting records.** These often need the server to confirm.
+- **Big uploads.** Photos and signatures queue, but can take a while to send on a weak connection.
+- **Cleared data.** Clearing browser data or reinstalling an app can remove work that has not yet synced.
+
+## How should sync conflicts be handled?
+
+Say an engineer and the office both edit the same job while the engineer is offline. When the phone reconnects, the app has to decide whose change wins.
+
+Some apps let the latest save overwrite the whole record, which can silently discard the other person's work. Better apps merge changes field by field and keep additions such as photos and notes. Ask any supplier which one theirs does.
+
+## How can you test an offline job app in ten minutes?
+
+Run this on a real job during your trial:
+
+1. Open tomorrow's job while online, so it is loaded on the phone.
+2. Switch on airplane mode.
+3. Open the job, take two photos and add a defect.
+4. Fill in a checklist or job sheet and capture a signature.
+5. Mark the job complete.
+6. Switch airplane mode off and watch the sync.
+7. Check that everything arrived in the office view, with the right times.
+8. Repeat with a second person editing the same job.
+
+Note what you could not do in step 3. That is the real boundary of the app.
+
+## How does the Opscel field app work offline?
+
+Offline mode is part of the engineers' [field app](/features/field-service), and it is included on every plan. The office web app needs a connection. The field app is a progressive web app, so it works from your phone's browser or home screen.
+
+**Works without a signal:**
+
+- Jobs you have already opened, with customer details, site address and notes
+- Photos, with captions and categories
+- Defects, including adding and editing them
+- Parts used
+- Work summaries
+- Signatures
+- Job sheets and checklists: filling them in and completing them
+- Editing a certificate once it exists
+
+**Needs a connection:**
+
+- Creating new jobs
+- Attaching a checklist
+- Creating a job sheet
+- Creating a certificate draft
+- Deleting a defect
+
+Open tomorrow's jobs while you are online, so they are loaded before you lose signal.
+
+Changes queue on the phone and send when the connection returns. If two edits to the same job meet, they are merged field by field and the newest change wins for each field. Photos, defects and parts are always added, not overwritten. If something keeps failing to send, the app flags it instead of dropping it quietly. Check that the sync indicator shows everything has sent before you clear browser data or reinstall.
+
+The [offline and sync guide](/docs/offline-sync) goes through the indicators and troubleshooting. If your job software has just let you down, our [same-day plan](/blog/job-software-down-plan-uk-contractors) covers the first hour.
+
+## TL;DR
+
+| Question | Short answer |
+|---|---|
+| What is offline? | View only, capture and queue, or full offline-first, so ask which |
+| What fails offline? | Login, unloaded jobs, creating or deleting records, cleared data |
+| Conflicts? | Prefer field-by-field merge over overwrite |
+| How to test? | Airplane-mode a real job: photos, defect, sheet, signature, complete, reconnect |
+| Opscel? | Field app works offline on every plan; creating jobs and certificate drafts needs signal |
