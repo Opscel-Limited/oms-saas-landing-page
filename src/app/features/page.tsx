@@ -9,6 +9,7 @@ import { featureCategories } from '@/data/featuresPage';
 import { featureDetails } from '@/data/featureDetails';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/features' },
   title: `Features | ${siteDetails.siteName}`,
   description:
     'Discover all the features that make Opscel the complete job management solution for UK trade contractors. Mobile field service, instant certificates, team management, and more.',

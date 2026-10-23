@@ -6,6 +6,7 @@ import { siteDetails } from '@/data/siteDetails';
 import { companyDetails, getFormattedRegisteredAddress } from '@/data/companyDetails';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/privacy' },
   title: `Privacy Policy | ${siteDetails.siteName}`,
   description: `Privacy Policy for ${siteDetails.siteName}. Learn how we collect, use, and protect your personal data.`,
 };

@@ -8,6 +8,7 @@ import { siteDetails } from '@/data/siteDetails';
 import { companyDetails } from '@/data/companyDetails';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/about' },
   title: `About Us | ${siteDetails.siteName}`,
   description: `Learn about ${siteDetails.siteName} - ${companyDetails.about.tagline}. We're on a mission to simplify operations for fire safety and electrical contractors.`,
 };

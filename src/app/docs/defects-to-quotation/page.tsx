@@ -2,6 +2,7 @@ import DocPageLayout from '@/components/DocPageLayout';
 import { defectsToQuotationGuide } from '@/data/docs/defects-to-quotation-guide';
 
 export const metadata = {
+    alternates: { canonical: '/docs/defects-to-quotation' },
     title: `${defectsToQuotationGuide.title} - Opscel Documentation`,
     description: defectsToQuotationGuide.description,
 };

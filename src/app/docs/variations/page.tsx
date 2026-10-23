@@ -2,6 +2,7 @@ import DocPageLayout from '@/components/DocPageLayout';
 import { variationsGuide } from '@/data/docs/variations-guide';
 
 export const metadata = {
+    alternates: { canonical: '/docs/variations' },
     title: `${variationsGuide.title} - Opscel Documentation`,
     description: variationsGuide.description,
 };

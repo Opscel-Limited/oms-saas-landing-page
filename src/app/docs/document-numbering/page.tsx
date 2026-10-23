@@ -2,6 +2,7 @@ import DocPageLayout from '@/components/DocPageLayout';
 import { documentNumberingGuide } from '@/data/docs/document-numbering-guide';
 
 export const metadata = {
+    alternates: { canonical: '/docs/document-numbering' },
     title: `${documentNumberingGuide.title} - Opscel Documentation`,
     description: documentNumberingGuide.description,
 };

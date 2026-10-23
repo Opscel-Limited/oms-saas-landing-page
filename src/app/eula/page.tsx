@@ -5,6 +5,7 @@ import LegalPage from '@/components/LegalPage';
 import { companyDetails } from '@/data/companyDetails';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/eula' },
   title: 'End User License Agreement (EULA) | Opscel',
   description: 'End User License Agreement for Opscel job management software. Read our terms for subscription, data ownership, and acceptable use.',
 };

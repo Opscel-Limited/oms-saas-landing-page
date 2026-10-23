@@ -5,6 +5,7 @@ import { siteDetails } from '@/data/siteDetails';
 import { companyDetails, getFormattedRegisteredAddress } from '@/data/companyDetails';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/logbook/privacy' },
   title: `Digital Fire Logbook Privacy Notice | ${siteDetails.siteName}`,
   description:
     'How the Opscel Digital Fire Logbook handles the information of keepers, backups, Responsible Persons and anyone who scans a logbook QR sticker.',

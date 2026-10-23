@@ -10,6 +10,7 @@ export const metadata: Metadata = {
     title: `Blog | ${siteDetails.siteName}`,
     description: 'Guides, compliance updates, and practical advice for fire safety and electrical contractors. BS 7671, BS 5839, digital certificates, and operations management.',
     alternates: {
+        canonical: '/blog',
         types: {
             'application/rss+xml': '/rss.xml',
         },

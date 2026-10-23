@@ -2,6 +2,7 @@ import DocPageLayout from '@/components/DocPageLayout';
 import { teamManagementGuide } from '@/data/docs/team-management-guide';
 
 export const metadata = {
+    alternates: { canonical: '/docs/team-management' },
     title: `${teamManagementGuide.title} - Opscel Documentation`,
     description: teamManagementGuide.description,
 };

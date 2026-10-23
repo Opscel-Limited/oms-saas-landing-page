@@ -7,6 +7,7 @@ import { docGuides } from '@/data/docs';
 import { buildSearchIndex } from '@/lib/searchIndex';
 
 export const metadata = {
+    alternates: { canonical: '/docs' },
     title: 'Documentation - Opscel',
     description: 'Complete guides and documentation for using Opscel. Learn how to set up features, configure integrations, and get the most out of your operations management platform.',
 };

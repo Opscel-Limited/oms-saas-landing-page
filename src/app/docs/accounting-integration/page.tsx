@@ -2,6 +2,7 @@ import React from 'react';
 import Container from '@/components/Container';
 
 export const metadata = {
+    alternates: { canonical: '/docs/accounting-integration' },
     title: 'Accounting Integration Guide - Opscel Documentation',
     description: 'Learn how to connect Opscel to Xero or QuickBooks for automated invoice posting and payment tracking.',
 };

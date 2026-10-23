@@ -6,6 +6,7 @@ import { siteDetails } from '@/data/siteDetails';
 import { companyDetails } from '@/data/companyDetails';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/cookies' },
   title: `Cookie Policy | ${siteDetails.siteName}`,
   description: `Cookie Policy for ${siteDetails.siteName}. Learn about how we use cookies and similar technologies.`,
 };

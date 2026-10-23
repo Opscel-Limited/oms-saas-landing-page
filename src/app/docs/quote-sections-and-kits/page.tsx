@@ -2,6 +2,7 @@ import DocPageLayout from '@/components/DocPageLayout';
 import { quoteSectionsAndKitsGuide } from '@/data/docs/quote-sections-and-kits-guide';
 
 export const metadata = {
+    alternates: { canonical: '/docs/quote-sections-and-kits' },
     title: `${quoteSectionsAndKitsGuide.title} - Opscel Documentation`,
     description: quoteSectionsAndKitsGuide.description,
 };

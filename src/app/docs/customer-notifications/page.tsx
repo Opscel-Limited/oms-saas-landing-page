@@ -2,6 +2,7 @@ import DocPageLayout from '@/components/DocPageLayout';
 import { customerNotificationsGuide } from '@/data/docs/customer-notifications-guide';
 
 export const metadata = {
+    alternates: { canonical: '/docs/customer-notifications' },
     title: `${customerNotificationsGuide.title} - Opscel Documentation`,
     description: customerNotificationsGuide.description,
 };

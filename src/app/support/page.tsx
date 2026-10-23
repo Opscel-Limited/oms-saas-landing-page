@@ -15,6 +15,7 @@ import { siteDetails } from '@/data/siteDetails';
 import { companyDetails } from '@/data/companyDetails';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/support' },
   title: `Support | ${siteDetails.siteName}`,
   description: `Get help with ${siteDetails.siteName}. Browse our help articles, watch tutorials, or contact our support team.`,
 };

@@ -2,6 +2,7 @@ import DocPageLayout from '@/components/DocPageLayout';
 import { fieldServiceGuide } from '@/data/docs/field-service-guide';
 
 export const metadata = {
+    alternates: { canonical: '/docs/field-service' },
     title: `${fieldServiceGuide.title} - Opscel Documentation`,
     description: fieldServiceGuide.description,
 };

@@ -6,6 +6,7 @@ import { siteDetails } from '@/data/siteDetails';
 import { companyDetails, getFormattedRegisteredAddress } from '@/data/companyDetails';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/terms' },
   title: `Terms of Service | ${siteDetails.siteName}`,
   description: `Terms of Service for ${siteDetails.siteName}. Read our terms and conditions for using our services.`,
 };
