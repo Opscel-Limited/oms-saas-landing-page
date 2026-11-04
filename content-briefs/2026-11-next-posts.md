@@ -90,7 +90,7 @@ These are **briefs, not copy**. Under the strategy's workflow, Claude in chat dr
   8. Summary table: test → frequency → duration → who → what to record
 - **Required table:** monthly vs annual tests, covering purpose, duration, who does it and the record.
 - **Verify:**
-  - The current edition is BS 5266-1:2016, unless it has been superseded. Check BSI.
+  - **Correction found while drafting:** BS 5266-1:2025 superseded the 2016 edition in late October 2025 (BSI, NICEIC, ECA). It is used alongside BS EN 50172:2024 and BS EN 1838:2024.
   - The exact monthly test wording ("short functional test").
   - The annual test is the "full rated duration". Sources mention shorter durations for some systems; check the conditions.
   - The 6-monthly scheme quoted in older material is from **BS 5266-1:2011** and is superseded. **Don't repeat it.**
