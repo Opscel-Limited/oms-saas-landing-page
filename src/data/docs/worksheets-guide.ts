@@ -5,7 +5,7 @@ export const worksheetsGuide: IDocGuide = {
     slug: 'worksheets',
     title: 'Worksheets - Assigning & Filling',
     description: 'Learn how job sheets work in Opscel. Opscel auto-attaches the right built-in worksheet to every job based on its vertical and service type, and engineers fill it on-site. From fire alarm service sheets to asset service logs, capture standardized data with offline support.',
-    lastUpdated: '2026-09-25',
+    lastUpdated: '2026-11-14',
     sections: [
         {
             id: 'overview',
@@ -195,6 +195,10 @@ export const worksheetsGuide: IDocGuide = {
                         '<strong>PDF Export:</strong> Download a formatted PDF of the worksheet data',
                         '<strong>Reopen:</strong> Admins can unlock a completed worksheet for editing if corrections are needed'
                     ]
+                },
+                {
+                    title: 'Extinguisher Worksheet Feeds the Certificate',
+                    content: '<p>When a Fire Extinguisher Service Worksheet is completed, the job\'s Extinguisher Service certificate fills in its service summary counts, defects, recommendations, total on site and previous service date from it. See <a href="/docs/certificates#creating-certificates" class="text-secondary hover:underline">Extinguisher Service: Filled In From the Worksheet</a>.</p>'
                 },
                 {
                     title: 'Edit vs View-Only',

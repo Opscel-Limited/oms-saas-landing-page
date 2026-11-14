@@ -5,7 +5,7 @@ export const certificatesGuide: IDocGuide = {
     slug: 'certificates',
     title: 'Certificates Module - Complete User Guide',
     description: 'Learn how to create, manage, and issue industry-standard compliance certificates in Opscel. From EIC to EICR to Fire Alarm Service, generate professional PDFs with built-in validation.',
-    lastUpdated: '2026-10-21',
+    lastUpdated: '2026-11-14',
     sections: [
         {
             id: 'overview',
@@ -326,6 +326,47 @@ export const certificatesGuide: IDocGuide = {
                         </p>
                         <p class="mb-6">
                             This feature saves significant data entry time on routine service visits while ensuring compliance requirements for fresh test data are maintained.
+                        </p>
+                    `
+                },
+                {
+                    title: 'Extinguisher Service: Filled In From the Worksheet',
+                    content: `
+                        <p class="mb-4">
+                            On an extinguisher service job the engineer records each unit on the <a href="/docs/worksheets" class="text-secondary hover:underline">Fire Extinguisher Service Worksheet</a> (type, size, action and quantity). Once that worksheet is marked complete, the job's Extinguisher Service certificate (BS 5306-3) fills in the same facts for you, so nothing is typed twice.
+                        </p>
+                        <p class="mb-4"><strong>What fills in from the worksheet:</strong></p>
+                    `,
+                    bullets: [
+                        '<strong>Part 7 service summary:</strong> extinguishers serviced, recharged, condemned, replaced, missing and new installed, counted from the worksheet rows. Each unit is counted once: Basic Service, Test Discharge, Refilled and Service Existing count as serviced (Refilled also counts as recharged), Exchange as replaced, Condemn & Dispose as condemned, Missing / Not Found as missing and New / Hire as new installed',
+                        '<strong>Defects found</strong>, the defect details and the recommendations',
+                        '<strong>Total extinguishers on site</strong> and the <strong>date of previous service</strong>, from the worksheet\'s own answers',
+                        'Fire blankets, hose reels and service lines (fire risk assessment, training, disposal) are not counted as extinguishers'
+                    ]
+                },
+                {
+                    title: 'What You Still Fill In on the Extinguisher Certificate',
+                    content: `
+                        <p class="mb-4">
+                            Opscel only fills in a number the worksheet actually records. Where it can't be sure, the field stays blank for the engineer rather than showing a guess:
+                        </p>
+                    `,
+                    bullets: [
+                        '<strong>Extinguishers repaired:</strong> the worksheet has no repair action, so this is always yours to enter',
+                        '<strong>After a test discharge:</strong> recharged and replaced stay blank, because the worksheet row doesn\'t say whether the unit was refilled or swapped',
+                        '<strong>Next service date</strong> and the inspection results are always entered on the certificate',
+                        '<strong>Total on site, where the site has an asset register but no declared total:</strong> stays blank. The certificate saves its total to the site\'s profile when issued, and a number copied from the register should not become the site\'s recorded total',
+                        '<strong>Unfinished worksheets:</strong> nothing fills in while any extinguisher worksheet on the job is still a draft, or if a row has no type or action'
+                    ]
+                },
+                {
+                    title: 'Good to Know',
+                    content: `
+                        <p class="mb-4">
+                            Anything already typed on the certificate is kept: filling in only ever fills blank fields. Issued certificates never change. If the worksheet is reopened and corrected after the certificate has filled in, update the certificate to match. Always check the numbers before you sign.
+                        </p>
+                        <p class="mb-4">
+                            The per-type counts in Part 5 (water, foam, CO2, powder, wet chemical, other, fire blankets) are the site's declared inventory: you enter them once per site and they carry forward to the next certificate.
                         </p>
                     `
                 },
