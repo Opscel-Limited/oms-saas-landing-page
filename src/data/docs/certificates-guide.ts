@@ -5,7 +5,7 @@ export const certificatesGuide: IDocGuide = {
     slug: 'certificates',
     title: 'Certificates Module - Complete User Guide',
     description: 'Learn how to create, manage, and issue industry-standard compliance certificates in Opscel. From EIC to EICR to Fire Alarm Service, generate professional PDFs with built-in validation.',
-    lastUpdated: '2026-11-14',
+    lastUpdated: '2026-11-16',
     sections: [
         {
             id: 'overview',
@@ -175,6 +175,20 @@ export const certificatesGuide: IDocGuide = {
                         '<strong>Acceptance:</strong> Signed off jointly with the client at project handover — <strong>cannot be issued without the accepting client\'s signature</strong> (enforced, not advisory)',
                         '<strong>Verification:</strong> Independent check that the installed system matches the design and commissioning records',
                         '<strong>Certification body pre-fill:</strong> Your BAFE SP203 registration (Settings → Credentials) can also carry your certification body\'s name, address, and phone — these pre-fill the Certification Body box on the SP203-1 servicing jobsheet'
+                    ]
+                },
+                {
+                    title: 'Fire Risk Assessment',
+                    content: `
+                        <p class="mb-2"><strong>Standard:</strong> PAS 79-1:2020 / BS 9792:2025</p>
+                        <p class="mb-4"><strong>When to use:</strong> Assessing a client's premises and the people in them, and recording the findings with a prioritised action plan. This is a report about the premises, not a risk assessment for your own engineers (that is <a href="/docs/rams" class="text-secondary hover:underline">RAMS</a>).</p>
+                    `,
+                    bullets: [
+                        '<strong>Your own questions:</strong> the fire hazards, protection and management questions come from a template you can write in Settings → Risk assessment templates, with suggested answers for the assessor',
+                        '<strong>Photos:</strong> a front page photograph, plus up to three photos on each action',
+                        '<strong>Action plan:</strong> every action has a severity and a timescale, and the action plan prints on the last pages',
+                        '<strong>Signatures required:</strong> Fire Risk Assessor',
+                        '<strong>Full guide:</strong> <a href="/docs/fire-risk-assessments" class="text-secondary hover:underline">Fire Risk Assessments - Support Guide</a>'
                     ]
                 },
                 {
@@ -1208,6 +1222,11 @@ export const certificatesGuide: IDocGuide = {
         }
     ],
     relatedGuides: [
+        {
+            title: 'Fire Risk Assessments',
+            description: 'Your own question templates, suggested answers and the action plan',
+            href: '/docs/fire-risk-assessments'
+        },
         {
             title: 'Field Service App',
             description: 'Completing jobs that generate certificates',

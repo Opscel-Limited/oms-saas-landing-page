@@ -4,7 +4,7 @@ export const settingsTourGuide: IDocGuide = {
     slug: 'settings-tour',
     title: 'Settings Tour',
     description: 'Quick orientation to every settings page in Opscel. Learn what each setting controls and where to find advanced configuration options.',
-    lastUpdated: '2026-05-20',
+    lastUpdated: '2026-11-16',
     sections: [
         {
             id: 'overview',
@@ -157,6 +157,17 @@ export const settingsTourGuide: IDocGuide = {
                         <p class="mb-4"><strong>Why it matters:</strong> Create your own forms tailored to your workflow. Engineers fill them in the field app.</p>
                         <p class="text-gray-700">
                             <em>Worksheet authoring guide coming soon.</em>
+                        </p>
+                    `
+                },
+                {
+                    title: 'Risk Assessment Templates',
+                    content: `
+                        <p class="mb-2"><strong>What it controls:</strong> Your own fire risk assessment questions: sections, questions, help text and suggested answers, each with an optional pre-filled action.</p>
+                        <p class="mb-4"><strong>Why it matters:</strong> New fire risk assessments start from the template matching the job's service type, or your default, so every assessor works from your questions and your wording.</p>
+                        <p class="mb-4"><strong>Availability:</strong> All plans (needs permission to edit settings)</p>
+                        <p class="text-gray-700">
+                            <a href="/docs/fire-risk-assessments" class="text-blue-600 hover:underline">→ See Fire Risk Assessments Guide</a>
                         </p>
                     `
                 },

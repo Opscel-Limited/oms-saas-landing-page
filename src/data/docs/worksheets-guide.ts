@@ -5,7 +5,7 @@ export const worksheetsGuide: IDocGuide = {
     slug: 'worksheets',
     title: 'Worksheets - Assigning & Filling',
     description: 'Learn how job sheets work in Opscel. Opscel auto-attaches the right built-in worksheet to every job based on its vertical and service type, and engineers fill it on-site. From fire alarm service sheets to asset service logs, capture standardized data with offline support.',
-    lastUpdated: '2026-11-14',
+    lastUpdated: '2026-11-16',
     sections: [
         {
             id: 'overview',
@@ -53,7 +53,7 @@ export const worksheetsGuide: IDocGuide = {
                 },
                 {
                     title: 'A Fixed, Code-Defined Registry — Not a Form Builder',
-                    content: '<p>Opscel does not have a drag-and-drop worksheet builder, a template library page, or a way to author a custom worksheet. Every worksheet type is a schema built into the product — currently <strong>13 built-in types</strong> — and admins choose from that fixed list rather than designing their own.</p><p>This matters for what to expect: you cannot add a new field to an existing sheet, rename a section, or invent a new worksheet type from Settings. If you need a field a built-in sheet doesn\'t capture, the closest fit is the generic <strong>Asset Service Worksheet</strong>, or raising it with support.</p>'
+                    content: '<p>Opscel does not have a drag-and-drop worksheet builder, a template library page, or a way to author a custom worksheet. Every worksheet type is a schema built into the product — currently <strong>13 built-in types</strong> — and admins choose from that fixed list rather than designing their own.</p><p>This matters for what to expect: you cannot add a new field to an existing sheet, rename a section, or invent a new worksheet type from Settings. If you need a field a built-in sheet doesn\'t capture, the closest fit is the generic <strong>Asset Service Worksheet</strong>, or raising it with support.</p><p>The one set of questions you can write yourself is the <strong>fire risk assessment</strong> report, which is a certificate rather than a worksheet: see <a href="/docs/fire-risk-assessments">Fire Risk Assessments</a> for Settings → Risk assessment templates.</p>'
                 },
                 {
                     title: 'The Built-In Types',

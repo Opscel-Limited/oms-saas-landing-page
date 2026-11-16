@@ -126,6 +126,7 @@ Phase 1 is 5 of 8 pages drafted, plus one product announcement; nothing is marke
 | 7 | How to price electrical work | Drafted | Ranges plus a cost-up method, no single day rate |
 | 8 | Fire risk assessment guide | Drafted | Includes 2026 PEEP and recording changes |
 | – | Introducing the Planner | Drafted | Product announcement, outside the calendar; no illustration brief yet |
+| – | Fire risk assessments: your questions, a better report (`/blog/fire-risk-assessment-templates`) | Published 2026-11-16 | Product announcement, outside the calendar, no keyword target. Prose drafted by Claude Code under an explicit one-off exception from Animesh (2026-11-16). No hero image yet: needs an illustration brief (electrician or assessor with a clipboard at a stairwell, flat paper-grain, teal) |
 | 2–4 | Fire, gas and boiler templates | Awaiting input | Waiting on the matching Opscel PDFs |
 | 9–26 | Phase 2 and 3 pages | Not started | Next up: #9 electrical quote software |
 
