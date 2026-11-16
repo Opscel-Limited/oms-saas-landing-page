@@ -80,6 +80,13 @@ export const documentationGuides: IDocumentationGuideMeta[] = [
         category: 'Health & Safety',
         icon: 'icon-compliance-shield'
     },
+    {
+        title: 'Fire Risk Assessments - Support Guide',
+        description: 'Fire risk assessment reports: your own question templates with suggested answers, photos on actions, severity and timescales, and the action plan. Included on every plan.',
+        url: '/docs/fire-risk-assessments',
+        category: 'Health & Safety',
+        icon: 'icon-compliance-shield'
+    },
     // Worksheets & Checklists
     {
         title: 'Worksheet Authoring & Filling',

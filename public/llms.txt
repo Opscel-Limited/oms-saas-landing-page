@@ -27,6 +27,7 @@
 - BS 5839 fire alarm certificates (Installation, Commissioning, Service, Modification)
 - BS 5266 emergency lighting certificates
 - BS 5306 fire extinguisher service certificates
+- Fire risk assessment reports (PAS 79-1 / BS 9792) with your own question templates, suggested answers, photos on actions and an action plan: https://www.opscel.com/docs/fire-risk-assessments
 - Multi-visit job scheduling for contractors
 - Defect-to-quotation-to-invoice workflows
 - Customer portal with magic link authentication

@@ -246,6 +246,11 @@ export const ramsGuide: IDocGuide = {
     ],
     relatedGuides: [
         {
+            title: 'Fire Risk Assessments',
+            description: 'The report about a client\'s premises (not the RAMS for your own engineers), with its own question templates',
+            href: '/docs/fire-risk-assessments',
+        },
+        {
             title: 'Jobs',
             description: 'Creating jobs and the job page',
             href: '/docs/jobs',

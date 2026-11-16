@@ -11,6 +11,9 @@ import DefectScopeRemoveVsDelete from './DefectScopeRemoveVsDelete';
 import RamsJobCard from './RamsJobCard';
 import RamsFieldSignoff from './RamsFieldSignoff';
 import RamsClientApproval from './RamsClientApproval';
+import FraTemplatesEditor from './FraTemplatesEditor';
+import FraSuggestedAnswers from './FraSuggestedAnswers';
+import FraActionPlan from './FraActionPlan';
 
 export type DocMockupName =
   | 'engineer-journey'
@@ -22,7 +25,10 @@ export type DocMockupName =
   | 'scope-remove-vs-delete'
   | 'rams-job-card'
   | 'rams-field-signoff'
-  | 'rams-client-approval';
+  | 'rams-client-approval'
+  | 'fra-templates-editor'
+  | 'fra-suggested-answers'
+  | 'fra-action-plan';
 
 interface DocMockupProps {
   name: DocMockupName;
@@ -50,6 +56,12 @@ const DocMockup: React.FC<DocMockupProps> = ({ name }) => {
       return <RamsFieldSignoff />;
     case 'rams-client-approval':
       return <RamsClientApproval />;
+    case 'fra-templates-editor':
+      return <FraTemplatesEditor />;
+    case 'fra-suggested-answers':
+      return <FraSuggestedAnswers />;
+    case 'fra-action-plan':
+      return <FraActionPlan />;
     default:
       return null;
   }

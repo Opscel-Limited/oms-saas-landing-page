@@ -30,6 +30,7 @@ import { migrationAgentGuide } from './migration-agent-guide';
 import { purchaseOrdersGuide } from './purchase-orders-guide';
 import { remoteMonitoringGuide } from './remote-monitoring-guide';
 import { ramsGuide } from './rams-guide';
+import { fireRiskAssessmentsGuide } from './fire-risk-assessments-guide';
 import { variationsGuide } from './variations-guide';
 
 // All docs guides that follow the IDocGuide data structure (i.e. rendered via
@@ -48,6 +49,7 @@ export const docGuides: IDocGuide[] = [
     fireSafetyFeaturesGuide,
     worksheetsGuide,
     ramsGuide,
+    fireRiskAssessmentsGuide,
     certificatesGuide,
     quotationsGuide,
     quoteSectionsAndKitsGuide,
