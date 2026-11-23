@@ -369,7 +369,8 @@ const PrivacyPage: React.FC = () => {
         <strong>Fire logbook records are different.</strong> A Digital Fire Logbook is a record that belongs to the
         building. It is kept for as long as the fire safety company uses {companyDetails.tradingName}, unless the
         company asks us to delete it. When the company stops, it can download, or ask us to send to it or to the
-        building&apos;s Responsible Person, a copy of the logbook for 30 days before it is deleted. See the <Link href="/logbook/privacy">Digital Fire Logbook Privacy Notice</Link>.
+        building&apos;s Responsible Person, a copy of the logbook for 30 days. The logbook is then deleted within 90
+        days after the company stops. See the <Link href="/logbook/privacy">Digital Fire Logbook Privacy Notice</Link>.
       </p>
 
       <h2>8. Your Rights</h2>

@@ -89,7 +89,7 @@ const CookiesPage: React.FC = () => {
       </p>
 
       <h3>2.2 The {companyDetails.tradingName} App (app.opscel.com and portal.opscel.com)</h3>
-      <p>The app uses only cookies that are needed for it to work, plus one that you choose to accept:</p>
+      <p>The app uses only cookies that are needed for it to work, plus two that are set only if you choose to accept a referral invitation:</p>
       <table className="w-full border-collapse border border-gray-200 my-4">
         <thead>
           <tr className="bg-hero-background">

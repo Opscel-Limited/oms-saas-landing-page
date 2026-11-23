@@ -356,7 +356,7 @@ const LogbookPrivacyPage: React.FC = () => {
       <ul>
         <li>
           <strong>The logbook, its entries, the message records and the access history</strong> are kept for as long as
-          the fire safety company uses {name} for the building. A fire safety logbook is a record that belongs to the
+          the fire safety company uses {name}. A fire safety logbook is a record that belongs to the
           building and may be needed for years, so ending a logbook archives it rather than deleting it. The company
           can ask us to delete a logbook. When the company stops using {name}, it can download, or ask us to send to it
           or to the building&apos;s Responsible Person, a copy of the logbook (the Annex H logbook and the inspection

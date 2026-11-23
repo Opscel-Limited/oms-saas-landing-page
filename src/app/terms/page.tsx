@@ -37,8 +37,10 @@ const TermsPage: React.FC = () => {
         <Link href="/eula" className="text-secondary hover:underline">End User License Agreement (EULA)</Link>,
         which sets out the specific software licensing terms, AI features, third-party integrations,
         and limitation of liability provisions that apply to your use of the Opscel platform. In the
-        event of any conflict between these Terms and the EULA, the EULA shall prevail with respect to
-        software licensing matters.
+        event of any conflict, the{' '}
+        <Link href="/dpa" className="text-secondary hover:underline">Data Processing Addendum</Link> prevails on the
+        processing of personal data, the EULA prevails on software licensing and liability, and otherwise these
+        Terms prevail.
       </p>
 
       <h2>2. Definitions</h2>
@@ -293,8 +295,8 @@ const TermsPage: React.FC = () => {
         Subject to section 11.3, our total liability to you for all claims arising from these Terms or your
         use of the Services shall not exceed the greater of (a) the total fees paid or payable by you to us in
         the twelve (12) months preceding the event giving rise to the claim and (b) £5,000. The limitation of
-        liability in section 15 of the <Link href="/eula" className="text-secondary hover:underline">EULA</Link>{' '}
-        is the same, and the two are not cumulative.
+        liability cap in section 15.2 of the <Link href="/eula" className="text-secondary hover:underline">EULA</Link>{' '}
+        is the same amount, and the two are not cumulative.
       </p>
 
       <h3>11.3 Liability We Do Not Limit</h3>
@@ -329,8 +331,10 @@ const TermsPage: React.FC = () => {
 
       <h3>13.2 Termination by Us</h3>
       <p>
-        We may suspend or terminate your access to the Services if you violate these Terms or for any other
-        reason with reasonable notice. In cases of serious breach, we may terminate immediately without notice.
+        We may suspend or terminate your access to the Services if you commit a material breach of these Terms
+        which, if capable of remedy, is not remedied within 14 days of written notice, or for any other reason on 30
+        days&apos; written notice. We may suspend or terminate immediately in the cases set out in section 13.3 of
+        the EULA, such as non-payment, suspected fraud or unlawful use, or a security risk.
       </p>
 
       <h3>13.3 Effect of Termination</h3>

@@ -42,7 +42,7 @@ const EULAPage: React.FC = () => {
           <li><strong>Pay monthly</strong> — 30-day free trial, card required at signup, cancel anytime</li>
           <li><strong>UK-hosted</strong> — our app, databases and file storage are hosted in London. Some named service providers process limited data outside the UK under legal safeguards (see our <Link href="/privacy" className="text-secondary hover:underline">Privacy Policy</Link>, section 5.4). Governed by English law.</li>
           <li><strong>AI is assistive only</strong> — never rely on AI suggestions without independent professional verification</li>
-          <li><strong>Opscel&apos;s liability is strictly limited</strong> — see Section 14 for full details</li>
+          <li><strong>Opscel&apos;s liability is strictly limited</strong> — see Sections 14 and 15 for full details</li>
         </ul>
         <p className="text-blue-800 mt-3 text-sm italic">
           The full legal terms below are binding and govern your use of the Service.
@@ -518,7 +518,7 @@ const EULAPage: React.FC = () => {
 
         <div className="bg-muted p-4 rounded-lg mb-4">
           <p className="text-sm text-muted-foreground italic">
-            <strong>In plain English:</strong> You can cancel anytime. We can terminate for breaches. After termination, your data is kept for 30 days then permanently deleted.
+            <strong>In plain English:</strong> You can cancel anytime. We can terminate for breaches. After termination, you can export your data for 30 days. It is then deleted from our live systems within 90 days of termination, and from backups within a further 90 days.
           </p>
         </div>
 
@@ -627,7 +627,7 @@ const EULAPage: React.FC = () => {
             <li>any indirect, special, incidental, punitive, exemplary, or consequential loss or damage;</li>
             <li>any loss of profits, revenue, savings, business opportunity, anticipated savings, contracts, or business;</li>
             <li>any loss of goodwill, reputation, or anticipated benefit;</li>
-            <li>any loss, corruption, destruction, or unauthorised disclosure of data or information (including without limitation Customer Data);</li>
+            <li>any loss, corruption, destruction, or unauthorised disclosure of data or information (including without limitation Customer Data), except to the extent caused by Opscel&apos;s breach of the Data Processing Addendum or its negligence, for which Opscel&apos;s liability is subject to the cap in Section 15.2;</li>
             <li>any loss arising from business interruption, downtime, or system failure;</li>
             <li>any loss arising from reliance on AI Features, AI-generated outputs, or automated suggestions;</li>
             <li>any loss arising from errors, inaccuracies, or omissions in certificates, compliance records, or documentation generated through the Service;</li>
