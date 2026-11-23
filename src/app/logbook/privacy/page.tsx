@@ -15,7 +15,7 @@ const LogbookPrivacyPage: React.FC = () => {
   const privacyEmail = companyDetails.compliance.dataProtectionOfficerEmail;
 
   return (
-    <LegalPage title="Digital Fire Logbook: Privacy Notice" lastUpdated="12 October 2026">
+    <LegalPage title="Digital Fire Logbook: Privacy Notice" lastUpdated="23 November 2026">
       <p>
         This notice is for people who use an {companyDetails.tradingName} Digital Fire Logbook without an{' '}
         {companyDetails.tradingName} account: people who keep the logbook for a building, their backups,
@@ -51,7 +51,10 @@ const LogbookPrivacyPage: React.FC = () => {
       <h3>About you, from the company that invited you</h3>
       <ul>
         <li>Your name and your role for the building (keeper, backup or Responsible Person).</li>
-        <li>Your mobile number and/or email address, so the logbook can send you your link.</li>
+        <li>
+          Your email address, and your mobile number if you give one, so the logbook can send you your link and
+          reminders.
+        </li>
       </ul>
 
       <h3>When you use the logbook</h3>
@@ -155,9 +158,11 @@ const LogbookPrivacyPage: React.FC = () => {
                 <strong>Anyone who scans the QR sticker</strong> (for example a fire inspector)
               </td>
               <td className="border border-gray-200 px-4 py-2">
-                The building&apos;s name and address, and each entry&apos;s date and time, what was checked, the
-                result, and <strong>the name and role of the person who signed it</strong>, plus corrections and
-                the company&apos;s visits and certificates.
+                The building&apos;s name and address, <strong>the name of its Responsible Person</strong> and the
+                fire safety company&apos;s name. For each entry: the date and time, what was checked, the result,{' '}
+                <strong>the name and role of the person who signed it</strong> (including the fire safety
+                company&apos;s staff), and the call point or place tested as it was typed (up to 60 characters).
+                Also corrections, and the company&apos;s visits and certificates.
               </td>
             </tr>
           </tbody>
@@ -165,13 +170,22 @@ const LogbookPrivacyPage: React.FC = () => {
       </div>
       <p>
         The sticker page and its downloadable report <strong>never</strong> show phone numbers, email addresses,
-        signature images, photos or anything written in a note. Where a fault was reported, they say only that
-        details are held by the fire safety company.
+        signature images, photos or anything written in a note. The only typed answers they show are which call point
+        or place was tested (up to 60 characters), so please do not put personal details there. Where a fault was
+        reported, they say only that details are held by the fire safety company.
       </p>
       <p>
         <strong>Please note:</strong> the sticker is usually in a place the public can reach, so anyone who scans it
-        can see the names and roles of the people who signed entries.
+        can see the name of the building&apos;s Responsible Person and the names and roles of everyone who signs
+        entries.
       </p>
+      {/* SOLICITOR: is showing the Responsible Person's name on the public sticker cover acceptable (it is shown
+          today, InspectorBook cover plate)? The alternative is an app change to hide it, after which this line and
+          the table row above change. */}
+      {/* OWNER: before the demo-only gates on staff annotations and "accepted by" (mayCarryAnnotation,
+          mayCarryAcceptedBy) are lifted, add a line here: the Annex H download can then carry names typed by staff
+          for people who never use the logbook (signed by / agreed by / accepted by). Erasure on request for those
+          names has no trigger yet. */}
 
       <h3>A saved copy of the sticker page</h3>
       <p>
@@ -212,8 +226,13 @@ const LogbookPrivacyPage: React.FC = () => {
             </tr>
             <tr>
               <td className="border border-gray-200 px-4 py-2">Resend Inc.</td>
-              <td className="border border-gray-200 px-4 py-2">Sending emails, such as your invitation</td>
+              <td className="border border-gray-200 px-4 py-2">Sending emails, such as your invitation and reminders</td>
               <td className="border border-gray-200 px-4 py-2">Ireland (EU)</td>
+            </tr>
+            <tr>
+              <td className="border border-gray-200 px-4 py-2">The SMS Works Ltd</td>
+              <td className="border border-gray-200 px-4 py-2">Sending text messages</td>
+              <td className="border border-gray-200 px-4 py-2">UK</td>
             </tr>
             <tr>
               <td className="border border-gray-200 px-4 py-2">Sentry (Functional Software Inc.)</td>
@@ -223,8 +242,8 @@ const LogbookPrivacyPage: React.FC = () => {
           </tbody>
         </table>
       </div>
-      {/* OWNER: add The SMS Works Ltd (sending text messages, UK) to the table above when text messages go live,
-          and update "Messages we send" below at the same time. */}
+      {/* OWNER / SOLICITOR: confirm the contract and data processing agreement with The SMS Works Ltd is signed,
+          and that it keeps the data in the UK, before any real tenant or non-test number is admitted. */}
       <p>
         Some of these companies are based in the United States and may access information from there, for example
         for support. Where that happens, the transfer is protected by the UK International Data Transfer Addendum
@@ -236,9 +255,12 @@ const LogbookPrivacyPage: React.FC = () => {
         <li>
           <strong>The logbook and its entries</strong> are kept for as long as the fire safety company uses{' '}
           {companyDetails.tradingName}. A fire safety logbook is a legal record that belongs to the building. If the
-          company stops using {companyDetails.tradingName}, we will arrange for the logbook to be handed over,
-          usually to the building&apos;s Responsible Person, before it is deleted.
-          {/* OWNER: this hand-over is the planned process (triage D18), not yet a built feature. */}
+          company stops using {companyDetails.tradingName}, we will give the company, or the building&apos;s
+          Responsible Person, a copy of the logbook (the Annex H logbook and the inspection report) before it is
+          deleted.
+          {/* OWNER: the copy is made by hand today from the Logbook tab downloads; the automated hand-over (triage
+              D18) is not built. SOLICITOR: is "as long as the company uses Opscel" a definite enough retention
+              period for storage limitation, given people can ask for their details to be erased (Deletion below)? */}
         </li>
         <li>
           <strong>Photos you added but did not send</strong> with an entry are deleted after 24 hours.
@@ -265,8 +287,11 @@ const LogbookPrivacyPage: React.FC = () => {
       <p>Because entries are sealed, they cannot be edited:</p>
       <ul>
         <li>
-          <strong>Corrections</strong> are made by adding a new entry that shows what changed and why. The original
-          stays visible.
+          <strong>Corrections:</strong> the fire safety company corrects its own entries by adding a new entry that
+          shows what changed and why; the original stays visible. If an entry you made is wrong, tell the fire safety
+          company, who will record the correction.
+          {/* SOLICITOR: is a correction recorded by the company enough for the right to rectification, or does a
+              keeper correction feature need building first? Keepers cannot correct their own entries today. */}
         </li>
         <li>
           <strong>Deletion:</strong> once you no longer look after the building&apos;s logbook, you can ask for your
@@ -295,16 +320,23 @@ const LogbookPrivacyPage: React.FC = () => {
 
       <h2>Messages we send</h2>
       <p>
-        The logbook contacts you by email: your invitation, and a new link when you need one. We will add text
-        messages and reminders when a check is due; before we send any, we will update this notice and you will be
-        able to switch off each channel from the link in any reminder. The duty to keep the building&apos;s records
-        continues, so the company, your backup or the Responsible Person may still be contacted.
+        The logbook contacts you by email: your invitation, a new link when you ask for one, and reminders when the
+        weekly fire alarm test has not been recorded. If you have given a UK mobile number, a reminder may also come
+        by text. Reminders are sent between 8am and 7pm. Every reminder email has a link to stop emails or texts. If
+        we cannot reach you by email, the text itself has a link to stop texts. The duty to keep the building&apos;s
+        records continues, so the company, your backup or the Responsible Person may still be contacted.
       </p>
 
       <h2>Changes to this notice</h2>
       <p>
         If we change this notice we will update the date at the top. If a change affects you significantly, we will
         tell you through the logbook.
+      </p>
+      <p>
+        <strong>23 November 2026:</strong> we now describe the reminder emails and texts, and added The SMS Works,
+        which sends the texts. We also made clearer what the QR sticker page shows (including the Responsible
+        Person&apos;s name), how entries are corrected, and what happens to the logbook if the fire safety company
+        stops using {companyDetails.tradingName}.
       </p>
     </LegalPage>
   );
