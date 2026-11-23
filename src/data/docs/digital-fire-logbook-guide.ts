@@ -4,21 +4,22 @@ import { IDocGuide } from '@/types';
 // src/app/docs/digital-fire-logbook/page.tsx and is deliberately NOT registered in ./index.ts (that array feeds the
 // /docs and /help search), nor in ../documentationGuides.ts (the /docs index, /help and the sitemap).
 // LAUNCH: register it in ./index.ts and ../documentationGuides.ts, add a line to public/llms.txt, remove the
-// noindex in the page's metadata, and strip every <!-- OWNER: ... --> comment once each question is answered.
+// noindex in the page's metadata, and resolve every `// OWNER:` comment below (the full list is in the PR body).
+// Internal notes stay in TS comments only: content strings render as HTML, so an HTML comment would ship in the page source.
 // TODO(screenshots): demo tenant only. Every screenshot marker below must be taken on the demo tenant.
 
 export const digitalFireLogbookGuide: IDocGuide = {
     slug: 'digital-fire-logbook',
     title: 'Digital Fire Logbook - Support Guide',
     description: 'Set up and run Digital Fire Logbooks for your customers\' sites: the weekly fire alarm test and monthly emergency lighting test, keeper links and reminders, the QR sticker for inspectors, paper sheets, defects, automatic entries from your jobs and certificates, and the Annex H export.',
-    lastUpdated: '2026-11-22',
+    lastUpdated: '2026-11-23',
     sections: [
         {
             id: 'overview',
             title: 'The 30-Second Version',
             content: `<p class="mb-4">The <strong>Digital Fire Logbook</strong> is a logbook for a customer's site. The person on site who does the weekly test, the <strong>keeper</strong>, records the <strong>weekly fire alarm test</strong> and the <strong>monthly emergency lighting test</strong> on their phone. They use a private link. They do not need an Opscel account.</p>
 <p class="mb-4">You start the logbook from the site's <strong>Logbook</strong> tab in Opscel, invite the keeper, and print a <strong>QR sticker</strong> for the panel. From then on you can see every entry, every missed test and every failed check. A failed check becomes a defect at the site. Your own completed jobs and issued certificates at the site go into the logbook on their own.</p>
-<p class="mb-4">Entries are <strong>sealed</strong> when they are signed. Nobody can change or delete one later. A mistake is put right with a new entry.</p>`,
+<p class="mb-4">Entries are <strong>sealed</strong> when they are signed. Nobody can change or delete one later. Your team corrects its own entries with a new entry. Keeper entries cannot be corrected yet.</p>`,
             subsections: [
                 {
                     title: 'Availability',
@@ -51,8 +52,10 @@ export const digitalFireLogbookGuide: IDocGuide = {
         {
             id: 'what-it-is',
             title: 'What the Logbook Is, and Is Not',
+            // OWNER: standards wording review pending. Confirm how this guide may describe what BS 5839-1, BS 5266-1 and the
+            // Fire Safety (England) Regulations 2022 require. Terms 9A.2 says the logbook "helps a site keep the records that
+            // BS 5839-1 and BS 5266-1 expect"; this guide stays with that wording.
             content: `<p class="mb-4">The logbook keeps the site's fire alarm records (BS 5839-1) and emergency lighting records (BS 5266-1) in one place. You can download it in the shape of the BS 5839-1:2025 Annex H model logbook.</p>
-<!-- OWNER: wording review pending. Confirm how this guide may describe what BS 5839-1, BS 5266-1 and the Fire Safety (England) Regulations 2022 require. Terms 9A.2 says the logbook "helps a site keep the records that BS 5839-1 and BS 5266-1 expect"; this guide stays with that wording. -->
 <p class="mb-4">It is a <strong>record-keeping tool</strong>. It does not certify that a building complies with any standard or law, and it is not fire safety advice. The fire risk assessment and the Responsible Person's duties stay with the Responsible Person. See section 9A of our <a href="/terms" class="text-secondary hover:underline">Terms</a>.</p>`,
             subsections: [
                 {
@@ -70,7 +73,7 @@ export const digitalFireLogbookGuide: IDocGuide = {
                 },
                 {
                     title: 'Sealed entries',
-                    content: `<p>Each entry is sealed when it is signed. A daily check confirms that nothing in the logbook has changed since. Entries cannot be edited or deleted. A correction is a new entry that points at the one it corrects, and the original stays visible.</p>`,
+                    content: `<p>Each entry is sealed when it is signed. A daily check confirms that nothing in the logbook has changed since. Entries cannot be edited or deleted. Your team corrects its own entries with a new entry that points at the one it corrects, and the original stays visible. Keeper entries cannot be corrected yet.</p>`,
                 },
                 {
                     title: 'Not covered yet',
@@ -81,8 +84,9 @@ export const digitalFireLogbookGuide: IDocGuide = {
         {
             id: 'roles',
             title: 'Who Can Do What',
-            content: `<p class="mb-4">Three permissions control the logbook: <strong>view</strong>, <strong>manage</strong> (start, set up, people, invites, the QR sticker, archive) and <strong>sign</strong> (entries your team writes into the book). The built-in roles have these:</p>
-<!-- OWNER: open question. Sales Manager currently holds logbooks.manage (D12), so can start logbooks and commit spend. Confirm before launch that this row should stay as written. -->`,
+            // OWNER: open question. Sales Manager holds logbooks.manage (D12), so can start logbooks and commit spend. Confirm
+            // the Sales Manager row before launch.
+            content: `<p class="mb-4">Three permissions control the logbook: <strong>view</strong>, <strong>manage</strong> (start, set up, people, invites, the QR sticker, archive) and <strong>sign</strong> (entries your team writes into the book). The built-in roles have these:</p>`,
             subsections: [
                 {
                     title: 'Roles',
@@ -113,8 +117,8 @@ export const digitalFireLogbookGuide: IDocGuide = {
         {
             id: 'starting',
             title: 'Starting a Logbook for a Site',
-            content: `<p class="mb-4">Open the site and go to the <strong>Logbook</strong> tab. It sits straight after Overview. A site without a logbook shows "No fire logbook for this site yet" and a <strong>Start logbook</strong> button.</p>
-<!-- TODO(screenshots): demo tenant only. The empty Logbook tab with the Start logbook button. -->`,
+            // TODO(screenshots): demo tenant only. The empty Logbook tab with the Start logbook button.
+            content: `<p class="mb-4">Open the site and go to the <strong>Logbook</strong> tab. It is near the end of the site's tabs, after Contacts and RAMS. A site without a logbook shows "No fire logbook for this site yet" and a <strong>Start logbook</strong> button.</p>`,
             subsections: [
                 {
                     title: 'Before you start',
@@ -125,10 +129,11 @@ export const digitalFireLogbookGuide: IDocGuide = {
                     ],
                 },
                 {
-                    title: 'The three steps',
+                    title: 'Step by step',
                     steps: [
                         '<strong>Setup.</strong> Answer "Does the site have a fire alarm system?" and "Does the site have emergency lighting?". Opscel suggests an answer when the site profile, an issued certificate or the site\'s assets show the system, and shows where the suggestion came from. With nothing on record, you must choose Yes or No yourself. At least one answer must be Yes.',
                         '<strong>Setup (continued).</strong> Pick the <strong>Test day</strong> and <strong>Test time</strong>. The weekly fire alarm test is due on this day each week. The monthly emergency lighting test can be done any time in the calendar month.',
+                        // OWNER: "legally responsible" (the wizard's own copy) is part of the standards/regulations wording review.
                         '<strong>People.</strong> Add the <strong>Keeper</strong> (the person on site who does the weekly test) and the <strong>Responsible Person</strong> (usually the owner or manager legally responsible for fire safety). Optionally <strong>Add a backup person</strong> who covers the weekly test when the keeper is not available. Pick each person from the customer\'s contacts or type them in.',
                         '<strong>Review.</strong> Check the site, systems, testing schedule and people, then choose <strong>Start logbook</strong>.',
                     ],
@@ -139,8 +144,8 @@ export const digitalFireLogbookGuide: IDocGuide = {
                 },
                 {
                     title: 'Nothing is sent yet',
-                    content: `<p>Starting the logbook sends nothing to anyone. The logbook shows as <strong>Invited</strong> until the keeper sets it up. Next, invite the keeper from the People card (see the next section) and print the QR sticker.</p>
-<!-- TODO(screenshots): demo tenant only. The Review step with the cost line. -->`,
+                    // TODO(screenshots): demo tenant only. The Review step with the cost line.
+                    content: `<p>Starting the logbook sends nothing to anyone. The logbook shows as <strong>Invited</strong> until the keeper sets it up. Next, invite the keeper from the People card (see the next section) and print the QR sticker.</p>`,
                 },
                 {
                     title: 'If starting does not finish',
@@ -184,6 +189,8 @@ export const digitalFireLogbookGuide: IDocGuide = {
                 },
                 {
                     title: 'If the keeper loses the link',
+                    // OWNER: same note as the Reminders section. "Email me a new link" runs behind the same gate as the reminders
+                    // (it sends nothing while that gate is off or in dry run), so it is not live until reminders are.
                     content: `<p>A link keeps working while it is used and stops after 30 days without use. The keeper can ask for a new one themselves: the page an expired or replaced link opens has <strong>Email me a new link</strong>. They enter the email address on the logbook and a new link is sent there. You can also send a new invite from the People card.</p>`,
                 },
             ],
@@ -191,8 +198,11 @@ export const digitalFireLogbookGuide: IDocGuide = {
         {
             id: 'reminders',
             title: 'Reminders by Email and Text',
-            content: `<p class="mb-4">When the weekly fire alarm test is not recorded, the logbook reminds the site. Each reminder carries a fresh link, so the keeper can record the test in one tap. A link replaced by a reminder keeps working for 7 days.</p>
-<!-- OWNER: reminders and texts are built but not yet live (dry run, owner go-ahead pending). The Digital Fire Logbook Privacy Notice still says reminders and texts will be added later. Update that notice, and add The SMS Works to its provider table, before this section is published. -->`,
+            // OWNER: reminders and texts are built but not yet live. The Digital Fire Logbook Privacy Notice still says
+            // reminders and texts will be added later, and lacks The SMS Works in its provider table. Update the notice before
+            // this section is published, or hold the section.
+            content: `<p class="mb-4">When the weekly fire alarm test is not recorded, the logbook reminds the site. Each reminder carries a fresh link; the email says the test takes about 20 seconds to record. After a reminder, the previous link and its sign-ins keep working for 7 days, then stop.</p>
+<p class="mb-4">Reminders only go for an <strong>Active</strong> logbook with the weekly fire alarm test switched on. A logbook with only emergency lighting gets no reminders. The week the logbook becomes active never counts.</p>`,
             subsections: [
                 {
                     title: 'The reminder ladder',
@@ -226,8 +236,8 @@ export const digitalFireLogbookGuide: IDocGuide = {
         {
             id: 'keeper-view',
             title: 'What Your Keeper Sees',
-            content: `<p class="mb-4">The keeper uses the logbook in their phone's browser, from their link. They do not need an Opscel account or an app.</p>
-<!-- TODO(screenshots): demo tenant only. The keeper's Due now screen and a check screen, on a phone. -->`,
+            // TODO(screenshots): demo tenant only. The keeper's Due now screen and a check screen, on a phone.
+            content: `<p class="mb-4">The keeper uses the logbook in their phone's browser, from their link. They do not need an Opscel account or an app.</p>`,
             subsections: [
                 {
                     title: 'First time',
@@ -240,7 +250,7 @@ export const digitalFireLogbookGuide: IDocGuide = {
                 {
                     title: 'Every week',
                     bullets: [
-                        '<strong>Due now</strong> shows a card for each site check, marked <strong>Due now</strong>, <strong>Overdue</strong> or <strong>Not due yet</strong>. They choose <strong>Record the test</strong>.',
+                        '<strong>Due now</strong> shows a card for each site check, marked <strong>Due now</strong>, <strong>Overdue</strong>, <strong>Done</strong> or <strong>Not due yet</strong>. They choose <strong>Record the test</strong>.',
                         'The fire alarm test asks which call point they tested, whether the alarm sounded and whether the panel reset. The emergency lighting test asks whether every emergency light came on, and where they tested.',
                         'If a check fails, they are asked what happened and can add up to 3 photos. They are told: "It\'s recorded for [your company] to see. If it\'s urgent, call them now."',
                         '<strong>Log something</strong> records a false alarm, a fault or damage, a fire drill, staff training, a fire or evacuation, or something else.',
@@ -261,8 +271,8 @@ export const digitalFireLogbookGuide: IDocGuide = {
         {
             id: 'qr-sticker',
             title: 'The QR Sticker and What an Inspector Sees',
-            content: `<p class="mb-4">The <strong>QR sticker</strong> card on the Logbook tab prints a sticker for the fire alarm panel. A fire officer or inspector scans it to read the logbook. They need no login, and nothing can be changed from that page.</p>
-<!-- TODO(screenshots): demo tenant only. The QR sticker card, and the inspector Summary page. -->`,
+            // TODO(screenshots): demo tenant only. The QR sticker card, and the inspector Summary page.
+            content: `<p class="mb-4">The <strong>QR sticker</strong> card on the Logbook tab prints a sticker for the fire alarm panel. A fire officer or inspector scans it to read the logbook. They need no login, and nothing can be changed from that page.</p>`,
             subsections: [
                 {
                     title: 'Printing the sticker',
@@ -279,16 +289,17 @@ export const digitalFireLogbookGuide: IDocGuide = {
                 {
                     title: 'What the inspector sees',
                     bullets: [
-                        'The site, the Responsible Person and your company name.',
-                        'A <strong>Summary</strong>: the last time each site check was recorded and its result, missed weeks or months, the call points tested recently, your last visit and whether the logbook passed its integrity check.',
-                        'Each entry\'s date and time, what was checked, the result, and the name and role of the person who signed it. Corrections are marked.',
+                        'The site, the <strong>Responsible Person\'s name</strong> and your company name.',
+                        'A <strong>Summary</strong>: the last time each site check was recorded and its result, missed weeks or months, how many different call points were tested in the last 12 weeks, your last visit and whether the logbook passed its integrity check.',
+                        'Each entry\'s date and time, what was checked, the result, and the name and role of the person who signed it. That includes your staff\'s names and roles on entries they sign. Corrections are marked.',
+                        'The keeper\'s typed answer to "Which call point did you test?" or "Where did you test?" (the first 60 characters).',
                         'Your visits and certificates that went into the logbook automatically.',
                         '<strong>Never shown:</strong> notes, reasons, contact details, signatures or photos. Where a detail is held back, the page says "Details held by the contractor."',
                     ],
                 },
                 {
                     title: 'Downloads and checking a printout',
-                    content: `<p>From the sticker page the inspector can download a PDF of the last 3, 6, 12 or 24 months. It shows what the page shows, with a code on every line and an export code in the footer. They can enter a code on the sticker page to check that a printout still matches the logbook. Downloads and checks are logged.</p>`,
+                    content: `<p>From the sticker page the inspector can download a PDF of the last 3, 6, 12 or 24 months. It shows what the page shows, with a code on every line and an export code in the footer. They can enter an export code on the sticker page to check that the logbook is unchanged since that export, then compare a printed line with the live entry it shows. The code checks the logbook, not the printout itself. Downloads and checks are logged.</p>`,
                 },
                 {
                     title: 'If the live logbook is down',
@@ -355,17 +366,17 @@ export const digitalFireLogbookGuide: IDocGuide = {
                 {
                     title: 'Where the defect shows',
                     bullets: [
-                        'In the site\'s Defects register, marked as logged via the logbook, with the keeper\'s name and role.',
+                        'On the site\'s <strong>Deficiencies</strong> tab, marked as logged via the logbook, with the keeper\'s name and role.',
                         'On the Logbook tab, under <strong>Open defects from the logbook</strong>.',
                         'On the next job sheet of the same service type at the site, as a carried-forward defect.',
-                        'In <strong>Needs attention</strong> on your dashboard, critical defects first.',
-                        'A <strong>critical</strong> defect is also emailed to your company email address.',
+                        'In <strong>Needs Attention</strong> on your dashboard, while it has no quote or job: up to 3, critical first.',
+                        'A <strong>critical</strong> defect is also emailed to your company email address, if one is set in your company details.',
                     ],
                 },
                 {
                     title: 'Acting on it',
-                    content: `<p>Under <strong>Open defects from the logbook</strong>, choose <strong>Create quote</strong>, <strong>Link existing quote</strong> or <strong>Create job</strong>. Once a defect has a quote or a job, the tab links to it instead. A job created this way always carries the defect on its job sheet.</p>
-<!-- TODO(screenshots): demo tenant only. Open defects from the logbook with its buttons. -->`,
+                    // TODO(screenshots): demo tenant only. Open defects from the logbook with its buttons.
+                    content: `<p>Under <strong>Open defects from the logbook</strong>, choose <strong>Create quote</strong>, <strong>Link existing quote</strong> or <strong>Create job</strong>. Once a defect has a quote or a job, the tab links to it instead. A job created this way always carries the defect on its job sheet.</p>`,
                 },
             ],
         },
@@ -392,9 +403,9 @@ export const digitalFireLogbookGuide: IDocGuide = {
                     content: `<p>Open it from the dashboard's <strong>Fire logbooks</strong> card, or <strong>All logbooks</strong> on any site's Logbook tab. It lists every logbook, most behind first, with health, next due, last entry, open defects and lifecycle. Search by site, customer or postcode, and filter by health.</p>`,
                 },
                 {
-                    title: 'Needs attention',
+                    title: 'Needs Attention',
                     bullets: [
-                        'Open defects from logbooks, critical ones first.',
+                        'Open defects from logbooks that have no quote or job yet, at most 3, critical first.',
                         'Logbooks with a site check 3 or more days late: one item for a single site, or "N logbooks overdue" linking to the Fire logbooks page.',
                         'False alarms and other entries that still need a follow-up (see <a href="#your-entries" class="text-secondary hover:underline">Record what was done</a>).',
                     ],
@@ -419,13 +430,17 @@ export const digitalFireLogbookGuide: IDocGuide = {
                     table: {
                         headers: ['Your record', 'Logbook entry'],
                         rows: [
-                            ['A completed fire alarm service job, a completed fire alarm service sheet, or an issued fire alarm service certificate', '<strong>Contractor visit</strong> for the fire alarm service'],
+                            ['A completed fire alarm service job (a fire alarm service sheet counts once its job is completed), or an issued fire alarm service certificate', '<strong>Contractor visit</strong> for the fire alarm service'],
                             ['An issued emergency lighting certificate for an annual test', '<strong>Contractor visit</strong> for the emergency lighting annual test'],
-                            ['Other completed fire jobs and issued fire certificates (fire alarm, emergency lighting, extinguisher)', '<strong>Contractor visit</strong> (ad-hoc)'],
+                            ['Other completed fire jobs (including sprinkler and riser jobs, and fire jobs on the Basic sheet) and issued fire certificates (fire alarm, emergency lighting, extinguisher)', '<strong>Contractor visit</strong> (ad-hoc)'],
                             ['An issued fire alarm design, installation, commissioning, service or modification certificate that records variations', '<strong>Variation</strong>'],
                             ['An issued fire alarm commissioning certificate with cause and effect results', '<strong>Cause and effect programming</strong>'],
                         ],
                     },
+                },
+                {
+                    title: 'Certificates come through their job',
+                    content: `<p>A certificate is added only through its job at the site. A certificate not raised from a job at the site is not added.</p>`,
                 },
                 {
                     title: 'When a logbook starts',
@@ -437,7 +452,7 @@ export const digitalFireLogbookGuide: IDocGuide = {
                 },
                 {
                     title: 'False alarms on the certificate',
-                    content: `<p>When an engineer fills in a fire alarm service certificate at a site with an active logbook, the false alarm field can show how many false alarms the logbook records for the last 12 months.</p>`,
+                    content: `<p>When an engineer fills in a fire alarm service certificate at a site with an active logbook, the false alarm field can show how many false alarms the logbook records for the last 12 months. It shows only when the logbook has a whole year on record.</p>`,
                 },
             ],
         },
@@ -463,7 +478,7 @@ export const digitalFireLogbookGuide: IDocGuide = {
                     bullets: [
                         'Leave <strong>When</strong> empty to record it as now. An entry cannot be dated in the future.',
                         'Some types ask the 2025 model logbook questions, such as zone, device and cause for a false alarm.',
-                        'Your entries never activate a logbook. Only the keeper setting up does.',
+                        'Your team\'s entries never activate a logbook.',
                     ],
                 },
                 {
@@ -491,7 +506,7 @@ export const digitalFireLogbookGuide: IDocGuide = {
                     bullets: [
                         'A new test day takes effect this week if neither the old nor the new day has ended yet, otherwise from next week. Weeks already missed keep their dates.',
                         'Any week a check was missed before it was switched off shows as overdue again when you switch it back on.',
-                        'Only an Admin or Contract Manager can switch a check off or on.',
+                        'Only a Super Admin, Admin or Contract Manager can switch a check off or on. The dialog says "Only an Admin or Contract Manager can switch a check off or on."',
                     ],
                 },
                 {
@@ -499,7 +514,7 @@ export const digitalFireLogbookGuide: IDocGuide = {
                     content: `<p>On the <strong>People</strong> card, use <strong>Change</strong> next to a person:</p>`,
                     bullets: [
                         '<strong>Replace…</strong> puts someone new in the role. The old person is signed out and no longer reminded. The new person needs an invite.',
-                        '<strong>Edit details…</strong> corrects a name, mobile or email. A name can only change before the person has set up; after that, replace them.',
+                        '<strong>Edit details…</strong> corrects a name, mobile or email. A name can only change before the person has set up; after that, replace them. Editing someone who has not set up yet stops the invite already sent, so send a new one.',
                         '<strong>Remove…</strong> takes off the backup person. The keeper and Responsible Person can only be replaced.',
                         '<strong>Add a backup person</strong> shows when there is none.',
                         'Who keeps the logbook is recorded in it, for example "Keeper changed". Contact details are not.',
@@ -526,11 +541,12 @@ export const digitalFireLogbookGuide: IDocGuide = {
                 },
                 {
                     title: 'Downloading the Annex H logbook',
+                    // OWNER: "It is the fire alarm logbook" describes BS 5839-1 Annex H's scope; include in the wording review.
                     content: `<p>On the Logbook tab, choose <strong>Download Annex H logbook</strong>. Because it includes names and notes, keep it with the site's fire safety records. It is the fire alarm logbook, so emergency lighting tests are not in its tables; they stay in the logbook and on the sticker page. A logbook that fails its integrity check cannot be exported.</p>`,
                 },
                 {
                     title: 'The front page',
-                    content: `<p>The Annex H front page shows the Responsible Person, your company, the end date of the site's service contract, a phone number for maintenance, your maximum attendance time and expendable parts with when to replace them. Set your company's defaults in <strong>Settings → Logbook front page</strong>. To set different values for one site, open <strong>Front page</strong> on its Logbook tab.</p>`,
+                    content: `<p>The Annex H front page shows the Responsible Person, your company, the end date of the site's service contract, a phone number for maintenance, your maximum attendance time and expendable parts with when to replace them. Set your company's defaults in <strong>Settings → Logbook front page</strong> (this needs permission to edit settings). To set different values for one site, open <strong>Front page</strong> on its Logbook tab.</p>`,
                 },
                 {
                     title: 'Older logbooks',
@@ -560,16 +576,19 @@ export const digitalFireLogbookGuide: IDocGuide = {
                     ],
                 },
                 {
-                    title: 'Logbooks are never deleted',
-                    content: `<p>A logbook is a legal record for the building, so Opscel does not delete logbooks. A site address with a logbook, even an archived one, cannot be deleted.</p>`,
+                    title: 'Logbooks cannot be deleted',
+                    // OWNER: retention and hand-over wording; the privacy notice describes a hand-over that is planned, not built.
+                    content: `<p>You cannot delete a logbook. It is kept for as long as you use Opscel (see the <a href="/logbook/privacy" class="text-secondary hover:underline">Privacy Notice</a>). A site address with a logbook, even an archived one, cannot be deleted.</p>`,
                 },
             ],
         },
         {
             id: 'billing',
             title: 'Billing',
-            content: `<p class="mb-4">Each logbook is billed per site, monthly, on your Opscel bill.</p>
-<!-- OWNER: confirm the price and trial terms before launch. The app and its billing code say £1.50 per logbook per month, the site's first 30 days free, once per site (lib/logbooks/billing/pricing.ts). Logbook billing is not live yet (dark by default). Terms 9A deliberately states no price. -->`,
+            // OWNER: confirm the price and trial terms before launch: £1.50 per logbook per month, the site's first 30 days
+            // free from activation, once per site. Open: is £1.50 ex- or inc-VAT, and should the copy say "+ VAT"? Terms 9A
+            // deliberately states no price, and logbook billing is not switched on yet.
+            content: `<p class="mb-4">Each logbook is billed per site, monthly, on your Opscel bill.</p>`,
             subsections: [
                 {
                     title: 'What it costs',
@@ -608,11 +627,11 @@ export const digitalFireLogbookGuide: IDocGuide = {
                 },
                 {
                     title: 'Someone wants their details removed from a logbook.',
-                    content: `<p>Contact us. Requests are handled as set out in section 9A.5 of our <a href="/terms" class="text-secondary hover:underline">Terms</a> and in the <a href="/logbook/privacy" class="text-secondary hover:underline">Digital Fire Logbook Privacy Notice</a>. The person must first be replaced or removed from the logbook.</p>`,
+                    content: `<p>Contact us. Requests are handled as set out in section 9A.5 of our <a href="/terms" class="text-secondary hover:underline">Terms</a> and in the <a href="/logbook/privacy" class="text-secondary hover:underline">Digital Fire Logbook Privacy Notice</a>. The person must first be replaced or removed from the logbook. Removing them takes out their name, contact details and signatures; their answers and notes stay in the sealed record. Your staff's names on entries they signed cannot be removed.</p>`,
                 },
                 {
                     title: 'Does a failed check alert us?',
-                    content: `<p>Yes. It raises a defect and shows in Needs attention. A critical defect, such as an alarm that did not sound, is also emailed to your company email address. The keeper is told to call you if it is urgent.</p>`,
+                    content: `<p>Yes. It raises a defect and shows in Needs attention. A critical defect, such as an alarm that did not sound, is also emailed to your company email address if one is set. The keeper is told to call you if it is urgent.</p>`,
                 },
                 {
                     title: 'Can the site still use a paper logbook?',

@@ -3,10 +3,10 @@ import DocPageLayout from '@/components/DocPageLayout';
 import { digitalFireLogbookGuide } from '@/data/docs/digital-fire-logbook-guide';
 
 export const metadata = {
-    alternates: { canonical: '/docs/digital-fire-logbook' },
     title: `${digitalFireLogbookGuide.title} - Opscel Documentation`,
     description: digitalFireLogbookGuide.description,
-    // LAUNCH: remove this robots line so search engines can index the guide.
+    // LAUNCH: remove this robots line and add `alternates: { canonical: '/docs/digital-fire-logbook' }` like the other
+    // guides. A noindex page carries no canonical.
     robots: { index: false, follow: false },
 };
 
