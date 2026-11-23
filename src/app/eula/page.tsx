@@ -2,7 +2,7 @@ import React from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import LegalPage from '@/components/LegalPage';
-import { companyDetails } from '@/data/companyDetails';
+import { companyDetails, getFormattedRegisteredAddress } from '@/data/companyDetails';
 
 export const metadata: Metadata = {
   alternates: { canonical: '/eula' },
@@ -14,7 +14,7 @@ const EULAPage: React.FC = () => {
   return (
     <LegalPage
       title="End User License Agreement"
-      lastUpdated="5 September 2026"
+      lastUpdated="23 November 2026"
     >
       {/* Critical Legal Notice */}
       <div className="bg-red-50 border-l-4 border-red-600 p-6 mb-8 rounded-r-lg">
@@ -40,9 +40,9 @@ const EULAPage: React.FC = () => {
           <li><strong>You own your data</strong> — we never sell or share it with other customers</li>
           <li><strong>You verify everything</strong> — Opscel is a tool; you remain professionally responsible for all certificates, compliance work, and decisions</li>
           <li><strong>Pay monthly</strong> — 30-day free trial, card required at signup, cancel anytime</li>
-          <li><strong>UK-hosted</strong> — your data stays in UK data centres, governed by English law</li>
+          <li><strong>UK-hosted</strong> — our app, databases and file storage are hosted in London. Some named service providers process limited data outside the UK under legal safeguards (see our <Link href="/privacy" className="text-secondary hover:underline">Privacy Policy</Link>, section 5.4). Governed by English law.</li>
           <li><strong>AI is assistive only</strong> — never rely on AI suggestions without independent professional verification</li>
-          <li><strong>Opscel&apos;s liability is strictly limited</strong> — see Section 14 for full details</li>
+          <li><strong>Opscel&apos;s liability is strictly limited</strong> — see Sections 14 and 15 for full details</li>
         </ul>
         <p className="text-blue-800 mt-3 text-sm italic">
           The full legal terms below are binding and govern your use of the Service.
@@ -58,7 +58,7 @@ const EULAPage: React.FC = () => {
             <strong>1.1 Parties.</strong> This Agreement is entered into between:
           </p>
           <ul className="list-disc list-inside ml-6 space-y-2">
-            <li><strong>Opscel Limited</strong>, a company incorporated in England and Wales under company number {companyDetails.companiesHouseNumber}, whose registered office is in England (&quot;<strong>Opscel</strong>&quot;, &quot;<strong>we</strong>&quot;, &quot;<strong>us</strong>&quot;, or &quot;<strong>our</strong>&quot;); and</li>
+            <li><strong>Opscel Limited</strong>, a company incorporated in England and Wales under company number {companyDetails.companiesHouseNumber}, whose registered office is at {getFormattedRegisteredAddress()} (&quot;<strong>Opscel</strong>&quot;, &quot;<strong>we</strong>&quot;, &quot;<strong>us</strong>&quot;, or &quot;<strong>our</strong>&quot;); and</li>
             <li>The person, business, partnership, company, or other legal entity accepting this Agreement (&quot;<strong>Customer</strong>&quot;, &quot;<strong>you</strong>&quot;, or &quot;<strong>your</strong>&quot;).</li>
           </ul>
 
@@ -157,11 +157,11 @@ const EULAPage: React.FC = () => {
           </p>
 
           <p>
-            <strong>3.4 Non-Refundable.</strong> <strong>ALL SUBSCRIPTION FEES ARE NON-REFUNDABLE</strong>, except where refund is required by mandatory statutory consumer protection law that cannot be excluded by contract. No partial refunds, pro-rata refunds, or credits will be provided for partial billing periods, unused features, downgrades, or early cancellation.
+            <strong>3.4 Non-Refundable.</strong> <strong>ALL SUBSCRIPTION FEES ARE NON-REFUNDABLE</strong>, except where a refund is required by law or under section 6.2 of the <Link href="/dpa" className="text-secondary hover:underline">Data Processing Addendum</Link>. No partial refunds, pro-rata refunds, or credits will be provided for partial billing periods, unused features, downgrades, or early cancellation.
           </p>
 
           <p>
-            <strong>3.5 Failed Payment.</strong> If a payment fails, Opscel may suspend access to the Service without notice and may, after 15 days of non-payment, terminate the Subscription and delete Customer Data in accordance with Section 13. Customer remains liable for all outstanding fees and may be charged interest at the rate of 4% per annum above the Bank of England base rate, calculated daily, pursuant to the Late Payment of Commercial Debts (Interest) Act 1998.
+            <strong>3.5 Failed Payment.</strong> If a payment fails, Opscel may suspend access to the Service without notice and may, after 15 days of non-payment, terminate the Subscription, in which case Section 13.4 and the Data Processing Addendum apply to Customer Data. Customer remains liable for all outstanding fees and may be charged interest at the rate of 4% per annum above the Bank of England base rate, calculated daily, pursuant to the Late Payment of Commercial Debts (Interest) Act 1998.
           </p>
 
           <p>
@@ -219,7 +219,7 @@ const EULAPage: React.FC = () => {
           </p>
 
           <p>
-            <strong>4.4 Customer Backups.</strong> Notwithstanding any backup services provided by Opscel, Customer is solely responsible for maintaining its own independent backup copies of all Customer Data critical to its business operations. <strong>Opscel shall not be liable for any loss of Customer Data howsoever caused.</strong>
+            <strong>4.4 Customer Backups.</strong> Notwithstanding any backup services provided by Opscel, Customer is solely responsible for maintaining its own independent backup copies of all Customer Data critical to its business operations. Opscel&apos;s liability for loss of or damage to Customer Data is limited as set out in Section 15.
           </p>
         </div>
       </section>
@@ -244,7 +244,7 @@ const EULAPage: React.FC = () => {
           </p>
 
           <p>
-            <strong>5.3 Data Location.</strong> Customer Data is stored in data centres located in the United Kingdom. Customer acknowledges that Customer Data may be transmitted outside the UK to the extent necessary to provide the Service (for example, where Customer accesses the Service from outside the UK or integrates Third-Party Services hosted elsewhere).
+            <strong>5.3 Data Location.</strong> The primary databases and file storage for the Service are located in the United Kingdom. Certain Sub-processors listed in section 5.4 of the Privacy Policy process Customer Data outside the UK, subject to the safeguards in the Data Processing Addendum. Customer Data may also leave the UK where Customer accesses the Service from outside the UK or connects Third-Party Services hosted elsewhere.
           </p>
 
           <p>
@@ -252,7 +252,7 @@ const EULAPage: React.FC = () => {
           </p>
 
           <p>
-            <strong>5.5 Data Processing.</strong> The processing of personal data within Customer Data is governed by Opscel&apos;s <Link href="/privacy" className="text-secondary hover:underline">Privacy Policy</Link>, the UK General Data Protection Regulation, the Data Protection Act 2018, and any applicable Data Processing Addendum executed between the parties.
+            <strong>5.5 Data Processing.</strong> For personal data within Customer Data, Customer is the controller and Opscel is the processor. Opscel&apos;s <Link href="/dpa" className="text-secondary hover:underline">Data Processing Addendum</Link> forms part of this Agreement and governs that processing, as required by Article 28 of the UK General Data Protection Regulation. Opscel&apos;s <Link href="/privacy" className="text-secondary hover:underline">Privacy Policy</Link> explains how Opscel processes personal data as a controller for its own purposes, such as managing accounts and billing.
           </p>
 
           <p>
@@ -265,7 +265,7 @@ const EULAPage: React.FC = () => {
           <ul className="list-disc list-inside ml-6 space-y-2">
             <li>Customer has all necessary rights, licenses, consents, and permissions to provide Customer Data to Opscel and to authorise the processing contemplated by this Agreement;</li>
             <li>Customer Data does not infringe, misappropriate, or violate any third-party rights;</li>
-            <li>Customer has obtained all necessary consents from data subjects whose personal data is included in Customer Data;</li>
+            <li>Customer has a lawful basis under applicable data protection laws (including, where those laws require it, consent) for the processing of personal data included in Customer Data;</li>
             <li>Customer has provided all required privacy notices to data subjects;</li>
             <li>Customer&apos;s use of the Service complies with all applicable data protection laws.</li>
           </ul>
@@ -518,7 +518,7 @@ const EULAPage: React.FC = () => {
 
         <div className="bg-muted p-4 rounded-lg mb-4">
           <p className="text-sm text-muted-foreground italic">
-            <strong>In plain English:</strong> You can cancel anytime. We can terminate for breaches. After termination, your data is kept for 30 days then permanently deleted.
+            <strong>In plain English:</strong> You can cancel anytime. We can terminate for breaches. After termination, you can export your data for 30 days. It is then deleted from our live systems within 90 days of termination, and from backups within a further 90 days.
           </p>
         </div>
 
@@ -535,7 +535,7 @@ const EULAPage: React.FC = () => {
             <strong>13.3 Suspension and Termination by Opscel.</strong> Opscel may, at its sole discretion and without liability to Customer, suspend or terminate Customer&apos;s access to all or part of the Service immediately and without notice if:
           </p>
           <ul className="list-disc list-inside ml-6 space-y-2">
-            <li>Customer breaches any provision of this Agreement;</li>
+            <li>Customer commits a material breach of this Agreement which, if capable of remedy, is not remedied within 14 days of written notice;</li>
             <li>Customer fails to pay any Subscription Fees when due;</li>
             <li>Opscel reasonably suspects Customer of fraud, unlawful conduct, or violation of the Acceptable Use provisions;</li>
             <li>Customer&apos;s use poses a security, legal, or reputational risk to Opscel, other customers, or third parties;</li>
@@ -549,8 +549,8 @@ const EULAPage: React.FC = () => {
           <ul className="list-disc list-inside ml-6 space-y-2">
             <li>all licenses and rights granted to Customer immediately terminate;</li>
             <li>Customer shall immediately cease all use of the Service;</li>
-            <li>Customer Data shall be retained in production systems for 30 days, during which time Customer may export Customer Data (subject to Opscel&apos;s reasonable cooperation);</li>
-            <li>after 30 days, Customer Data may be permanently deleted from production systems; backup copies may persist for up to 90 additional days before deletion;</li>
+            <li>Customer Data shall be retained for 30 days, during which time Customer may export Customer Data (subject to Opscel&apos;s reasonable cooperation) and request copies of its Digital Fire Logbooks under the Data Processing Addendum;</li>
+            <li>Customer Data shall then be deleted from production systems within 90 days after termination, and backup copies within a further 90 days, as set out in the Data Processing Addendum;</li>
             <li>Customer remains liable for all fees accrued prior to termination;</li>
             <li>Sections 1, 2.2, 2.3, 3.4, 3.5, 4.1, 4.4, 5, 6, 7.4, 9.3, 11, 12, 14, 15, 16, and 17 survive termination.</li>
           </ul>
@@ -627,7 +627,7 @@ const EULAPage: React.FC = () => {
             <li>any indirect, special, incidental, punitive, exemplary, or consequential loss or damage;</li>
             <li>any loss of profits, revenue, savings, business opportunity, anticipated savings, contracts, or business;</li>
             <li>any loss of goodwill, reputation, or anticipated benefit;</li>
-            <li>any loss, corruption, destruction, or unauthorised disclosure of data or information (including without limitation Customer Data);</li>
+            <li>any loss, corruption, destruction, or unauthorised disclosure of data or information (including without limitation Customer Data), except to the extent caused by Opscel&apos;s breach of the Data Processing Addendum or its negligence, for which Opscel&apos;s liability is subject to the cap in Section 15.2;</li>
             <li>any loss arising from business interruption, downtime, or system failure;</li>
             <li>any loss arising from reliance on AI Features, AI-generated outputs, or automated suggestions;</li>
             <li>any loss arising from errors, inaccuracies, or omissions in certificates, compliance records, or documentation generated through the Service;</li>
@@ -644,11 +644,11 @@ const EULAPage: React.FC = () => {
           </p>
 
           <p>
-            <strong>15.2 Aggregate Liability Cap.</strong> SUBJECT TO SECTION 15.4, OPSCEL&apos;S TOTAL CUMULATIVE LIABILITY TO CUSTOMER UNDER OR IN CONNECTION WITH THIS AGREEMENT, WHETHER ARISING IN CONTRACT, TORT (INCLUDING NEGLIGENCE), BREACH OF STATUTORY DUTY, MISREPRESENTATION, OR OTHERWISE, SHALL NOT EXCEED THE LESSER OF:
+            <strong>15.2 Aggregate Liability Cap.</strong> SUBJECT TO SECTION 15.4, OPSCEL&apos;S TOTAL CUMULATIVE LIABILITY TO CUSTOMER UNDER OR IN CONNECTION WITH THIS AGREEMENT, WHETHER ARISING IN CONTRACT, TORT (INCLUDING NEGLIGENCE), BREACH OF STATUTORY DUTY, MISREPRESENTATION, OR OTHERWISE, SHALL NOT EXCEED THE GREATER OF:
           </p>
           <ul className="list-disc list-inside ml-6 space-y-2">
-            <li><strong>(a)</strong> THE TOTAL SUBSCRIPTION FEES ACTUALLY PAID BY CUSTOMER TO OPSCEL IN THE THREE (3) MONTHS IMMEDIATELY PRECEDING THE EVENT GIVING RISE TO THE CLAIM; OR</li>
-            <li><strong>(b)</strong> ONE HUNDRED POUNDS STERLING (£100).</li>
+            <li><strong>(a)</strong> THE TOTAL FEES PAID OR PAYABLE BY CUSTOMER TO OPSCEL IN THE TWELVE (12) MONTHS IMMEDIATELY PRECEDING THE EVENT GIVING RISE TO THE CLAIM; AND</li>
+            <li><strong>(b)</strong> FIVE THOUSAND POUNDS STERLING (£5,000).</li>
           </ul>
 
           <p>
@@ -683,8 +683,7 @@ const EULAPage: React.FC = () => {
             <strong>16.1 Indemnity.</strong> Customer shall defend, indemnify, and hold harmless Opscel and its Affiliates, officers, directors, employees, agents, contractors, licensors, and suppliers (collectively, the &quot;<strong>Indemnified Parties</strong>&quot;) from and against any and all claims, demands, suits, proceedings, judgments, settlements, losses, liabilities, damages, fines, penalties, costs, and expenses (including reasonable legal fees and disbursements) (&quot;<strong>Losses</strong>&quot;) arising out of or in connection with:
           </p>
           <ul className="list-disc list-inside ml-6 space-y-2">
-            <li>Customer&apos;s or any Authorised User&apos;s use of or access to the Service;</li>
-            <li>Customer Data, including any claim that Customer Data infringes, misappropriates, or violates any third-party right (including intellectual property, privacy, or publicity rights);</li>
+                        <li>Customer Data, including any claim that Customer Data infringes, misappropriates, or violates any third-party right (including intellectual property, privacy, or publicity rights);</li>
             <li>any breach by Customer of this Agreement, including without limitation the warranties in Section 5.7 and the Acceptable Use provisions in Section 4;</li>
             <li>any violation of applicable law, regulation, British Standard, industry code, or accreditation requirement by Customer or any Authorised User;</li>
             <li>any decision, action, omission, certificate, or compliance record generated, issued, or relied upon by Customer or any third party in connection with the Service;</li>
@@ -692,6 +691,9 @@ const EULAPage: React.FC = () => {
             <li>any unauthorised access to Customer&apos;s Account resulting from Customer&apos;s failure to maintain credential security;</li>
             <li>any negligence, wilful misconduct, or fraud by Customer or any Authorised User.</li>
           </ul>
+          <p>
+            Customer is not required to indemnify any Indemnified Party to the extent that the Losses are caused by Opscel&apos;s breach of this Agreement or of the Data Processing Addendum, or by Opscel&apos;s negligence.
+          </p>
 
           <p>
             <strong>16.2 Procedure.</strong> Opscel shall: (a) promptly notify Customer of any claim subject to indemnification; (b) grant Customer sole control over the defence and settlement of the claim, provided that no settlement may impose any liability or obligation on Opscel without Opscel&apos;s prior written consent; and (c) provide Customer with reasonable cooperation in the defence at Customer&apos;s expense. Opscel reserves the right, at Customer&apos;s expense, to assume the exclusive defence and control of any matter otherwise subject to indemnification by Customer.
@@ -709,7 +711,7 @@ const EULAPage: React.FC = () => {
 
         <div className="space-y-4 text-foreground-accent">
           <p>
-            <strong>17.1 Entire Agreement.</strong> This Agreement, together with the <Link href="/privacy" className="text-secondary hover:underline">Privacy Policy</Link>, <Link href="/terms" className="text-secondary hover:underline">Terms of Service</Link>, and any other documents expressly incorporated by reference, constitutes the entire agreement between the parties regarding the Service and supersedes all prior or contemporaneous agreements, representations, warranties, and understandings (whether written or oral). In the event of any conflict, this EULA shall prevail with respect to software licensing matters.
+            <strong>17.1 Entire Agreement.</strong> This Agreement, together with the <Link href="/terms" className="text-secondary hover:underline">Terms of Service</Link>, the <Link href="/dpa" className="text-secondary hover:underline">Data Processing Addendum</Link>, and any other documents expressly incorporated by reference, constitutes the entire agreement between the parties regarding the Service and supersedes all prior or contemporaneous agreements, representations, warranties, and understandings (whether written or oral). In the event of any conflict, the Data Processing Addendum prevails on the processing of personal data, this EULA prevails on software licensing and liability, and otherwise the Terms of Service prevail. The <Link href="/privacy" className="text-secondary hover:underline">Privacy Policy</Link> is a notice, not a contractual document.
           </p>
 
           <p>

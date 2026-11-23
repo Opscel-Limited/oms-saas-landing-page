@@ -137,6 +137,10 @@ export const footerDetails: {
         {
             text: "Cookie Policy",
             url: "/cookies"
+        },
+        {
+            text: "Data Processing Addendum",
+            url: "/dpa"
         }
     ],
     email: 'hello@opscel.com',
