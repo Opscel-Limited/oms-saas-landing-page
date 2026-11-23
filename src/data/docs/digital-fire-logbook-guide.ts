@@ -52,10 +52,9 @@ export const digitalFireLogbookGuide: IDocGuide = {
         {
             id: 'what-it-is',
             title: 'What the Logbook Is, and Is Not',
-            // OWNER: standards wording review pending. Confirm how this guide may describe what BS 5839-1, BS 5266-1 and the
-            // Fire Safety (England) Regulations 2022 require. Terms 9A.2 says the logbook "helps a site keep the records that
-            // BS 5839-1 and BS 5266-1 expect"; this guide stays with that wording.
-            content: `<p class="mb-4">The logbook keeps the site's fire alarm records (BS 5839-1) and emergency lighting records (BS 5266-1) in one place. You can download it in the shape of the BS 5839-1:2025 Annex H model logbook.</p>
+            // Standards wording checked against BS 5839-1:2025 (clauses 47.1, 48, 48.2 and Annex H) on 2026-11-23. BS 5266-1 is
+            // not on file: the emergency lighting wording stays with Terms 9A.2.
+            content: `<p class="mb-4">The logbook keeps the site's fire alarm records (BS 5839-1) and emergency lighting records (BS 5266-1) in one place. BS 5839-1:2025 says the fire alarm logbook may be kept on paper or digitally (clause 48.2), and recommends that it is kept up to date and available for inspection (clause 47.1). You can download it in the shape of the BS 5839-1:2025 Annex H model logbook.</p>
 <p class="mb-4">It is a <strong>record-keeping tool</strong>. It does not certify that a building complies with any standard or law, and it is not fire safety advice. The fire risk assessment and the Responsible Person's duties stay with the Responsible Person. See section 9A of our <a href="/terms" class="text-secondary hover:underline">Terms</a>.</p>`,
             subsections: [
                 {
@@ -84,8 +83,7 @@ export const digitalFireLogbookGuide: IDocGuide = {
         {
             id: 'roles',
             title: 'Who Can Do What',
-            // OWNER: open question. Sales Manager holds logbooks.manage (D12), so can start logbooks and commit spend. Confirm
-            // the Sales Manager row before launch.
+            // Owner confirmed 2026-11-23: Sales Manager and Accounts view and manage but do not sign (not part of the ops team).
             content: `<p class="mb-4">Three permissions control the logbook: <strong>view</strong>, <strong>manage</strong> (start, set up, people, invites, the QR sticker, archive) and <strong>sign</strong> (entries your team writes into the book). The built-in roles have these:</p>`,
             subsections: [
                 {
@@ -133,7 +131,6 @@ export const digitalFireLogbookGuide: IDocGuide = {
                     steps: [
                         '<strong>Setup.</strong> Answer "Does the site have a fire alarm system?" and "Does the site have emergency lighting?". Opscel suggests an answer when the site profile, an issued certificate or the site\'s assets show the system, and shows where the suggestion came from. With nothing on record, you must choose Yes or No yourself. At least one answer must be Yes.',
                         '<strong>Setup (continued).</strong> Pick the <strong>Test day</strong> and <strong>Test time</strong>. The weekly fire alarm test is due on this day each week. The monthly emergency lighting test can be done any time in the calendar month.',
-                        // OWNER: "legally responsible" (the wizard's own copy) is part of the standards/regulations wording review.
                         '<strong>People.</strong> Add the <strong>Keeper</strong> (the person on site who does the weekly test) and the <strong>Responsible Person</strong> (usually the owner or manager legally responsible for fire safety). Optionally <strong>Add a backup person</strong> who covers the weekly test when the keeper is not available. Pick each person from the customer\'s contacts or type them in.',
                         '<strong>Review.</strong> Check the site, systems, testing schedule and people, then choose <strong>Start logbook</strong>.',
                     ],
@@ -189,8 +186,8 @@ export const digitalFireLogbookGuide: IDocGuide = {
                 },
                 {
                     title: 'If the keeper loses the link',
-                    // OWNER: same note as the Reminders section. "Email me a new link" runs behind the same gate as the reminders
-                    // (it sends nothing while that gate is off or in dry run), so it is not live until reminders are.
+                    // OWNER: "Email me a new link" sends nothing until the platform is out of dry run (the same launch switch as every
+                    // send). It needs an email address on the logbook; a text route for keepers with only a mobile is being planned.
                     content: `<p>A link keeps working while it is used and stops after 30 days without use. The keeper can ask for a new one themselves: the page an expired or replaced link opens has <strong>Email me a new link</strong>. They enter the email address on the logbook and a new link is sent there. You can also send a new invite from the People card.</p>`,
                 },
             ],
@@ -541,7 +538,7 @@ export const digitalFireLogbookGuide: IDocGuide = {
                 },
                 {
                     title: 'Downloading the Annex H logbook',
-                    // OWNER: "It is the fire alarm logbook" describes BS 5839-1 Annex H's scope; include in the wording review.
+                    // Annex H is the model logbook for the fire detection and fire alarm system only (BS 5839-1:2025 Annex H).
                     content: `<p>On the Logbook tab, choose <strong>Download Annex H logbook</strong>. Because it includes names and notes, keep it with the site's fire safety records. It is the fire alarm logbook, so emergency lighting tests are not in its tables; they stay in the logbook and on the sticker page. A logbook that fails its integrity check cannot be exported.</p>`,
                 },
                 {
@@ -577,7 +574,7 @@ export const digitalFireLogbookGuide: IDocGuide = {
                 },
                 {
                     title: 'Logbooks cannot be deleted',
-                    // OWNER: retention and hand-over wording; the privacy notice describes a hand-over that is planned, not built.
+                    // Owner confirmed 2026-11-23: logbooks are never deleted while the contractor uses Opscel.
                     content: `<p>You cannot delete a logbook. It is kept for as long as you use Opscel (see the <a href="/logbook/privacy" class="text-secondary hover:underline">Privacy Notice</a>). A site address with a logbook, even an archived one, cannot be deleted.</p>`,
                 },
             ],
@@ -585,15 +582,14 @@ export const digitalFireLogbookGuide: IDocGuide = {
         {
             id: 'billing',
             title: 'Billing',
-            // OWNER: confirm the price and trial terms before launch: £1.50 per logbook per month, the site's first 30 days
-            // free from activation, once per site. Open: is £1.50 ex- or inc-VAT, and should the copy say "+ VAT"? Terms 9A
-            // deliberately states no price, and logbook billing is not switched on yet.
+            // Owner confirmed 2026-11-23: £1.50 per logbook per month, first 30 days free from activation, once per site.
+            // "+ VAT" follows the site's price convention (PricingColumn). Logbook billing is not switched on yet.
             content: `<p class="mb-4">Each logbook is billed per site, monthly, on your Opscel bill.</p>`,
             subsections: [
                 {
                     title: 'What it costs',
                     bullets: [
-                        'A site\'s first <strong>30 days are free</strong>, counted from when the logbook becomes active (usually when the keeper sets it up). Then it is <strong>£1.50 per month</strong> from your next Opscel bill.',
+                        'A site\'s first <strong>30 days are free</strong>, counted from when the logbook becomes active (usually when the keeper sets it up). Then it is <strong>£1.50 + VAT per month</strong> from your next Opscel bill.',
                         'A logbook that is not active yet (still Invited) is not billed.',
                         'The free period is once per site. Archiving a logbook and starting a new one at the same site does not restart it.',
                         'During your own Opscel trial, logbooks are included free. Billing starts when your trial ends.',
