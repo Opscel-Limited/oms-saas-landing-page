@@ -15,7 +15,7 @@ const TermsPage: React.FC = () => {
   return (
     <LegalPage
       title="Terms of Service"
-      lastUpdated="9 October 2026"
+      lastUpdated="23 November 2026"
     >
       <h2>1. Introduction</h2>
       <p>
@@ -27,6 +27,10 @@ const TermsPage: React.FC = () => {
       <p>
         By accessing or using our services, you agree to be bound by these Terms. If you do not agree
         to these Terms, you must not use our services.
+      </p>
+      <p>
+        <strong>Business use only.</strong> Our services are provided for business use. By using them, you confirm
+        that you are acting for the purposes of your trade, business or profession, and not as a consumer.
       </p>
       <p>
         <strong>Related Agreement:</strong> These Terms should be read in conjunction with our{' '}
@@ -102,9 +106,8 @@ const TermsPage: React.FC = () => {
 
       <h3>5.3 Refunds</h3>
       <p>
-        Subscription fees are generally non-refundable. However, if you cancel within 14 days of your
-        initial subscription (cooling-off period under the Consumer Contracts Regulations 2013), you may
-        be entitled to a refund. Please contact us to discuss your circumstances.
+        Refunds are governed by section 3.4 of the{' '}
+        <Link href="/eula" className="text-secondary hover:underline">EULA</Link>.
       </p>
 
       <h2>6. Your Content</h2>
@@ -129,6 +132,16 @@ const TermsPage: React.FC = () => {
         <li>Maintaining backups of your critical data</li>
         <li>Complying with industry regulations regarding documentation and certificates</li>
       </ul>
+
+      <h3>6.4 Personal Data</h3>
+      <p>
+        Where your Content includes personal data, you are the controller of it and we process it on your behalf as
+        your processor. Our{' '}
+        <Link href="/dpa" className="text-secondary hover:underline">Data Processing Addendum</Link> forms part of these
+        Terms and sets out how we do so. Our{' '}
+        <Link href="/privacy" className="text-secondary hover:underline">Privacy Policy</Link> explains how we use
+        personal data for our own purposes, such as managing your account.
+      </p>
 
       <h2>7. AI Features</h2>
       <p>
@@ -159,45 +172,98 @@ const TermsPage: React.FC = () => {
 
       <h2>9A. Digital Fire Logbook</h2>
       <p>
-        These terms apply if you use the {companyDetails.tradingName} Digital Fire Logbook. They sit alongside the
-        rest of these Terms.
+        This section applies if you use the {companyDetails.tradingName} Digital Fire Logbook (the
+        &quot;<strong>Logbook</strong>&quot;). It forms part of these Terms. In this section, the
+        &quot;<strong>Responsible Person</strong>&quot; for a building has the meaning given in the Regulatory Reform
+        (Fire Safety) Order 2005.
       </p>
-      {/* SOLICITOR: review this whole section before it goes live. */}
-      <h3>9A.1 People you add</h3>
-      <p>
-        You need a lawful basis to add people to a logbook, such as the building&apos;s keeper, a backup or the
-        Responsible Person. You must keep their details accurate. You must tell them the logbook exists and where
-        to find the{' '}
-        <Link href="/logbook/privacy" className="text-secondary hover:underline">Digital Fire Logbook Privacy Notice</Link>.
-        The invitation email does part of this for you.
-      </p>
-      <h3>9A.2 A record-keeping tool, not advice</h3>
-      <p>
-        The logbook is a record-keeping tool. It helps a site keep the records that BS 5839-1 and BS 5266-1 expect.
-        It does not certify that a building complies with any standard or law. It is not fire safety advice. The
-        fire risk assessment and the Responsible Person&apos;s duties stay with the Responsible Person.
-      </p>
-      <h3>9A.3 If the logbook or a phone is not available</h3>
-      <p>
-        Keep testing when the logbook or a phone is unavailable. The sticker kit includes paper record sheets. You
-        can add checks later with &quot;I did this earlier&quot;.
-      </p>
-      <h3>9A.4 Fire door checks</h3>
-      <p>
-        Fire door checks under the Fire Safety (England) Regulations 2022 are not part of the logbook yet.
-      </p>
-      {/* SOLICITOR: the fire door sentence above simplifies the 2022 Regulations (they apply to buildings with two
-          or more domestic premises, and some checks apply only above 11 m). Confirm the wording. */}
 
-      <h3>9A.5 Requests about people in a logbook</h3>
+      <h3>9A.1 Roles</h3>
       <p>
-        If someone asks us to remove their details from a logbook, we tell you and act on your instruction. If you do
-        not answer within 14 days, or you no longer use {companyDetails.tradingName}, you instruct us to handle the
-        request under our erasure policy, as described in the{' '}
-        <Link href="/logbook/privacy" className="text-secondary hover:underline">Digital Fire Logbook Privacy Notice</Link>.
+        For personal data in a Logbook, you are the controller and we are your processor. Our{' '}
+        <Link href="/dpa" className="text-secondary hover:underline">Data Processing Addendum</Link> applies to that
+        processing.
       </p>
-      {/* OWNER: price deliberately not stated here. Pricing belongs on the pricing page. Billing is not live. Do not
-          add a price until the owner confirms it. */}
+
+      <h3>9A.2 People you add</h3>
+      <p>Before you add a person to a Logbook (such as a keeper, a backup or the Responsible Person), you must:</p>
+      <ul>
+        <li>have a lawful basis under the UK GDPR for adding them and for the processing the Logbook carries out;</li>
+        <li>
+          make sure they are told about the Logbook and where to read the{' '}
+          <Link href="/logbook/privacy" className="text-secondary hover:underline">Digital Fire Logbook Privacy Notice</Link>{' '}
+          (the logbook links to that notice, but you remain responsible for telling them);
+        </li>
+        <li>
+          make sure they know that their name and role will be shown to anyone who scans the Logbook&apos;s QR
+          sticker, together with the name of the building&apos;s Responsible Person; and
+        </li>
+        <li>keep their details accurate, and remove a person from the Logbook when they no longer have a role there.</li>
+      </ul>
+      <p>
+        You must not enter personal data in the Logbook&apos;s site name or address, or in answers that the sticker page
+        shows (such as which call point was tested), beyond what is needed to identify the building and the test.
+      </p>
+
+      <h3>9A.3 The QR sticker and the public page</h3>
+      <p>
+        You instruct us to publish the Logbook&apos;s public page, and a saved copy of it, to anyone who has the
+        sticker&apos;s link, as described in the Digital Fire Logbook Privacy Notice. You are responsible for where the
+        sticker is placed, and for removing or replacing it when the Logbook service for that building stops. You
+        confirm that you have the Responsible Person&apos;s agreement to display the sticker and to publish their
+        name on the public page.
+      </p>
+
+      <h3>9A.4 Reminders and messages</h3>
+      <p>
+        You instruct us to send invitations, sign-in links and reminder emails and texts to the people in each Logbook.
+        These are service messages and must not be used for marketing. Reminders are an aid only. We do not guarantee
+        that any message is delivered or read, and the duty to carry out and record tests stays with the
+        Responsible Person.
+      </p>
+
+      <h3>9A.5 A record-keeping tool, not advice</h3>
+      <p>
+        The Logbook is a record-keeping tool. It helps a site keep the records that BS 5839-1 and BS 5266-1
+        recommend. It does not certify that a building complies with any standard or law, and it is not fire safety
+        advice. The fire risk assessment and the Responsible Person&apos;s duties stay with the Responsible Person.
+      </p>
+      <p>
+        The Logbook does not currently record the fire door checks that the Fire Safety (England) Regulations 2022
+        require in some residential buildings. Those checks must be recorded in another way.
+      </p>
+
+      <h3>9A.6 If the Logbook or a phone is not available</h3>
+      <p>
+        Testing must continue when the Logbook or a phone is unavailable. The sticker kit includes paper record
+        sheets, and checks can be added later with &quot;I did this earlier&quot;. Section 10 (Availability and
+        Support) applies to the Logbook.
+      </p>
+      <p>
+        We are not liable to any person other than you, including the Responsible Person, a keeper or an inspector,
+        who relies on a Logbook.
+      </p>
+
+      <h3>9A.7 Requests about people in a Logbook</h3>
+      <p>
+        If someone asks us to remove their details from a Logbook, we will tell you and act on your instruction. If you
+        do not answer within 14 days, or you no longer use {companyDetails.tradingName}, you instruct us to handle the
+        request as described in the{' '}
+        <Link href="/logbook/privacy" className="text-secondary hover:underline">Digital Fire Logbook Privacy Notice</Link>.
+        You must tell us without undue delay if a person asks you to correct an entry, so that a correction can be
+        recorded.
+      </p>
+
+      <h3>9A.8 Keeping and ending a Logbook</h3>
+      <p>
+        A fire safety logbook is a record that belongs to the building. Logbooks are kept, not deleted, by default:
+        ending a Logbook archives it. We will delete a Logbook on your written instruction, once you confirm that
+        neither you nor the building&apos;s Responsible Person needs it. When you stop using{' '}
+        {companyDetails.tradingName}, you may, for 30 days, download or ask us to send to you or to the Responsible
+        Person you name a copy of each Logbook (the Annex H logbook and the inspection report). We then delete the
+        Logbooks as set out in our{' '}
+        <Link href="/dpa" className="text-secondary hover:underline">Data Processing Addendum</Link>.
+      </p>
 
       <h2>10. Availability and Support</h2>
       <h3>10.1 Service Availability</h3>
@@ -216,44 +282,49 @@ const TermsPage: React.FC = () => {
 
       <h2>11. Limitation of Liability</h2>
       <h3>11.1 Exclusions</h3>
-      <p>To the maximum extent permitted by law, we shall not be liable for:</p>
+      <p>Subject to section 11.3, we shall not be liable for:</p>
       <ul>
-        <li>Any indirect, incidental, special, consequential, or punitive damages</li>
-        <li>Loss of profits, revenue, data, or business opportunities</li>
-        <li>Any damages arising from your use of or inability to use the Services</li>
-        <li>Any third-party claims</li>
+        <li>Any indirect, special or consequential loss</li>
+        <li>Loss of profits, revenue, goodwill or business opportunities</li>
       </ul>
 
       <h3>11.2 Cap on Liability</h3>
       <p>
-        Our total liability to you for any claims arising from these Terms or your use of the Services
-        shall not exceed the total fees paid by you to us in the twelve (12) months preceding the claim.
+        Subject to section 11.3, our total liability to you for all claims arising from these Terms or your
+        use of the Services shall not exceed the greater of (a) the total fees paid or payable by you to us in
+        the twelve (12) months preceding the event giving rise to the claim and (b) £5,000. The limitation of
+        liability in section 15 of the <Link href="/eula" className="text-secondary hover:underline">EULA</Link>{' '}
+        is the same, and the two are not cumulative.
       </p>
 
-      <h3>11.3 Consumer Rights</h3>
+      <h3>11.3 Liability We Do Not Limit</h3>
       <p>
-        Nothing in these Terms affects your statutory rights as a consumer under UK law, including the
-        Consumer Rights Act 2015.
+        Nothing in these Terms excludes or limits liability for death or personal injury caused by negligence, for
+        fraud or fraudulent misrepresentation, or for any other liability that cannot be excluded or limited by law.
       </p>
 
       <h2>12. Indemnification</h2>
       <p>
         You agree to indemnify and hold harmless {companyDetails.registeredName}, its officers, directors,
-        employees, and agents from any claims, damages, losses, or expenses arising from your:
+        employees, and agents from any claims, damages, losses, or expenses arising from:
       </p>
       <ul>
-        <li>Use of the Services</li>
-        <li>Violation of these Terms</li>
-        <li>Violation of any third-party rights</li>
+        <li>Your breach of these Terms</li>
+        <li>Your unlawful use of the Services</li>
+        <li>Your violation of any third-party rights</li>
         <li>Content you upload or create</li>
       </ul>
+      <p>
+        This does not apply to the extent that the claim, damage, loss or expense is caused by our breach of these
+        Terms or of the Data Processing Addendum, or by our negligence.
+      </p>
 
       <h2>13. Termination</h2>
       <h3>13.1 Termination by You</h3>
       <p>
         You may terminate your account at any time by contacting us. Upon termination, you will lose access
-        to the Services, and we will delete your data in accordance with our{' '}
-        <Link href="/privacy">Privacy Policy</Link>.
+        to the Services, and we will return or delete your data as set out in our{' '}
+        <Link href="/dpa">Data Processing Addendum</Link> and our <Link href="/privacy">Privacy Policy</Link>.
       </p>
 
       <h3>13.2 Termination by Us</h3>
@@ -284,7 +355,7 @@ const TermsPage: React.FC = () => {
 
       <h2>16. General Provisions</h2>
       <ul>
-        <li><strong>Entire Agreement:</strong> These Terms constitute the entire agreement between you and us regarding the Services.</li>
+        <li><strong>Entire Agreement:</strong> These Terms, the <Link href="/eula" className="text-secondary hover:underline">EULA</Link>, the <Link href="/dpa" className="text-secondary hover:underline">Data Processing Addendum</Link> and the documents they incorporate constitute the entire agreement between you and us regarding the Services.</li>
         <li><strong>Severability:</strong> If any provision of these Terms is found invalid, the remaining provisions will continue in effect.</li>
         <li><strong>Waiver:</strong> Our failure to enforce any provision does not constitute a waiver of that provision.</li>
         <li><strong>Assignment:</strong> You may not assign your rights under these Terms without our consent. We may assign our rights at any time.</li>
