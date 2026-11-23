@@ -273,16 +273,38 @@ export const digitalFireLogbookGuide: IDocGuide = {
             content: `<p class="mb-4">The <strong>QR sticker</strong> card on the Logbook tab prints a sticker for the fire alarm panel. A fire officer or inspector scans it to read the logbook. They need no login, and nothing can be changed from that page.</p>`,
             subsections: [
                 {
-                    title: 'Printing the sticker',
+                    title: 'Printing the sticker pack',
+                    // Sticker pack: main-repo PR #1465 (feat/logbook-sticker-pack). Hold this wording until it is merged.
                     steps: [
-                        'Choose <strong>Print QR sticker</strong>. Opscel makes an A4 PDF with one sticker on it.',
-                        'Cut along the dashed line and fix the sticker next to the fire alarm panel.',
-                        'The same PDF includes a paper record sheet for each check the logbook holds (see the next section).',
+                        'Choose <strong>Print QR sticker</strong>. Opscel makes one PDF. Every piece in it carries the same QR code.',
+                        '<strong>Page 1</strong> is a sheet of stickers in three sizes: one large sticker (100 × 140 mm), three panel strips (100 × 40 mm) and four minis (50 × 50 mm). Print it on a full-sheet A4 label and cut along the dashed lines.',
+                        '<strong>Page 2</strong> is an A4 wall notice for a frame, reception or the premises information box.',
+                        '<strong>Page 3</strong>, "How to fit it", says where each piece goes. The paper record sheets follow (see below).',
+                        'The large sticker, the strips and the notice show your company name and phone number, from your company profile.',
+                    ],
+                },
+                {
+                    title: 'Where to put it',
+                    steps: [
+                        '<strong>On the main fire alarm panel</strong>, on a flat, clean, free area of its front: a panel strip, or a mini if that is all that fits. It must be readable without opening anything.',
+                        '<strong>No room on the panel:</strong> on the wall right beside it, at the same height, next to the zone plan.',
+                        '<strong>No wall space either:</strong> on the logbook holder or fire document box beside the panel.',
+                        '<strong>Every repeater or networked panel</strong> of the same system gets a strip or a mini too.',
+                        '<strong>Optional:</strong> the wall notice at reception or in the premises information box.',
+                    ],
+                },
+                {
+                    title: 'What never to cover, and what to print on',
+                    bullets: [
+                        'Never cover the display, lights, buttons, key switch or lock, approval and rating labels, the zone card, air vents, the lid seam or hinge, the zone plan, the false-alarm notice or the maintenance contact label.',
+                        'Never put the only sticker inside the panel or in a locked riser or plant room: an inspector will not open them.',
+                        'On a panel or wall, use polyester A4 label sheets through a laser printer. Use paper labels only inside a holder, frame or document box. Choose matte, and never put a glossy laminating pouch over the QR code.',
+                        'Destroy any stickers you do not use: each one opens this logbook.',
                     ],
                 },
                 {
                     title: 'Replacing a sticker',
-                    content: `<p>Choose <strong>Print a new sticker</strong> if one is lost or damaged. The old sticker stops working at once: scanning it says "This sticker was replaced". Put the new one up in its place. You can still print a sticker for an archived logbook.</p>`,
+                    content: `<p>Choose <strong>Print a new sticker</strong> if one is lost or damaged. Every sticker from the old pack stops working at once, on the panel, the repeaters and the wall: scanning one says "This sticker was replaced". Take every old copy down and fit the new ones in their place. You can still print a sticker for an archived logbook.</p>`,
                 },
                 {
                     title: 'What the inspector sees',
