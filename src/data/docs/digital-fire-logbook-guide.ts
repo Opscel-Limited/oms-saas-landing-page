@@ -186,9 +186,9 @@ export const digitalFireLogbookGuide: IDocGuide = {
                 },
                 {
                     title: 'If the keeper loses the link',
-                    // OWNER: "Email me a new link" sends nothing until the platform is out of dry run (the same launch switch as every
-                    // send). It needs an email address on the logbook; a text route for keepers with only a mobile is being planned.
-                    content: `<p>A link keeps working while it is used and stops after 30 days without use. The keeper can ask for a new one themselves: the page an expired or replaced link opens has <strong>Email me a new link</strong>. They enter the email address on the logbook and a new link is sent there. You can also send a new invite from the People card.</p>`,
+                    // "Email me a new link" uses the same launch switch as every send. Email is required for every logbook person
+                    // (owner, 2026-11-03); a text route was planned and dropped (owner, 2026-11-23).
+                    content: `<p>A link keeps working while it is used and stops after 30 days without use. The keeper can ask for a new one themselves: the page an expired or replaced link opens has <strong>Email me a new link</strong>. They enter the email address on the logbook and a new link is sent there. If their email address is wrong or nothing arrives, correct it on the People card and send a new invite. Every logbook person needs an email address.</p>`,
                 },
             ],
         },
