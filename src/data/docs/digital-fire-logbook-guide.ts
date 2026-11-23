@@ -195,7 +195,8 @@ export const digitalFireLogbookGuide: IDocGuide = {
         {
             id: 'reminders',
             title: 'Reminders by Email and Text',
-            // OWNER: reminders and texts are built but not yet live. The Digital Fire Logbook Privacy Notice still says
+            // OWNER: texts only send when the Logbook Edge env EDGE_SMS_ENABLED=true (apps/logbook-edge/lib/env.ts:20); if it
+            // will be off at launch, drop the text rows/bullets below. Reminders and texts are built but not yet live. The Digital Fire Logbook Privacy Notice still says
             // reminders and texts will be added later, and lacks The SMS Works in its provider table. Update the notice before
             // this section is published, or hold the section.
             content: `<p class="mb-4">When the weekly fire alarm test is not recorded, the logbook reminds the site. Each reminder carries a fresh link; the email says the test takes about 20 seconds to record. After a reminder, the previous link and its sign-ins keep working for 7 days, then stop.</p>
