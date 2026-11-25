@@ -21,6 +21,20 @@
 - Accounting Integration: https://www.opscel.com/features/accounting-integration
 - Dashboard: https://www.opscel.com/features/dashboard
 
+## Guides
+
+- What is an EICR? (landlords and owners): https://www.opscel.com/blog/what-is-an-eicr
+- EICR observation codes C1, C2, C3 and FI: https://www.opscel.com/blog/bs-7671-eicr-codes-explained
+- EIC vs EICR vs Minor Works: https://www.opscel.com/blog/eic-vs-eicr-vs-minor-works-certificate
+- BS 7671 Amendment 4 (2026) changes: https://www.opscel.com/blog/bs-7671-amendment-4-2026-changes
+- PAT testing requirements UK: https://www.opscel.com/blog/pat-testing-requirements-uk
+- Fire alarm certificates under BS 5839-1:2025: https://www.opscel.com/blog/fire-alarm-certificates-bs-5839-1
+- Fire alarm servicing under BS 5839-1:2025: https://www.opscel.com/blog/fire-alarm-servicing-bs-5839-1-2025
+- Emergency lighting testing (BS 5266-1): https://www.opscel.com/blog/emergency-lighting-testing-bs-5266
+- Fire risk assessment UK: https://www.opscel.com/blog/fire-risk-assessment-uk
+- RAMS approval process: https://www.opscel.com/blog/rams-approval-process
+- How to price electrical work: https://www.opscel.com/blog/how-to-price-electrical-work
+
 ## Topics Covered
 
 - BS 7671 electrical installation certificates (EIC, EICR, Minor Works)
