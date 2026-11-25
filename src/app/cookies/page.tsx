@@ -57,6 +57,11 @@ const CookiesPage: React.FC = () => {
         </tbody>
       </table>
       <p>
+        <strong>Cookieless page counts.</strong> We use Vercel Web Analytics to count page views, which pages are
+        visited, which website referred the visit, and the visitor&apos;s country. It sets no cookies and stores nothing
+        on your device. Visitors are not identified or tracked across days or across other websites.
+      </p>
+      <p>
         <strong>Analytics (only with your consent).</strong> If you click &quot;Accept analytics&quot;, we load Google
         Analytics, which sets the cookies below to count visits and see how people use our website. If you click
         &quot;Reject&quot;, or make no choice, Google Analytics is not loaded and these cookies are not set.
