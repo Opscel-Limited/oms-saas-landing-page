@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import CookieConsent from '@/components/CookieConsent';
+import { Analytics } from '@vercel/analytics/next';
 import { Source_Sans_3, Manrope } from "next/font/google";
 
 import Header from "@/components/Header";
@@ -57,7 +58,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en-GB">
       <body
         className={`${manrope.variable} ${sourceSans.variable} ${sourceSans.className} antialiased overflow-x-hidden`}
       >
@@ -71,6 +72,10 @@ export default function RootLayout({
         </main>
         <Footer />
         <CookieConsent gaId={siteDetails.googleAnalyticsId || undefined} />
+        {/* Cookieless page counts (no consent needed): the only reliable count of
+            search and AI-referred visits, since Google Analytics loads only after
+            a visitor accepts cookies. */}
+        <Analytics />
       </body>
     </html>
   );
