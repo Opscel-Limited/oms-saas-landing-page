@@ -33,6 +33,7 @@ import { ramsGuide } from './rams-guide';
 import { fireRiskAssessmentsGuide } from './fire-risk-assessments-guide';
 import { fireDoorsGuide } from './fire-doors-guide';
 import { variationsGuide } from './variations-guide';
+// LAUNCH: import { digitalFireLogbookGuide } from './digital-fire-logbook-guide'; (unlisted until the logbook launches)
 
 // All docs guides that follow the IDocGuide data structure (i.e. rendered via
 // DocPageLayout). Invoicing and Accounting Integration are bespoke JSX pages
@@ -51,6 +52,7 @@ export const docGuides: IDocGuide[] = [
     worksheetsGuide,
     ramsGuide,
     fireRiskAssessmentsGuide,
+    // LAUNCH: digitalFireLogbookGuide, (this array feeds the /docs and /help search)
     certificatesGuide,
     quotationsGuide,
     quoteSectionsAndKitsGuide,

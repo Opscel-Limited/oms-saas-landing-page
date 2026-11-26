@@ -87,6 +87,15 @@ export const documentationGuides: IDocumentationGuideMeta[] = [
         category: 'Health & Safety',
         icon: 'icon-compliance-shield'
     },
+    // LAUNCH: add the Digital Fire Logbook entry here. This catalogue drives the /docs index, /help and the
+    // sitemap, so one entry lists it everywhere:
+    // {
+    //     title: 'Digital Fire Logbook - Support Guide',
+    //     description: 'Weekly fire alarm and monthly emergency lighting tests kept by the site, keeper links and reminders, the QR sticker for inspectors, defects and the Annex H export.',
+    //     url: '/docs/digital-fire-logbook',
+    //     category: 'Health & Safety',
+    //     icon: 'icon-compliance-shield'
+    // },
     // Worksheets & Checklists
     {
         title: 'Worksheet Authoring & Filling',
