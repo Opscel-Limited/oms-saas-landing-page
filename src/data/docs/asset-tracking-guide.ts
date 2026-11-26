@@ -60,7 +60,7 @@ export const assetTrackingGuide: IDocGuide = {
         {
             id: 'which-worksheets',
             title: '2. Which Worksheets Carry Equipment',
-            content: '<p class="mb-4"><strong>Five of the thirteen.</strong> These are the worksheets that both <em>pre-load</em> from the register and <em>write back</em> to it. On any other worksheet nothing happens and <strong>no message is shown</strong> - the single most common source of confusion.</p>',
+            content: '<p class="mb-4"><strong>Six of the fourteen.</strong> These are the worksheets that both <em>pre-load</em> from the register and <em>write back</em> to it. On any other worksheet nothing happens and <strong>no message is shown</strong> - the single most common source of confusion.</p>',
             subsections: [
                 {
                     table: {
@@ -69,6 +69,7 @@ export const assetTrackingGuide: IDocGuide = {
                             ['Fire Extinguisher Service', '✅ extinguishers, fire blankets, hose reels'],
                             ['Fire Alarm Service', '✅ panels, detectors, call points, sounders, beacons, interface units'],
                             ['Fire Alarm Commissioning', '✅ panels and their devices, on first install'],
+                            ['Fire Door Inspection', '✅ fire doors (see <a href="/docs/fire-doors" class="text-secondary hover:underline">Fire Door Inspections</a>)'],
                             ['Intruder Alarm Zone List', '✅ intruder panels, detectors, contacts, PA buttons, keypads'],
                             ['Asset Service', '✅ any equipment type the dedicated sheets don\'t cover'],
                             ['<strong>Combined BS 5839 &amp; BAFE SP203</strong>', '❌'],

@@ -41,6 +41,7 @@ const GAPS: { key: string; label: string; min: number; max: number; warn: string
   { key: 'hinge', label: 'Hinge side', min: 2, max: 4, warn: "Outside 2-4 mm - check against the door's certificate" },
   { key: 'lock', label: 'Lock side', min: 2, max: 4, warn: "Outside 2-4 mm - check against the door's certificate" },
   { key: 'head', label: 'Head', min: 2, max: 4, warn: "Outside 2-4 mm - check against the door's certificate" },
+  { key: 'meeting', label: 'Meeting stiles', min: 2, max: 4, warn: "Outside 2-4 mm - check against the door's certificate" },
   { key: 'threshold', label: 'Threshold', min: 0, max: 8, warn: "Over 8 mm - check against the door's certificate" },
 ];
 
@@ -65,13 +66,26 @@ const FireDoorPhoneRow: React.FC = () => {
   const [announce, setAnnounce] = useState('');
   const uid = useId();
 
+  const outOfRange = (g: (typeof GAPS)[number]) => {
+    const raw = gaps[g.key]?.trim();
+    if (!raw) return false;
+    const n = Number(raw);
+    return Number.isFinite(n) && (n < g.min || n > g.max);
+  };
+
   const markCorePass = () => {
+    // Like the product: a gap reading outside the usual range keeps "Gaps around the door" for the engineer.
+    const gapFlagged = GAPS.some((g) => outOfRange(g));
     setAnswers((cur) => {
       const next = { ...cur };
-      for (const c of CHECKS) if (c.core && !next[c.key]) next[c.key] = 'pass';
+      for (const c of CHECKS) if (c.core && !next[c.key] && !(c.key === 'gaps' && gapFlagged)) next[c.key] = 'pass';
       return next;
     });
-    setAnnounce('Unanswered core checks marked Pass. Self-closer and signage left for you.');
+    setAnnounce(
+      gapFlagged
+        ? 'Unanswered core checks marked Pass. Gaps, self-closer and signage left for you.'
+        : 'Unanswered core checks marked Pass. Self-closer and signage left for you.'
+    );
   };
 
   const reset = () => {
@@ -81,13 +95,6 @@ const FireDoorPhoneRow: React.FC = () => {
     setPriority('Immediate');
     setPhotos(1);
     setAnnounce('');
-  };
-
-  const outOfRange = (g: (typeof GAPS)[number]) => {
-    const raw = gaps[g.key]?.trim();
-    if (!raw) return false;
-    const n = Number(raw);
-    return Number.isFinite(n) && (n < g.min || n > g.max);
   };
 
   return (
@@ -135,7 +142,7 @@ const FireDoorPhoneRow: React.FC = () => {
                           type="button"
                           aria-pressed={on}
                           onClick={() => setAnswers((cur) => ({ ...cur, [c.key]: a.id }))}
-                          className="min-h-[44px] rounded border px-1 text-[12px] font-semibold"
+                          className="min-h-[44px] min-w-0 rounded border px-0.5 text-[11px] font-semibold"
                           style={{
                             background: failOn ? 'var(--fd-fail-bg)' : on ? 'var(--accent)' : 'var(--card)',
                             color: failOn ? 'var(--fd-fail-ink)' : on ? 'var(--on-accent)' : 'var(--ink)',
@@ -171,7 +178,7 @@ const FireDoorPhoneRow: React.FC = () => {
                       style={{ borderColor: outOfRange(g) ? 'var(--fd-noaccess-ink)' : 'var(--line)', color: 'var(--ink)' }}
                     />
                     {outOfRange(g) && (
-                      <span id={`${uid}-gw-${g.key}`} className="fd-anim-fade rounded px-1.5 py-1 text-[11px]" style={{ background: 'var(--fd-noaccess-bg)', color: 'var(--fd-noaccess-ink)' }}>
+                      <span id={`${uid}-gw-${g.key}`} role="status" className="fd-anim-fade rounded px-1.5 py-1 text-[11px]" style={{ background: 'var(--fd-noaccess-bg)', color: 'var(--fd-noaccess-ink)' }}>
                         {g.warn}
                       </span>
                     )}

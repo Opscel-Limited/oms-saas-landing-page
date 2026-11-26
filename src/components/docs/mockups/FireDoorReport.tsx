@@ -7,22 +7,11 @@
 import React from 'react';
 
 import DocMockupFrame from './DocMockupFrame';
-import { LEVEL_1_DOORS, TONE } from './fire-door-shared';
+import { LEVEL_1_DOORS, ROOMS, TONE } from './fire-door-shared';
 
 import './fire-door-mockups.css';
 
-const ROOMS: Array<[number, number, number, number, string]> = [
-  [0, 0, 130, 430, 'Stair A'],
-  [130, 0, 240, 430, 'Flat 3'],
-  [370, 0, 255, 430, 'Flat 4'],
-  [625, 0, 245, 430, 'Flat 5'],
-  [870, 0, 130, 430, 'Stair B'],
-  [0, 570, 560, 430, 'Flat 6'],
-  [560, 570, 140, 430, 'Riser'],
-  [700, 570, 300, 430, 'Flat 6a'],
-];
-
-const COLUMNS = ['Pin', 'Door', 'Location', 'Result'];
+const COLUMNS = ['Pin', 'Door ref', 'Location', 'Result'];
 const cell = 'border-b px-2.5 py-1.5 align-top text-[12px] leading-snug';
 
 const FireDoorReport: React.FC = () => (
@@ -99,9 +88,6 @@ const FireDoorReport: React.FC = () => (
           </table>
         </div>
 
-        <p className="m-0 border-t pt-2 text-right text-[11px]" style={{ borderColor: 'var(--fd-page-line)' }}>
-          Page 9 of 11
-        </p>
       </section>
     </div>
   </DocMockupFrame>

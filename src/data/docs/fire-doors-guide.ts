@@ -38,11 +38,11 @@ export const fireDoorsGuide: IDocGuide = {
             subsections: [
                 {
                     title: '1. The site facts',
-                    content: `<p>On the customer's site, fill in the <strong>building height</strong> (top storey floor, in metres) and the <strong>premises type</strong>. Opscel copies both onto each new Fire Door Inspection sheet, and the report prints a Regulation 10 line from them. If either is missing, the sheet starts blank and the report says nothing about Regulation 10 rather than guess.</p>`,
+                    content: `<p>On the customer's site, fill in the <strong>building height</strong> (top storey floor, in metres) and the <strong>premises type</strong>. Opscel copies both onto each new Fire Door Inspection sheet, and the report prints a Regulation 10 line from them: that the checks are likely to apply (over 11 m, domestic or HMO), or that they do not (11 m or under). When the facts are missing or do not settle it, the report says nothing about Regulation 10 rather than guess.</p>`,
                 },
                 {
                     title: '2. The doors',
-                    content: `<p class="mb-4">Add each door as an asset of type <strong>Fire door</strong>, one at a time or from a spreadsheet with the asset import. For each door:</p>`,
+                    content: `<p class="mb-4">Add each door as an asset of type <strong>Fire Door</strong>, one at a time or from a spreadsheet with the asset import. For each door:</p>`,
                     table: {
                         headers: ['Field', 'What it is for'],
                         rows: [
@@ -80,7 +80,7 @@ export const fireDoorsGuide: IDocGuide = {
         {
             id: 'on-the-phone',
             title: 'Inspecting on the Phone',
-            content: `<p class="mb-4">The engineer opens the job, then the <strong>Fire Door Inspection</strong> sheet. <strong>Doors</strong> lists every door; <strong>Plan</strong> shows the floor drawing with a pin per door, and tapping a pin opens that door. Where pins are close together the phone asks <strong>Which door?</strong>. Pinch to zoom.</p>`,
+            content: `<p class="mb-4">The engineer opens the job, then the <strong>Fire Door Inspection</strong> sheet. The <strong>List</strong> view shows every door; <strong>Plan</strong> shows the floor drawing with a pin per door, and tapping a pin opens that door. Where pins are close together the phone asks <strong>Which door?</strong>. Pinch to zoom.</p>`,
             subsections: [
                 {
                     title: 'One door on the phone',
@@ -99,7 +99,7 @@ export const fireDoorsGuide: IDocGuide = {
                 {
                     title: 'Shortcuts and safeguards',
                     bullets: [
-                        '<strong>Mark unanswered core checks Pass (not self-closer or signage)</strong> fills the checks of a door that is clearly fine. It never answers the self-closer or the signage: the engineer answers those.',
+                        '<strong>Mark unanswered core checks Pass (not self-closer or signage)</strong> fills the core checks of a door that is clearly fine. It never answers the self-closer or the signage (the engineer answers those), leaves the where-fitted checks (letterbox, glazing, strips and seals) for the engineer, and leaves the gaps check unanswered if a gap reading is outside the usual range.',
                         'A gap reading outside the usual range (2 to 4 mm at the sides, head and meeting stiles; over 8 mm at the threshold) shows a <strong>warning</strong> to check against the door\'s certificate. It never fails the door on its own.',
                         '<strong>No access</strong> asks for the reason (no answer, access refused, locked, unsafe or other) and the steps taken. It is recorded as an attempt, not a service, so the door\'s last inspection date does not move. The sheet cannot be completed while a reason is missing.',
                     ],
@@ -184,7 +184,7 @@ export const fireDoorsGuide: IDocGuide = {
         {
             id: 'regulation-10',
             title: 'Regulation 10 and What Opscel Never Decides for You',
-            content: `<p class="mb-4">Under Regulation 10 of the Fire Safety (England) Regulations 2022, in multi-occupied residential buildings over 11 metres the responsible person must check communal fire doors every 3 months and use best endeavours to check flat entrance doors every 12 months. The default door intervals follow those periods, and the report prints whether Regulation 10 checks are likely to apply from the building height and premises type you entered.</p>`,
+            content: `<p class="mb-4">Under Regulation 10 of the Fire Safety (England) Regulations 2022, in multi-occupied residential buildings over 11 metres the responsible person must check communal fire doors every 3 months and use best endeavours to check flat entrance doors every 12 months. The default door intervals follow those periods (in England), and the report prints whether Regulation 10 checks are likely to apply from the building height and premises type you entered.</p>`,
             subsections: [
                 {
                     title: 'The engineer makes the call',

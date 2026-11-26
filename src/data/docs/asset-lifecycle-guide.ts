@@ -86,10 +86,11 @@ export const assetLifecycleGuide: IDocGuide = {
                     ],
                 },
                 {
-                    content: '<p class="mb-4">The office can review, edit and commit staged rows at any time; committing a row that services a Draft asset also activates it. Re-running is idempotent - rows already registered are skipped.</p><p class="mb-4">Five of the thirteen worksheets carry equipment (and therefore both pre-load from the register and write back to it):</p>',
+                    content: '<p class="mb-4">The office can review, edit and commit staged rows at any time; committing a row that services a Draft asset also activates it. Re-running is idempotent - rows already registered are skipped.</p><p class="mb-4">Six of the fourteen worksheets carry equipment (and therefore both pre-load from the register and write back to it):</p>',
                     bullets: [
                         '<strong>Extinguisher Service Worksheet</strong> - extinguishers, fire blankets, hose reels',
                         '<strong>Fire Alarm Service Worksheet</strong> - panels, detectors, call points, sounders, beacons, interface units',
+                        '<strong>Fire Door Inspection Worksheet</strong> - fire doors (see <a href="/docs/fire-doors" class="text-secondary hover:underline">Fire Door Inspections</a>)',
                         '<strong>Fire Alarm Commissioning Worksheet</strong> - panels and their devices, on first install',
                         '<strong>Intruder Alarm Zone List</strong> - intruder panels, detectors, contacts, PA buttons and keypads',
                         '<strong>Asset Service Worksheet</strong> - everything else (see below)',

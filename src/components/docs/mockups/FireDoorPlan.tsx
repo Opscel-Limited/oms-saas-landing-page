@@ -7,10 +7,10 @@
  * Demo content only.
  */
 
-import React, { useId, useRef, useState } from 'react';
+import React, { useEffect, useId, useRef, useState } from 'react';
 
 import DocMockupFrame from './DocMockupFrame';
-import { LEVEL_1_DOORS, TONE, type DemoDoor, type DoorTone } from './fire-door-shared';
+import { LEVEL_1_DOORS, ROOMS, TONE, type DemoDoor, type DoorTone } from './fire-door-shared';
 
 import './fire-door-mockups.css';
 
@@ -20,22 +20,11 @@ const UNPLACED: DemoDoor = {
   location: 'Level 1, riser cupboard',
   fn: 'Other',
   rating: 'FD30',
-  result: 'No visit yet',
+  result: 'No visit recorded',
   tone: 'none',
   x: 0.62,
   y: 0.57,
 };
-
-const ROOMS: Array<[number, number, number, number, string]> = [
-  [0, 0, 130, 430, 'Stair A'],
-  [130, 0, 240, 430, 'Flat 3'],
-  [370, 0, 255, 430, 'Flat 4'],
-  [625, 0, 245, 430, 'Flat 5'],
-  [870, 0, 130, 430, 'Stair B'],
-  [0, 570, 560, 430, 'Flat 6'],
-  [560, 570, 140, 430, 'Riser'],
-  [700, 570, 300, 430, 'Flat 6a'],
-];
 
 const hdStyle: React.CSSProperties = {
   fontFamily: 'var(--mockup-font-heading)',
@@ -49,6 +38,12 @@ const FireDoorPlan: React.FC = () => {
   const [placing, setPlacing] = useState(false);
   const [announce, setAnnounce] = useState('');
   const planRef = useRef<HTMLDivElement>(null);
+  const placeHereRef = useRef<HTMLButtonElement>(null);
+
+  // The Place button disables while placing, so move focus to the placing banner's action.
+  useEffect(() => {
+    if (placing) placeHereRef.current?.focus();
+  }, [placing]);
   const uid = useId();
 
   const unplaced = doors.some((d) => d.ref === UNPLACED.ref) ? [] : [UNPLACED];
@@ -92,7 +87,7 @@ const FireDoorPlan: React.FC = () => {
           </div>
 
           <ul aria-label="Pin colour key" className="m-0 flex list-none flex-wrap gap-1.5 p-0">
-            {counts.map(([t, n]) => (
+            {counts.filter(([, n]) => n > 0).map(([t, n]) => (
               <li
                 key={t}
                 className="rounded px-2 py-1 text-[11px] font-semibold"
@@ -107,6 +102,7 @@ const FireDoorPlan: React.FC = () => {
             <div className="fd-anim-fade flex flex-wrap items-center gap-2 rounded border px-3 py-2 text-[13px]" style={{ borderColor: 'var(--accent)', color: 'var(--ink)' }}>
               <span>Tap the plan where {UNPLACED.ref} is.</span>
               <button
+                ref={placeHereRef}
                 type="button"
                 onClick={() => place(UNPLACED.x, UNPLACED.y)}
                 className="min-h-[44px] rounded border px-3 text-[13px] font-semibold"
@@ -148,22 +144,26 @@ const FireDoorPlan: React.FC = () => {
                 <button
                   key={d.ref}
                   type="button"
-                  aria-label={`Pin ${d.pin}: ${d.ref}, ${d.result}`}
+                  aria-label={`Pin ${d.pin}: ${d.ref}, ${TONE[d.tone].label}`}
                   aria-pressed={selected === d.pin}
                   onClick={(e) => {
                     e.stopPropagation();
                     if (!placing) setSelected(d.pin);
                   }}
-                  className="absolute flex h-7 w-7 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 text-[11px] font-bold"
-                  style={{
-                    left: `${d.x * 100}%`,
-                    top: `${d.y * 100}%`,
-                    background: TONE[d.tone].ink,
-                    color: 'var(--bg)',
-                    borderColor: selected === d.pin ? 'var(--ink)' : 'var(--bg)',
-                  }}
+                  className="absolute flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full"
+                  style={{ left: `${d.x * 100}%`, top: `${d.y * 100}%`, background: 'transparent' }}
                 >
-                  {d.pin}
+                  <span
+                    aria-hidden="true"
+                    className="flex h-7 w-7 items-center justify-center rounded-full border-2 text-[11px] font-bold"
+                    style={{
+                      background: TONE[d.tone].ink,
+                      color: 'var(--bg)',
+                      borderColor: selected === d.pin ? 'var(--ink)' : 'var(--bg)',
+                    }}
+                  >
+                    {d.pin}
+                  </span>
                 </button>
               ))}
             </div>
@@ -183,7 +183,7 @@ const FireDoorPlan: React.FC = () => {
                     className="mt-1 self-start rounded px-2 py-0.5 text-[12px] font-semibold"
                     style={{ background: TONE[current.tone].bg, color: TONE[current.tone].ink }}
                   >
-                    Last result: {current.result}
+                    Last result: {TONE[current.tone].label}
                   </span>
                   <span className="mt-1 text-[12px]" style={{ color: 'var(--ink2)' }}>
                     Move pin · Take off plan
@@ -208,7 +208,10 @@ const FireDoorPlan: React.FC = () => {
                       <button
                         type="button"
                         disabled={placing}
-                        onClick={() => setPlacing(true)}
+                        onClick={() => {
+                          setPlacing(true);
+                          setAnnounce(`Placing ${d.ref}. Tap the plan where the door is, or use Place at the riser door.`);
+                        }}
                         className="min-h-[44px] rounded px-3 text-[13px] font-semibold"
                         style={{ background: 'var(--accent)', color: 'var(--on-accent)' }}
                       >
