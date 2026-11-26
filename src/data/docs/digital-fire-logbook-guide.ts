@@ -284,10 +284,11 @@ export const digitalFireLogbookGuide: IDocGuide = {
                 },
                 {
                     title: 'Getting the stickers printed',
-                    content: `<p class="mb-4">Opscel does not post stickers: you print the pack yourself, or have it printed. Either way takes a few minutes.</p>`,
+                    content: `<p class="mb-4">Opscel does not post stickers: you print the pack on your office printer, on A4 sticker sheets from any office supplier. One sheet makes every sticker for a site.</p>`,
                     steps: [
-                        '<strong>On your office printer:</strong> load an A4 full-sheet label (for a panel or wall, a polyester label such as Avery L4775 through a laser printer). Print page 1 with the print size set to <strong>Actual size</strong> or <strong>100%</strong>, never <strong>Fit to page</strong>, or the stickers and QR codes come out smaller. Then cut along the dashed lines.',
-                        '<strong>No label sheets or printer?</strong> Send page 1 of the PDF to a local print shop or an online sticker printer. Ask for matte, durable vinyl or polyester, printed at 100% and cut along the dashed lines.',
+                        '<strong>Buy A4 full-sheet sticker labels</strong> to suit your printer. <strong>Laser printer:</strong> a polyester label such as Avery L4775 (laser only), which is water and oil resistant. <strong>Inkjet printer:</strong> matte waterproof inkjet vinyl sticker paper. Ordinary paper labels are fine only inside a holder or frame: inkjet ink runs if they get wet. Any full-sheet A4 label fits.',
+                        'Print page 1 with the print size set to <strong>Actual size</strong> or <strong>100%</strong>, never <strong>Fit to page</strong>, or the stickers and QR codes come out smaller. Then cut along the dashed lines.',
+                        '<strong>Can\'t print labels in the office?</strong> A local print shop can print page 1 on matte vinyl at 100%. Each site\'s stickers are different, so this is a one-off sheet each time.',
                         '<strong>Not sure which size fits?</strong> Print page 1 on plain paper first and hold it against the panel.',
                         '<strong>Check it scans:</strong> before fitting, scan one sticker with a phone. It should open the logbook\'s sticker page.',
                     ],
@@ -643,7 +644,7 @@ export const digitalFireLogbookGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'How do we get the QR code stickers?',
-                    content: `<p>You print them. On the site's <strong>Logbook</strong> tab, the <strong>QR sticker</strong> card prints a PDF sticker pack. Print page 1 on A4 full-sheet label paper at actual size and cut it out, or send it to a print shop. Opscel does not post physical stickers. See <a href="#qr-sticker" class="text-secondary hover:underline">Getting the stickers printed</a>.</p>`,
+                    content: `<p>You print them. On the site's <strong>Logbook</strong> tab, the <strong>QR sticker</strong> card prints a PDF sticker pack. Print page 1 on your office printer, on an A4 full-sheet sticker label (polyester for a laser printer, waterproof vinyl for an inkjet), at actual size, and cut it out. Opscel does not post physical stickers. See <a href="#qr-sticker" class="text-secondary hover:underline">Getting the stickers printed</a>.</p>`,
                 },
                 {
                     title: 'Does the keeper need an Opscel account?',
