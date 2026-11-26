@@ -4,7 +4,7 @@ export const fireSafetyFeaturesGuide: IDocGuide = {
     slug: 'fire-safety-features',
     title: 'Fire Safety Jobsheets & Fault Tracking',
     description: 'Combined BS 5839 & BAFE SP203 inspection jobsheets, the site Panels list, and carried-forward fault tracking for fire alarm servicing visits.',
-    lastUpdated: '2026-11-16',
+    lastUpdated: '2026-11-26',
     sections: [
         {
             id: 'overview',
@@ -782,6 +782,11 @@ export const fireSafetyFeaturesGuide: IDocGuide = {
             title: 'Service Contracts',
             description: 'Recurring service automation and fault continuity across visits',
             href: '/docs/service-contracts'
+        },
+        {
+            title: 'Fire Door Inspections',
+            description: 'Door register, floor plans with a pin per door and the Fire Door Inspection Report',
+            href: '/docs/fire-doors'
         },
         {
             title: 'Fire Risk Assessments',

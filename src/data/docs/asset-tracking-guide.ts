@@ -19,7 +19,7 @@ export const assetTrackingGuide: IDocGuide = {
     slug: 'asset-tracking',
     title: 'Asset Tracking — Support Guide',
     description: 'How site equipment gets into Opscel, how it reaches your engineer\'s worksheet on every visit, what the engineer sees on the phone, and how the register stays up to date without anyone typing it twice.',
-    lastUpdated: '2026-09-26',
+    lastUpdated: '2026-11-26',
     sections: [
         {
             id: 'overview',
@@ -60,7 +60,7 @@ export const assetTrackingGuide: IDocGuide = {
         {
             id: 'which-worksheets',
             title: '2. Which Worksheets Carry Equipment',
-            content: '<p class="mb-4"><strong>Five of the thirteen.</strong> These are the worksheets that both <em>pre-load</em> from the register and <em>write back</em> to it. On any other worksheet nothing happens and <strong>no message is shown</strong> - the single most common source of confusion.</p>',
+            content: '<p class="mb-4"><strong>Six of the fourteen.</strong> These are the worksheets that both <em>pre-load</em> from the register and <em>write back</em> to it. On any other worksheet nothing happens and <strong>no message is shown</strong> - the single most common source of confusion.</p>',
             subsections: [
                 {
                     table: {
@@ -69,6 +69,7 @@ export const assetTrackingGuide: IDocGuide = {
                             ['Fire Extinguisher Service', '✅ extinguishers, fire blankets, hose reels'],
                             ['Fire Alarm Service', '✅ panels, detectors, call points, sounders, beacons, interface units'],
                             ['Fire Alarm Commissioning', '✅ panels and their devices, on first install'],
+                            ['Fire Door Inspection', '✅ fire doors (see <a href="/docs/fire-doors" class="text-secondary hover:underline">Fire Door Inspections</a>)'],
                             ['Intruder Alarm Zone List', '✅ intruder panels, detectors, contacts, PA buttons, keypads'],
                             ['Asset Service', '✅ any equipment type the dedicated sheets don\'t cover'],
                             ['<strong>Combined BS 5839 &amp; BAFE SP203</strong>', '❌'],
@@ -396,6 +397,7 @@ export const assetTrackingGuide: IDocGuide = {
         },
     ],
     relatedGuides: [
+        { title: 'Fire Door Inspections', description: 'Door register, floor plans with pins, the phone inspection and the report', href: '/docs/fire-doors' },
         { title: 'Asset Register Deep Dive', description: 'Statuses, the visit plan model, coverage, pre-loading rules and bulk import in depth', href: '/docs/asset-lifecycle' },
         { title: 'Service Contracts', description: 'Recurring visits, generation and the visit plan', href: '/docs/service-contracts' },
         { title: 'Field Service App', description: 'The engineer\'s app, offline', href: '/docs/field-service' },

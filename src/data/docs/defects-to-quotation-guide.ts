@@ -11,7 +11,7 @@ export const defectsToQuotationGuide: IDocGuide = {
     slug: 'defects-to-quotation',
     title: 'Creating and Linking Quotes to Jobs with Defects',
     description: 'Turn defects into customer-ready remedial quotes with automatic job linking. Learn the three ways to create a quote from a job\'s defects, how to add or edit defects from the office, and how to delete one raised by mistake.',
-    lastUpdated: '2026-09-24',
+    lastUpdated: '2026-11-26',
     sections: [
         {
             id: 'overview',
@@ -442,6 +442,11 @@ export const defectsToQuotationGuide: IDocGuide = {
         }
     ],
     relatedGuides: [
+        {
+            title: 'Fire Door Inspections',
+            description: 'Failed fire doors become defects with the door\'s photos and priority',
+            href: '/docs/fire-doors'
+        },
         {
             title: 'Field Service App',
             description: 'How engineers log, edit and delete defects on-site',

@@ -31,6 +31,7 @@ import { purchaseOrdersGuide } from './purchase-orders-guide';
 import { remoteMonitoringGuide } from './remote-monitoring-guide';
 import { ramsGuide } from './rams-guide';
 import { fireRiskAssessmentsGuide } from './fire-risk-assessments-guide';
+import { fireDoorsGuide } from './fire-doors-guide';
 import { variationsGuide } from './variations-guide';
 // LAUNCH: import { digitalFireLogbookGuide } from './digital-fire-logbook-guide'; (unlisted until the logbook launches)
 
@@ -65,6 +66,7 @@ export const docGuides: IDocGuide[] = [
     calendarIntegrationGuide,
     assetTrackingGuide,
     assetLifecycleGuide,
+    fireDoorsGuide,
     quoteToInvoiceWorkflowGuide,
     variationsGuide,
     jobProfitabilityGuide,

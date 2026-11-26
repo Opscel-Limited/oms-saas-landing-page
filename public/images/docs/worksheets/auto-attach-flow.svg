@@ -46,7 +46,7 @@
 
   <!-- registry box below -->
   <rect x="40" y="260" width="776" height="94" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
-  <text x="60" y="284" font-size="9.5" font-weight="700" letter-spacing="0.9" fill="#737373">JOB_SHEET_SCHEMA_REGISTRY &#8212; 13 built-in types</text>
+  <text x="60" y="284" font-size="9.5" font-weight="700" letter-spacing="0.9" fill="#737373">JOB_SHEET_SCHEMA_REGISTRY &#8212; 14 built-in types</text>
   <line x1="60" y1="292" x2="796" y2="292" stroke="#D4D4D4" stroke-width="1"/>
   <text x="60" y="312" font-size="10" fill="#171717">Basic Attendance &#183; Fire Safety Attendance &#183; Fire Alarm Commissioning &#183; Fire Alarm Service</text>
   <text x="60" y="330" font-size="10" fill="#171717">Extinguisher Service &#183; Remedials Scope &#183; Combined BS5839/SP203 &#183; Asset Service</text>

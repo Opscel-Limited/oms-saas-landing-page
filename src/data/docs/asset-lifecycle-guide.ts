@@ -19,7 +19,7 @@ export const assetLifecycleGuide: IDocGuide = {
     title: 'Asset Register Deep Dive',
     description: 'How the register works underneath: asset statuses, what updates automatically and what waits for review, how a visit plan splits a large site across the year, how coverage is worked out, the pre-loading rules, QR tags, and bulk import including panel exports.',
     slug: 'asset-lifecycle',
-    lastUpdated: '2026-09-26',
+    lastUpdated: '2026-11-26',
     sections: [
         {
             id: 'overview',
@@ -86,10 +86,11 @@ export const assetLifecycleGuide: IDocGuide = {
                     ],
                 },
                 {
-                    content: '<p class="mb-4">The office can review, edit and commit staged rows at any time; committing a row that services a Draft asset also activates it. Re-running is idempotent - rows already registered are skipped.</p><p class="mb-4">Five of the thirteen worksheets carry equipment (and therefore both pre-load from the register and write back to it):</p>',
+                    content: '<p class="mb-4">The office can review, edit and commit staged rows at any time; committing a row that services a Draft asset also activates it. Re-running is idempotent - rows already registered are skipped.</p><p class="mb-4">Six of the fourteen worksheets carry equipment (and therefore both pre-load from the register and write back to it):</p>',
                     bullets: [
                         '<strong>Extinguisher Service Worksheet</strong> - extinguishers, fire blankets, hose reels',
                         '<strong>Fire Alarm Service Worksheet</strong> - panels, detectors, call points, sounders, beacons, interface units',
+                        '<strong>Fire Door Inspection Worksheet</strong> - fire doors (see <a href="/docs/fire-doors" class="text-secondary hover:underline">Fire Door Inspections</a>)',
                         '<strong>Fire Alarm Commissioning Worksheet</strong> - panels and their devices, on first install',
                         '<strong>Intruder Alarm Zone List</strong> - intruder panels, detectors, contacts, PA buttons and keypads',
                         '<strong>Asset Service Worksheet</strong> - everything else (see below)',
@@ -116,7 +117,7 @@ export const assetLifecycleGuide: IDocGuide = {
         {
             id: 'asset-service-worksheet',
             title: 'The Asset Service Worksheet',
-            content: '<p class="mb-4">One worksheet for <strong>any equipment type on the register</strong> - emergency lights, exit signs, fire doors, smoke vents, dampers, sprinkler equipment, distribution boards, EV chargers and more.</p>',
+            content: '<p class="mb-4">One worksheet for <strong>any equipment type on the register</strong> - emergency lights, exit signs, fire doors, smoke vents, dampers, sprinkler equipment, distribution boards, EV chargers and more.</p><p class="mb-4">Inspecting fire doors on a block? The dedicated <strong>Fire Door Inspection</strong> worksheet adds a door checklist, gap readings, floor plans and its own report: see <a href="/docs/fire-doors" class="text-secondary hover:underline">Fire Door Inspections</a>.</p>',
             subsections: [
                 {
                     bullets: [
@@ -372,6 +373,7 @@ export const assetLifecycleGuide: IDocGuide = {
         },
     ],
     relatedGuides: [
+        { title: 'Fire Door Inspections', description: 'Door register, floor plans with pins, the phone inspection and the report', href: '/docs/fire-doors' },
         { title: 'Asset Tracking', description: 'The support guide: office steps and what the engineer sees', href: '/docs/asset-tracking' },
         { title: 'Service Contracts', description: 'Recurring visits, generation and the visit plan', href: '/docs/service-contracts' },
         { title: 'Field Service App', description: 'Capturing and updating assets on site', href: '/docs/field-service' },

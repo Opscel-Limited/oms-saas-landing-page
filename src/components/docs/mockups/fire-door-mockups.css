@@ -1,0 +1,50 @@
+/**
+ * Extra rules for the fire door mockups only (FireDoorPlan, FireDoorPhoneRow,
+ * FireDoorReport). Scoped to `.fd-mockup`, which always sits inside
+ * `.opscel-mockup`, so the shared tokens in mockup-tokens.css stay untouched.
+ * Result tones alias the shared status tokens so pins and chips never carry
+ * their own colour values.
+ */
+.opscel-mockup .fd-mockup {
+  --fd-fail-bg: var(--bad-bg);
+  --fd-fail-ink: var(--bad-ink);
+  --fd-noaccess-bg: var(--warn-bg);
+  --fd-noaccess-ink: var(--warn-ink);
+  --fd-pass-bg: var(--ok-bg);
+  --fd-pass-ink: var(--ok-ink);
+  --fd-none-bg: var(--chip);
+  --fd-none-ink: var(--ink2);
+
+  /* The printed page: white paper, black text. */
+  --fd-page-bg: var(--bg);
+  --fd-page-ink: var(--ink);
+  --fd-page-line: var(--line);
+  --fd-plan-wall: var(--ink);
+  --fd-plan-room: var(--card);
+  --fd-plan-corridor: var(--chip);
+}
+
+.opscel-mockup .fd-mockup :focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.opscel-mockup .fd-mockup button:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .opscel-mockup .fd-mockup .fd-anim-fade {
+    animation: fd-fade 150ms cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+}
+
+@keyframes fd-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

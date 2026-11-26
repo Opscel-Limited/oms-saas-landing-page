@@ -14,6 +14,9 @@ import RamsClientApproval from './RamsClientApproval';
 import FraTemplatesEditor from './FraTemplatesEditor';
 import FraSuggestedAnswers from './FraSuggestedAnswers';
 import FraActionPlan from './FraActionPlan';
+import FireDoorPlan from './FireDoorPlan';
+import FireDoorPhoneRow from './FireDoorPhoneRow';
+import FireDoorReport from './FireDoorReport';
 
 export type DocMockupName =
   | 'engineer-journey'
@@ -28,7 +31,10 @@ export type DocMockupName =
   | 'rams-client-approval'
   | 'fra-templates-editor'
   | 'fra-suggested-answers'
-  | 'fra-action-plan';
+  | 'fra-action-plan'
+  | 'fire-door-plan'
+  | 'fire-door-phone-row'
+  | 'fire-door-report';
 
 interface DocMockupProps {
   name: DocMockupName;
@@ -62,6 +68,12 @@ const DocMockup: React.FC<DocMockupProps> = ({ name }) => {
       return <FraSuggestedAnswers />;
     case 'fra-action-plan':
       return <FraActionPlan />;
+    case 'fire-door-plan':
+      return <FireDoorPlan />;
+    case 'fire-door-phone-row':
+      return <FireDoorPhoneRow />;
+    case 'fire-door-report':
+      return <FireDoorReport />;
     default:
       return null;
   }

@@ -207,6 +207,13 @@ export const documentationGuides: IDocumentationGuideMeta[] = [
         category: 'Assets',
         icon: 'icon-asset'
     },
+    {
+        title: 'Fire Door Inspections - Support Guide',
+        description: 'A door register per block, floor plans with a pin per door, the phone inspection with checklist, gap readings and photos, and the Fire Door Inspection Report. Business plan.',
+        url: '/docs/fire-doors',
+        category: 'Assets',
+        icon: 'icon-asset'
+    },
     // Purchasing
     {
         title: 'Purchase Orders',
