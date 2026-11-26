@@ -31,6 +31,7 @@ import { purchaseOrdersGuide } from './purchase-orders-guide';
 import { remoteMonitoringGuide } from './remote-monitoring-guide';
 import { ramsGuide } from './rams-guide';
 import { fireRiskAssessmentsGuide } from './fire-risk-assessments-guide';
+import { fireDoorsGuide } from './fire-doors-guide';
 import { variationsGuide } from './variations-guide';
 
 // All docs guides that follow the IDocGuide data structure (i.e. rendered via
@@ -63,6 +64,7 @@ export const docGuides: IDocGuide[] = [
     calendarIntegrationGuide,
     assetTrackingGuide,
     assetLifecycleGuide,
+    fireDoorsGuide,
     quoteToInvoiceWorkflowGuide,
     variationsGuide,
     jobProfitabilityGuide,

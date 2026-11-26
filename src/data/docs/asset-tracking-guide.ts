@@ -19,7 +19,7 @@ export const assetTrackingGuide: IDocGuide = {
     slug: 'asset-tracking',
     title: 'Asset Tracking — Support Guide',
     description: 'How site equipment gets into Opscel, how it reaches your engineer\'s worksheet on every visit, what the engineer sees on the phone, and how the register stays up to date without anyone typing it twice.',
-    lastUpdated: '2026-09-26',
+    lastUpdated: '2026-11-26',
     sections: [
         {
             id: 'overview',
@@ -396,6 +396,7 @@ export const assetTrackingGuide: IDocGuide = {
         },
     ],
     relatedGuides: [
+        { title: 'Fire Door Inspections', description: 'Door register, floor plans with pins, the phone inspection and the report', href: '/docs/fire-doors' },
         { title: 'Asset Register Deep Dive', description: 'Statuses, the visit plan model, coverage, pre-loading rules and bulk import in depth', href: '/docs/asset-lifecycle' },
         { title: 'Service Contracts', description: 'Recurring visits, generation and the visit plan', href: '/docs/service-contracts' },
         { title: 'Field Service App', description: 'The engineer\'s app, offline', href: '/docs/field-service' },

@@ -93,7 +93,7 @@ const FireSafetyContractorsPage: React.FC = () => {
               <ul className="space-y-2 text-blue-800">
                 <li>• Opscel stays 100% UK-based with data kept in local centers</li>
                 <li>• Every certificate checks itself against British Standards like BS 5839 and is automatically generated</li>
-                <li>• Track fire alarm panels, emergency lighting, and extinguisher services with ease</li>
+                <li>• Track fire alarm panels, emergency lighting, extinguisher services and fire doors with ease</li>
               </ul>
             </div>
           </section>
@@ -238,6 +238,13 @@ const FireSafetyContractorsPage: React.FC = () => {
             </h2>
             <p className="text-lg leading-relaxed text-foreground-accent mb-4">
               Fire safety work requires very deep detail. You must track extinguishers, alarms, emergency lights, and more. Opscel handles twelve types of fire safety certificates and reports — Fire Alarm Service, Commissioning, Modification, Installation, Design, Acceptance, and Verification, plus Emergency Lighting, Extinguisher Service, Cable Test Readings, EVC Commissioning, and Fire Risk Assessment, where you can write your own question templates. Each one follows official model forms. This keeps your BAFE status in good standing.
+            </p>
+            <p className="text-lg leading-relaxed text-foreground-accent mb-4">
+              Fire door work has its own tools. Keep a door register for each block, place every door on the floor plans as a numbered pin, and inspect on the phone with a checklist, gap readings and photos for each door. The Fire Door Inspection Report prints the results, an action plan and a plan page per floor. Fire door inspections are part of the Business plan. See the{' '}
+              <Link href="/docs/fire-doors" className="text-secondary hover:underline">
+                fire door inspection guide
+              </Link>
+              .
             </p>
             <p className="text-lg leading-relaxed text-foreground-accent mb-4">
               The system tracks when a retest is due. It flags these dates on your dashboard. You will never miss a chance for repeat work. This creates a steady flow of cash for the firm. A clear history shows every panel service in just two clicks.
