@@ -12,7 +12,7 @@ export const digitalFireLogbookGuide: IDocGuide = {
     slug: 'digital-fire-logbook',
     title: 'Digital Fire Logbook - Support Guide',
     description: 'Set up and run Digital Fire Logbooks for your customers\' sites: the weekly fire alarm test and monthly emergency lighting test, keeper links and reminders, the QR sticker for inspectors, paper sheets, defects, automatic entries from your jobs and certificates, and the Annex H export.',
-    lastUpdated: '2026-11-23',
+    lastUpdated: '2026-11-26',
     sections: [
         {
             id: 'overview',
@@ -278,8 +278,18 @@ export const digitalFireLogbookGuide: IDocGuide = {
                         'Choose <strong>Print QR sticker</strong>. Opscel makes one PDF. Every piece in it carries the same QR code.',
                         '<strong>Page 1</strong> is a sheet of stickers in three sizes: one large sticker (100 × 140 mm), three panel strips (100 × 40 mm) and four minis (50 × 50 mm). Print it on a full-sheet A4 label and cut along the dashed lines.',
                         '<strong>Page 2</strong> is an A4 wall notice for a frame, reception or the premises information box.',
-                        '<strong>Page 3</strong>, "How to fit it", says where each piece goes. The paper record sheets follow (see below).',
+                        '<strong>Page 3</strong>, "How to print and fit it", says how to print the pack and where each piece goes. The paper record sheets follow (see below).',
                         'The large sticker, the strips and the notice show your company name and phone number, from your company profile.',
+                    ],
+                },
+                {
+                    title: 'Getting the stickers printed',
+                    content: `<p class="mb-4">Opscel does not post stickers: you print the pack on your office printer, on A4 sticker sheets from any office supplier. One sheet makes every sticker for a site.</p>`,
+                    steps: [
+                        '<strong>Buy A4 full-sheet sticker labels</strong> to suit your printer. <strong>Laser printer:</strong> a polyester label such as Avery L4775 (laser only), which is water and oil resistant. <strong>Inkjet printer:</strong> matte waterproof inkjet vinyl sticker paper. Ordinary paper labels are fine only inside a holder or frame: inkjet ink runs if they get wet. Any full-sheet A4 label fits.',
+                        'Print page 1 with the print size set to <strong>Actual size</strong> or <strong>100%</strong>, never <strong>Fit to page</strong>, or the stickers and QR codes come out smaller. Then cut along the dashed lines.',
+                        '<strong>Not sure which size fits?</strong> Print page 1 on plain paper first and hold it against the panel.',
+                        '<strong>Check it scans:</strong> before fitting, scan one sticker with a phone. It should open the logbook\'s sticker page.',
                     ],
                 },
                 {
@@ -631,6 +641,10 @@ export const digitalFireLogbookGuide: IDocGuide = {
             id: 'faq',
             title: 'FAQs',
             subsections: [
+                {
+                    title: 'How do we get the QR code stickers?',
+                    content: `<p>You print them. On the site's <strong>Logbook</strong> tab, the <strong>QR sticker</strong> card prints a PDF sticker pack. Print page 1 on your office printer, on an A4 full-sheet sticker label (polyester for a laser printer, waterproof vinyl for an inkjet), at actual size, and cut it out. Opscel does not post physical stickers. See <a href="#qr-sticker" class="text-secondary hover:underline">Getting the stickers printed</a>.</p>`,
+                },
                 {
                     title: 'Does the keeper need an Opscel account?',
                     content: `<p>No. They use their own private link in a phone browser. Backups and Responsible Persons are the same.</p>`,
