@@ -3,6 +3,7 @@ import Image from 'next/image';
 import React from 'react';
 
 import { footerDetails } from '@/data/footer';
+import { CookieSettingsButton } from '@/components/CookieConsent';
 import { getPlatformIconByName } from '@/utils';
 
 const Footer: React.FC = () => {
@@ -102,6 +103,9 @@ const Footer: React.FC = () => {
                                 <Link href={link.url} className="hover:text-foreground transition-colors">{link.text}</Link>
                             </li>
                         ))}
+                        <li>
+                            <CookieSettingsButton className="min-h-[44px] text-left hover:text-foreground transition-colors" />
+                        </li>
                     </ul>
                     {/* Contact below legal on smaller screens */}
                     <div className="mt-6 lg:hidden">

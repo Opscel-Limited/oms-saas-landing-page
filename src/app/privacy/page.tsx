@@ -15,7 +15,7 @@ const PrivacyPage: React.FC = () => {
   return (
     <LegalPage
       title="Privacy Policy"
-      lastUpdated="8 October 2026"
+      lastUpdated="23 November 2026"
     >
       <h2>1. Introduction</h2>
       <p>
@@ -28,18 +28,29 @@ const PrivacyPage: React.FC = () => {
         <strong>{companyDetails.compliance.icoRegistrationNumber}</strong>.
       </p>
       <p>
-        If you use a Digital Fire Logbook without an {companyDetails.tradingName} account, please read our{' '}
-        <Link href="/logbook/privacy">Digital Fire Logbook Privacy Notice</Link>. It explains how the logbook
-        handles your information.
+        <strong>Data controller:</strong> {companyDetails.registeredName}, {getFormattedRegisteredAddress()} (company
+        number {companyDetails.companiesHouseNumber}).
       </p>
-      {/* SOLICITOR: confirm the roles. For the Digital Fire Logbook, {companyDetails.tradingName} acts as processor
-          for the fire safety company (the controller), as the logbook notice says. For our own account holders we
-          are the controller. Check the two pages stay consistent. */}
+
+      <h3>1.1 Our role</h3>
       <p>
-        <strong>Data Controller:</strong><br />
-        {companyDetails.registeredName}<br />
-        {getFormattedRegisteredAddress()}<br />
-        Company Registration Number: {companyDetails.companiesHouseNumber}
+        We are the <strong>controller</strong> of personal data about our account holders and their users, people who
+        visit our website or contact us, and people we deal with for our own business purposes. This policy covers
+        that data.
+      </p>
+      <p>
+        Businesses that use {companyDetails.tradingName} (our &quot;<strong>customers</strong>&quot;) also store
+        information about their own clients, site contacts, staff and others in it, and use it to send quotes,
+        certificates, invoices, visit confirmations, notifications and customer portal invitations. For that
+        information, the customer is the controller and we are its <strong>processor</strong>: we handle it only on
+        the customer&apos;s instructions, under our <Link href="/dpa">Data Processing Addendum</Link>. If you are a
+        client or contact of one of our customers, please contact that business first about your information. We will
+        help if you contact us.
+      </p>
+      <p>
+        If you use a Digital Fire Logbook without an {companyDetails.tradingName} account, please read our{' '}
+        <Link href="/logbook/privacy">Digital Fire Logbook Privacy Notice</Link>, which explains how the logbook
+        handles your information.
       </p>
 
       <h2>2. Information We Collect</h2>
@@ -55,10 +66,19 @@ const PrivacyPage: React.FC = () => {
 
       <h3>2.2 Information Collected Automatically</h3>
       <ul>
-        <li><strong>Usage Data:</strong> How you interact with our services, features used, and time spent.</li>
-        <li><strong>Device Information:</strong> Device type, operating system, browser type, and IP address.</li>
-        <li><strong>Location Data:</strong> Approximate location based on IP address; precise location only with your explicit consent for field services features. The Digital Fire Logbook checks location once, at the moment someone signs an entry. It asks the phone for permission first, to show whether the entry was signed on site. It never tracks anyone, and declining never blocks an entry.</li>
-        <li><strong>Cookies:</strong> See our <Link href="/cookies">Cookie Policy</Link> for details.</li>
+        <li><strong>Usage and device data:</strong> how you use our services, device type, operating system, browser type and IP address, including in our security and audit logs.</li>
+        <li><strong>Website analytics:</strong> if you accept analytics cookies, our website (www.opscel.com) uses Google Analytics to measure visits. See our <Link href="/cookies">Cookie Policy</Link>.</li>
+        <li><strong>Performance data:</strong> the {companyDetails.tradingName} app measures page loading speed using Vercel Speed Insights, which does not use cookies.</li>
+        <li><strong>Error reports:</strong> when the app hits an error, we receive a technical report and a recording of the screen leading up to it, with all text masked and all images blocked, so that we can fix the problem. Reports are linked to your user and organisation identifiers, not to your name.</li>
+        <li><strong>Location data:</strong> approximate location based on IP address; precise location only with your permission, for field service features. The Digital Fire Logbook checks location once, at the moment someone signs an entry, and only if the person allows it.</li>
+        <li><strong>Cookies:</strong> see our <Link href="/cookies">Cookie Policy</Link>.</li>
+      </ul>
+
+      <h3>2.3 Information About People Who Are Not Our Account Holders</h3>
+      <ul>
+        <li><strong>Our customers&apos; clients and contacts:</strong> names, contact details, site addresses and job, quote, certificate and invoice information that our customers enter, as their processor (see section 1.1).</li>
+        <li><strong>Customer portal users:</strong> when a customer invites a client contact to its customer portal, we process the contact&apos;s name and email address, the sign-in link we send, sign-in records (including IP address and browser type), and actions such as approving or declining a quote, including any signature given.</li>
+        <li><strong>People who receive texts or emails</strong> sent through {companyDetails.tradingName} on a customer&apos;s behalf, such as visit confirmations and job notifications, including any choice to stop receiving them.</li>
       </ul>
 
       <h2>3. How We Use Your Information</h2>
@@ -74,18 +94,26 @@ const PrivacyPage: React.FC = () => {
       </ul>
 
       <h2>4. Legal Basis for Processing (UK GDPR)</h2>
-      <p>We process your personal data under the following legal bases:</p>
+      <p>Where we are the controller, we rely on the following lawful bases:</p>
       <ul>
-        <li><strong>Contract:</strong> Processing necessary to perform our contract with you (providing our services).</li>
-        <li><strong>Legitimate Interests:</strong> Processing necessary for our legitimate business interests, such as improving our services and preventing fraud.</li>
-        <li><strong>Consent:</strong> Where you have given explicit consent (e.g., marketing communications).</li>
-        <li><strong>Legal Obligation:</strong> Processing necessary to comply with UK law.</li>
+        <li><strong>Contract:</strong> to provide the services under our agreement with our customers and their users, including creating accounts, taking payment, providing support and providing the AI features you choose to use.</li>
+        <li><strong>Legitimate interests:</strong> to keep our services secure and prevent fraud and misuse, to fix errors and improve our services, and to communicate with the people who work for our customers. We have weighed these interests against your rights, and you can ask us for details.</li>
+        <li><strong>Consent:</strong> for website analytics cookies, for marketing where the law requires consent, and for precise location. You can withdraw consent at any time, including through the &quot;Cookie settings&quot; link in our website footer.</li>
+        <li><strong>Legal obligation:</strong> to meet our legal and regulatory obligations, such as keeping tax and accounting records.</li>
       </ul>
+      <p>
+        Where we act as a processor (see section 1.1), the customer is responsible for having a lawful basis.
+      </p>
+      <p>
+        We do not make decisions about you based solely on automated processing that have legal or similarly
+        significant effects. Our AI features only suggest changes, and a person decides whether to apply them.
+      </p>
 
       <h2>5. Data Sharing</h2>
       <p>We may share your personal data with:</p>
       <ul>
-        <li><strong>Service Providers:</strong> Third-party companies that help us deliver our services (hosting, payment processing, analytics). All providers are contractually bound to protect your data.</li>
+        <li><strong>Service providers (sub-processors):</strong> companies that help us deliver our services, listed in section 5.4. Each is bound by a written contract to protect your data and use it only on our instructions.</li>
+        <li><strong>Integrations you choose to connect:</strong> if you connect {companyDetails.tradingName} to another service, such as Google Calendar or Google Drive, Microsoft 365 (Outlook calendar or OneDrive), Xero, QuickBooks Online or Telegram, we send it the data needed for that integration at your direction. Those providers handle it under their own terms and privacy policies.</li>
         <li><strong>Your Organisation:</strong> If you use {companyDetails.tradingName} as part of an organisation, administrators may access your account data.</li>
         <li><strong>Legal Requirements:</strong> When required by law, court order, or to protect our legal rights.</li>
         <li><strong>Business Transfers:</strong> In connection with a merger, acquisition, or sale of assets.</li>
@@ -105,7 +133,7 @@ const PrivacyPage: React.FC = () => {
         <li><strong>calendar.freebusy:</strong> To read your free/busy availability (not event details) so {companyDetails.tradingName} can detect scheduling conflicts and avoid double-booking engineers.</li>
       </ul>
       <p>
-        We use this access only to sync your {companyDetails.tradingName} jobs to your Google Calendar. We do not read, store, or use your calendar data for any other purpose beyond this synchronization feature.
+        We use this access only to sync your {companyDetails.tradingName} jobs to your Google Calendar and to check free/busy times. We do not read, store or use your calendar data for any other purpose.
       </p>
       <p>
         <strong>{companyDetails.tradingName}&apos;s use and transfer of information received from Google APIs adheres to the{' '}
@@ -114,11 +142,17 @@ const PrivacyPage: React.FC = () => {
         </a>, including the Limited Use requirements.</strong>
       </p>
       <p>
-        You can revoke {companyDetails.tradingName}&apos;s access to your Google Calendar at any time via your{' '}
+        If you connect Google Drive, we request the <strong>drive.readonly</strong> and <strong>userinfo.email</strong>{' '}
+        scopes, to let you browse your Drive and choose files and folders to import into {companyDetails.tradingName},
+        for example records from your previous system. We read only what you choose to import, and do not change or
+        delete anything in your Drive.
+      </p>
+      <p>
+        You can revoke {companyDetails.tradingName}&apos;s access to your Google Calendar or Google Drive at any time via your{' '}
         <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener noreferrer" className="text-secondary hover:underline">
           Google Account settings
         </a>{' '}
-        or by disconnecting the integration within {companyDetails.tradingName} (Settings → Calendar Integration).
+        or by disconnecting the integration within {companyDetails.tradingName}.
       </p>
 
       <h3>5.2 Intuit QuickBooks Online</h3>
@@ -148,7 +182,7 @@ const PrivacyPage: React.FC = () => {
       <p>
         Some {companyDetails.tradingName} features use artificial intelligence to help you set up your workspace
         and answer questions about your own data. When you use them, the relevant information is sent to our
-        AI provider, Anthropic, PBC, which processes it and returns a result. Two features do this today:
+        AI provider, Anthropic, PBC, which processes it and returns a result. These features are:
       </p>
       <ul>
         <li>
@@ -163,6 +197,18 @@ const PrivacyPage: React.FC = () => {
           with the customer or site names those figures relate to. Free-text fields — job notes, descriptions and
           quotation terms — are never sent to Insights.
         </li>
+        <li>
+          <strong>The AI assistant and AI actions</strong> fill in forms from text you type, check certificates, suggest
+          prices for remedial work and draft notes. They send the text you provide and details of the record you are
+          working on, such as the customer, site, job or certificate, which can include names and contact details.
+        </li>
+        <li>
+          <strong>Data import and cost capture</strong> read files you import from your previous system, and supplier
+          invoices or receipts you upload, to work out what each record or line contains.
+        </li>
+        <li>
+          <strong>Help</strong> answers questions about using {companyDetails.tradingName}.
+        </li>
       </ul>
       <p>
         Your information is sent only in order to produce your answer. It is not used to train AI models, it is
@@ -172,15 +218,18 @@ const PrivacyPage: React.FC = () => {
       </p>
       <p>
         Anthropic retains the information it receives for a limited period under its standard API terms, to
-        provide and monitor the service. Within {companyDetails.tradingName}, Insights conversations are deleted
-        after 30 days and Setup Copilot conversations after 90 days, and every Insights question is recorded in
-        your audit log against the user who asked it.
+        provide and monitor the service. Within {companyDetails.tradingName}, Help conversations are deleted after 7
+        days without use, Insights conversations after 30 days and Setup Copilot conversations after 90 days, and
+        every Insights question is recorded in your audit log against the user who asked it.
       </p>
 
       <h3>5.4 Sub-Processors</h3>
       <p>
-        The table below lists the sub-processors we use to provide {companyDetails.tradingName}, what they
-        process, and the safeguard in place for any transfer of data outside the UK.
+        The table below lists the service providers we use to provide {companyDetails.tradingName}, what they
+        process, and the safeguard in place for any transfer of data outside the UK. For information our customers
+        hold in {companyDetails.tradingName}, they act as our sub-processors under our{' '}
+        <Link href="/dpa">Data Processing Addendum</Link>. For our own data, such as account sign-in details and website
+        analytics, they act as our processors. Stripe acts as an independent controller for some payment data.
       </p>
       <div className="overflow-x-auto my-4">
         <table className="w-full border-collapse border border-gray-200">
@@ -196,52 +245,96 @@ const PrivacyPage: React.FC = () => {
           <tbody>
             <tr>
               <td className="border border-gray-200 px-4 py-2">Anthropic, PBC</td>
-              <td className="border border-gray-200 px-4 py-2">AI processing for the Setup Copilot and Insights features</td>
-              <td className="border border-gray-200 px-4 py-2">Customer, site and contact records you upload; aggregate financial and scheduling figures from your account, with the related customer and site names</td>
+              <td className="border border-gray-200 px-4 py-2">AI processing for the features described in section 5.3: Setup Copilot, Insights, the AI assistant and AI actions, data import, cost capture and Help</td>
+              <td className="border border-gray-200 px-4 py-2">The text you provide and the records the feature works on, which can include customer, site and contact names, addresses, email addresses and telephone numbers; files you upload; aggregate financial and scheduling figures</td>
               <td className="border border-gray-200 px-4 py-2">United States</td>
               <td className="border border-gray-200 px-4 py-2">Standard Contractual Clauses and the UK International Data Transfer Addendum, under Anthropic&apos;s Data Processing Agreement</td>
             </tr>
             <tr>
               <td className="border border-gray-200 px-4 py-2">Vercel Inc.</td>
-              <td className="border border-gray-200 px-4 py-2">Hosting and file storage for the Digital Fire Logbook</td>
-              <td className="border border-gray-200 px-4 py-2">Logbook website traffic, photos and signature images</td>
+              <td className="border border-gray-200 px-4 py-2">Hosting the app, the website and the Digital Fire Logbook; file storage; page speed measurement</td>
+              <td className="border border-gray-200 px-4 py-2">All data in the services, including documents, photos and signature images</td>
               <td className="border border-gray-200 px-4 py-2">London, UK</td>
-              <td className="border border-gray-200 px-4 py-2">UK International Data Transfer Addendum or EU Standard Contractual Clauses with the UK Addendum</td>
+              <td className="border border-gray-200 px-4 py-2">UK Extension to the EU-US Data Privacy Framework (where certified), or the UK International Data Transfer Agreement / UK Addendum to the EU Standard Contractual Clauses (for any access from the US)</td>
             </tr>
             <tr>
               <td className="border border-gray-200 px-4 py-2">Neon Inc.</td>
-              <td className="border border-gray-200 px-4 py-2">Database for the Digital Fire Logbook</td>
-              <td className="border border-gray-200 px-4 py-2">Logbook records, including names, roles and entries</td>
+              <td className="border border-gray-200 px-4 py-2">Databases for the app and the Digital Fire Logbook</td>
+              <td className="border border-gray-200 px-4 py-2">All records in the services</td>
               <td className="border border-gray-200 px-4 py-2">London, UK</td>
-              <td className="border border-gray-200 px-4 py-2">UK International Data Transfer Addendum or EU Standard Contractual Clauses with the UK Addendum</td>
+              <td className="border border-gray-200 px-4 py-2">UK Extension to the EU-US Data Privacy Framework (where certified), or the UK International Data Transfer Agreement / UK Addendum to the EU Standard Contractual Clauses (for any access from the US)</td>
+            </tr>
+            <tr>
+              <td className="border border-gray-200 px-4 py-2">Stack Auth, Inc.</td>
+              <td className="border border-gray-200 px-4 py-2">Sign-in and account authentication</td>
+              <td className="border border-gray-200 px-4 py-2">Names, email addresses and sign-in details of account users</td>
+              <td className="border border-gray-200 px-4 py-2">United States</td>
+              <td className="border border-gray-200 px-4 py-2">UK Extension to the EU-US Data Privacy Framework (where certified), or the UK International Data Transfer Agreement / UK Addendum to the EU Standard Contractual Clauses</td>
+            </tr>
+            <tr>
+              <td className="border border-gray-200 px-4 py-2">Stripe Payments UK Ltd and its affiliates</td>
+              <td className="border border-gray-200 px-4 py-2">Subscription billing, and quote deposit payments for customers who use them</td>
+              <td className="border border-gray-200 px-4 py-2">Business names, email addresses, payment details and transaction details. Stripe is an independent controller for some payment data, under its own privacy policy</td>
+              <td className="border border-gray-200 px-4 py-2">United States, UK and EU</td>
+              <td className="border border-gray-200 px-4 py-2">UK Extension to the EU-US Data Privacy Framework (where certified), or the UK International Data Transfer Agreement / UK Addendum to the EU Standard Contractual Clauses</td>
             </tr>
             <tr>
               <td className="border border-gray-200 px-4 py-2">Resend Inc.</td>
-              <td className="border border-gray-200 px-4 py-2">Sending email for the Digital Fire Logbook, such as invitations</td>
-              <td className="border border-gray-200 px-4 py-2">Email addresses and the content of the email</td>
-              <td className="border border-gray-200 px-4 py-2">Ireland (EU)</td>
-              <td className="border border-gray-200 px-4 py-2">UK International Data Transfer Addendum or EU Standard Contractual Clauses with the UK Addendum</td>
+              <td className="border border-gray-200 px-4 py-2">Sending emails, such as quotes, certificates, invoices, portal sign-in links and logbook invitations and reminders</td>
+              <td className="border border-gray-200 px-4 py-2">Email addresses, names and the content of the email</td>
+              <td className="border border-gray-200 px-4 py-2">United States; Ireland (EU) for the Digital Fire Logbook</td>
+              <td className="border border-gray-200 px-4 py-2">UK Extension to the EU-US Data Privacy Framework (where certified), or the UK International Data Transfer Agreement / UK Addendum to the EU Standard Contractual Clauses</td>
             </tr>
             <tr>
-              <td className="border border-gray-200 px-4 py-2">Sentry (Functional Software Inc.)</td>
-              <td className="border border-gray-200 px-4 py-2">Error monitoring for the Digital Fire Logbook</td>
-              <td className="border border-gray-200 px-4 py-2">Error reports. Logbook request bodies are removed before sending</td>
-              <td className="border border-gray-200 px-4 py-2">Germany (EU)</td>
-              <td className="border border-gray-200 px-4 py-2">UK International Data Transfer Addendum or EU Standard Contractual Clauses with the UK Addendum</td>
+              <td className="border border-gray-200 px-4 py-2">The SMS Works Ltd</td>
+              <td className="border border-gray-200 px-4 py-2">Sending text messages, such as visit confirmations and logbook reminders</td>
+              <td className="border border-gray-200 px-4 py-2">Mobile numbers and the content of the text</td>
+              <td className="border border-gray-200 px-4 py-2">UK</td>
+              <td className="border border-gray-200 px-4 py-2">Not applicable (UK)</td>
             </tr>
-            {/* OWNER: add The SMS Works Ltd (text messages, UK) and Stripe (logbook billing) only when they go
-                live. Do not list them before then. */}
-            {/* OWNER: verify each new row against the contract and DPA before publishing. This table also looks
-                incomplete for the main app. The main app very likely uses some of these providers too, and others
-                (for example Stack Auth, Stripe, Xero, QuickBooks, Google Analytics). Please review the full list
-                of sub-processors for the main app. */}
+            <tr>
+              <td className="border border-gray-200 px-4 py-2">Upstash, Inc.</td>
+              <td className="border border-gray-200 px-4 py-2">Scheduling background tasks, such as reminders, imports and calendar sync</td>
+              <td className="border border-gray-200 px-4 py-2">Task details, which can include record identifiers</td>
+              <td className="border border-gray-200 px-4 py-2">United States</td>
+              <td className="border border-gray-200 px-4 py-2">UK Extension to the EU-US Data Privacy Framework (where certified), or the UK International Data Transfer Agreement / UK Addendum to the EU Standard Contractual Clauses</td>
+            </tr>
+            <tr>
+              <td className="border border-gray-200 px-4 py-2">Functional Software Inc. (Sentry)</td>
+              <td className="border border-gray-200 px-4 py-2">Error monitoring</td>
+              <td className="border border-gray-200 px-4 py-2">Technical error reports and masked screen recordings, linked to user and organisation identifiers. Logbook request bodies are removed</td>
+              <td className="border border-gray-200 px-4 py-2">United States; Germany (EU) for the Digital Fire Logbook</td>
+              <td className="border border-gray-200 px-4 py-2">UK Extension to the EU-US Data Privacy Framework (where certified), or the UK International Data Transfer Agreement / UK Addendum to the EU Standard Contractual Clauses</td>
+            </tr>
+            <tr>
+              <td className="border border-gray-200 px-4 py-2">MapTiler AG</td>
+              <td className="border border-gray-200 px-4 py-2">Displaying maps of your sites</td>
+              <td className="border border-gray-200 px-4 py-2">IP address and the map area viewed</td>
+              <td className="border border-gray-200 px-4 py-2">Switzerland</td>
+              <td className="border border-gray-200 px-4 py-2">UK adequacy regulations</td>
+            </tr>
+            <tr>
+              <td className="border border-gray-200 px-4 py-2">getAddress.io</td>
+              <td className="border border-gray-200 px-4 py-2">UK address lookup</td>
+              <td className="border border-gray-200 px-4 py-2">The address or postcode you search for</td>
+              <td className="border border-gray-200 px-4 py-2">UK</td>
+              <td className="border border-gray-200 px-4 py-2">Not applicable (UK)</td>
+            </tr>
+            <tr>
+              <td className="border border-gray-200 px-4 py-2">Google LLC (Google Analytics)</td>
+              <td className="border border-gray-200 px-4 py-2">Measuring visits to our website, www.opscel.com</td>
+              <td className="border border-gray-200 px-4 py-2">Website usage data and online identifiers</td>
+              <td className="border border-gray-200 px-4 py-2">United States</td>
+              <td className="border border-gray-200 px-4 py-2">UK Extension to the EU-US Data Privacy Framework (where certified), or the UK International Data Transfer Agreement / UK Addendum to the EU Standard Contractual Clauses</td>
+            </tr>
           </tbody>
         </table>
       </div>
 
       <h2>6. Data Storage and Security</h2>
       <p>
-        Your data is stored on secure servers located in the <strong>{companyDetails.compliance.dataHostingLocation}</strong>.
+        Our app&apos;s databases and file storage are hosted in London, <strong>{companyDetails.compliance.dataHostingLocation}</strong>.
+        Some service providers process limited data outside the UK, as shown in sections 5.4 and 9.
         We implement appropriate technical and organisational measures to protect your personal data, including:
       </p>
       <ul>
@@ -257,24 +350,31 @@ const PrivacyPage: React.FC = () => {
       <p>We retain your personal data for as long as necessary to:</p>
       <ul>
         <li>Provide our services to you</li>
-        <li>Comply with legal obligations (e.g., tax records for 7 years)</li>
+        <li>Comply with legal obligations (for example, accounting and tax records for six years)</li>
         <li>Resolve disputes and enforce our agreements</li>
       </ul>
       <p>
-        When you close your account, we will delete or anonymise your personal data within 90 days,
-        unless retention is required for legal purposes.
+        When a customer closes its account, it can export its data for 30 days. We then delete or anonymise the
+        personal data in the account within 90 days after closure, and remove it from backups within a further 90
+        days, unless we must keep it for legal purposes. In particular:
       </p>
+      <ul>
+        <li>AI conversations are deleted as described in section 5.3.</li>
+        <li>Deleted documents and photos are permanently removed 30 days after deletion.</li>
+        <li>Import files are deleted 30 days after the import.</li>
+        <li>Customer portal sign-in and activity records are kept for as long as the customer&apos;s account is open, so that the customer can see who approved what and when.</li>
+        <li>A choice to stop receiving texts or emails is kept so that we keep respecting it.</li>
+      </ul>
       <p>
-        <strong>Fire logbook records are different.</strong> A Digital Fire Logbook is a legal record that belongs
-        to the building. It is kept for as long as the fire safety company uses {companyDetails.tradingName}. If the
-        company leaves, we will arrange for the logbook to be handed over, usually to the building&apos;s Responsible Person, before it is
-        deleted. See the <Link href="/logbook/privacy">Digital Fire Logbook Privacy Notice</Link>.
+        <strong>Fire logbook records are different.</strong> A Digital Fire Logbook is a record that belongs to the
+        building. It is kept for as long as the fire safety company uses {companyDetails.tradingName}, unless the
+        company asks us to delete it. When the company stops, it can download, or ask us to send to it or to the
+        building&apos;s Responsible Person, a copy of the logbook for 30 days. The logbook is then deleted within 90
+        days after the company stops. See the <Link href="/logbook/privacy">Digital Fire Logbook Privacy Notice</Link>.
       </p>
-      {/* SOLICITOR: confirm this retention exception and wording. OWNER: the hand-over is a planned process, not
-          yet a built feature. */}
 
       <h2>8. Your Rights</h2>
-      <p>Under UK GDPR, you have the following rights:</p>
+      <p>Under UK GDPR, you have the following rights. Some apply only in certain circumstances.</p>
       <ul>
         <li><strong>Right of Access:</strong> Request a copy of the personal data we hold about you.</li>
         <li><strong>Right to Rectification:</strong> Request correction of inaccurate or incomplete data.</li>
@@ -283,25 +383,31 @@ const PrivacyPage: React.FC = () => {
         <li><strong>Right to Data Portability:</strong> Request your data in a structured, machine-readable format.</li>
         <li><strong>Right to Object:</strong> Object to processing based on legitimate interests or for marketing purposes.</li>
         <li><strong>Rights Related to Automated Decision-Making:</strong> Not to be subject to decisions based solely on automated processing.</li>
+        <li><strong>Right to Withdraw Consent:</strong> Where we rely on consent, you can withdraw it at any time. This does not affect processing before you withdrew it.</li>
       </ul>
       <p>
         To exercise any of these rights, please contact us at{' '}
         <a href={`mailto:${companyDetails.compliance.dataProtectionOfficerEmail}`}>
           {companyDetails.compliance.dataProtectionOfficerEmail}
         </a>.
-        We will respond within one month.
+        We may need to confirm your identity first. We will respond within one month. If a request is complex, we may
+        extend this by up to two further months, and if so we will tell you why within the first month. If your
+        request is about information a customer holds in {companyDetails.tradingName} (see section 1.1), we will pass
+        it to that customer and help it respond.
       </p>
 
       <h2>9. International Transfers</h2>
       <p>
-        Your data is primarily processed within the United Kingdom. Where we transfer data outside the UK,
-        we ensure appropriate safeguards are in place, such as:
+        Our app, website and databases are hosted in the United Kingdom. Some of our service providers are based
+        outside the UK, or may access data from outside it, as shown in section 5.4. Where personal data is transferred
+        outside the UK, we make sure it is protected, by one of:
       </p>
       <ul>
-        <li>Transfers to countries with adequate data protection laws</li>
-        <li>Standard Contractual Clauses approved by the ICO</li>
-        <li>Binding Corporate Rules where applicable</li>
+        <li>UK adequacy regulations, which cover, for example, the EU, the EEA and Switzerland;</li>
+        <li>the UK Extension to the EU-US Data Privacy Framework, for US providers certified under it; or</li>
+        <li>the UK International Data Transfer Agreement, or the UK Addendum to the EU Standard Contractual Clauses.</li>
       </ul>
+      <p>You can ask us for a copy of the safeguards that apply.</p>
 
       <h2>10. Children&apos;s Privacy</h2>
       <p>
@@ -319,7 +425,8 @@ const PrivacyPage: React.FC = () => {
 
       <h2>12. Complaints</h2>
       <p>
-        If you have concerns about how we handle your personal data, please contact us first at{' '}
+        If you have concerns about how we handle your personal data, please contact us first. We will acknowledge
+        your complaint within 30 days and tell you the outcome without undue delay. Contact us at{' '}
         <a href={`mailto:${companyDetails.compliance.dataProtectionOfficerEmail}`}>
           {companyDetails.compliance.dataProtectionOfficerEmail}
         </a>.
@@ -337,7 +444,7 @@ const PrivacyPage: React.FC = () => {
         For any questions about this Privacy Policy or our data practices, please contact:
       </p>
       <p>
-        <strong>Data Protection Officer</strong><br />
+        <strong>Privacy enquiries</strong><br />
         {companyDetails.registeredName}<br />
         {getFormattedRegisteredAddress()}<br />
         Email: <a href={`mailto:${companyDetails.compliance.dataProtectionOfficerEmail}`}>
