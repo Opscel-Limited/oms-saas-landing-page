@@ -274,7 +274,6 @@ export const digitalFireLogbookGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Printing the sticker pack',
-                    // Sticker pack: main-repo PR #1465 (feat/logbook-sticker-pack). Hold this wording until it is merged.
                     steps: [
                         'Choose <strong>Print QR sticker</strong>. Opscel makes one PDF. Every piece in it carries the same QR code.',
                         '<strong>Page 1</strong> is a sheet of stickers in three sizes: one large sticker (100 × 140 mm), three panel strips (100 × 40 mm) and four minis (50 × 50 mm). Print it on a full-sheet A4 label and cut along the dashed lines.',
@@ -598,7 +597,7 @@ export const digitalFireLogbookGuide: IDocGuide = {
                 {
                     title: 'Logbooks cannot be deleted',
                     // Owner confirmed 2026-11-23: logbooks are never deleted while the contractor uses Opscel.
-                    content: `<p>You cannot delete a logbook. It is kept for as long as you use Opscel (see the <a href="/logbook/privacy" class="text-secondary hover:underline">Privacy Notice</a>). A site address with a logbook, even an archived one, cannot be deleted.</p>`,
+                    content: `<p>You cannot delete a logbook in Opscel: ending one archives it. It is kept for as long as you use Opscel, and you can ask us to delete one. If you stop using Opscel, you can download a copy of each logbook, or ask us to send one to you or to the building's Responsible Person, for 30 days. See the <a href="/logbook/privacy" class="text-secondary hover:underline">Privacy Notice</a>. A site address with a logbook, even an archived one, cannot be deleted.</p>`,
                 },
             ],
         },
